@@ -9,8 +9,9 @@
     <div id="app">
         <div class="login-box">
             <div class="login-logo">
-                <b>SIIECRO</b>
-            </div><!-- /.login-logo -->
+                <img  width="350px" src="images/LogotipoSIIECRO_01.png" >
+                
+            </div><!-- <b>SIIECRO</b>/.login-logo -->
 
         @if (count($errors) > 0)
             <div class="alert alert-danger">

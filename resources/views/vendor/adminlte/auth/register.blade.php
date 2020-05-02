@@ -56,7 +56,7 @@
                         </div><!-- /.col -->
                         <div class="col-xs-6">
                             <div class="form-group">
-                                <button type="button" class="btn btn-block btn-flat" data-toggle="modal" data-target="#termsModal">{{ trans('adminlte_lang::message.terms') }}</button>
+                                <button type="button" style='width:180px; height:35px' class="btn btn-block btn-flat" data-toggle="modal" data-target="#termsModal">Terminos y condiciones</button>
                             </div>
                         </div><!-- /.col -->
                         <div class="col-xs-4 col-xs-push-1">

@@ -61,6 +61,9 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'entrust-gui.admin' => \Acoustep\EntrustGui\Http\Middleware\AdminAuth::class,
+        'entrust-gui.Maestro' => \Acoustep\EntrustGui\Http\Middleware\AdminAuth::class,
+        'role' => \Acoustep\EntrustGui\Http\Middleware\AdminAuth::class,
+        'permission' => \Acoustep\EntrustGui\Http\Middleware\AdminAuth::class,
     ];
 
     /**

@@ -1,0 +1,93 @@
+@extends('adminlte::layouts.app')
+ 
+@section('main-content')
+
+@if ($message = Session::get('success'))
+        <div class="alert alert-success">
+            <p>{{ $message }}</p>
+        </div>
+@endif
+<div class="box">
+	<div class="box-body">
+		<div class="panel">
+			<h1>
+			Solicitud de Análisis Científico
+			{{ Form::open(['route' => 'analisisg.index', 'method' => 'GET', 'class' => 'form-inline pull-right']) }}
+			<div class="form-group">
+				<input  class="form-control" type="text" name="id_obra" placeholder="ID">
+			</div>
+			<div class="form-group">
+				<button type="submit" class="btn btn-default">
+					<span class="glyphicon glyphicon-search"></span>
+				</button>
+			</div>
+			{{ Form::close() }}
+			</h1>
+		</div>
+		<div style="overflow-x: auto; ">
+			<div>
+				<table id="tablaObras" class="table table-hover" role="grid" align="center">
+					<thead >
+        				<tr align="center" >
+        					<th>ID Obra</th>
+        					<th>Titulo de la Obra</th>
+        					<th>Año</th>
+        					<th>Epoca de la Obra</th>
+				            <th>Temporalidad</th>
+				            <th>Tipo de Objeto de la Obra</th>
+				            <th>Sector</th>
+				            <th>responsable de la Intervencion</th>
+				            <th>Año de temporada de trabajo</th>
+                            <th>Foto</th>
+            				<th>Acción</th>
+        				</tr>
+       				</thead>
+       				<tbody>
+       					@foreach ($Analisisg as $analisg)
+       					<tr align="center">
+       						<td>{{ $analisg->id_de_obra }}</td>
+				            <td>{{ $analisg->titulo_obra }}</td>
+				            <td>{{ $analisg->año }}</td>
+				            <td>{{ $analisg->epoca_obra }}</td>
+				            <td>{{ $analisg->temp_obra }}</td>
+				            <td>{{ $analisg->tipo_obj_obra }}</td>
+				            <td>{{ $analisg->sector }}</td>
+				            <td>{{ $analisg->respon_intervencion }}</td>
+				            <td>{{ $analisg->año_proyec_obra }}</td>
+                            <td>{{ \Carbon\Carbon::parse($analisg->fecha_de_inicio)->format('d/m/Y') }}</td>
+                            @if($analisg->foto == 'Sin imagen')
+                            <td>Sin imagen</td>
+                            @else
+                            <td><a target="_blank" href="{{ "images/$analisg->foto" }}"><img  width="200px" src="images/{{ $analisg->foto }}" class="zoom"></a></td>
+                            @endif
+				            <td>
+				            	@permission('Consulta_General')
+				            	<td><a href="{{ route('analisisg.show', $analisg->id_general) }}" class="btn btn-block btn-info btn-xs" style="width:70px;">Ver mas</a></td>
+				            	@endpermission
+				            	@permission('Editar_Avanzada_1')
+				            	<td><a href="{{ route('analisisg.editar', $analisg->id_general) }}" class="btn btn-block btn-warning btn-xs" style="width:70px;">Editar</a></td>
+				            	@endpermission
+				            	@permission('Eliminar_Avanzada_1')
+				            	<td><a href="javascript: document.getElementById('delete-{{ $analisg->id_general }}').submit()" class="btn btn-block btn-danger btn-xs" onclick="return confirm('¿Seguro que deseas eliminarlo?')" style="width:70px;">Eliminar</a></td>
+				            	@endpermission
+				            	@permission('Captura_Avanzada_Nivel_2')
+				            	<td><a href="{{ route('registro.create', $analisg->id_general) }}" class="btn btn-block btn-success btn-xs" >Agregar registro</a></td>
+				            	@endpermission
+				            	<form id="delete-{{ $analisg->id_general }}" action="{{ route('analisisg.destroy', $analisg->id_general) }}" method="POST">
+		                    	@method('delete')
+		 						@csrf
+                			</form>
+            				</td>
+        				</tr>
+          				@endforeach
+    				</tbody>
+    			</table>
+                <div align="center">
+                	{!!$Analisisg->links()!!}  
+                </div>
+			</div>
+		</div>				 	
+  	</div>
+</div>
+<script src="../../bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+@endsection

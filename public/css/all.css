@@ -21827,6 +21827,22 @@ button.toast-close-button {
   }
 }
 
+img.zoom {
+    width: 200px;
+    height: 120px;
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    -ms-transition: all .2s ease-in-out;
+}
+ 
+.transition {
+    -webkit-transform: scale(3.8); 
+    -moz-transform: scale(3.8);
+    -o-transform: scale(3.8);
+    transform: scale(3.8);
+}
+
 /*# sourceMappingURL=toastr.css.map */
 
 /*# sourceMappingURL=all.css.map */

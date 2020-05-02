@@ -32,7 +32,7 @@
         @endif
 
         <div class="login-box-body">
-            <p class="login-box-msg">Reset Password</p>
+            <p class="login-box-msg">Restablecer Contraseña</p>
             <form action="{{ url('/password/email') }}" method="post">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <div class="form-group has-feedback">
@@ -44,7 +44,7 @@
                     <div class="col-xs-2">
                     </div><!-- /.col -->
                     <div class="col-xs-8">
-                        <button type="submit" class="btn btn-primary btn-block btn-flat">{{ trans('adminlte_lang::message.sendpassword') }}</button>
+                        <button type="submit" class="btn btn-primary btn-block btn-flat">Enviar enlace</button>
                     </div><!-- /.col -->
                     <div class="col-xs-2">
                     </div><!-- /.col -->

@@ -55,7 +55,7 @@
                     <div class="col-xs-2">
                     </div><!-- /.col -->
                     <div class="col-xs-8">
-                        <button type="submit" class="btn btn-primary btn-block btn-flat">{{ trans('adminlte_lang::message.passwordreset') }}</button>
+                        <button type="submit" class="btn btn-primary btn-block btn-flat"></button>
                     </div><!-- /.col -->
                     <div class="col-xs-2">
                     </div><!-- /.col -->

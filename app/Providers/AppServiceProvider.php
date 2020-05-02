@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
+use App\Obras;
+use View;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -14,7 +16,11 @@ class AppServiceProvider extends ServiceProvider
      */
      public function boot()
     {
+        //$obras = new Obras;
+        //$obrasg = $obras->all();
         Schema::defaultStringLength(191);
+
+        //View::share('Obrasg', $obrasg);
 
     }
 

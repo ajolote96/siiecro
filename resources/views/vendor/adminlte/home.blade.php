@@ -1,3 +1,8 @@
+<?php
+$con = new mysqli("localhost","root","","siecrodb");
+$sql ="select id , titulo_obra from obras";
+$res = $con->query($sql);
+?>
 @extends('adminlte::layouts.app')
 
 @section('htmlheader_title')
@@ -10,20 +15,54 @@
 		<div class="row">
 			<div class="col-md-8 col-md-offset-2">
 				<div class="panel panel-default">
-					<div class="panel-heading">Registro</div>
+					<div class="panel-heading">Inicio</div>
 
 					<div class="panel-body">
-						 <FORM method="post">
-						 	<P>
-						 		<LABEL for="nombre">Nombre: </LABEL>
-						 		<INPUT type="text" id="nombre"><BR> <!--estos de aca es en donde se meten los datos, nada ams es copiar y pegar y cambiar el nombre de los campos-->
-						 		<LABEL for="apellido">Apellido: </LABEL>
-						 		<INPUT type="text" id="apellido"><BR>
-						 		<LABEL for="email">email: </LABEL>
-						 		<INPUT type="text" id="email"><BR>
-						 		<INPUT type="submit" value="Enviar"> <!-- este es wl boton para enviar, el tipo de boton es submit y el nombre que va a tener el boton se mete en value-->
-						 	</P>
-						 </FORM>
+						<strong> Bienvenido {{ Auth::user()->name }}</strong>
+            <br><br>
+						 	<div class="box box-danger">
+            <div class="box-header with-border">
+              <h3 class="box-title">Grafica Pastel</h3>
+
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+              </div>
+            </div>
+            <div class="Chart">
+              <html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+       
+     var data = google.visualization.arrayToDataTable([
+          ['ID', 'Titulo de obra'],
+          <?php
+          while($file = $res->fetch_assoc()){
+            echo "['".$file["titulo_obra"]."',".$file["id"]."],";
+          }
+  ?>
+     ]);
+        var options = {
+          title: 'Obras del dia'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="donutchart" style="width: 900px; height: 500px;"></div>
+  </body>
+</html>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+						 
 					</div>
 				</div>
 			</div>
