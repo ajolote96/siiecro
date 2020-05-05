@@ -190,10 +190,10 @@ public function attribute()
  
   return redirect()->route('Obras.index');*/
         // $id->delete();
-         $Obras = Obras::find($id);
+         /*$Obras = Obras::find($id);
        
   
         return redirect()->route('Obras.index')
-                        ->with('success','Obra Eliminada.');
+                        ->with('success','Obra Eliminada.');*/
     }
 }

@@ -61,18 +61,15 @@
                             <td><a target="_blank" href="{{ "images/$analisg->foto" }}"><img  width="200px" src="images/{{ $analisg->foto }}" class="zoom"></a></td>
                             @endif
 				            <td>
-				            	@permission('Consulta_General')
 				            	<td><a href="{{ route('analisisg.show', $analisg->id_general) }}" class="btn btn-block btn-info btn-xs" style="width:70px;">Ver mas</a></td>
-				            	@endpermission
-				            	@permission('Editar_Avanzada_1')
+				            	
 				            	<td><a href="{{ route('analisisg.editar', $analisg->id_general) }}" class="btn btn-block btn-warning btn-xs" style="width:70px;">Editar</a></td>
-				            	@endpermission
-				            	@permission('Eliminar_Avanzada_1')
-				            	<td><a href="javascript: document.getElementById('delete-{{ $analisg->id_general }}').submit()" class="btn btn-block btn-danger btn-xs" onclick="return confirm('¿Seguro que deseas eliminarlo?')" style="width:70px;">Eliminar</a></td>
-				            	@endpermission
-				            	@permission('Captura_Avanzada_Nivel_2')
+				            	
+				            	
+				            	<td><a href="javascript:document.getElementById('delete-{{ $analisg->id_general }}').submit()" class="btn btn-block btn-danger btn-xs" onclick="return confirm('¿Seguro que deseas eliminarlo?')" style="width:70px;">Eliminar</a></td>
+				            	
 				            	<td><a href="{{ route('registro.create', $analisg->id_general) }}" class="btn btn-block btn-success btn-xs" >Agregar registro</a></td>
-				            	@endpermission
+				            	
 				            	<form id="delete-{{ $analisg->id_general }}" action="{{ route('analisisg.destroy', $analisg->id_general) }}" method="POST">
 		                    	@method('delete')
 		 						@csrf

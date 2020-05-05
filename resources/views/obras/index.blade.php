@@ -64,11 +64,11 @@
 		                    <td><a href="{{ route('Obras.editar', $Obra->id) }}" class="btn btn-block btn-warning btn-xs" style="width:70px;">Editar</a></td>@permission('Editar_Registro_Redireccion')
 		                    @endpermission
 		                    
-		                    <td><a href="javascript: document.getElementById('delete-{{ $Obra->id }}').submit()" class="btn btn-block btn-danger btn-xs" onclick="return confirm('¿Seguro que deseas eliminarlo?')" style="width:70px;">Eliminar</a></td>
+		                    <td><a href="javascript:document.getElementById('delete-{{ $Obra->id }}').submit()" class="btn btn-block btn-danger btn-xs" onclick="return confirm('¿Seguro que deseas eliminarlo?')" style="width:70px;">Eliminar</a></td>
 		                    
 		                    <td><a href="{{ route('analisisg.create', $Obra->id) }}" class="btn btn-block btn-success btn-xs" style="width:90px;">Agregar ficha</a></td>
 		                   
-		                    <form id="delete-{{ $Obra->id }}" action="{{ route('Obras.destroy', $Obra->id) }}" method="POST">
+		                    <form id="delete-{{ $Obra->id }}" action="{{ route('Obras.destroy', $Obra->id) }}" method="GET">
 		                    @method('delete')
 		 					@csrf
                 			</form>

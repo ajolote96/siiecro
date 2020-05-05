@@ -44,11 +44,7 @@ padding: 8px;
                     <BR>
                     <div id="tabla">
 
-
-
-
-<table style="width: 65%" border="0" align="center">
-
+                    <table style="width: 65%" border="0" align="center">
 <tr ><th colspan="5"style="text-align:center;background-color: #7C858C; color:white;"><h3>Datos Generales</h3></th></tr>
 
   <tr>
