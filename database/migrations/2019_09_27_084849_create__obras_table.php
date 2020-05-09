@@ -17,12 +17,12 @@ class CreateObrasTable extends Migration
             $table->increments('id'); /*'No. de Registro de la Obra'*/
             $table->char('id_de_obras', 50)->nullable(); /*'No. de la obra que se hara un analisis'*/
             $table->string('titulo_obra'); /*'Título de la Obra/Pieza/Agrupación'*/
-            $table->string('temp_obra')->default('No aplica'); /*'Temporalidad'*/
+            $table->string('temp_obra')->nullable(); /*'Temporalidad'*/
             $table->string('caract_descrip'); /*'Caracteristicas Descriptivas'*/
-            $table->integer('año')->default('0000'); /*'Año de la obra'*/
+            $table->integer('año')->nullable(); /*'Año de la obra'*/
             $table->binary('año_confirm')->nullable(); /*'Año Confirmado'*/
             $table->binary('año_aproxi')->nullable(); /*'Año Aproximadamente'*/
-            $table->string('epoca_obra')->default('No aplica'); /*'Epoca de la obra'*/
+            $table->string('epoca_obra')->nullable(); /*'Epoca de la obra'*/
             $table->binary('epoca_confirm')->nullable(); /*'Epoca Confirmado'*/
             $table->binary('epoca_aproxi')->nullable(); /*'Epoca Aproximadamente'*/
             $table->string('tipo_bien_cultu'); /*'Tipo de bien cultural'*/
@@ -36,8 +36,8 @@ class CreateObrasTable extends Migration
             $table->string('proyecto_obra');  /*'Proyecto'*/
             $table->integer('año_trabajo_obra'); /*'Año de la temporada de trabajo'*/
             $table->integer('no_proyec_obra')->nullable(); /*'No. de proyecto'*/
-            $table->char('autor')->default('Desconocido o Anonimo');//variable para el autor
-            $table->char('cultura')->default('Desconocido o Anonimo');//variable para el autor
+            $table->char('autor')->nullable();//variable para el autor
+            $table->char('cultura')->nullable();//variable para el autor
             $table->string('temporada_trabajo')->default('No aplica');//Temporada de trabajo
             $table->date('fecha_de_entrada')->default(now()); /*'Fecha de entrada'*/
             $table->date('fecha_de_salida')->nullable(); /*'Fecha de salida'*/

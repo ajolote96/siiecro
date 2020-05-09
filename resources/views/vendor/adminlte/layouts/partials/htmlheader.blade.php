@@ -13,6 +13,7 @@
 
     
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
 <script>
 $(document).ready(function(){
     $('.zoom').hover(function() {
@@ -22,7 +23,7 @@ $(document).ready(function(){
     });
 });
 </script>
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+   <!--  HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -34,19 +35,57 @@ $(document).ready(function(){
             'csrfToken' => csrf_token(),
         ]) !!};
     </script>
+<!-- <script type="text/javascript">
+
+    $(".validar_form").submit(function () {
+        element = document.getElementById("cultura");
+var select = $("#tipo_bien_cultu").val();
+if (select == 'Arqueológico') {
+    $element.style.display='block';
+} else {
+    element.style.display='none';
+}
+});
+</script>
     <script type="text/javascript">
-    function showaño() {
-        element = document.getElementById("año");
+    function showAño() {
+        element = document.getElementById("cultura");
         tipo_bien_cultu = document.getElementById("tipo_bien_cultu");
-        if (tipo_bien_cultu == Arqueologico) {
+        if (tipo_bien_cultu == 'Arqueológico') {
             element.style.display='block';
         }
         else {
             element.style.display='none';
         }
     }
-</script>
+</script> -->
+<script type="text/javascript">
+  function tipodebien(sel) {
+      if (sel.value=="Arqueológico"){
+           $("#cultura").show();
+           $("#tempo").show();
+           $("#autor").hide();
+           $("#año").hide();
+           $("#epoca").hide();
+           $("#añocon").hide();
+           $("#epocacon").hide();
+           $("#añoaprox").hide();
+           $("#epocaaprox").hide();
 
+      }else{
+        $("#año").show();
+           $("#epoca").show();
+            $("#tempo").hide();
+           $("#cultura").hide();
+           $("#autor").show();
+           $("#añocon").show();
+           $("#epocacon").show();
+           $("#añoaprox").show();
+           $("#epocaaprox").show();
+
+      }
+}
+</script>
     <script type="text/javascript">
     function showSoporte() {
         element = document.getElementById("tabso");

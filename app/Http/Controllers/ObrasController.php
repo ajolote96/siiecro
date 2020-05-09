@@ -63,7 +63,7 @@ public function attribute()
     {
         $request->validate([
             'id',
-            'id_de_obras' => 'required',
+            'id_de_obras',
             'titulo_obra' => 'required',
             'temp_obra',
             'caract_descrip' => 'required',

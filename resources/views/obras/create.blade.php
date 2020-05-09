@@ -46,12 +46,12 @@ padding: 8px;
 
                     <table style="width: 65%" border="0" align="center">
 <tr ><th colspan="5"style="text-align:center;background-color: #7C858C; color:white;"><h3>Datos Generales</h3></th></tr>
-
+@permission('Captura_Registro_Avanzada_2')
   <tr>
     <td style="font-size:25px; width:700px;">ID de Obra:</td>
     <td style="font-size:25px;"><input type="text" name="id_de_obras" class="form-control" placeholder="ID de la Obra"  value="{{ old('id_de_obras') }}" style="width:550px; font-size:18px;"></td>
   </tr>
-
+@endpermission
 <tr>
   <td style="font-size:25px;">Titulo de la Obra:</td>
     <td style="font-size:25px;"><input type="text" name="titulo_obra" class="form-control" placeholder="Titulo de la Obra" value="{{ old('titulo_obra') }}" style="width:550px; font-size:18px;"></td>
@@ -59,18 +59,23 @@ padding: 8px;
 
 
 
-<tr>
+<tr id="autor">
   <td style="font-size:25px;">Autor:</td>
-  <td style="font-size:25px;"><input type="text" class="form-control"  name="autor" placeholder="Autor" value="{{ old('autor') }}" style="width:550px; font-size:18px;"></td>
+  <td style="font-size:25px;"><input type="text" class="form-control"  name="autor" placeholder="Autor" value="{{ old('autor') }}" style=" width:550px; font-size:18px; "></td>
+</tr>
+
+
+<tr id="cultura">
+  <td style="font-size:25px;">Cultura:</td>
+  <td style="font-size:25px; ">
+
+    <input type="text" class="form-control"   name="cultura" placeholder="Cultura" value="{{ old('cultura') }}" style=" width:550px; font-size:18px; ">
+  </td>
 </tr>
 
 <tr>
-  <td style="font-size:25px;">Cultura:</td>
-  <td style="font-size:25px;"><input type="text" class="form-control"  name="cultura" placeholder="Cultura" value="{{ old('cultura') }}" style="width:550px; font-size:18px;"></td>
-</tr>
-<tr>
   <td style="font-size:25px;">Tipo de Bien Cultural:</td>
-  <td style="font-size:25px;"><select class="input-group-addon" name="tipo_bien_cultu" value="{{ old('tipo_bien_cultu') }}" style="width:550px; font-size:18px;">
+  <td style="font-size:25px;"><select class="input-group-addon" onChange="tipodebien(this)" name="tipo_bien_cultu" id="tipo_bien_cultu" value="{{ old('tipo_bien_cultu') }}" style="width:550px; font-size:18px;">
                             <option value="" >Selecciona una opción</option>
                             <option>Arqueológico</option>
                             <option>Artístico</option>
@@ -134,7 +139,7 @@ padding: 8px;
   <td style="font-size:25px;">Características Descriptivas:</td>
   <td style="font-size:25px;"><input type="text" name="caract_descrip" class="form-control" placeholder="Características Descriptivas" value="{{ old('caract_descrip') }}" style="width:550px; font-size:18px;"></td>
 </tr>
-<tr>
+<tr id="tempo">
   <td style="font-size:25px;">Temporalidad:</td>
   <td style="font-size:18px;"><select type="text" name="temp_obra" class="input-group-addon" placeholder="Temporalidad" value="{{ old('temp_obra') }}" style="width:550px; font-size:18px;">
     <option value="" >Selecciona una Opción</option>
@@ -146,11 +151,11 @@ padding: 8px;
   </select></td>
 </tr>
 
-<tr>
+<tr id="año">
   <td style="font-size:25px;">Año de la Obra:</td>
   <td style="font-size:23px;"><input type="text" name="año" class="form-control" placeholder="Año de la Obra" value="{{ old('año') }}" style="width:550px; font-size:18px;"></td>
 </tr>
-<tr>
+<tr id="epoca">
   <td style="font-size:25px;">Epoca de la Obra:</td>
   <td style="font-size:25px;"><select type="text" name="epoca_obra" class="input-group-addon" placeholder="Epoca de la Obra" value="{{ old('epoca_obra') }}" style="width:550px; font-size:18px;">
       <option value="" >Selecciona una Opción</option>
@@ -165,7 +170,7 @@ padding: 8px;
         <option>Siglo XXI</option>
   </select></td>
 </tr>
-<tr>
+<tr id="añocon">
   <td style="font-size:25px;">Año de la Obra Confirmado</td>
   <td style="font-size:25px;"><select class="input-group-addon" name="año_confirm" id="año_c" value="{{ old('año_confirm') }}"  style="width:550px; font-size:18px;">
                             <option value="" >Selecciona una Opción</option>
@@ -173,7 +178,7 @@ padding: 8px;
                             <option>no</option>
                       </select></td>
 </tr>
-<tr>
+<tr id="añoaprox">
   <td style="font-size:25px;">Año de la Obra Aproximado:</td>
   <td style="font-size:25px;"><select class="input-group-addon" name="año_aproxi" value="{{ old('año_aproxi') }}" style="width:550px; font-size:18px;">
                             <option value="" >Selecciona una opción</option>
@@ -181,7 +186,7 @@ padding: 8px;
                             <option>no</option>
                       </select></td>
 </tr>
-<tr>
+<tr id="epocacon">
   <td style="font-size:25px;">Epoca de la Obra Confirmada:</td>
   <td><select class="input-group-addon" name="epoca_confirm" value="{{ old('epoca_confirm') }}" style="width:550px; font-size:18px;">
                             <option value="" >Selecciona una opción</option>
@@ -189,7 +194,7 @@ padding: 8px;
                             <option>no</option>
                       </select></td>
 </tr>
-<tr>
+<tr id="epocaaprox">
   <td style="font-size:25px;">Epoca de la Obra Aproximada:</td>
   <td style="font-size:25px;"><select class="input-group-addon" name="epoca_aproxi" value="{{ old('epoca_aproxi') }}" style="width:550px; font-size:18px;">
                             <option value="" >Selecciona una opción</option>

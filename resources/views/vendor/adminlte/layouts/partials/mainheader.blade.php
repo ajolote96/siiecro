@@ -130,13 +130,13 @@
                                     
                                 </p>
                             </li>
-                            <!-- Menu Body -->
+                            <!-- Menu Body 
                             <li class="user-body">
                                 <div class="col-xs-4 text-center">
                                     <a href="{{ url('admin/users') }}">Permisos</a>
                                 </div>
                                 
-                            </li>
+                            </li>-->
                             <!-- Menu Footer-->
                             <li class="user-footer">
                                 <div class="pull-left">

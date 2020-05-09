@@ -29,7 +29,7 @@ Route::get('index', function () {
 });
 
 Route::get('Obra/Capturar', function () {
-    return view('Obras.create');
+    return view('obras.create');
 })->middleware('permission:Captura_Registro');
 
 Route::get('Obra/{id}/editar', function ($id) {
@@ -39,7 +39,7 @@ Route::get('Obra/{id}/editar', function ($id) {
 
 Route::get('Obra/{id}/ver', function ($id) {
     $obra = Obras::findOrFail($id);
-    return view('Obras.show', compact('obra'));
+    return view('obras.show', compact('obra'));
 })->middleware('permission:Consulta_General');
 
 Route::get('Obra/{id}', function($id){
