@@ -58,16 +58,20 @@
 				            <td>{{ $Obra->sector_obra }}</td>
 				            <td>
 				            
+							
 				            <td><a href="{{ route('Obras.show', $Obra->id) }}" class="btn btn-block btn-info btn-xs" style="width:70px;">Ver mas</a></td>
 				            
-				            
-		                    <td><a href="{{ route('Obras.editar', $Obra->id) }}" class="btn btn-block btn-warning btn-xs" style="width:70px;">Editar</a></td>@permission('Editar_Registro_Redireccion')
+
+				            @permission('Editar_Registro_Bloqueo_Redireccion')
+		                    <td><a href="{{ route('Obras.editar', $Obra->id) }}" class="btn btn-block btn-warning btn-xs" style="width:70px;">Editar</a></td>
 		                    @endpermission
 		                    
 		                    <td><a href="javascript:document.getElementById('delete-{{ $Obra->id }}').submit()" class="btn btn-block btn-danger btn-xs" onclick="return confirm('¿Seguro que deseas eliminarlo?')" style="width:70px;">Eliminar</a></td>
 		                    
 		                    <td><a href="{{ route('analisisg.create', $Obra->id) }}" class="btn btn-block btn-success btn-xs" style="width:90px;">Agregar ficha</a></td>
 		                   
+							<td><a target="_blank" href="{{ route('Obras.pdf', $Obra->id) }}" class="btn btn-block btn-success btn-xs" style="width:90px;">Imprimir</a></td>
+
 		                    <form id="delete-{{ $Obra->id }}" action="{{ route('Obras.destroy', $Obra->id) }}" method="GET">
 		                    @method('delete')
 		 					@csrf

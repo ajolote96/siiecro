@@ -53,7 +53,7 @@
 </tr>
 <tr>
   <td style="font-size:25px;">Tipo de Bien Cultural:</td>
-  <td style="font-size:25px;"><select class="input-group-addon" onChange="tipodebien(this)" name="tipo_bien_cultu" value="{{ $obra->tipo_bien_cultu }}" style="width:550px; font-size:18px;">
+  <td style="font-size:25px;"><select class="input-group-addon" id="tipo_bien_cultural" onChange="tipodebien(this)" name="tipo_bien_cultu" value="{{ $obra->tipo_bien_cultu }}" style="width:550px; font-size:18px;">
                             <option value="{{ $obra->tipo_bien_cultu }}">{{ $obra->tipo_bien_cultu }}</option>
                             <option>Arqueológico</option>
                             <option>Artístico</option>
@@ -62,14 +62,17 @@
                             <option>Religioso</option>
                             <option>Industrial</option>
                             <option>Etnográfico</option>
-                      </select></td>
+                            <option>Otro</option>
+                      </select>
+                    <input type="text" class="form-control" id="tbcotro" name="tipobotro" placeholder="Otro" value="" style="width:550px; font-size:18px; display: none;"></td>
+                      
 </tr>
 
 
 
 <tr>
   <td style="font-size:25px;">Tipo de Objeto de la Obra:</td>
-  <td style="font-size:25px;"><select type="text" name="tipo_obj_obra" class="input-group-addon" placeholder="Tipo de Objeto de la Obra" value="{{ $obra->tipo_obj_obra }}" style="width:550px; font-size:18px;">
+  <td style="font-size:25px;"><select type="text" name="tipo_obj_obra" id="tipoobjeto" onChange="tipodeobjeto(this)" class="input-group-addon" placeholder="Tipo de Objeto de la Obra" value="{{ $obra->tipo_obj_obra }}" style="width:550px; font-size:18px;">
       <option value="{{ $obra->tipo_obj_obra }}" >{{ $obra->tipo_obj_obra }}</option>
         <option>Cerámica</option>
         <option>Textil</option>
@@ -99,7 +102,9 @@
         <option>Maquinaria</option>
         <option>Utilitario</option>
         <option>Científico</option>
-  </select></td>
+        <option>Otro</option>
+  </select>
+<input type="text" class="form-control" id="tdootro" name="tipoobjetootro" placeholder="Otro" value="" style="width:550px; font-size:18px; display: none;"></td>
 </tr>
 
 <tr>
@@ -125,14 +130,16 @@
 @permission(['Edicion_de_Registro_basica','Edicion_Registro_Avanzada_1','Edicion_Registro_Avanzada_2'])
 <tr id="tempo">
   <td style="font-size:25px;">Temporalidad:</td>
-  <td style="font-size:18px;"><select type="text" name="temp_obra" class="input-group-addon" placeholder="Temporalidad" value="{{ $obra->temp_obra }}" style="width:550px; font-size:18px;">
+  <td style="font-size:18px;"><select type="text" name="temp_obra" id="temporalidadobra" onChange="temporal(this)" class="input-group-addon" placeholder="Temporalidad" value="{{ $obra->temp_obra }}" style="width:550px; font-size:18px;">
     <option value="{{ $obra->temp_obra }}" >{{ $obra->temp_obra }}</option>
       <option>Preclásico (2500 a.C - 200 d.C)</option>
       <option>Clásico (200 d.C - 900 d.C)</option>
       <option>Postclásico (900 d.C - 1521 d.C)</option>
       <option>Preclásico Tardío/Clásico Temprano </option>
       <option>Fase Teochitlán (450 - 650 d.C)</option>
-  </select></td>
+      <option>Otro</option>
+  </select>
+<input type="text" class="form-control" id="tempotro" name="temporalidadotro" placeholder="Otro" value="" style="width:550px; font-size:18px; display: none;"></td>
 </tr>
 
 <tr id="año">
@@ -141,7 +148,7 @@
 </tr>
 <tr id="epoca">
   <td style="font-size:25px;">Epoca de la Obra:</td>
-  <td style="font-size:25px;"><select type="text" name="epoca_obra" class="input-group-addon" placeholder="Epoca de la Obra" value="{{ $obra->epoca_obra }}" style="width:550px; font-size:18px;">
+  <td style="font-size:25px;"><select type="text" name="epoca_obra" id="epocadeobra" onChange="epocaobra(this)" class="input-group-addon" placeholder="Epoca de la Obra" value="{{ $obra->epoca_obra }}" style="width:550px; font-size:18px;">
       <option value="{{ $obra->epoca_obra }}" >{{ $obra->epoca_obra }}</option>
         <option>Siglo XIII</option>
         <option>Siglo XIV</option>
@@ -152,7 +159,9 @@
         <option>Siglo XIX</option>
         <option>Siglo XX</option>
         <option>Siglo XXI</option>
-  </select></td>
+        <option>Otro</option>
+  </select>
+<input type="text" class="form-control" id="epocaotro" name="epocaobraotro" placeholder="Otro" value="" style="width:550px; font-size:18px; display: none;"></td>
 </tr>
 <tr id="añocon">
   <td style="font-size:25px;">Año de la Obra Confirmado</td>
@@ -211,7 +220,7 @@
 
 <tr>
   <td style="font-size:25px;">Sector:</td>
-  <td style="font-size:25px;"><select class="input-group-addon" name="sector_obra" value="{{ $obra->sector_obra }}" style="width:550px; font-size:18px;">
+  <td style="font-size:25px;"><select class="input-group-addon" name="sector_obra" id="sectordeobra" onChange="sectorobra(this)" value="{{ $obra->sector_obra }}" style="width:550px; font-size:18px;">
                             <option value="{{ $obra->sector_obra }}" >{{ $obra->sector_obra }}</option>
                             <option>Seminario Taller de Restauración de Cerámica</option>
                             <option>Seminario Taller de Restauración de Pintura Mural</option>
@@ -235,7 +244,9 @@
                             <option>Laboratorio de Química</option>
                             <option>Titulación</option>
                             <option>Particulares</option>
-                      </select></td>
+                            <option>Otro</option>
+                      </select>
+                    <input type="text" class="form-control" id="sectorotro" name="sectorobraotro" placeholder="Otro" value="" style="width:550px; font-size:18px; display: none;"></td>
 </tr>
 
 <tr>

@@ -5,6 +5,14 @@ use App\Obras;
 use App\AnalisisG;
 use App\AnalisisCientifico;
 
+Route::get('Soporte', function() {
+    return view('soporte.mensaje_soporte');
+})->name('soporte');
+
+Route::get('Mensaje', 'ObrasController@mail', function() {
+    
+})->name('mensaje');
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -30,7 +38,7 @@ Route::get('index', function () {
 
 Route::get('Obra/Capturar', function () {
     return view('obras.create');
-})->middleware('permission:Captura_Registro');
+})->middleware('permission:Bloqueo_de_redireccion_Captura_Registro');
 
 Route::get('Obra/{id}/editar', function ($id) {
     $obra = Obras::findOrFail($id);
@@ -40,13 +48,19 @@ Route::get('Obra/{id}/editar', function ($id) {
 Route::get('Obra/{id}/ver', function ($id) {
     $obra = Obras::findOrFail($id);
     return view('obras.show', compact('obra'));
-})->middleware('permission:Consulta_General');
+})->middleware('permission:Consulta_ruta_obras');
 
 Route::get('Obra/{id}', function($id){
     $obra = Obras::findOrFail($id);
     $obra->delete();
     return redirect()->route('Obras.index')->with('success','Obra Eliminada.');
 })->name('Obras.destroy');
+
+Route::get('Obra/{id}/Pdf', function ($id){
+    $obra = Obras::findOrFail($id);
+    $pdf = PDF::loadView('Obras.imprimirpdf', compact('obra')  );
+    return $pdf->stream();
+})->name('Obras.pdf');
 
 Route::put('Obra/{id}', function(Request $request, $id){
     $obra = Obras::findOrFail($id);
@@ -89,18 +103,18 @@ Route::get('AnalisisCientifico', function (Request $request) {
         ->paginate(5);
         return view('analisisg.index',compact('Analisisg'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
-})->name('analisisg.index')->middleware('permission:Consulta_General');
+})->name('analisisg.index')->middleware('');
 
 Route::get('AnalisisCientifico/{id}/create', function ($id) {
-    
+
         $obra = Obras::findOrFail($id);
     return view('analisisg.create', compact('obra'));
-})->name('analisisg.create')->middleware('permission:Captura_Avanzada_Nivel_1');
+})->name('analisisg.create')->middleware('permission:');
 
 Route::get('AnalisisCientifico/{id_general}/editar',  function ($id_general) {
     $analisisg = AnalisisG::findOrFail($id_general);
-        return view('analisisg.edit', compact('analisisg'));    
-})->name('analisisg.editar')->middleware('permission:Editar_Avanzada_1');
+        return view('analisisg.edit', compact('analisisg'));
+})->name('analisisg.editar')->middleware('');
 
 Route::get('AnalisisCientifico/{id}', function($id){
     $analisisg = AnalisisG::findOrFail($id_general);
@@ -124,13 +138,12 @@ Route::get('RegistroCientifico/ver/{idcientifico}', 'AnalisisCientificoControlle
 })->name('registro.show')->middleware('permission:Consulta_General');
 Route::get('RegistroCientifico/{idcientifico}/editar',  function ($idcientifico ) {
     $a_cientifico = AnalisisCientifico::findOrFail($idcientifico);
-        return view('registro.edit', compact('a_cientifico'));    
-})->name('registro.editar')->middleware('permission:Editar_Avanzada_2');
+        return view('registro.edit', compact('a_cientifico'));
+})->name('registro.editar')->middleware('permission:');
 Route::delete('RegistroCientifico/{idcientifico}',  'AnalisisCientificoController@destroy', function($idcientifico){
 })->name('registro.destroy');
 Route::put('RegistroCientifico/{id_general}/editar', 'AnalisisCientificoController@update', function(Request $request, $idcientifico){
 })->name('registro.actualizar');
 Route::get('RegistroCientifico/{id_general}/ver', 'AnalisisCientificoController@show', function(Request $request, $idcientifico){
-})->name('registro.show')->middleware('permission:Consulta_General');
+})->name('registro.show')  ->middleware('permission:');
 
- 

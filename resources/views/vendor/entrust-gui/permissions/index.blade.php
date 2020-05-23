@@ -4,7 +4,9 @@
 
 @section('content')
 <div class="models--actions">
-    <a class="btn btn-labeled btn-primary" href="{{ route('entrust-gui::permissions.create') }}"><span class="btn-label"><i class="fa fa-plus"></i></span>Crear Permisos</a>
+    <a class="btn btn-labeled btn-primary" href="{{ route('entrust-gui::permissions.create') }}"><span class="btn-label"><i class="fa fa-plus"></i></span>
+    Crear Permisos</a>
+    <button type="button" onclick="location.href='{{ url('home') }}'" class="btn bg-navy margin form-inline pull-right">REGRESAR</button>
   </div>
 <table class="table table-striped">
     <tr>

@@ -18,7 +18,7 @@ class CreateObrasTable extends Migration
             $table->char('id_de_obras', 50)->nullable(); /*'No. de la obra que se hara un analisis'*/
             $table->string('titulo_obra'); /*'Título de la Obra/Pieza/Agrupación'*/
             $table->string('temp_obra')->nullable(); /*'Temporalidad'*/
-            $table->string('caract_descrip'); /*'Caracteristicas Descriptivas'*/
+            $table->string('caract_descrip')->nullable(); /*'Caracteristicas Descriptivas'*/
             $table->integer('año')->nullable(); /*'Año de la obra'*/
             $table->binary('año_confirm')->nullable(); /*'Año Confirmado'*/
             $table->binary('año_aproxi')->nullable(); /*'Año Aproximadamente'*/
@@ -27,21 +27,25 @@ class CreateObrasTable extends Migration
             $table->binary('epoca_aproxi')->nullable(); /*'Epoca Aproximadamente'*/
             $table->string('tipo_bien_cultu'); /*'Tipo de bien cultural'*/
             $table->string('tipo_obj_obra'); /*'Tipo de objeto'*/
-            $table->string('lugar_proce_ori')->default('Desconocido'); /*'Lugar de Procedencia Original'*/
-            $table->string('lugar_proce_act')->default('Desconocido'); /*'Lugar de Procedencia Actual'*/
-            $table->string('no_inv_obra'); /*'No. de Inventario'*/
+            $table->string('lugar_proce_ori')->nullable(); /*'Lugar de Procedencia Original'*/
+            $table->string('lugar_proce_act')->nullable(); /*'Lugar de Procedencia Actual'*/
+            $table->string('no_inv_obra')->nullable(); /*'No. de Inventario'*/
             $table->string('forma_ingreso'); /*'Forma de Ingreso'*/
             $table->string('sector_obra'); /*'Sector',*/
             $table->string('respon_ecro'); /*'Responsables ECRO'*/
-            $table->string('proyecto_obra');  /*'Proyecto'*/
-            $table->integer('año_trabajo_obra'); /*'Año de la temporada de trabajo'*/
+            $table->string('proyecto_obra')->nullable();  /*'Proyecto'*/
+            $table->integer('trabajo_obra')->unsigned(); /*'Año de la temporada de trabajo'*/
             $table->integer('no_proyec_obra')->nullable(); /*'No. de proyecto'*/
             $table->char('autor')->nullable();//variable para el autor
             $table->char('cultura')->nullable();//variable para el autor
-            $table->string('temporada_trabajo')->default('No aplica');//Temporada de trabajo
+            $table->integer('temporada_trabajo')->unsigned();//Temporada de trabajo
             $table->date('fecha_de_entrada')->default(now()); /*'Fecha de entrada'*/
             $table->date('fecha_de_salida')->nullable(); /*'Fecha de salida'*/
             $table->timestamps();
+
+            $table->foreign('trabajo_obra')->references('id_año_temporada_de_trabajo')->on('añodetemporada');
+
+            $table->foreign('temporada_trabajo')->references('id_temporada_de_trabajo')->on('temporadatrabajo');
         });
     }
 

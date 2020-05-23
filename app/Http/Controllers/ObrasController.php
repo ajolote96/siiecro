@@ -13,6 +13,30 @@ class ObrasController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+public function mail(Request $request)
+{
+    //Llamando a los campos
+$nombre= $_POST['nombre'];
+$correo= $_POST['correo'];
+$telefono= $_POST['telefono'];
+$mensaje= $_POST['mensaje'];
+
+
+// Datos para el correo
+$destinatario ="tonatiuhgarciarios@gmail.com";
+$asunto="Contacto desde nuestra web";
+
+
+$carta="De: $nombre\n" ;
+$carta .="Correo: $correo\n";
+$carta .="Telefono: $telefono\n";
+$carta .="Mensaje: $mensaje";
+
+
+//Enviando mensaje
+mail($destinatario, $asunto, $carta);
+header('Location:mensaje_de_envio.html');
+}
 
 public function attribute()
 {
@@ -61,26 +85,29 @@ public function attribute()
      */
     public function store(Request $request)
     {
+        dd($request->all());
         $request->validate([
             'id',
             'id_de_obras',
             'titulo_obra' => 'required',
             'temp_obra',
-            'caract_descrip' => 'required',
+            'caract_descrip',
             'año',
             'año_confirm',
             'año_aproxi',
+            'cultura',
+            'autor',
             'epoca_obra',
             'epoca_confirm',
             'epoca_aproxi',
             'tipo_bien_cultu' => 'required',
             'tipo_obj_obra' => 'required',
-            'lugar_proce_ori' => 'required',
-            'lugar_proce_act' => 'required',
-            'no_inv_obra' => 'required',
-            'forma_ingreso' => 'required',
+            'lugar_proce_ori',
+            'lugar_proce_act',
+            'no_inv_obra',
+            'forma_ingreso'=> 'required',
             'sector_obra' => 'required',
-            'respon_ecro',
+            'respon_ecro' => 'required',
             'proyecto_obra',
             'año_trabajo_obra',
             'no_proyec_obra',
@@ -92,8 +119,79 @@ public function attribute()
             
         ]);
 
-  
-        Obras::create($request->all());
+$data = array(
+array(
+        'autor' => $request->input('autor')
+       ),
+    array(
+         'autor' => $request->input('autor2')
+       ),
+);
+
+
+
+  $obra = new Obras;
+    $obra->id = $obra->id;
+    $obra->id_de_obras = $request->input('id_de_obras');
+    $obra->titulo_obra = $request->input('titulo_obra');
+    if ($request->temporalidadotro == NULL) {
+        $obra->temp_obra = $request->input('temp_obra');
+    }else
+    {
+        $obra->temp_obra = $request->input('temporalidadotro');
+    }
+    
+    $obra->caract_descrip = $request->input('caract_descrip');
+    $obra->año = $request->input('año');
+    $obra->autor = $data;
+    $obra->cultura = $request->input('cultura');
+    $obra->año_confirm = $request->input('año_confirm');
+    $obra->año_aproxi = $request->input('año_aproxi');
+     if ($request->epocaobraotro == NULL) {
+        $obra->epoca_obra = $request->input('epoca_obra');
+    }else
+    {
+        $obra->epoca_obra = $request->input('epocaobraotro');
+    }
+    
+    $obra->epoca_confirm = $request->input('epoca_confirm');
+    $obra->epoca_aproxi = $request->input('epoca_aproxi');
+    if ($request->tipobotro == NULL) {
+        $obra->tipo_bien_cultu = $request->input('tipo_bien_cultu');
+    }else
+    {
+        $obra->tipo_bien_cultu = $request->input('tipobotro');
+    }
+
+    if ($request->tipoobjetootro == NULL) {
+        $obra->tipo_obj_obra = $request->input('tipo_obj_obra');
+    }else
+    {
+        $obra->tipo_obj_obra = $request->input('tipoobjetootro');
+    }
+    
+    $obra->lugar_proce_ori = $request->input('lugar_proce_ori');
+    $obra->lugar_proce_act = $request->input('lugar_proce_act');
+    $obra->no_inv_obra = $request->input('no_inv_obra');
+    $obra->forma_ingreso = $request->input('forma_ingreso');
+
+     if ($request->sectorobraotro == NULL) {
+        $obra->sector_obra = $request->input('sector_obra');
+    }else
+    {
+        $obra->sector_obra = $request->input('sectorobraotro');
+    }
+
+    $obra->respon_ecro = $request->input('respon_ecro');
+    $obra->proyecto_obra = $request->input('proyecto_obra');
+    $obra->año_trabajo_obra = $request->input('año_trabajo_obra');
+    $obra->no_proyec_obra = $request->input('no_proyec_obra');
+    $obra->fecha_de_entrada = $request->input('fecha_de_entrada');
+    $obra->fecha_de_salida = $request->input('fecha_de_salida');
+
+//dd($obra, $request->all());
+    $obra->save();
+        //Obras::create($request->all());
    
         return redirect()->route('Obras.index')
                         ->with('success','Obra Creada Exitosamente.');

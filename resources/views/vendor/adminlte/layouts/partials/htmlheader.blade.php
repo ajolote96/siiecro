@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="../../bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
     <link rel="stylesheet" href="../../bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../dist/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/font-awesome.css">
     <link href="{{ asset('/css/all.css') }}" rel="stylesheet" type="text/css" />
 
     
@@ -71,21 +73,113 @@ if (select == 'Arqueológico') {
            $("#epocacon").hide();
            $("#añoaprox").hide();
            $("#epocaaprox").hide();
+           tbcotro.style.display='none';
+           tipo_bien_cultural.style.display='block';
 
+      }else if (sel.value=="Otro") {
+        tbcotro.style.display='block';
+        tipo_bien_cultural.style.display='none';
       }else{
         $("#año").show();
            $("#epoca").show();
-            $("#tempo").hide();
+           $("#tempo").hide();
            $("#cultura").hide();
            $("#autor").show();
            $("#añocon").show();
            $("#epocacon").show();
            $("#añoaprox").show();
            $("#epocaaprox").show();
-
+           tbcotro.style.display='none';
+           tipo_bien_cultural.style.display='block';
       }
 }
 </script>
+
+<script type="text/javascript">
+  function tipodeobjeto(sel) {
+      if (sel.value=="Otro") {
+        tdootro.style.display='block';
+        tipoobjeto.style.display='none';
+      }else {   
+           tdootro.style.display='none';
+           tipoobjeto.style.display='block';
+      }
+}
+</script>
+
+<script type="text/javascript">
+  function temporal(sel) {
+      if (sel.value=="Otro") {
+        tempotro.style.display='block';
+        temporalidadobra.style.display='none';
+      }else {   
+           tempotro.style.display='none';
+           temporalidadobra.style.display='block';
+      }
+}
+</script>
+
+<script type="text/javascript">
+  function epocaobra(sel) {
+      if (sel.value=="Otro") {
+        epocaotro.style.display='block';
+        epocadeobra.style.display='none';
+      }else {   
+           epocaotro.style.display='none';
+           epocadeobra.style.display='block';
+      }
+}
+</script>
+
+<script type="text/javascript">
+  function sectorobra(sel) {
+      if (sel.value=="Otro") {
+        sectorotro.style.display='block';
+        sectordeobra.style.display='none';
+      }else {   
+           sectorotro.style.display='none';
+           sectordeobra.style.display='block';
+      }
+}
+</script>
+
+
+
+<script type="text/javascript">
+    window.contadoraños=1
+
+    function masañostemp() {
+
+        var inputaños = `<br><input type="text" class="form-control"  name="autor${window.contadoraños}" placeholder="Año de Temporada de Trabajo" value="" style=" width:300px; font-size:18px; ">`
+        $('#inputaños').append(inputaños)
+        window.contadoraños+=1
+       
+    }
+</script>
+
+
+<script type="text/javascript">
+    function showSoporte() {
+        element = document.getElementById("tabso");
+        tsoporte = document.getElementById("tsoporte");
+        if (tsoporte.checked) {
+            element.style.display='block';
+        }
+        else {
+            element.style.display='none';
+        }
+    }
+</script>
+
+
+
+
+
+
+
+
+
+<!-- checkbuttons analisis general -->
     <script type="text/javascript">
     function showSoporte() {
         element = document.getElementById("tabso");

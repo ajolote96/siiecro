@@ -143,6 +143,7 @@
              @role(['Director_academico','Director_general','Secretaria','Seminarios_Taller','Laboratorios','admin'])
             <li class="active"><a href="{{ url('admin/users') }}"> <span>Gestion de Usuarios</span></a></li>
             @endrole
+            <li class="active"><a href="{{ route('soporte') }}"> <span>Soporte</span></a></li>
         </ul><!-- /.sidebar-menu
         <ul class="treeview-menu">
                         <li><a href="#"></i><span>Taller STRC</span><i class="fa fa-angle-left pull-right"></i></a></li>
