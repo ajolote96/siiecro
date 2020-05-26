@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\AñodeTemporadas;
 use App\Obras;
 use App\AnalisisG;
 use Illuminate\Http\Request;
@@ -145,6 +146,8 @@ class ObrasController extends Controller
         $obra->fecha_de_entrada = $request->input('fecha_de_entrada');
         dd($obra, $request->all());
         if ($obra->save()) {
+            $anioTrabajo = new AñodeTemporadas();
+
             //here we need to store año de temporada de trabajo temporadaTrabajo
         }
 
