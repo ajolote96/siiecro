@@ -5,7 +5,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    
+
     <link rel="stylesheet" href="../../bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
     <link rel="stylesheet" href="../../bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../dist/css/AdminLTE.min.css">
@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="css/font-awesome.css">
     <link href="{{ asset('/css/all.css') }}" rel="stylesheet" type="text/css" />
 
-    
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
 <script>
@@ -31,7 +31,7 @@ $(document).ready(function(){
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-    
+
     <script>
         window.Laravel = {!! json_encode([
             'csrfToken' => csrf_token(),
@@ -63,7 +63,7 @@ if (select == 'Arqueológico') {
 </script> -->
 <script type="text/javascript">
   function tipodebien(sel) {
-      if (sel.value=="Arqueológico"){
+      if (sel.value=="Arqueológico") {
            $("#cultura").show();
            $("#tempo").show();
            $("#autor").hide();
@@ -76,10 +76,10 @@ if (select == 'Arqueológico') {
            tbcotro.style.display='none';
            tipo_bien_cultural.style.display='block';
 
-      }else if (sel.value=="Otro") {
+      } else if (sel.value=="Otro") {
         tbcotro.style.display='block';
         tipo_bien_cultural.style.display='none';
-      }else{
+      } else {
         $("#año").show();
            $("#epoca").show();
            $("#tempo").hide();
@@ -92,274 +92,218 @@ if (select == 'Arqueológico') {
            tbcotro.style.display='none';
            tipo_bien_cultural.style.display='block';
       }
-}
-</script>
+  }
 
-<script type="text/javascript">
   function tipodeobjeto(sel) {
       if (sel.value=="Otro") {
-        tdootro.style.display='block';
-        tipoobjeto.style.display='none';
-      }else {   
-           tdootro.style.display='none';
-           tipoobjeto.style.display='block';
+          tdootro.style.display='block';
+          tipoobjeto.style.display='none';
+      } else {
+          tdootro.style.display='none';
+          tipoobjeto.style.display='block';
       }
-}
-</script>
+  }
 
-<script type="text/javascript">
   function temporal(sel) {
       if (sel.value=="Otro") {
-        tempotro.style.display='block';
-        temporalidadobra.style.display='none';
-      }else {   
-           tempotro.style.display='none';
-           temporalidadobra.style.display='block';
+          tempotro.style.display='block';
+          temporalidadobra.style.display='none';
+      } else {
+          tempotro.style.display='none';
+          temporalidadobra.style.display='block';
       }
-}
-</script>
+  }
 
-<script type="text/javascript">
   function epocaobra(sel) {
       if (sel.value=="Otro") {
-        epocaotro.style.display='block';
-        epocadeobra.style.display='none';
-      }else {   
-           epocaotro.style.display='none';
-           epocadeobra.style.display='block';
+          epocaotro.style.display='block';
+          epocadeobra.style.display='none';
+      } else {
+          epocaotro.style.display='none';
+          epocadeobra.style.display='block';
       }
-}
-</script>
+  }
 
-<script type="text/javascript">
   function sectorobra(sel) {
       if (sel.value=="Otro") {
-        sectorotro.style.display='block';
-        sectordeobra.style.display='none';
-      }else {   
-           sectorotro.style.display='none';
-           sectordeobra.style.display='block';
+          sectorotro.style.display='block';
+          sectordeobra.style.display='none';
+      } else {
+          sectorotro.style.display='none';
+          sectordeobra.style.display='block';
       }
-}
+  }
+
+  window.contadoraños = 1
+  function masañostemp() {
+      var inputaños = `<br><input type="text" class="form-control"  name="anio${window.contadoraños}" placeholder="Año de Temporada de Trabajo" value="" style=" width:300px; font-size:18px; ">`
+      $('#inputaños').append(inputaños)
+      window.contadoraños += 1;
+  }
+
+  function showSoporte() {
+      element = document.getElementById("tabso");
+      tsoporte = document.getElementById("tsoporte");
+      if (tsoporte.checked) {
+          element.style.display='block';
+      } else {
+          element.style.display='none';
+      }
+  }
+
+  <!-- checkbuttons analisis general -->
+  function showSoporte() {
+      element = document.getElementById("tabso");
+      tsoporte = document.getElementById("tsoporte");
+      if (tsoporte.checked) {
+          element.style.display='block';
+      }
+      else {
+          element.style.display='none';
+      }
+  }
+
+  function showBase() {
+      element = document.getElementById("tabbase");
+      tbase = document.getElementById("tbase");
+      if (tbase.checked) {
+          element.style.display='block';
+      }
+      else {
+          element.style.display='none';
+      }
+  }
+
+  function showEstra() {
+      element = document.getElementById("tabestra");
+      testra = document.getElementById("testra");
+      if (testra.checked) {
+          element.style.display='block';
+      }
+      else {
+          element.style.display='none';
+      }
+  }
+
+  function showRevo() {
+      element = document.getElementById("tabrevo");
+      trevo = document.getElementById("trevo");
+      if (trevo.checked) {
+          element.style.display='block';
+      }
+      else {
+          element.style.display='none';
+      }
+  }
+
+  function showBol() {
+      element = document.getElementById("tabbol");
+      tbol = document.getElementById("tbol");
+      if (tbol.checked) {
+          element.style.display='block';
+      }
+      else {
+          element.style.display='none';
+      }
+  }
+
+  function showLami() {
+      element = document.getElementById("tablami");
+      tlami = document.getElementById("tlami");
+      if (tlami.checked) {
+          element.style.display='block';
+      }
+      else {
+          element.style.display='none';
+      }
+  }
+
+  function showPig() {
+      element = document.getElementById("tabpig");
+      tpig = document.getElementById("tpig");
+      if (tpig.checked) {
+          element.style.display='block';
+      }
+      else {
+          element.style.display='none';
+      }
+  }
+
+  function showAglu() {
+      element = document.getElementById("tabaglu");
+      taglu = document.getElementById("taglu");
+      if (taglu.checked) {
+          element.style.display='block';
+      }
+      else {
+          element.style.display='none';
+      }
+  }
+
+  function showRecu() {
+      element = document.getElementById("tabrecu");
+      trecu = document.getElementById("trecu");
+      if (trecu.checked) {
+          element.style.display='block';
+      }
+      else {
+          element.style.display='none';
+      }
+  }
+
+  function showMaso() {
+      element = document.getElementById("tabmaso");
+      tmaso = document.getElementById("tmaso");
+      if (tmaso.checked) {
+          element.style.display='block';
+      }
+      else {
+          element.style.display='none';
+      }
+  }
+
+  function showSal() {
+      element = document.getElementById("tabsal");
+      tsal = document.getElementById("tsal");
+      if (tsal.checked) {
+          element.style.display='block';
+      }
+      else {
+          element.style.display='none';
+      }
+  }
+
+  function showMagre() {
+      element = document.getElementById("tabmagre");
+      tmagre = document.getElementById("tmagre");
+      if (tmagre.checked) {
+          element.style.display='block';
+      }
+      else {
+          element.style.display='none';
+      }
+  }
+
+  function showBio() {
+      element = document.getElementById("tabbio");
+      tbio = document.getElementById("tbio");
+      if (tbio.checked) {
+          element.style.display='block';
+      }
+      else {
+          element.style.display='none';
+      }
+  }
+
+  function showOtro() {
+      element = document.getElementById("tabotro");
+      totro = document.getElementById("totro");
+      if (totro.checked) {
+          element.style.display='block';
+      }
+      else {
+          element.style.display='none';
+      }
+  }
 </script>
-
-
-
-<script type="text/javascript">
-    window.contadoraños=1
-
-    function masañostemp() {
-
-        var inputaños = `<br><input type="text" class="form-control"  name="autor${window.contadoraños}" placeholder="Año de Temporada de Trabajo" value="" style=" width:300px; font-size:18px; ">`
-        $('#inputaños').append(inputaños)
-        window.contadoraños+=1
-       
-    }
-</script>
-
-
-<script type="text/javascript">
-    function showSoporte() {
-        element = document.getElementById("tabso");
-        tsoporte = document.getElementById("tsoporte");
-        if (tsoporte.checked) {
-            element.style.display='block';
-        }
-        else {
-            element.style.display='none';
-        }
-    }
-</script>
-
-
-
-
-
-
-
-
-
-<!-- checkbuttons analisis general -->
-    <script type="text/javascript">
-    function showSoporte() {
-        element = document.getElementById("tabso");
-        tsoporte = document.getElementById("tsoporte");
-        if (tsoporte.checked) {
-            element.style.display='block';
-        }
-        else {
-            element.style.display='none';
-        }
-    }
-</script>
-<script type="text/javascript">
-    function showBase() {
-        element = document.getElementById("tabbase");
-        tbase = document.getElementById("tbase");
-        if (tbase.checked) {
-            element.style.display='block';
-        }
-        else {
-            element.style.display='none';
-        }
-    }
-</script>
-
-<script type="text/javascript">
-    function showEstra() {
-        element = document.getElementById("tabestra");
-        testra = document.getElementById("testra");
-        if (testra.checked) {
-            element.style.display='block';
-        }
-        else {
-            element.style.display='none';
-        }
-    }
-</script>
-
-<script type="text/javascript">
-    function showRevo() {
-        element = document.getElementById("tabrevo");
-        trevo = document.getElementById("trevo");
-        if (trevo.checked) {
-            element.style.display='block';
-        }
-        else {
-            element.style.display='none';
-        }
-    }
-</script>
-
-<script type="text/javascript">
-    function showBol() {
-        element = document.getElementById("tabbol");
-        tbol = document.getElementById("tbol");
-        if (tbol.checked) {
-            element.style.display='block';
-        }
-        else {
-            element.style.display='none';
-        }
-    }
-</script>
-
-<script type="text/javascript">
-    function showLami() {
-        element = document.getElementById("tablami");
-        tlami = document.getElementById("tlami");
-        if (tlami.checked) {
-            element.style.display='block';
-        }
-        else {
-            element.style.display='none';
-        }
-    }
-</script>
-
-<script type="text/javascript">
-    function showPig() {
-        element = document.getElementById("tabpig");
-        tpig = document.getElementById("tpig");
-        if (tpig.checked) {
-            element.style.display='block';
-        }
-        else {
-            element.style.display='none';
-        }
-    }
-</script>
-
-<script type="text/javascript">
-    function showAglu() {
-        element = document.getElementById("tabaglu");
-        taglu = document.getElementById("taglu");
-        if (taglu.checked) {
-            element.style.display='block';
-        }
-        else {
-            element.style.display='none';
-        }
-    }
-</script>
-
-<script type="text/javascript">
-    function showRecu() {
-        element = document.getElementById("tabrecu");
-        trecu = document.getElementById("trecu");
-        if (trecu.checked) {
-            element.style.display='block';
-        }
-        else {
-            element.style.display='none';
-        }
-    }
-</script>
-
-<script type="text/javascript">
-    function showMaso() {
-        element = document.getElementById("tabmaso");
-        tmaso = document.getElementById("tmaso");
-        if (tmaso.checked) {
-            element.style.display='block';
-        }
-        else {
-            element.style.display='none';
-        }
-    }
-</script>
-
-<script type="text/javascript">
-    function showSal() {
-        element = document.getElementById("tabsal");
-        tsal = document.getElementById("tsal");
-        if (tsal.checked) {
-            element.style.display='block';
-        }
-        else {
-            element.style.display='none';
-        }
-    }
-</script>
-
-<script type="text/javascript">
-    function showMagre() {
-        element = document.getElementById("tabmagre");
-        tmagre = document.getElementById("tmagre");
-        if (tmagre.checked) {
-            element.style.display='block';
-        }
-        else {
-            element.style.display='none';
-        }
-    }
-</script>
-
-<script type="text/javascript">
-    function showBio() {
-        element = document.getElementById("tabbio");
-        tbio = document.getElementById("tbio");
-        if (tbio.checked) {
-            element.style.display='block';
-        }
-        else {
-            element.style.display='none';
-        }
-    }
-</script>
-
-<script type="text/javascript">
-    function showOtro() {
-        element = document.getElementById("tabotro");
-        totro = document.getElementById("totro");
-        if (totro.checked) {
-            element.style.display='block';
-        }
-        else {
-            element.style.display='none';
-        }
-    }
-</script>
-
-
 </head>

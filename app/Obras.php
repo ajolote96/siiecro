@@ -36,22 +36,18 @@ class Obras extends Model
         'cultura'
     ];
 
+    public $incrementing = false;
 
-public function scopeId($query, $id)
-{
-    if ($id)
-        return $query->where('id', 'LIKE', "%$id%");
-}
 
-/*public function scopeId($query, $id)
-{
-    if ($id_de_obras)
-        return $query->where('id_de_obras', 'LIKE', "%$id_de_obras%");
-}*/
-public function analisis()
+    public function scopeId($query, $id)
+    {
+        if ($id)
+            return $query->where('id', 'LIKE', "%$id%");
+    }
+
+    public function analisis()
     {
         return $this->hasMany('App\AnalisisG', 'id_obra');
     }
 
-public $incrementing = false;
 }
