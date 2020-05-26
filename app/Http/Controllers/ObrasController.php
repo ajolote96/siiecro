@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\AniosTemporada;
 use App\AñodeTemporadas;
 use App\Obras;
 use App\AnalisisG;
+use App\TemporadasTrabajo;
 use Illuminate\Http\Request;
 
 class ObrasController extends Controller
@@ -142,13 +144,17 @@ class ObrasController extends Controller
         $obra->tipo_bien_cultu = $request->tipobotro === null ? $request->input('tipo_bien_cultu') : $request->input('tipobotro');
         $obra->lugar_proce_ori = $request->input('lugar_proce_ori');
         $obra->lugar_proce_act = $request->input('lugar_proce_act');
-        $obra->año_trabajo_obra = $request->input('año_trabajo_obra');
+        //$obra->año_trabajo_obra = $request->input('año_trabajo_obra');
         $obra->fecha_de_entrada = $request->input('fecha_de_entrada');
-        dd($obra, $request->all());
-        if ($obra->save()) {
-            $anioTrabajo = new AñodeTemporadas();
 
-            //here we need to store año de temporada de trabajo temporadaTrabajo
+        if ($obra->save()) {
+            TemporadasTrabajo::create(['obra_id' => $obra->id, 'temporada_trabajo' => $request->input('temporada_trabajo')]);
+            for ($counter = 1; $counter < 5; $counter++) {
+                if ($request->has("anio{$counter}")) {
+                    AniosTemporada::create(['obra_id' => $obra->id, 'anio_temporada_trabajo' => $request->get("anio{$counter}")]);
+                }
+                break;//This is not the best approach, but will work.
+            }
         }
 
         return redirect()->route('Obras.index')->with('success','Obra Creada Exitosamente.');

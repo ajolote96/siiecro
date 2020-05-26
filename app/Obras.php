@@ -36,9 +36,6 @@ class Obras extends Model
         'cultura'
     ];
 
-    public $incrementing = false;
-
-
     public function scopeId($query, $id)
     {
         if ($id)
