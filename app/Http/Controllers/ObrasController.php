@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use DB;
 use App\AniosTemporada;
 use App\AñodeTemporadas;
 use App\Obras;
@@ -62,13 +63,10 @@ class ObrasController extends Controller
 
     public function index(Request $request)
     {
-        $id = $request->get('id');
-        $Obras = Obras::orderBy('id', 'DESC')
-        ->id($id)
-        ->paginate(5);
-
+        $id = $request->get('busqueda');
+        $Obras = Obras::where('titulo_obra','like',"%$id%")->paginate(10);
         return view('obras.index',compact('Obras'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
+            ->with('i', (request()->input('page', 1) - 1) * 10);
     }
 
     /**
@@ -148,13 +146,26 @@ class ObrasController extends Controller
         $obra->fecha_de_entrada = $request->input('fecha_de_entrada');
 
         if ($obra->save()) {
-            TemporadasTrabajo::create(['obra_id' => $obra->id, 'temporada_trabajo' => $request->input('temporada_trabajo')]);
-            for ($counter = 1; $counter < 5; $counter++) {
+
+            for ($counters=0; $counters < 7 ; $counters++) { 
+                $obtener_id = Obras::latest('id')->first();
+                if ($request->has("temporada_trabajo{$counters}")) {
+                    TemporadasTrabajo::create(['obra_id' => $obra->id, 'temporada_trabajo' => $request->get("temporada_trabajo{$counters}")]);
+                }else{
+                    break;
+                }
+            }
+            
+            
+            for ($counter = 0; $counter < 7; $counter++) {
                 if ($request->has("anio{$counter}")) {
                     AniosTemporada::create(['obra_id' => $obra->id, 'anio_temporada_trabajo' => $request->get("anio{$counter}")]);
-                }
+                }else{
+
                 break;//This is not the best approach, but will work.
             }
+        }
+            
         }
 
         return redirect()->route('Obras.index')->with('success','Obra Creada Exitosamente.');
@@ -165,10 +176,22 @@ class ObrasController extends Controller
      *
      * @param  \App\Obras  $obras
      */
-    public function show($id)
+    public function show($ido)
     {
-        $obra = Obras::findOrFail($id);
-        return view('Obras.show', compact('obra'));
+        $obra = DB::table('obras')->where('obras.id', $ido)
+        ->leftjoin('anio_temporada', 'obras.id', '=' , 'anio_temporada.obra_id')
+        ->select('obras.*', 'anio_temporada.anio_temporada_trabajo')
+        ->get();
+
+        $tempo = DB::table('temporada_trabajo')->where('obra_id', $ido)
+        ->select('temporada_trabajo.temporada_trabajo')
+        ->get();
+
+        $obras = $obra;
+        
+        //$anio = AniosTemporada::where('obra_id', $obra->id)->join('anio_temporada_trabajo');
+        //dd($obras);
+        return view('Obras.show', compact('obras', 'tempo'));
     }
 
     /**

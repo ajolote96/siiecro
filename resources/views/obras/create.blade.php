@@ -37,7 +37,7 @@
             <form action="{{ route('Obras.index') }}" method="POST" class="form-inline text-left" >
                 @csrf
                 <BR>
-                <div id="tabla">
+                <div id="tabla" align="center">
                     <table style="width: 65%" border="0" align="center">
                         <tr ><th colspan="2" style="text-align:center; background-color: #7C858C; color:white;"><h3>Datos Generales</h3></th></tr>
                         @permission('Captura_Registro_Avanzada_2')
@@ -55,7 +55,7 @@
                         <tr id="autor">
                             <td style="font-size:25px;">Autor:</td>
                             <td>
-                                <input type="text" class="form-control"  name="autor" placeholder="Autor" value="{{ old('autor') }}" style=" width:450px; font-size:18px; ">
+                                <input type="text" class="form-control"  name="autor" placeholder="Autor" value="{{ old('autor') }}" style=" width:550px; font-size:18px; ">
                             </td>
                         </tr>
                         <tr id="cultura">
@@ -228,7 +228,7 @@
                         <tr >
                             <th colspan="5"style="text-align:center;background-color: #7C858C; color:white;"><h3>Información de indentificación</h3></th></tr>
                         <tr>
-                            <td style="font-size:25px;">Forma de Ingreso:</td>
+                            <td style="font-size:25px; width:550px;">Forma de Ingreso:</td>
                             <td style="font-size:25px;">
                                 <select type="text" class="input-group-addon"  name="forma_ingreso" placeholder="Forma de Ingreso" value="{{ old('forma_ingreso') }}" style="width:550px; font-size:18px;">
                                     <option value="" >Selecciona una opción</option>
@@ -291,13 +291,21 @@
                         @endpermission
                         <tr>
                             <td style="font-size:25px;">Año de Temporada de Trabajo:</td>
-                            <td id="inputaños" ><input type="text" class="form-control" placeholder="Año de Temporada de Trabajo" name="año_trabajo_obra" value="{{ old('año_trabajo_obra') }}" style="width:350px; font-size:18px;">
+                            <td id="inputaños" >
+                              <input type="text" class="form-control" placeholder="Año de Temporada de Trabajo" name="anio0" value="{{ old('anio0') }}" style="width:450px; font-size:18px;">
+
                                 <input type="button" id="otroaño" name="otroaño" value="Agregar más" onclick="javascript:masañostemp()">
+
                             </td>
                         </tr>
                         <tr>
                             <td style="font-size:25px;">Temporada de Trabajo:</td>
-                            <td style="font-size:25px;"><input type="text" class="form-control" placeholder="Temporada de Trabajo" name="temporada_trabajo" value="{{ old('temporada_trabajo') }}" style="width:550px; font-size:18px;"></td>
+                            <td id="inputtemporadas">
+                              <input type="text" class="form-control" placeholder="Temporada de Trabajo" name="temporada_trabajo0" value="{{ old('temporada_trabajo0') }}" style="width:450px; font-size:18px;">
+
+                            <input type="button" id="otratemporada" name="otratemporada" value="Agregar más" onclick="javascript:mastemporadas()">
+
+                          </td>
                         </tr>
                         <tr>
                             <td style="font-size:25px;">Fecha de Salida:</td>

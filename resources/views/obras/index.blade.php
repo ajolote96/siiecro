@@ -17,7 +17,7 @@
 			Obras Registradas
 			{{ Form::open(['route' => 'Obras.index', 'method' => 'GET', 'class' => 'form-inline pull-right']) }}
 			<div class="form-group">
-				{{ Form::text('id_de_obras', null, ['class' => 'form-control', 'placeholder' => 'ID'])}}
+				{{ Form::text('busqueda', null, ['class' => 'form-control', 'placeholder' => 'ID'])}}
 			</div>
 			<div class="form-group">
 				<button type="submit" class="btn btn-default">
@@ -66,17 +66,23 @@
 		                    <td><a href="{{ route('Obras.editar', $Obra->id) }}" class="btn btn-block btn-warning btn-xs" style="width:70px;">Editar</a></td>
 		                    @endpermission
 		                    
-		                    <td><a href="javascript:document.getElementById('delete-{{ $Obra->id }}').submit()" class="btn btn-block btn-danger btn-xs" onclick="return confirm('¿Seguro que deseas eliminarlo?')" style="width:70px;">Eliminar</a></td>
+		                    <td>
+
+
+							<form id="delete-{{ $Obra->id }}" action="{{ route('Obras.destroy', $Obra->id) }}" method="POST">
+								<a href="javascript:document.getElementById('delete-{{ $Obra->id }}').submit()" class="btn btn-block btn-danger btn-xs" onclick="return confirm('¿Seguro que deseas eliminarlo?')" style="width:70px;">Eliminar</a>
+		                    @method('delete')
+		 					@csrf
+                			</form>
+  							
+
+		                    </td>
 		                    
 		                    <td><a href="{{ route('analisisg.create', $Obra->id) }}" class="btn btn-block btn-success btn-xs" style="width:90px;">Agregar ficha</a></td>
 		                   
 							<td><a target="_blank" href="{{ route('Obras.pdf', $Obra->id) }}" class="btn btn-block btn-success btn-xs" style="width:90px;">Imprimir</a></td>
 
-		                    <form id="delete-{{ $Obra->id }}" action="{{ route('Obras.destroy', $Obra->id) }}" method="GET">
-		                    @method('delete')
-		 					@csrf
-                			</form>
-  							
+		                    
             				</td>
         				</tr> 
           				@endforeach

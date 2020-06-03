@@ -62,8 +62,9 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'entrust-gui.admin' => \Acoustep\EntrustGui\Http\Middleware\AdminAuth::class,
         'entrust-gui.Maestro' => \Acoustep\EntrustGui\Http\Middleware\AdminAuth::class,
-        'role' => \Acoustep\EntrustGui\Http\Middleware\AdminAuth::class,
-        'permission' => \Acoustep\EntrustGui\Http\Middleware\AdminAuth::class,
+        'role' => \Zizaco\Entrust\Middleware\EntrustRole::class,
+        'permission' => \Zizaco\Entrust\Middleware\EntrustPermission::class,
+        'ability' => \Zizaco\Entrust\Middleware\EntrustAbility::class,
     ];
 
     /**

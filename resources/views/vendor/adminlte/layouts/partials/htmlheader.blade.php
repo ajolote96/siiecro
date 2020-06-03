@@ -136,11 +136,22 @@ if (select == 'Arqueológico') {
 
   window.contadoraños = 1
   function masañostemp() {
-      var inputaños = `<br><input type="text" class="form-control"  name="anio${window.contadoraños}" placeholder="Año de Temporada de Trabajo" value="" style=" width:300px; font-size:18px; ">`
+      var inputaños = `<br><input type="text" class="form-control"  name="anio${window.contadoraños}" placeholder="Año de Temporada de Trabajo" value="" style=" width:450px; font-size:18px; ">`
       $('#inputaños').append(inputaños)
       window.contadoraños += 1;
   }
 
+window.contatemporadas = 1
+  function mastemporadas() {
+      var inputtemporadas = `<br><input type="text" class="form-control" placeholder="Temporada de Trabajo" name="temporada_trabajo${window.contatemporadas}" value="" style="width:450px; font-size:18px;">`
+      $('#inputtemporadas').append(inputtemporadas)
+      window.contatemporadas += 1;
+  }
+
+
+
+
+  //-- checkbuttons analisis general --
   function showSoporte() {
       element = document.getElementById("tabso");
       tsoporte = document.getElementById("tsoporte");
@@ -151,7 +162,7 @@ if (select == 'Arqueológico') {
       }
   }
 
-  <!-- checkbuttons analisis general -->
+
   function showSoporte() {
       element = document.getElementById("tabso");
       tsoporte = document.getElementById("tsoporte");

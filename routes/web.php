@@ -13,6 +13,8 @@ Route::get('Mensaje', 'ObrasController@mail', function() {
     
 })->name('mensaje');
 
+Route::get('Perfil/Actualizar', 'UserController@edit');
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -38,7 +40,7 @@ Route::get('index', function () {
 
 Route::get('Obra/Capturar', function () {
     return view('obras.create');
-})->middleware('permission:Bloqueo_de_redireccion_Captura_Registro');
+})->middleware('permission:Captura_de_Solicitud');
 
 Route::get('Obra/{id}/editar', function ($id) {
     $obra = Obras::findOrFail($id);
@@ -50,7 +52,7 @@ Route::get('Obra/{id}/ver', function ($id) {
     return view('obras.show', compact('obra'));
 })->middleware('permission:Consulta_ruta_obras');
 
-Route::get('Obra/{id}', function($id){
+Route::delete('Obra/{id}', function($id){
     $obra = Obras::findOrFail($id);
     $obra->delete();
     return redirect()->route('Obras.index')->with('success','Obra Eliminada.');
