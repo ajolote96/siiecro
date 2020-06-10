@@ -20,14 +20,15 @@ class CreateAnalisisgTable extends Migration
             $table->string('titulo_obra'); /*'Titulo de la Obra/Pieza/Agrupación'*/
             $table->string('temp_obra'); /*'Temporalidad'*/
             $table->string('epoca_obra')->nullable(); /*'Epoca'*/
-            $table->string('tipo_bien_cultu'); /*'Tipo de bien cultural'*/
+            $table->integer('año_de_obra')->nullable(); /*'Año de la obra'*/
+            
             $table->string('tipo_obj_obra'); /*'Tipo de objeto'*/
-            $table->string('lugar_proce_ori'); /*'Lugar de Procedencia Original'*/
-            $table->string('lugar_proce_act'); /*'Lugar de Procedencia Actual'*/
-            $table->string('no_inv_obra'); /*'No. de Inventario'*/
+            
             $table->string('respon_intervencion'); /*'Responsables ECRO'*/
-            $table->string('proyecto_obra');  /*'Proyecto'*/
-            $table->integer('año_proyec_obra'); /*'Año del Proyecto'*/
+            $table->integer('anio_temporada_trabajo'); /*'Año de la temporada de trabajo'*/
+           
+            
+           
             $table->date('fecha_de_inicio')->default(now()); /*'Fecha de entrada'*/
             $table->string('foto')->default('Sin imagen');/*Variable para foto*/
             $table->string('alto')->nullable();//variable para la altura

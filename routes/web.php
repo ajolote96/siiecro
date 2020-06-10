@@ -4,6 +4,8 @@ use Illuminate\Http\Request;
 use App\Obras;
 use App\AnalisisG;
 use App\AnalisisCientifico;
+use App\AniosTemporada;
+use App\TemporadasTrabajo;
 
 Route::get('Soporte', function() {
     return view('soporte.mensaje_soporte');
@@ -42,9 +44,18 @@ Route::get('Obra/Capturar', function () {
     return view('obras.create');
 })->middleware('permission:Captura_de_Solicitud');
 
-Route::get('Obra/{id}/editar', function ($id) {
-    $obra = Obras::findOrFail($id);
-    return view('obras.edit', compact('obra'));
+Route::get('Obra/{id}/editar', function ($ido) {
+    $obra = DB::table('obras')->where('obras.id', $ido)
+        ->leftjoin('anio_temporada', 'obras.id', '=' , 'anio_temporada.obra_id')
+        ->select('obras.*', 'anio_temporada.anio_temporada_trabajo')
+        ->get();
+
+        $tempo = DB::table('temporada_trabajo')->where('obra_id', $ido)
+        ->select('temporada_trabajo.temporada_trabajo')
+        ->get();
+
+        $obras = $obra;
+    return view('obras.edit', compact('obras', 'tempo'));
 })->name('Obras.editar')->middleware('permission:Editar_Registro_Bloqueo_Redireccion');
 
 Route::get('Obra/{id}/ver', function ($id) {
@@ -60,13 +71,12 @@ Route::delete('Obra/{id}', function($id){
 
 Route::get('Obra/{id}/Pdf', function ($id){
     $obra = Obras::findOrFail($id);
-    $pdf = PDF::loadView('Obras.imprimirpdf', compact('obra')  );
+    $pdf = PDF::loadView('obras.imprimirpdf', compact('obra')  );
     return $pdf->stream();
 })->name('Obras.pdf');
 
 Route::put('Obra/{id}', function(Request $request, $id){
     $obra = Obras::findOrFail($id);
-    $obra->id = $request->input('id');
     $obra->titulo_obra = $request->input('titulo_obra');
     $obra->temp_obra = $request->input('temp_obra');
     $obra->caract_descrip = $request->input('caract_descrip');
@@ -85,11 +95,28 @@ Route::put('Obra/{id}', function(Request $request, $id){
     $obra->sector_obra = $request->input('sector_obra');
     $obra->respon_ecro = $request->input('respon_ecro');
     $obra->proyecto_obra = $request->input('proyecto_obra');
-    $obra->año_proyec_obra = $request->input('año_proyec_obra');
     $obra->no_proyec_obra = $request->input('no_proyec_obra');
     $obra->fecha_de_entrada = $request->input('fecha_de_entrada');
     $obra->fecha_de_salida = $request->input('fecha_de_salida');
+    $anio = AniosTemporada::where('obra_id', $request->id)->get();
+    $temporadaT = TemporadasTrabajo::where('obra_id', $request->id)->get();
+    $contador_anios=0;
+    $contador_tempos=0;
 
+    foreach ($anio as $anios) {
+        $anios->anio_temporada_trabajo = $request->input("anio_trabajo{$contador_anios}");  
+        $contador_anios +=1; 
+        $anios->save();     
+    }
+
+    foreach ($temporadaT as $temporadasT) {
+        $temporadasT->temporada_trabajo = $request->input("temporada_de_trabajo{$contador_tempos}");  
+        $contador_tempos +=1; 
+        $temporadasT->save();     
+    }
+
+    //dd($anio);
+    //$anios->save();
     $obra->save();
     return redirect()->route('Obras.index')->with('success','Obra Editada.');
 })->name('Obras.actualizar');
@@ -105,18 +132,18 @@ Route::get('AnalisisCientifico', function (Request $request) {
         ->paginate(5);
         return view('analisisg.index',compact('Analisisg'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
-})->name('analisisg.index')->middleware('');
+})->name('analisisg.index');
 
 Route::get('AnalisisCientifico/{id}/create', function ($id) {
 
         $obra = Obras::findOrFail($id);
     return view('analisisg.create', compact('obra'));
-})->name('analisisg.create')->middleware('permission:');
+})->name('analisisg.create');
 
 Route::get('AnalisisCientifico/{id_general}/editar',  function ($id_general) {
     $analisisg = AnalisisG::findOrFail($id_general);
         return view('analisisg.edit', compact('analisisg'));
-})->name('analisisg.editar')->middleware('');
+})->name('analisisg.editar');
 
 Route::get('AnalisisCientifico/{id}', function($id){
     $analisisg = AnalisisG::findOrFail($id_general);
@@ -128,7 +155,7 @@ Route::get('AnalisisCientifico/{id}', function($id){
 Route::put('AnalisisCientifico/{id_general}/editar', 'AnalisisGController@update', function(Request $request, $id_general){
 })->name('analisisg.actualizar');
 Route::get('AnalisisCientifico/{id_general}/ver', 'AnalisisGController@show', function(Request $request, $id_general){
-})->name('analisisg.show')->middleware('permission:Consulta_General');
+})->name('analisisg.show');
 
 //Rutas de registro de analisis cientifico
 Route::resource('RegistroCientifico','AnalisisCientificoController');

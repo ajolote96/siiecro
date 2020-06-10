@@ -1,26 +1,26 @@
 <?php
 $con = new mysqli("localhost","root","","siecrodb");
-$sql ="select id , titulo_obra from obras";
+$sql ="select id , sector_obra from obras";
 $res = $con->query($sql);
 ?>
 @extends('adminlte::layouts.app')
 
 @section('htmlheader_title')
-	{{ trans('adminlte_lang::message.home') }}
+  {{ trans('adminlte_lang::message.home') }}
 @endsection
 
 
 @section('main-content')
-	<div class="container-fluid spark-screen">
-		<div class="row">
-			<div class="col-md-8 col-md-offset-2">
-				<div class="panel panel-default">
-					<div class="panel-heading">Inicio</div>
+  <div class="container-fluid spark-screen">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <div class="panel panel-default">
+          <div class="panel-heading">Inicio</div>
 
-					<div class="panel-body">
-						<strong> Bienvenido {{ Auth::user()->name }}</strong>
+          <div class="panel-body">
+            <strong> Bienvenido {{ Auth::user()->name }}</strong>
             <br><br>
-						 	<div class="box box-danger">
+              <div class="box box-danger">
             <div class="box-header with-border">
               <h3 class="box-title">Grafica Pastel</h3>
 
@@ -30,7 +30,8 @@ $res = $con->query($sql);
             </div>
             <div class="Chart">
               <html>
-  <head>
+  
+  <head>  
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
       google.charts.load("current", {packages:["corechart"]});
@@ -38,10 +39,10 @@ $res = $con->query($sql);
       function drawChart() {
        
      var data = google.visualization.arrayToDataTable([
-          ['ID', 'Titulo de obra'],
+          ['ID', 'Sector de la obra'],
           <?php
           while($file = $res->fetch_assoc()){
-            echo "['".$file["titulo_obra"]."',".$file["id"]."],";
+            echo "['".$file["sector_obra"]."',".$file["id"]."],";
           }
   ?>
      ]);
@@ -55,17 +56,17 @@ $res = $con->query($sql);
     </script>
   </head>
   <body>
-    <div id="donutchart" style="width: 900px; height: 500px;"></div>
+    <div id="donutchart" style="width: 750px; height: 500px;"></div>
   </body>
 </html>
             </div>
             <!-- /.box-body -->
           </div>
           <!-- /.box -->
-						 
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+             
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 @endsection

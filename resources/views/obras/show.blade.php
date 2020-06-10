@@ -186,9 +186,9 @@
 </tr>
 @endpermission
 @permission('Consulta_General_Basica','Consulta_General_Avanzada_2')
-<tr>
- @foreach ($obras as $anio_de_trabajo)
 
+ @foreach ($obras as $anio_de_trabajo)
+<tr>
 <td style="font-size:25px;">Año de Temporada de Trabajo:</td>
   <td style="font-size:25px; width:550px"><input type="text" readonly class="form-control" placeholder="Año de Temporada de Trabajo" name="año_trabajo_obra" value="{{ $anio_de_trabajo->anio_temporada_trabajo }}" style="width:550px; font-size:18px;"></td>
 </tr>
@@ -196,7 +196,7 @@
 @endforeach
 @foreach ($tempo as $temporadas)
 <td style="font-size:25px;">Temporada de trabajo:</td>
-  <td style="font-size:25px; width:550px"><input type="text" readonly class="form-control" placeholder="Año de Temporada de Trabajo" name="Temporada de trabajo" value="{{ $temporadas->temporada_trabajo }}" style="width:550px; font-size:18px;"></td>
+  <td style="font-size:25px; width:550px"><input type="text" readonly class="form-control" placeholder="Año de Temporada de Trabajo" name="temporada_de_trabajo" value="{{ $temporadas->temporada_trabajo }}" style="width:550px; font-size:18px;"></td>
 </tr>
 @endforeach
 @endpermission

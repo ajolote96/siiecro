@@ -42,6 +42,7 @@ class CreateObrasTable extends Migration
             $table->date('fecha_de_entrada')->default(now()); /*'Fecha de entrada'*/
             $table->date('fecha_de_salida')->nullable(); /*'Fecha de salida'*/
             $table->timestamps();
+            
 
             $table->foreign('trabajo_obra')->references('id_año_temporada_de_trabajo')->on('añodetemporada');
 

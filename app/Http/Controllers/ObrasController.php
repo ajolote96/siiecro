@@ -216,7 +216,7 @@ class ObrasController extends Controller
     {
 
         $request->validate([
-            'id' => 'required',
+            'id',
             'titulo_obra' => 'required',
             'temp_obra' => 'required',
             'caract_descrip' => 'required',
@@ -241,8 +241,11 @@ class ObrasController extends Controller
             'fecha_de_salida',
 
         ]);
-
+        
+        
         $Obras->update($request->all());
+
+        
 
         return redirect()->route('Obras.index')
                         ->with('success','Obras Actualizadas');
