@@ -106,13 +106,33 @@ Route::put('Obra/{id}', function(Request $request, $id){
     foreach ($anio as $anios) {
         $anios->anio_temporada_trabajo = $request->input("anio_trabajo{$contador_anios}");  
         $contador_anios +=1; 
-        $anios->save();     
+        $anios->save();   
+
+        if ($request->has('anio' . $contador_anios)) {
+            AniosTemporada::firstOrCreate(
+                [
+                    'obra_id' => $obra->id,
+                    'anio_temporada_trabajo' => $request->input('anio'. $contador_anios)
+                ]
+            );
+            // oooo checa el método updateOrCreate, quizá y te hace las dos chambas https://laravel.com/docs/5.8/eloquent#other-creation-methods
+        }  
     }
 
     foreach ($temporadaT as $temporadasT) {
         $temporadasT->temporada_trabajo = $request->input("temporada_de_trabajo{$contador_tempos}");  
         $contador_tempos +=1; 
-        $temporadasT->save();     
+        $temporadasT->save(); 
+
+        if ($request->has('temporada_trabajo' . $contador_tempos)) {
+            TemporadasTrabajo::firstOrCreate(
+                [
+                    'obra_id' => $obra->id,
+                    'temporada_trabajo' => $request->input('temporada_trabajo'. $contador_tempos)
+                ]
+            );
+            // oooo checa el método updateOrCreate, quizá y te hace las dos chambas https://laravel.com/docs/5.8/eloquent#other-creation-methods
+        }      
     }
 
     //dd($anio);

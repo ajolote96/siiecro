@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\AnalisisG;
 use App\Obras;
+use App\SoportesSolicitud;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 
@@ -53,18 +54,12 @@ class AnalisisGController extends Controller
             'id_general',
             'id_obra',
             'id_de_obra',
-            'titulo_obra' => 'required',
-            'temp_obra' => 'required',
-            'epoca_obra' => 'required',
-            'tipo_bien_cultu' => 'required',
-            'tipo_obj_obra' => 'required',
-            'lugar_proce_ori' => 'required',
-            'lugar_proce_act' => 'required',
-            'no_inv_obra' => 'required',
-            'respon_intervencion' => 'required',
-            'proyecto_obra' => 'required',
-            'año_proyec_obra' => 'required',
-            'fecha_de_inicio' => 'required',
+            'titulo_obra',
+            'temp_obra',
+            'epoca_obra',
+            'tipo_obj_obra',
+            'respon_intervencion',
+            'fecha_de_inicio',
             'foto',
             'alto',
             'ancho',    
@@ -75,6 +70,7 @@ class AnalisisGController extends Controller
         ]);
 
         $analisisg = (new AnalisisG)->fill($request->all());
+        
         if ($request->hasFile('foto')) {
             //$analisisg->foto = $request->file('foto')->store('public');
 
@@ -87,7 +83,21 @@ class AnalisisGController extends Controller
         
             
         
-        $analisisg->save();  
+        if ($analisisg->save()) {
+            for ($counters=0; $counters < 7 ; $counters++) { 
+                $obtener_id = AnalisisG::latest('id_general')->first();
+                if ($request->has("Smuestra{$counters}")) {
+                    SoportesSolicitud::create(['general_id' => $analisisg->id_general, 'soporte_muestra' => $request->get("Smuestra{$counters}"),'soporte_nomenclatura' => $request->get("Snomenclatura{$counters}"),
+                        'soporte_inf_requerida' => $request->get("Sinf_requerida{$counters}"),
+                        'soporte_des_muestra' => $request->get("Sdes_muestra{$counters}"),
+                        'soporte_ubicacion' => $request->get("Subicacion{$counters}"),
+                        'soporte_responsable' => $request->get("Sresponsable{$counters}"),
+                        'soporte_identificacion_muestra'=> $request->get("Siden_muestra{$counters}")]);
+                }else{
+                    break;
+                }
+            }
+        }  
    
        return redirect()->route('analisisg.index')
                         ->with('success','Ficha Creada Exitosamente.');

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSoporteSolucitudTable extends Migration
+class CreateSoporteSolicitudTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateSoporteSolucitudTable extends Migration
      */
     public function up()
     {
-        Schema::create('soporte_solucitud', function (Blueprint $table) {
+        Schema::create('soporte_solicitud', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('general_id'); // Para vincularlo con la tabla analisig (solicitud de analisis cientifico)
             $table->string('soporte_muestra'); 
@@ -34,6 +34,6 @@ class CreateSoporteSolucitudTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('soporte_solucitud');
+        Schema::dropIfExists('soporte_solicitud');
     }
 }

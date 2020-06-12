@@ -278,23 +278,35 @@ $contador_anio = 0;
  @foreach ($obras as $anio_de_trabajo)
 <tr>
 <td style="font-size:25px;">Año de Temporada de Trabajo:</td>
-  <td style="font-size:25px; width:550px"><input type="text"  class="form-control" placeholder="Año de Temporada de Trabajo" name="anio_trabajo{{$contador_anio}}" value="{{ $anio_de_trabajo->anio_temporada_trabajo }}" style="width:550px; font-size:18px;"></td>
-</tr>
+  <td style="width:550px"><input type="text"  class="form-control" placeholder="Año de Temporada de Trabajo" name="anio_trabajo{{$contador_anio}}" value="{{ $anio_de_trabajo->anio_temporada_trabajo }}" style="width:450px; font-size:18px;">
+
 <?php
   $contador_anio +=1;
 ?>
 @endforeach
+<input type="button" id="otroaño" name="otroaño" value="Agregar más" onclick="javascript:masañostemp()"></td>
+</tr>
+<tr>
+<td></td>
+<td id="inputaños" ></td>
+</tr>
+<br><br>
 @foreach ($tempo as $temporadas)
 <tr>
 <td style="font-size:25px;">Temporada de trabajo:</td>
-  <td style="font-size:25px; width:550px"><input type="text"  class="form-control" name="temporada_de_trabajo{{$contador_temporada}}" placeholder="Año de Temporada de Trabajo"  value="{{ $temporadas->temporada_trabajo }}" style="width:550px; font-size:18px;"></td>
+  <td style=" width:550px"><input type="text"  class="form-control" name="temporada_de_trabajo{{$contador_temporada}}" placeholder="Año de Temporada de Trabajo"  value="{{ $temporadas->temporada_trabajo }}" style="width:450px; font-size:18px;">
 
 <?php
   $contador_temporada +=1;
 ?>
 
-</tr>
+
 @endforeach
+<input type="button" id="otratemporada" name="otratemporada" value="Agregar más" onclick="javascript:mastemporadas()"></td></tr>
+<tr>
+  <td></td>
+  <td id="inputtemporadas"></td>
+</tr>
 @endpermission
 @permission(['Edicion_Registro_Avanzada_1','Edicion_Registro_Avanzada_2'])
 <tr>

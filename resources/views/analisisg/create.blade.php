@@ -49,40 +49,17 @@
                                 <label for="epoca_obra" class="input-group-addon">Epoca de la obra</label>
                                 <input type="text" name="epoca_obra" class="form-control"  value="{{ $obra->epoca_obra }}" style="width:200px" readonly>
                             </div>
-                            <div class="input-group ">
-                                <label for="tipo_bien_cultu" class="input-group-addon">Tipo de bien cultural</label>
-                                <input type="text" name="tipo_bien_cultu" class="form-control"  value="{{ $obra->tipo_bien_cultu }}" style="width:200px" readonly>
-                            </div>
                             <div class="input-group">
                                 <label for="tipo_obj_obra" class="input-group-addon">Tipo de objeto de la obra</label>
                                 <input type="text" name="tipo_obj_obra" class="form-control"  value="{{$obra->tipo_obj_obra }}" style="width:200px" readonly>
                             </div>
                         </div><br><br>
-                        <div class="form-group">                            
-                            <div class="input-group">
-                                <label for="lugar_proce_ori" class="input-group-addon">Lugar de procedencia original</label>
-                                <input type="text" class="form-control"  name="lugar_proce_ori"  value="{{ $obra->lugar_proce_ori }}" style="width:200px"readonly>
-                            </div>
-                            <div class="input-group">
-                                <label for="lugar_proce_act" class="input-group-addon">Lugar de procedencia actual</label>
-                                <input type="text" class="form-control"  name="lugar_proce_act"  value="{{ $obra->lugar_proce_act }}" style="width:200px" readonly>
-                            </div>
-                            <div class="input-group">
-                        	<label for="no_inv_obra" class="input-group-addon">Numero de inventario de la obra</label>
-                        	<input type="text" class="form-control"  name="no_inv_obra"  value="{{ $obra->no_inv_obra }}" style="width:200px" readonly>
-                    	</div>
-                        </div><br><br>
+                        
                         
                     	<div class="form-group">
                     
-                    <div class="input-group">
-                        <label for="proyecto_obra" class="input-group-addon">Proyecto de la obra</label>
-                        <input type="text" class="form-control"  name="proyecto_obra"  value="{{ $obra->proyecto_obra }}" style="width:200px" readonly>
-                    </div>
-                    <div class="input-group">
-                        <label for="año_trabajo_obra" class="input-group-addon">Año de proyecto de la obra</label>
-                        <input type="text" class="form-control"  name="año_proyec_obra" value="{{$obra->año_trabajo_obra }}" style="width:200px" readonly>
-                    </div>
+                    
+                    
                     <div class="input-group">
                         <label for="respon_intervencion" class="input-group-addon">Responsable de la Intervencion</label>
                         <input type="text" class="form-control"  name="respon_intervencion"  value="{{ old('respon_intervencion') }}" style="width:200px">
@@ -163,38 +140,49 @@
                         </tbody>
                 </table>            
                 <div class="input-group" id="tabso" style="display: none;">
+                    <div class="input-group" id="inputsoporte" >
                     <table class="table table-bordered" background-color: red;><strong>I.SOPORTE</strong> 
                         <thead>
                             <tr align="center">
-                                <th style="width:300px">Número de muestra </th>
+                                <th style="background-color: #7C858C; color:white; width:300px">Número de muestra </th>
                                 <th style="width:300px">Nomenclatura</th>
                                 <th style="width:300px">Información requerida</th>
                                 <th style="width:300px">Descripcion de la muestra</th>
                             </tr>
                              <tbody>
                             <tr >
-                                <td><input type="text" name="Smuestra" style="width:300px"></td>
-                                <td><input type="text" name="Snomenclatura" style="width:300px"></td>
-                                <td><input type="text" name="Sinf_requerida" style="width:300px"></td>
-                                <td><input type="text" name="Sdes_muestra" style="width:300px"></td>
+                                <td><input type="text" name="Smuestra0" style="width:300px"></td>
+                                <td><input type="text" name="Snomenclatura0" style="width:300px"></td>
+                                <td><input type="text" name="Sinf_requerida0" style="width:300px"></td>
+                                <td><input type="text" name="Sdes_muestra0" style="width:300px"></td>
                             </tr>
                         </tbody>
                             <tr>
                                 <th style="width:300px">Ubicación</th>
-                                <th style="width:300px">Motivo</th>
                                 <th style="width:300px">Responsable</th>
                                 <th style="width:300px">No. de indentificacion</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td><input type="text" name="Subicacion" style="width:300px"></td>
-                                <td><input type="text" name="Smotivo" style="width:300px"></td>
-                                <td><input type="text" name="Sresponsable" style="width:300px"></td>
-                                <td><input type="text" name="Siden_muestra" style="width:300px"></td>
+                                <td><input type="text" name="Subicacion0" style="width:300px"></td>
+                                <td><input type="text" name="Sresponsable0" style="width:300px"></td>
+                                <td><input type="text" name="Siden_muestra0" style="width:300px"></td>
+                                
+
                             </tr>
+
+                    
+
                         </tbody>
+                        
+
                     </table>
+                    </div>
+                    <div align="center">
+                    <input type="button" id="otrosoporte" name="otrosoporte" class="btn-sm"  value="Agregar más" onclick="javascript:massoporte()">
+                    <br><br>
+                </div>
                 </div>
                 <div class="input-group" id="tabbase" style="display: none;">
                     <table class="table table-bordered"><strong>II.BASE DE PREPARACIóN</strong> 

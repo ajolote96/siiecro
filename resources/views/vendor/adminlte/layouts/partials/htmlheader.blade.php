@@ -148,6 +148,49 @@ window.contatemporadas = 1
       window.contatemporadas += 1;
   }
 
+  window.contasoporte = 1
+  function massoporte() {
+      var inputsoporte = `<table class="table table-bordered"  background-color: red;><strong>I.SOPORTE</strong> 
+                        <thead>
+                            <tr align="center">
+                                <th style="width:300px">Número de muestra </th>
+                                <th style="width:300px">Nomenclatura</th>
+                                <th style="width:300px">Información requerida</th>
+                                <th style="width:300px">Descripcion de la muestra</th>
+                            </tr>
+                             <tbody>
+                            <tr >
+                                <td><input type="text" name="Smuestra${window.contasoporte}" style="width:300px"></td>
+                                <td><input type="text" name="Snomenclatura${window.contasoporte}" style="width:300px"></td>
+                                <td><input type="text" name="Sinf_requerida${window.contasoporte}" style="width:300px"></td>
+                                <td><input type="text" name="Sdes_muestra${window.contasoporte}" style="width:300px"></td>
+                            </tr>
+                        </tbody>
+                            <tr>
+                                <th style="width:300px">Ubicación</th>
+                                <th style="width:300px">Responsable</th>
+                                <th style="width:300px">No. de indentificacion</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><input type="text" name="Subicacion${window.contasoporte}" style="width:300px"></td>
+                                <td><input type="text" name="Sresponsable${window.contasoporte}" style="width:300px"></td>
+                                <td><input type="text" name="Siden_muestra${window.contasoporte}" style="width:300px"></td>
+                                
+
+                            </tr>
+
+                    
+
+                        </tbody>
+                        
+
+                    </table>`
+      $('#inputsoporte').append(inputsoporte)
+      window.contasoporte += 1;
+  }
+
 
 
 
