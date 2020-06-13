@@ -294,7 +294,7 @@
                             <td id="inputaños" >
                               <input type="text" class="form-control" placeholder="Año de Temporada de Trabajo" name="anio0" value="{{ old('anio0') }}" style="width:450px; font-size:18px;">
 
-                                <input type="button" id="otroaño" name="otroaño" value="Agregar más" onclick="javascript:masañostemp()">
+                                <input type="button" id="otroaño" class="btn-sm" name="otroaño" value="Agregar más" onclick="javascript:masañostemp()">
 
                             </td>
                         </tr>
@@ -303,7 +303,7 @@
                             <td id="inputtemporadas">
                               <input type="text" class="form-control" placeholder="Temporada de Trabajo" name="temporada_trabajo0" value="{{ old('temporada_trabajo0') }}" style="width:450px; font-size:18px;">
 
-                            <input type="button" id="otratemporada" name="otratemporada" value="Agregar más" onclick="javascript:mastemporadas()">
+                            <input type="button" id="otratemporada" class="btn-sm" name="otratemporada" value="Agregar más" onclick="javascript:mastemporadas()">
 
                           </td>
                         </tr>

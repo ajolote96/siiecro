@@ -1,4 +1,4 @@
-@extends('adminlte::layouts.app')
+	@extends('adminlte::layouts.app')
  
 @section('main-content')
 
@@ -63,10 +63,16 @@
 				            <td>
 				            	<td><a href="{{ route('analisisg.show', $analisg->id_general) }}" class="btn btn-block btn-info btn-xs" style="width:70px;">Ver mas</a></td>
 				            	
-				            	<td><a href="{{ route('analisisg.editar', $analisg->id_general) }}" class="btn btn-block btn-warning btn-xs" style="width:70px;">Editar</a></td>
+				            	<td><a href="{{ route('analisisg.editar', $analisg->id_general) }}" class="btn btn-block btn-warning btn-xs" style="width:70px;">Editar</a>
+				            		
+				            	</td>
 				            	
 				            	
-				            	<td><a href="javascript:document.getElementById('delete-{{ $analisg->id_general }}').submit()" class="btn btn-block btn-danger btn-xs" onclick="return confirm('¿Seguro que deseas eliminarlo?')" style="width:70px;">Eliminar</a></td>
+				            	<td><form id="delete-{{ $analisg->id_general }}" action="{{ route('analisisg.destroy', $analisg->id_general) }}" method="POST">
+				            			<a href="javascript:document.getElementById('delete-{{ $analisg->id_general }}').submit()" class="btn btn-block btn-danger btn-xs" onclick="return confirm('¿Seguro que deseas eliminarlo?')" style="width:70px;">Eliminar</a>
+		                    	@method('delete')
+		 						@csrf
+                			</form></td>
 				            	
 				            	<td><a href="{{ route('registro.create', $analisg->id_general) }}" class="btn btn-block btn-success btn-xs" >Agregar registro</a></td>
 				            	

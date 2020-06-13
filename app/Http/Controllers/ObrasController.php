@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use DB;
 use App\AniosTemporada;
-use App\AñodeTemporadas;
 use App\Obras;
 use App\AnalisisG;
 use App\TemporadasTrabajo;

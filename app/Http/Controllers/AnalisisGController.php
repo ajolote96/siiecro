@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use DB;
 use App\AnalisisG;
 use App\Obras;
 use App\SoportesSolicitud;
@@ -111,8 +112,15 @@ class AnalisisGController extends Controller
      */
     public function show(AnalisisG $analisisG, $id_general)
     {
-        $analisisg = AnalisisG::findOrFail($id_general);
-        return view('analisisg.show', compact('analisisg'));
+        $analisisg = DB::table('analisisg')->where('id_general', $id_general)
+        ->join('soporte_solicitud', 'analisisg.id_general', '=', 'soporte_solicitud.general_id')
+        ->select('analisisg.*', 'soporte_solicitud.*')
+        ->get();
+
+        $analisisgs = $analisisg;
+
+
+        return view('analisisg.show', compact('analisisgs'));
     }
 
     /**
@@ -123,8 +131,13 @@ class AnalisisGController extends Controller
      */
     public function edit(AnalisisG $analisisG, $id_general)
     {
-        $analisisg = AnalisisG::findOrFail($id_general);
-        return view('analisisg.edit', compact('analisisg'));
+        $analisisg = DB::table('analisisg')->where('id_general', $id_general)
+        ->join('soporte_solicitud', 'analisisg.id_general', '=', 'soporte_solicitud.general_id')
+        ->select('analisisg.*', 'soporte_solicitud.*')
+        ->get();
+
+        $analisisgs = $analisisg;
+        return view('analisisg.edit', compact('analisisgs'));
     }
 
     /**
@@ -142,19 +155,47 @@ class AnalisisGController extends Controller
         $analisisg->titulo_obra = $request->input('titulo_obra');
         $analisisg->temp_obra = $request->input('temp_obra');
         $analisisg->epoca_obra = $request->input('epoca_obra');
-        $analisisg->tipo_bien_cultu = $request->input('tipo_bien_cultu');
         $analisisg->tipo_obj_obra = $request->input('tipo_obj_obra');
-        $analisisg->lugar_proce_ori = $request->input('lugar_proce_ori');
-        $analisisg->lugar_proce_act = $request->input('lugar_proce_act');
-        $analisisg->no_inv_obra = $request->input('no_inv_obra');
         $analisisg->respon_intervencion = $request->input('respon_intervencion');
-        $analisisg->proyecto_obra = $request->input('proyecto_obra');
-        $analisisg->año_proyec_obra = $request->input('año_proyec_obra');
         $analisisg->fecha_de_inicio = $request->input('fecha_de_inicio');
         if ($request->hasFile('foto')) {
         $nombre=$request->file('foto')->getClientOriginalName();
             $request->file('foto')->move('images', $nombre);
             $analisisg->foto = $nombre;
+    }
+
+        $soporte = SoportesSolicitud::where('general_id', $id_general)->get();
+        $contador_soporte = 0;
+        //dd($request->input("Smuestra{$contador_soporte}"));
+        foreach ($soporte as $soportes) {
+        $soportes->soporte_muestra = $request->input("Smuestra_edit{$contador_soporte}");
+        $soportes->soporte_nomenclatura = $request->input("Snomenclatura_edit{$contador_soporte}");  
+        $soportes->soporte_inf_requerida = $request->input("Sinf_requerida_edit{$contador_soporte}");
+        $soportes->soporte_des_muestra = $request->input("Sdes_muestra_edit{$contador_soporte}");
+        $soportes->soporte_ubicacion = $request->input("Subicacion_edit{$contador_soporte}");
+        $soportes->soporte_responsable = $request->input("Sresponsable_edit{$contador_soporte}");
+        $soportes->soporte_identificacion_muestra = $request->input("Siden_muestra_edit{$contador_soporte}");
+        $contador_soporte +=1;
+        $soportes->save();
+
+        if ($request->has('Smuestra' . $contador_soporte)) {
+            SoportesSolicitud::firstOrCreate(
+                [
+                    'general_id' => $analisisg->id_general, 
+                    'soporte_muestra' => $request->input("Smuestra{$contador_soporte}"),
+                    'soporte_nomenclatura' => $request->input("Snomenclatura{$contador_soporte}"),
+                    'soporte_inf_requerida' => $request->input("Sinf_requerida{$contador_soporte}"),
+                    'soporte_des_muestra' => $request->input("Sdes_muestra{$contador_soporte}"),
+                    'soporte_ubicacion' => $request->input("Subicacion{$contador_soporte}"),
+                    'soporte_responsable' => $request->input("Sresponsable{$contador_soporte}"),
+                    'soporte_identificacion_muestra'=> $request->input("Siden_muestra{$contador_soporte}")
+                ]
+            );
+            
+            // oooo checa el método updateOrCreate, quizá y te hace las dos chambas https://laravel.com/docs/5.8/eloquent#other-creation-methods
+        }            
+         
+         
     }
 
     $analisisg->save();

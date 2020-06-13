@@ -160,9 +160,8 @@ Route::get('AnalisisCientifico/{id}/create', function ($id) {
     return view('analisisg.create', compact('obra'));
 })->name('analisisg.create');
 
-Route::get('AnalisisCientifico/{id_general}/editar',  function ($id_general) {
-    $analisisg = AnalisisG::findOrFail($id_general);
-        return view('analisisg.edit', compact('analisisg'));
+Route::get('AnalisisCientifico/{id_general}/editar', 'AnalisisGController@edit', function (Request $request, $id_general) {
+    
 })->name('analisisg.editar');
 
 Route::get('AnalisisCientifico/{id}', function($id){
