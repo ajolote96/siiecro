@@ -1,6 +1,6 @@
 <?php
 $con = new mysqli("localhost","root","","siecrodb");
-$sql ="select id , sector_obra from obras";
+$sql ="SELECT COUNT(sector_obra), sector_obra FROM obras GROUP BY sector_obra";
 $res = $con->query($sql);
 ?>
 @extends('adminlte::layouts.app')
@@ -34,6 +34,7 @@ $res = $con->query($sql);
   <head>  
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
+
       google.charts.load("current", {packages:["corechart"]});
       google.charts.setOnLoadCallback(drawChart);
       function drawChart() {
@@ -42,7 +43,7 @@ $res = $con->query($sql);
           ['ID', 'Sector de la obra'],
           <?php
           while($file = $res->fetch_assoc()){
-            echo "['".$file["sector_obra"]."',".$file["id"]."],";
+            echo "['".$file["sector_obra"]."',".$file["COUNT(sector_obra)"]."],";
           }
   ?>
      ]);

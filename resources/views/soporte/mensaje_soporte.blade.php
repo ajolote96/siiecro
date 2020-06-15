@@ -57,7 +57,7 @@ display:block;
            
                  
                 <label for="names">Nombres *</label>
-                <input type="text" id="name" name="name" class="form-control"required>
+                <input type="text" id="name" name="name" value="{{ Auth::user()->name }}" class="form-control"required>
                 @if ($errors->has('name'))
             <small class="form-text invalid-feedback">{{$errors->first('name')}}</small>
             @endif
@@ -67,7 +67,7 @@ display:block;
 
   
                 <label for="email">Correo electronico *</label>
-                <input type="text" class="form-control" id="email" name="email"required>
+                <input type="text" class="form-control" id="email" value="{{ Auth::user()->email }}" name="email"required>
                 @if ($errors->has('email'))
             <small class="form-text invalid-feedback">{{$errors->first('email')}}</small>
             @endif

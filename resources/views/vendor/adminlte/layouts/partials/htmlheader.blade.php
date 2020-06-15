@@ -4,7 +4,7 @@
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 
     <link rel="stylesheet" href="../../bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
     <link rel="stylesheet" href="../../bower_components/bootstrap/dist/css/bootstrap.min.css">
@@ -153,10 +153,10 @@ window.contatemporadas = 1
       var inputsoporte = `<table class="table table-bordered"  background-color: red;><strong>I.SOPORTE</strong> 
                         <thead>
                             <tr align="center">
-                                <th style="width:300px">Número de muestra </th>
-                                <th style="width:300px">Nomenclatura</th>
-                                <th style="width:300px">Información requerida</th>
-                                <th style="width:300px">Descripcion de la muestra</th>
+                                <th style="background-color: #C65911; color:white; width:300px">Número de muestra </th>
+                                <th style="background-color: #C65911; color:white; width:300px">Nomenclatura</th>
+                                <th style="background-color: #C65911; color:white; width:300px">Información requerida</th>
+                                <th style="background-color: #C65911; color:white; width:300px">Descripcion de la muestra</th>
                             </tr>
                              <tbody>
                             <tr >
@@ -167,9 +167,9 @@ window.contatemporadas = 1
                             </tr>
                         </tbody>
                             <tr>
-                                <th style="width:300px">Ubicación</th>
-                                <th style="width:300px">Responsable</th>
-                                <th style="width:300px">No. de indentificacion</th>
+                                <th style="background-color: #C65911; color:white; width:300px">Ubicación</th>
+                                <th style="background-color: #C65911; color:white; width:300px">Responsable</th>
+                                <th style="background-color: #C65911; color:white; width:300px">No. de indentificacion</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -191,19 +191,99 @@ window.contatemporadas = 1
       window.contasoporte += 1;
   }
 
+  window.contabase = 1
+  function masbase() {
+      var inputbase = `<table class="table table-bordered"  background-color: red;><strong>II.BASE DE PREPARACIóN</strong> 
+                        <thead>
+                            <tr align="center">
+                                <th style="background-color: #FFCC66; color:white; width:300px">Número de muestra </th>
+                                <th style="background-color: #FFCC66; color:white; width:300px">Nomenclatura</th>
+                                <th style="background-color: #FFCC66; color:white; width:300px">Información requerida</th>
+                                <th style="background-color: #FFCC66; color:white; width:300px">Descripcion de la muestra</th>
+                            </tr>
+                             <tbody>
+                            <tr >
+                                <td><input type="text" name="BPmuestra${window.contabase}" style="width:300px"></td>
+                                <td><input type="text" name="BPnomenclatura${window.contabase}" style="width:300px"></td>
+                                <td><input type="text" name="BPinf_requerida${window.contabase}" style="width:300px"></td>
+                                <td><input type="text" name="BPdes_muestra${window.contabase}" style="width:300px"></td>
+                            </tr>
+                        </tbody>
+                            <tr>
+                                <th style="background-color: #FFCC66; color:white; width:300px">Ubicación</th>
+                                <th style="background-color: #FFCC66; color:white; width:300px">Responsable</th>
+                                <th style="background-color: #FFCC66; color:white; width:300px">No. de indentificacion</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><input type="text" name="BPubicacion${window.contabase}" style="width:300px"></td>
+                                <td><input type="text" name="BPresponsable${window.contabase}" style="width:300px"></td>
+                                <td><input type="text" name="BPiden_muestra${window.contabase}" style="width:300px"></td>
+                                
+
+                            </tr>
+
+                    
+
+                        </tbody>
+                        
+
+                    </table>`
+      $('#inputbase').append(inputbase)
+      window.contabase += 1;
+  }
+
+  //ESTRATIGRAFIA
+
+  window.contaestratigrafia = 1
+  function masestratigrafia() {
+      var inputestratigrafia = `<table class="table table-bordered"  background-color: red;><strong>III. ESTRATIGRAFíA</strong> 
+                        <thead>
+                            <tr align="center">
+                                <th style="background-color: #008000; color:white; width:300px">Número de muestra </th>
+                                <th style="background-color: #008000; color:white; width:300px">Nomenclatura</th>
+                                <th style="background-color: #008000; color:white; width:300px">Información requerida</th>
+                                <th style="background-color: #008000; color:white; width:300px">Descripcion de la muestra</th>
+                            </tr>
+                             <tbody>
+                            <tr >
+                                <td><input type="text" name="Emuestra${window.contaestratigrafia}" style="width:300px"></td>
+                                <td><input type="text" name="Enomenclatura${window.contaestratigrafia}" style="width:300px"></td>
+                                <td><input type="text" name="Einf_requerida${window.contaestratigrafia}" style="width:300px"></td>
+                                <td><input type="text" name="Edes_muestra${window.contaestratigrafia}" style="width:300px"></td>
+                            </tr>
+                        </tbody>
+                            <tr>
+                                <th style="background-color: #008000; color:white; width:300px">Ubicación</th>
+                                <th style="background-color: #008000; color:white; width:300px">Responsable</th>
+                                <th style="background-color: #008000; color:white; width:300px">No. de indentificacion</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><input type="text" name="Eubicacion${window.contaestratigrafia}" style="width:300px"></td>
+                                <td><input type="text" name="Eresponsable${window.contaestratigrafia}" style="width:300px"></td>
+                                <td><input type="text" name="Eiden_muestra${window.contaestratigrafia}" style="width:300px"></td>
+                                
+
+                            </tr>
+
+                    
+
+                        </tbody>
+                        
+
+                    </table>`
+      $('#inputestratigrafia').append(inputestratigrafia)
+      window.contaestratigrafia += 1;
+  }
+
 
 
 
   //-- checkbuttons analisis general --
-  function showSoporte() {
-      element = document.getElementById("tabso");
-      tsoporte = document.getElementById("tsoporte");
-      if (tsoporte.checked) {
-          element.style.display='block';
-      } else {
-          element.style.display='none';
-      }
-  }
+  
 
 
   function showSoporte() {

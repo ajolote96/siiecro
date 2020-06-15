@@ -7,8 +7,10 @@
             <p>{{ $message }}</p>
         </div>{{ $Obrasg->first()->id }}
 @endif-->
+
 <?php
           $analisisg = $analisisgs->first();
+
           ?>
 
 <div class="box">
@@ -110,48 +112,21 @@
                     
                     
                 </div><br><br>
-                <!--<table class="table table-bordered"><b>ANALISIS</b><br>
-                    <thead>
-                        <tr>
-                            <th><label><input type="checkbox" name="tsoporte" id="tsoporte" onchange="javascript:showSoporte()"> SOPORTE</label><br></th>
-                            <th><label><input type="checkbox" name="tbase" id="tbase" onchange="javascript:showBase()"> BASE DE PREPAPRACION</label><br></th>
-                            <th><label><input type="checkbox" name="testra" id="testra" onchange="javascript:showEstra()"> ESTRATIGRAFIA</label></th>
-                            <th><label><input type="checkbox" name="trevo" id="trevo" onchange="javascript:showRevo()"> REVOQUE Y ELUCIDO</label></th>
-                            <th><label><input type="checkbox" name="tbol" id="tbol" onchange="javascript:showBol()"> BOL</label></th>
-                            <th><label><input type="checkbox" name="tlame" id="tlami" onchange="javascript:showLami()"> LAMINAS METALICAS</label></th>
-                            <th><label><input type="checkbox" name="tpig" id="tpig" onchange="javascript:showPig()"> PIGMENTOS</label></th>
-                            
-                            
-                            
-                        </tr>
-                    </thead>
-                    <tbody>
-                            <tr>
-                                <td><label><input type="checkbox" name="taglu" id="taglu" onchange="javascript:showAglu()"> AGLUTINANTE</label></td>
-                                <td><label><input type="checkbox" name="trecu" id="trecu" onchange="javascript:showRecu()"> RECUBRIMIENTO</label></td>
-                                <td><label><input type="checkbox" name="tmaso" id="tmaso" onchange="javascript:showMaso()"> MATERIAL ASOCIADO</label></td>
-                                <td><label><input type="checkbox" name="tsal" id="tsal" onchange="javascript:showSal()"> SALES</label></td>
-                                <td><label><input type="checkbox" name="tmagre" id="tmagre" onchange="javascript:showMagre()"> MATERIAL AGREGADO</label></td>
-                                <td><label><input type="checkbox" name="tbio" id="tbio" onchange="javascript:showBio()"> BIODETERIORO</label></td>
-                                <td><label><input type="checkbox" name="totro" id="totro" onchange="javascript:showOtro()"> OTROS</label></td>
-                                </tr>
-                        </tbody>
-                </table>
-                <br><br>   --> 
+                
 
-                @foreach($analisisgs as $soporte)
+                @foreach($soportes as $soporte)
 
                 <div class="input-group" id="tabso" >
-                    <table class="table table-bordered" background-color: red;><strong>SOPORTE</strong> 
+                    <table class="table table-bordered" ><strong>SOPORTE</strong> 
                         <thead>
                             <tr align="center">
-                                <th bgcolor="">Número de muestra</th>
-                                <th>Nomenclatura</th>
-                                <th>Información requerida</th>
-                                <th>Descripcion de la muestra</th>
-                                <th>Ubicación</th>
-                                <th>Responsable</th>
-                                <th>No. de indentificacion</th>
+                                <th style="background-color: #C65911; color:white;">Número de muestra</th>
+                                <th style="background-color: #C65911; color:white;">Nomenclatura</th>
+                                <th style="background-color: #C65911; color:white;">Información requerida</th>
+                                <th style="background-color: #C65911; color:white;">Descripcion de la muestra</th>
+                                <th style="background-color: #C65911; color:white;">Ubicación</th>
+                                <th style="background-color: #C65911; color:white;">Responsable</th>
+                                <th style="background-color: #C65911; color:white;">No. de indentificacion</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -168,8 +143,64 @@
                     </table>
                 </div>
                 @endforeach
-               
-                
+
+               @foreach($baseP as $bases)
+               <div class="input-group" id="tabbase" >
+                    <table class="table table-bordered"><strong>BASE DE PREPARACIÓN</strong> 
+                        <thead>
+                            <tr align="center">
+                                <th style="background-color: #FFCC66; color:white;">Número de muestra</th>
+                                <th style="background-color: #FFCC66; color:white;">Nomenclatura</th>
+                                <th style="background-color: #FFCC66; color:white;">Información requerida</th>
+                                <th style="background-color: #FFCC66; color:white;">Descripcion de la muestra</th>
+                                <th style="background-color: #FFCC66; color:white;">Ubicación</th>
+                                <th style="background-color: #FFCC66; color:white;">Responsable</th>
+                                <th style="background-color: #FFCC66; color:white;">No. de indentificacion</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr align="center">
+                                <td><input type="text" name="BPmuestra" value="{{ $bases->base_muestra}}"></td>
+                                <td><input type="text" name="BPnomenclatura" value="{{ $bases->base_nomenclatura}}"></td>
+                                <td><input type="text" name="BPinf_requerida" value="{{ $bases->base_inf_requerida}}"></td>
+                                <td><input type="text" name="BPdes_muestra" value="{{ $bases->base_des_muestra}}"></td>
+                                <td><input type="text" name="BPubicacion" value="{{ $bases->base_ubicacion}}"></td>
+                                <td><input type="text" name="BPresponsable" value="{{ $bases->base_responsable}}"></td>
+                                <td><input type="text" name="BPiden_muestra" value="{{ $bases->base_identificacion_muestra}}"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                @endforeach
+
+                @foreach($estratigrafia as $estratigrafias)
+               <div class="input-group" id="tabbase" >
+                    <table class="table table-bordered"><strong>ESTRATIGRAFÍA</strong> 
+                        <thead>
+                            <tr align="center">
+                                <th style="background-color: #008000; color:white;">Número de muestra</th>
+                                <th style="background-color: #008000; color:white;">Nomenclatura</th>
+                                <th style="background-color: #008000; color:white;">Información requerida</th>
+                                <th style="background-color: #008000; color:white;">Descripcion de la muestra</th>
+                                <th style="background-color: #008000; color:white;">Ubicación</th>
+                                <th style="background-color: #008000; color:white;">Responsable</th>
+                                <th style="background-color: #008000; color:white;">No. de indentificacion</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr align="center">
+                                <td><input type="text" name="Emuestra" value="{{ $estratigrafias->estratigrafia_muestra}}"></td>
+                                <td><input type="text" name="Enomenclatura" value="{{ $estratigrafias->estratigrafia_nomenclatura}}"></td>
+                                <td><input type="text" name="Einf_requerida" value="{{ $estratigrafias->estratigrafia_inf_requerida}}"></td>
+                                <td><input type="text" name="Edes_muestra" value="{{ $estratigrafias->estratigrafia_des_muestra}}"></td>
+                                <td><input type="text" name="Eubicacion" value="{{ $estratigrafias->estratigrafia_ubicacion}}"></td>
+                                <td><input type="text" name="Eresponsable" value="{{ $estratigrafias->estratigrafia_responsable}}"></td>
+                                <td><input type="text" name="Eiden_muestra" value="{{ $estratigrafias->estratigrafia_identificacion_muestra}}"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                @endforeach                
                 
                 <div class="" align="center">
                         <label for="foto" class="">Foto:</label>

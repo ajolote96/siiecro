@@ -6,6 +6,8 @@ use DB;
 use App\AnalisisG;
 use App\Obras;
 use App\SoportesSolicitud;
+use App\base_solicitud;
+use App\EstratigrafiaSolicitud;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 
@@ -83,19 +85,68 @@ class AnalisisGController extends Controller
         
         
             
-        
+        //dd($request->all());
         if ($analisisg->save()) {
+
+            //Agregar SOPORTE
+
             for ($counters=0; $counters < 7 ; $counters++) { 
                 $obtener_id = AnalisisG::latest('id_general')->first();
-                if ($request->has("Smuestra{$counters}")) {
-                    SoportesSolicitud::create(['general_id' => $analisisg->id_general, 'soporte_muestra' => $request->get("Smuestra{$counters}"),'soporte_nomenclatura' => $request->get("Snomenclatura{$counters}"),
-                        'soporte_inf_requerida' => $request->get("Sinf_requerida{$counters}"),
-                        'soporte_des_muestra' => $request->get("Sdes_muestra{$counters}"),
-                        'soporte_ubicacion' => $request->get("Subicacion{$counters}"),
-                        'soporte_responsable' => $request->get("Sresponsable{$counters}"),
-                        'soporte_identificacion_muestra'=> $request->get("Siden_muestra{$counters}")]);
-                }else{
-                    break;
+                if ($request->get("Smuestra{$counters}") != NULL) {
+
+                    if ($request->has("Smuestra{$counters}")) {
+                        SoportesSolicitud::create([
+                            'general_id' => $analisisg->id_general,
+                            'soporte_muestra' => $request->get("Smuestra{$counters}"),
+                            'soporte_nomenclatura' => $request->get("Snomenclatura{$counters}"),
+                            'soporte_inf_requerida' => $request->get("Sinf_requerida{$counters}"),
+                            'soporte_des_muestra' => $request->get("Sdes_muestra{$counters}"),
+                            'soporte_ubicacion' => $request->get("Subicacion{$counters}"),
+                            'soporte_responsable' => $request->get("Sresponsable{$counters}"),
+                            'soporte_identificacion_muestra'=> $request->get("Siden_muestra{$counters}")]);
+                    }else{
+                        break;
+                    }
+                }
+            }
+
+            //Agregar BASE PREPARACION
+
+             for ($counters=0; $counters < 7 ; $counters++) { 
+                if ($request->get("BPmuestra{$counters}") != NULL) {
+                    if ($request->has("BPmuestra{$counters}")) {
+                        base_solicitud::create([
+                            'general_id' => $analisisg->id_general, 
+                            'base_muestra' => $request->get("BPmuestra{$counters}"),
+                            'base_nomenclatura' => $request->get("BPnomenclatura{$counters}"),
+                            'base_inf_requerida' => $request->get("BPinf_requerida{$counters}"),
+                            'base_des_muestra' => $request->get("BPdes_muestra{$counters}"),
+                            'base_ubicacion' => $request->get("BPubicacion{$counters}"),
+                            'base_responsable' => $request->get("BPresponsable{$counters}"),
+                            'base_identificacion_muestra'=> $request->get("BPiden_muestra{$counters}")]);
+                    }else{
+                        break;
+                    }
+                }
+            }
+
+            //Agregar ESTRATIGRAFIA
+
+            for ($counters=0; $counters < 7 ; $counters++) { 
+                if ($request->get("Emuestra{$counters}") != NULL) {
+                    if ($request->has("Emuestra{$counters}")) {
+                        EstratigrafiaSolicitud::create([
+                            'general_id' => $analisisg->id_general, 
+                            'estratigrafia_muestra' => $request->get("Emuestra{$counters}"),
+                            'estratigrafia_nomenclatura' => $request->get("Enomenclatura{$counters}"),
+                            'estratigrafia_inf_requerida' => $request->get("Einf_requerida{$counters}"),
+                            'estratigrafia_des_muestra' => $request->get("Edes_muestra{$counters}"),
+                            'estratigrafia_ubicacion' => $request->get("Eubicacion{$counters}"),
+                            'estratigrafia_responsable' => $request->get("Eresponsable{$counters}"),
+                            'estratigrafia_identificacion_muestra'=> $request->get("Eiden_muestra{$counters}")]);
+                    }else{
+                        break;
+                    }
                 }
             }
         }  
@@ -112,15 +163,28 @@ class AnalisisGController extends Controller
      */
     public function show(AnalisisG $analisisG, $id_general)
     {
+        
         $analisisg = DB::table('analisisg')->where('id_general', $id_general)
-        ->join('soporte_solicitud', 'analisisg.id_general', '=', 'soporte_solicitud.general_id')
-        ->select('analisisg.*', 'soporte_solicitud.*')
+        ->select('analisisg.*')
         ->get();
+        $soportes = DB::table('soporte_solicitud')->where('general_id', $id_general)
+        ->select('soporte_solicitud.*')
+        ->get();
+        $baseP = DB::table('base_solicituds')->where('general_id', $id_general)
+        ->select('base_solicituds.*')
+        ->get();
+        $estratigrafia = DB::table('estratigrafia_solicitud')->where('general_id', $id_general)
+        ->select('estratigrafia_solicitud.*')
+        ->get();
+        
+        
+
 
         $analisisgs = $analisisg;
 
+        //dd($analisisgs);
 
-        return view('analisisg.show', compact('analisisgs'));
+        return view('analisisg.show', compact('analisisgs','soportes','baseP','estratigrafia'));
     }
 
     /**
@@ -132,12 +196,21 @@ class AnalisisGController extends Controller
     public function edit(AnalisisG $analisisG, $id_general)
     {
         $analisisg = DB::table('analisisg')->where('id_general', $id_general)
-        ->join('soporte_solicitud', 'analisisg.id_general', '=', 'soporte_solicitud.general_id')
-        ->select('analisisg.*', 'soporte_solicitud.*')
+        ->select('analisisg.*')
+        ->get();
+        $soportes = DB::table('soporte_solicitud')->where('general_id', $id_general)
+        ->select('soporte_solicitud.*')
+        ->get();
+        $baseP = DB::table('base_solicituds')->where('general_id', $id_general)
+        ->select('base_solicituds.*')
+        ->get();
+        $estratigrafia = DB::table('estratigrafia_solicitud')->where('general_id', $id_general)
+        ->select('estratigrafia_solicitud.*')
         ->get();
 
         $analisisgs = $analisisg;
-        return view('analisisg.edit', compact('analisisgs'));
+        
+        return view('analisisg.edit', compact('analisisgs','soportes','baseP','estratigrafia'));
     }
 
     /**
@@ -165,8 +238,15 @@ class AnalisisGController extends Controller
     }
 
         $soporte = SoportesSolicitud::where('general_id', $id_general)->get();
+        $baseP = base_solicitud::where('general_id', $id_general)->get();
+        $estratigrafia = EstratigrafiaSolicitud::where('general_id', $id_general)->get();
         $contador_soporte = 0;
+        $contador_base = 0;
+        $contador_estratigrafia =0;
+
         //dd($request->input("Smuestra{$contador_soporte}"));
+
+        //SOPORTE
         foreach ($soporte as $soportes) {
         $soportes->soporte_muestra = $request->input("Smuestra_edit{$contador_soporte}");
         $soportes->soporte_nomenclatura = $request->input("Snomenclatura_edit{$contador_soporte}");  
@@ -191,11 +271,63 @@ class AnalisisGController extends Controller
                     'soporte_identificacion_muestra'=> $request->input("Siden_muestra{$contador_soporte}")
                 ]
             );
-            
-            // oooo checa el método updateOrCreate, quizá y te hace las dos chambas https://laravel.com/docs/5.8/eloquent#other-creation-methods
-        }            
-         
-         
+        }       
+    }
+    // BASE PREPARACION
+        foreach ($baseP as $basesP) {
+        $basesP->base_muestra = $request->input("BPmuestra_edit{$contador_base}");
+        $basesP->base_nomenclatura = $request->input("BPnomenclatura_edit{$contador_base}");  
+        $basesP->base_inf_requerida = $request->input("BPinf_requerida_edit{$contador_base}");
+        $basesP->base_des_muestra = $request->input("BPdes_muestra_edit{$contador_base}");
+        $basesP->base_ubicacion = $request->input("BPubicacion_edit{$contador_base}");
+        $basesP->base_responsable = $request->input("BPresponsable_edit{$contador_base}");
+        $basesP->base_identificacion_muestra = $request->input("BPiden_muestra_edit{$contador_base}");
+        $contador_base +=1;
+        $basesP->save();
+
+        if ($request->has('BPmuestra' . $contador_base)) {
+            base_solicitud::firstOrCreate(
+                [
+                    'general_id' => $analisisg->id_general, 
+                    'base_muestra' => $request->get("BPmuestra{$contador_base}"),
+                    'base_nomenclatura' => $request->get("BPnomenclatura{$contador_base}"),
+                    'base_inf_requerida' => $request->get("BPinf_requerida{$contador_base}"),
+                    'base_des_muestra' => $request->get("BPdes_muestra{$contador_base}"),
+                    'base_ubicacion' => $request->get("BPubicacion{$contador_base}"),
+                    'base_responsable' => $request->get("BPresponsable{$contador_base}"),
+                    'base_identificacion_muestra'=> $request->get("BPiden_muestra{$contador_base}")
+                ]
+            );
+        }       
+    }
+
+    //ESTRATIGRAFIA
+
+    foreach ($estratigrafia as $estratigrafias) {
+        $estratigrafias->estratigrafia_muestra = $request->input("Emuestra_edit{$contador_estratigrafia}");
+        $estratigrafias->estratigrafia_nomenclatura = $request->input("Enomenclatura_edit{$contador_estratigrafia}");  
+        $estratigrafias->estratigrafia_inf_requerida = $request->input("Einf_requerida_edit{$contador_estratigrafia}");
+        $estratigrafias->estratigrafia_des_muestra = $request->input("Edes_muestra_edit{$contador_estratigrafia}");
+        $estratigrafias->estratigrafia_ubicacion = $request->input("Eubicacion_edit{$contador_estratigrafia}");
+        $estratigrafias->estratigrafia_responsable = $request->input("Eresponsable_edit{$contador_estratigrafia}");
+        $estratigrafias->estratigrafia_identificacion_muestra = $request->input("Eiden_muestra_edit{$contador_estratigrafia}");
+        $contador_estratigrafia +=1;
+        $estratigrafias->save();
+
+        if ($request->has('Emuestra' . $contador_estratigrafia)) {
+            EstratigrafiaSolicitud::firstOrCreate(
+                [
+                    'general_id' => $analisisg->id_general, 
+                    'estratigrafia_muestra' => $request->get("Emuestra{$contador_estratigrafia}"),
+                    'estratigrafia_nomenclatura' => $request->get("Enomenclatura{$contador_estratigrafia}"),
+                    'estratigrafia_inf_requerida' => $request->get("Einf_requerida{$contador_estratigrafia}"),
+                    'estratigrafia_des_muestra' => $request->get("Edes_muestra{$contador_estratigrafia}"),
+                    'estratigrafia_ubicacion' => $request->get("Eubicacion{$contador_estratigrafia}"),
+                    'estratigrafia_responsable' => $request->get("Eresponsable{$contador_estratigrafia}"),
+                    'estratigrafia_identificacion_muestra'=> $request->get("Eiden_muestra{$contador_estratigrafia}")
+                ]
+            );
+        }       
     }
 
     $analisisg->save();

@@ -141,13 +141,13 @@
                 </table>            
                 <div class="input-group" id="tabso" style="display: none;">
                     <div class="input-group" id="inputsoporte" >
-                    <table class="table table-bordered" background-color: red;><strong>I.SOPORTE</strong> 
+                    <table class="table table-bordered" ><strong>I.SOPORTE</strong> 
                         <thead>
                             <tr align="center">
-                                <th style="background-color: #7C858C; color:white; width:300px">Número de muestra </th>
-                                <th style="width:300px">Nomenclatura</th>
-                                <th style="width:300px">Información requerida</th>
-                                <th style="width:300px">Descripcion de la muestra</th>
+                                <th style="background-color: #C65911; color:white; width:300px">Número de muestra </th>
+                                <th style="background-color: #C65911; color:white; width:300px">Nomenclatura</th>
+                                <th style="background-color: #C65911; color:white; width:300px">Información requerida</th>
+                                <th style="background-color: #C65911; color:white; width:300px">Descripcion de la muestra</th>
                             </tr>
                              <tbody>
                             <tr >
@@ -158,9 +158,9 @@
                             </tr>
                         </tbody>
                             <tr>
-                                <th style="width:300px">Ubicación</th>
-                                <th style="width:300px">Responsable</th>
-                                <th style="width:300px">No. de indentificacion</th>
+                                <th style="background-color: #C65911; color:white; width:300px">Ubicación</th>
+                                <th style="background-color: #C65911; color:white; width:300px">Responsable</th>
+                                <th style="background-color: #C65911; color:white; width:300px">No. de indentificacion</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -168,7 +168,6 @@
                                 <td><input type="text" name="Subicacion0" style="width:300px"></td>
                                 <td><input type="text" name="Sresponsable0" style="width:300px"></td>
                                 <td><input type="text" name="Siden_muestra0" style="width:300px"></td>
-                                
 
                             </tr>
 
@@ -185,77 +184,87 @@
                 </div>
                 </div>
                 <div class="input-group" id="tabbase" style="display: none;">
+                    <div class="input-group" id="inputbase" >
                     <table class="table table-bordered"><strong>II.BASE DE PREPARACIóN</strong> 
                         <thead>
                             <tr align="center">
-                                <th style="width:300px">Número de muestra</th>
-                                <th style="width:300px">Nomenclatura</th>
-                                <th style="width:300px">Información requerida</th>
-                                <th style="width:300px">Descripción de la muestra</th>
+                                <th style="background-color: #FFCC66; color:white; width:300px">Número de muestra</th>
+                                <th style="background-color: #FFCC66; color:white; width:300px">Nomenclatura</th>
+                                <th style="background-color: #FFCC66; color:white; width:300px">Información requerida</th>
+                                <th style="background-color: #FFCC66; color:white; width:300px">Descripción de la muestra</th>
                                 <tbody>
                                     <tr>
-                                        <td><input type="text" name="BPmuestra" style="width:300px"></td>
-                                        <td><input type="text" name="BPnomenclatura" style="width:300px"></td>
-                                        <td><input type="text" name="BPinf_requerida" style="width:300px"></td>
-                                        <td><input type="text" name="BPdes_muestra" style="width:300px"></td>
+                                        <td><input type="text" name="BPmuestra0" style="width:300px"></td>
+                                        <td><input type="text" name="BPnomenclatura0" style="width:300px"></td>
+                                        <td><input type="text" name="BPinf_requerida0" style="width:300px"></td>
+                                        <td><input type="text" name="BPdes_muestra0" style="width:300px"></td>
                                     </tr>
                                 </tbody>
-                                <th style="width:300px">Ubicación</th>
-                                <th style="width:300px">Motivo</th>
-                                <th style="width:300px">Responsable</th>
-                                <th style="width:300px">No. de indentificación</th>
+                                <th style="background-color: #FFCC66; color:white; width:300px">Ubicación</th>
+                                <th style="background-color: #FFCC66; color:white; width:300px">Responsable</th>
+                                <th style="background-color: #FFCC66; color:white; width:300px">No. de indentificación</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td><input type="text" name="BPubicacion" style="width:300px"></td>
-                                <td><input type="text" name="BPmotivo" style="width:300px"></td>
-                                <td><input type="text" name="BPresponsable" style="width:300px"></td>
-                                <td><input type="text" name="BPiden_muestra" style="width:300px"></td>
+                                <td><input type="text" name="BPubicacion0" style="width:300px"></td>
+                                <td><input type="text" name="BPresponsable0" style="width:300px"></td>
+                                <td><input type="text" name="BPiden_muestra0" style="width:300px"></td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
+                    <div align="center">
+                    <input type="button" id="otrobase" name="otrobase" class="btn-sm"  value="Agregar más" onclick="javascript:masbase()">
+                    <br><br>
+                </div>
+                </div>
+
+
                 <div class="input-group" id="tabestra" style="display: none;">
-                    <table class="table table-bordered"><strong>III.ESTRATIGRAFíA</strong> 
+                    <div class="input-group" id="inputestratigrafia" >
+                    <table class="table table-bordered"><strong>III. ESTRATIGRAFíA</strong> 
                         <thead>
                             <tr align="center">
-                                <th style="width:300px"> Número de muestra</th>
-                                <th style="width:300px">Nomenclatura</th>
-                                <th style="width:300px">Información requerida</th>
-                                <th style="width:300px">Descripción de la muestra</th>
+                                <th style="background-color: #008000; color:white; width:300px"> Número de muestra</th>
+                                <th style="background-color: #008000; color:white; width:300px">Nomenclatura</th>
+                                <th style="background-color: #008000; color:white; width:300px">Información requerida</th>
+                                <th style="background-color: #008000; color:white; width:300px">Descripción de la muestra</th>
                                 <tbody>
                                     <tr>
-                                        <td><input type="text" name="Emuestra" style="width:300px"></td>
-                                        <td><input type="text" name="Enomenclatura" style="width:300px"></td>
-                                        <td><input type="text" name="Einf_requerida" style="width:300px"></td>
-                                        <td><input type="text" name="Edes_muestra" style="width:300px"></td>
+                                        <td><input type="text" name="Emuestra0" style="width:300px"></td>
+                                        <td><input type="text" name="Enomenclatura0" style="width:300px"></td>
+                                        <td><input type="text" name="Einf_requerida0" style="width:300px"></td>
+                                        <td><input type="text" name="Edes_muestra0" style="width:300px"></td>
                                     </tr>
                                 </tbody>
-                                <th style="width:300px">Ubicación</th>
-                                <th style="width:300px">Motivo</th>
-                                <th style="width:300px">Responsable</th>
-                                <th style="width:300px">No. de indentificacion</th>
+                                <th style="background-color: #008000; color:white; width:300px">Ubicación</th>
+                                <th style="background-color: #008000; color:white; width:300px">Responsable</th>
+                                <th style="background-color: #008000; color:white; width:300px">No. de indentificacion</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td><input type="text" name="Eubicacion" style="width:300px"></td>
-                                <td><input type="text" name="Emotivo" style="width:300px"></td>
-                                <td><input type="text" name="Eresponsable" style="width:300px"></td>
-                                <td><input type="text" name="Eiden_muestra" style="width:300px"></td>
+                                <td><input type="text" name="Eubicacion0" style="width:300px"></td>
+                                <td><input type="text" name="Eresponsable0" style="width:300px"></td>
+                                <td><input type="text" name="Eiden_muestra0" style="width:300px"></td>
                             </tr>
                         </tbody>
                     </table>
+                    </div>
+                    <div align="center">
+                    <input type="button" id="otroestratigrafia" name="otroestratigrafia" class="btn-sm"  value="Agregar más" onclick="javascript:masestratigrafia()">
+                    <br><br>
+                </div>
                 </div>
                 <div class="input-group" id="tabrevo" style="display: none;">
                     <table class="table table-bordered"><strong>IV.REVOQUE Y ENLUCIDO</strong> 
                         <thead>
                             <tr align="center">
-                                <th style="width:300px">Número de muestra</th>
-                                <th style="width:300px">Nomenclatura</th>
-                                <th style="width:300px">Información requerida</th>
-                                <th style="width:300px">Descripcion de la muestra</th>
+                                <th style="background-color: #B248A5; color:white; width:300px">Número de muestra</th>
+                                <th style="background-color: #B248A5; color:white; width:300px">Nomenclatura</th>
+                                <th style="background-color: #B248A5; color:white; width:300px">Información requerida</th>
+                                <th style="background-color: #B248A5; color:white; width:300px">Descripcion de la muestra</th>
                                 <tbody>
                                     <tr>
                                         <td><input type="text" name="REmuestra" style="width:300px"></td>
@@ -264,16 +273,14 @@
                                         <td><input type="text" name="REdes_muestra" style="width:300px"></td>
                                     </tr>
                                 </tbody>
-                                <th style="width:300px">Ubicación</th>
-                                <th style="width:300px">Motivo</th>
-                                <th style="width:300px">Responsable</th>
-                                <th style="width:300px">No. de indentificacion</th>
+                                <th style="background-color: #B248A5; color:white; width:300px">Ubicación</th>
+                                <th style="background-color: #B248A5; color:white; width:300px">Responsable</th>
+                                <th style="background-color: #B248A5; color:white; width:300px">No. de indentificacion</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td><input type="text" name="REubicacion" style="width:300px"></td>
-                                <td><input type="text" name="REmotivo" style="width:300px"></td>
                                 <td><input type="text" name="REresponsable" style="width:300px"></td>
                                 <td><input type="text" name="REiden_muestra" style="width:300px"></td>
                             </tr>
@@ -284,10 +291,10 @@
                     <table class="table table-bordered"><strong>V.BOL</strong> 
                         <thead>
                             <tr align="center">
-                                <th style="width:300px">Número de muestra</th>
-                                <th style="width:300px">Nomenclatura</th>
-                                <th style="width:300px">Información requerida</th>
-                                <th style="width:300px">Descripcion de la muestra</th>
+                                <th style="background-color: #FF5050; color:white; width:300px">Número de muestra</th>
+                                <th style="background-color: #FF5050; color:white; width:300px">Nomenclatura</th>
+                                <th style="background-color: #FF5050; color:white; width:300px">Información requerida</th>
+                                <th style="background-color: #FF5050; color:white; width:300px">Descripcion de la muestra</th>
                                 <tbody>
                                     <tr>
                                         <td><input type="text" name="BOLmuestra" style="width:300px"></td>
@@ -296,16 +303,14 @@
                                         <td><input type="text" name="BOLdes_muestra" style="width:300px"></td>
                                     </tr>
                                 </tbody>
-                                <th style="width:300px">Ubicación</th>
-                                <th style="width:300px">Motivo</th>
-                                <th style="width:300px">Responsable</th>    
-                                <th style="width:300px">No. de indentificacion</th>
+                                <th style="background-color: #FF5050; color:white; width:300px">Ubicación</th>
+                                <th style="background-color: #FF5050; color:white; width:300px">Responsable</th>    
+                                <th style="background-color: #FF5050; color:white; width:300px">No. de indentificacion</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td><input type="text" name="BOLubicacion" style="width:300px"></td>
-                                <td><input type="text" name="BOLmotivo" style="width:300px"></td>
                                 <td><input type="text" name="BOLresponsable" style="width:300px"></td>
                                 <td><input type="text" name="BOLiden_muestra" style="width:300px"></td>
                             </tr>
@@ -316,10 +321,10 @@
                     <table class="table table-bordered"><strong>VI.LAMINAS METALICAS</strong> 
                         <thead>
                             <tr align="center">
-                                <th style="width:300px">Número de muestra</th>
-                                <th style="width:300px">Nomenclatura</th>
-                                <th style="width:300px">Información requerida</th>
-                                <th style="width:300px">Descripcion de la muestra</th>
+                                <th style="background-color: #3A5754; color:white; width:300px">Número de muestra</th>
+                                <th style="background-color: #3A5754; color:white; width:300px">Nomenclatura</th>
+                                <th style="background-color: #3A5754; color:white; width:300px">Información requerida</th>
+                                <th style="background-color: #3A5754; color:white; width:300px">Descripcion de la muestra</th>
                                 <tbody>
                                     <tr>
                                         <td><input type="text" name="LMmuestra" style="width:300px"></td>
@@ -328,16 +333,14 @@
                                         <td><input type="text" name="LMdes_muestra" style="width:300px"></td>
                                     </tr>
                                 </tbody>
-                                <th style="width:300px">Ubicación</th>
-                                <th style="width:300px">Motivo</th>
-                                <th style="width:300px">Responsable</th>
-                                <th style="width:300px">No. de indentificacion</th>
+                                <th style="background-color: #3A5754; color:white; width:300px">Ubicación</th>
+                                <th style="background-color: #3A5754; color:white; width:300px">Responsable</th>
+                                <th style="background-color: #3A5754; color:white; width:300px">No. de indentificacion</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td><input type="text" name="LMubicacion" style="width:300px"></td>
-                                <td><input type="text" name="LMmotivo" style="width:300px"></td>
                                 <td><input type="text" name="LMresponsable" style="width:300px"></td>
                                 <td><input type="text" name="LMiden_muestra" style="width:300px"></td>
                             </tr>
@@ -348,10 +351,10 @@
                     <table class="table table-bordered"><strong>VII.PIGMENTOS</strong> 
                         <thead>
                             <tr align="center">
-                                <th style="width:300px">Número de muestra</th>
-                                <th style="width:300px">Nomenclatura</th>
-                                <th style="width:300px">Información requerida</th>
-                                <th style="width:300px">Descripcion de la muestra</th>
+                                <th style="background-color: #5B9BD5; color:white; width:300px">Número de muestra</th>
+                                <th style="background-color: #5B9BD5; color:white; width:300px">Nomenclatura</th>
+                                <th style="background-color: #5B9BD5; color:white; width:300px">Información requerida</th>
+                                <th style="background-color: #5B9BD5; color:white; width:300px">Descripcion de la muestra</th>
                                 <tbody>
                                     <tr>
                                         <td><input type="text" name="Pmuestra" style="width:300px"></td>
@@ -360,16 +363,14 @@
                                         <td><input type="text" name="Pdes_muestra" style="width:300px"></td>
                                     </tr>
                                 </tbody>
-                                <th style="width:300px">Ubicación</th>
-                                <th style="width:300px">Motivo</th>
-                                <th style="width:300px">Responsable</th>
-                                <th style="width:300px">No. de indentificacion</th>
+                                <th style="background-color: #5B9BD5; color:white; width:300px">Ubicación</th>
+                                <th style="background-color: #5B9BD5; color:white; width:300px">Responsable</th>
+                                <th style="background-color: #5B9BD5; color:white; width:300px">No. de indentificacion</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td><input type="text" name="Pubicacion" style="width:300px"></td>
-                                <td><input type="text" name="Pmotivo" style="width:300px"></td>
                                 <td><input type="text" name="Presponsable" style="width:300px"></td>
                                 <td><input type="text" name="Piden_muestra" style="width:300px"></td>
                             </tr>
