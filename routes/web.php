@@ -7,9 +7,21 @@ use App\AnalisisCientifico;
 use App\AniosTemporada;
 use App\TemporadasTrabajo;
 
+Route::get('/Soporte', ['uses' =>'ContactMessageController@create'
+
+])->name('soporte');
+
+Route::post('/Soporte', ['uses' =>'ContactMessageController@store',
+'as'=>'contact.store'
+
+]);
+
+
+/*
+
 Route::get('Soporte', function() {
     return view('soporte.mensaje_soporte');
-})->name('soporte');
+})->name('soporte');*/
 
 Route::get('Mensaje', 'ObrasController@mail', function() {
     

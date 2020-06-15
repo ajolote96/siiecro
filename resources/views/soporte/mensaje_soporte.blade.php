@@ -6,10 +6,19 @@
     <div class="box-body"  >
             <div class="panel">
 
-   
+<style>
+
+.invalid-feedback{
+
+display:block;
+
+}
 
 
-    <section class="form_wrap" >
+</style>
+
+
+   <section class="form_wrap" >
 
         <section class="cantact_info">
             <section class="info_title">
@@ -17,33 +26,80 @@
                 <h2>INFORMACION<br>DE CONTACTO</h2>
             </section>
             <section class="info_items">
-                <p><span class="fa fa-envelope"></span> bonilla@gmail.com</p>
+                <p><span class="fa fa-envelope"></span> jose.bcarranza@academicos.udg.mx</p>
 
-            </section>
+         
+
+
+
+
+
+            @if (Session::has('flash_message'))
+            
+            <div class="alert alert-success">
+                {{Session::get('flash_message')}}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+            </div>
+
+            @endif
+
+   </section>
         </section>
 
-        <form action="{{ route('mensaje') }}" method="POST" class="form_contact">
-            <h2>Envia un mensaje</h2>
-            <div class="user_info">
+
+
+        <form method="post" action="{{route('contact.store')}}" class="form_contact">
+            <h2 style="text-align: center;">Envia un mensaje</h2>
+            {{csrf_field()}}
+
+           
+                 
                 <label for="names">Nombres *</label>
-                <input type="text" id="names" name="nombre" required>
+                <input type="text" id="name" name="name" class="form-control"required>
+                @if ($errors->has('name'))
+            <small class="form-text invalid-feedback">{{$errors->first('name')}}</small>
+            @endif
+           
 
-                <label for="phone">Telefono / Celular</label>
-                <input type="text" id="phone" name="telefono">
 
+
+  
                 <label for="email">Correo electronico *</label>
-                <input type="text" id="email" name="correo"required>
+                <input type="text" class="form-control" id="email" name="email"required>
+                @if ($errors->has('email'))
+            <small class="form-text invalid-feedback">{{$errors->first('email')}}</small>
+            @endif
 
+ 
+
+
+
+  
                 <label for="mensaje">Mensaje *</label>
-                <textarea id="mensaje" name="mensaje"required></textarea>
+                <textarea id="mensaje" class="form-control"  name="message"required></textarea>
+                   @if ($errors->has('message'))
+            <small class="form-text invalid-feedback">{{$errors->first('message')}}</small>
+            @endif
+       
 
-                <input type="submit" value="Enviar Mensaje" id="btnSend">
+
+
+           <input type="submit" value="Enviar Mensaje" id="btnSend">
             </div>
         </form>
 
+
+
     </section>
+
+</div>
+
 </div>
 </div>
 </div>
+
+
 
 @endsection
