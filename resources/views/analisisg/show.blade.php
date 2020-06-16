@@ -2,19 +2,21 @@
  
 @section('main-content')
 
-<!--@if ($message = Session::get('success'))
-        <div class="alert alert-success">
-            <p>{{ $message }}</p>
-        </div>{{ $Obrasg->first()->id }}
-@endif-->
-
-
-
 
 <?php
-          $analisisg = $analisisgs->first();
+    $analisisg = $analisisgs->first();
+    $contador_soporte = 0;
+$contador_base = 0;
+$contador_estratigrafia = 0;
+$contador_revoque = 0;
+$contador_bol = 0;
+$contador_laminas = 0;
+$contador_pigmentos = 0;
+$contador_aglutinante = 0;
+$contador_recubrimiento = 0;
 
-          ?>
+
+?>
 
 <div class="box">
     <div class="box-body">

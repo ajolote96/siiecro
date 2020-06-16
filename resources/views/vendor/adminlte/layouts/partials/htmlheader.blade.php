@@ -38,30 +38,7 @@ $(document).ready(function(){
             'csrfToken' => csrf_token(),
         ]) !!};
     </script>
-<!-- <script type="text/javascript">
 
-    $(".validar_form").submit(function () {
-        element = document.getElementById("cultura");
-var select = $("#tipo_bien_cultu").val();
-if (select == 'Arqueológico') {
-    $element.style.display='block';
-} else {
-    element.style.display='none';
-}
-});
-</script>
-    <script type="text/javascript">
-    function showAño() {
-        element = document.getElementById("cultura");
-        tipo_bien_cultu = document.getElementById("tipo_bien_cultu");
-        if (tipo_bien_cultu == 'Arqueológico') {
-            element.style.display='block';
-        }
-        else {
-            element.style.display='none';
-        }
-    }
-</script> -->
 <script type="text/javascript">
   function tipodebien(sel) {
       if (sel.value=="Arqueológico") {

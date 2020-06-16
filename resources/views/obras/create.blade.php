@@ -7,16 +7,6 @@
 
 @section('main-content')
 
-<style type="text/css">
-    table, th, td {
-        border:1px solid grey;
-        border-collapse: collapse;
-    }
-
-    th, td {
-        padding: 8px;
-    }
-</style>
 
 
 
@@ -39,7 +29,7 @@
                 <BR>
                 <div id="tabla" align="center">
                     <table style="width: 65%" border="0" align="center">
-                        <tr ><th colspan="2" style="text-align:center; background-color: #7C858C; color:white;"><h3>Datos Generales</h3></th></tr>
+                        <tr><th colspan="2" style="text-align:center; background-color: #7C858C; color:white;"><h3>Datos Generales</h3></th></tr>
                         @permission('Captura_Registro_Avanzada_2')
                             <tr>
                                 <td style="font-size:25px;">ID de Obra:</td>
