@@ -8,6 +8,12 @@ use App\Obras;
 use App\SoportesSolicitud;
 use App\base_solicitud;
 use App\EstratigrafiaSolicitud;
+use App\RevoqueSolicitud;
+use App\BolSolicitud;
+use App\LaminasSolicitud;
+use App\PigmentosSolicitud;
+use App\AglutinantesSolicitud;
+use App\RecubrimientosSolicitud;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 
@@ -26,9 +32,9 @@ class AnalisisGController extends Controller
         $id = $request->get('id_general');
         $Analisisg = AnalisisG::orderBy('id_general', 'DESC')
         ->id($id)
-        ->paginate(5);
+        ->paginate(10);
         return view('analisisg.index',compact('Analisisg'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
+            ->with('i', (request()->input('page', 1) - 1) * 10);
     }
 
     /**
@@ -149,7 +155,128 @@ class AnalisisGController extends Controller
                     }
                 }
             }
+
+            // AGREGAR REVOQUE
+
+            for ($counters=0; $counters < 7 ; $counters++) { 
+                if ($request->get("REmuestra{$counters}") != NULL) {
+                    if ($request->has("REmuestra{$counters}")) {
+                        RevoqueSolicitud::create([
+                            'general_id' => $analisisg->id_general, 
+                            'revoque_muestra' => $request->get("REmuestra{$counters}"),
+                            'revoque_nomenclatura' => $request->get("REnomenclatura{$counters}"),
+                            'revoque_inf_requerida' => $request->get("REinf_requerida{$counters}"),
+                            'revoque_des_muestra' => $request->get("REdes_muestra{$counters}"),
+                            'revoque_ubicacion' => $request->get("REubicacion{$counters}"),
+                            'revoque_responsable' => $request->get("REresponsable{$counters}"),
+                            'revoque_identificacion_muestra'=> $request->get("REiden_muestra{$counters}")]);
+                    }else{
+                        break;
+                    }
+                }
+            }
+
+            //AGREGAR BOL
+
+            for ($counters=0; $counters < 7 ; $counters++) { 
+                if ($request->get("BOLmuestra{$counters}") != NULL) {
+                    if ($request->has("BOLmuestra{$counters}")) {
+                        BolSolicitud::create([
+                            'general_id' => $analisisg->id_general, 
+                            'bol_muestra' => $request->get("BOLmuestra{$counters}"),
+                            'bol_nomenclatura' => $request->get("BOLnomenclatura{$counters}"),
+                            'bol_inf_requerida' => $request->get("BOLinf_requerida{$counters}"),
+                            'bol_des_muestra' => $request->get("BOLdes_muestra{$counters}"),
+                            'bol_ubicacion' => $request->get("BOLubicacion{$counters}"),
+                            'bol_responsable' => $request->get("BOLresponsable{$counters}"),
+                            'bol_identificacion_muestra'=> $request->get("BOLiden_muestra{$counters}")]);
+                    }else{
+                        break;
+                    }
+                }
+            }
+
+            // LAMINAS METALICAS
+
+            for ($counters=0; $counters < 7 ; $counters++) { 
+                if ($request->get("LMmuestra{$counters}") != NULL) {
+                    if ($request->has("LMmuestra{$counters}")) {
+                        LaminasSolicitud::create([
+                            'general_id' => $analisisg->id_general, 
+                            'laminas_muestra' => $request->get("LMmuestra{$counters}"),
+                            'laminas_nomenclatura' => $request->get("LMnomenclatura{$counters}"),
+                            'laminas_inf_requerida' => $request->get("LMinf_requerida{$counters}"),
+                            'laminas_des_muestra' => $request->get("LMdes_muestra{$counters}"),
+                            'laminas_ubicacion' => $request->get("LMubicacion{$counters}"),
+                            'laminas_responsable' => $request->get("LMresponsable{$counters}"),
+                            'laminas_identificacion_muestra'=> $request->get("LMiden_muestra{$counters}")]);
+                    }else{
+                        break;
+                    }
+                }
+            }
+
+            // PIGMENTOS
+
+            for ($counters=0; $counters < 7 ; $counters++) { 
+                if ($request->get("Pmuestra{$counters}") != NULL) {
+                    if ($request->has("Pmuestra{$counters}")) {
+                        PigmentosSolicitud::create([
+                            'general_id' => $analisisg->id_general, 
+                            'pigmentos_muestra' => $request->get("Pmuestra{$counters}"),
+                            'pigmentos_nomenclatura' => $request->get("Pnomenclatura{$counters}"),
+                            'pigmentos_inf_requerida' => $request->get("Pinf_requerida{$counters}"),
+                            'pigmentos_des_muestra' => $request->get("Pdes_muestra{$counters}"),
+                            'pigmentos_ubicacion' => $request->get("Pubicacion{$counters}"),
+                            'pigmentos_responsable' => $request->get("Presponsable{$counters}"),
+                            'pigmentos_identificacion_muestra'=> $request->get("Piden_muestra{$counters}")]);
+                    }else{
+                        break;
+                    }
+                }
+            }
+
+            // AGLUTINANTES
+
+            for ($counters=0; $counters < 7 ; $counters++) { 
+                if ($request->get("Amuestra{$counters}") != NULL) {
+                    if ($request->has("Amuestra{$counters}")) {
+                        AglutinantesSolicitud::create([
+                            'general_id' => $analisisg->id_general, 
+                            'aglutinante_muestra' => $request->get("Amuestra{$counters}"),
+                            'aglutinante_nomenclatura' => $request->get("Anomenclatura{$counters}"),
+                            'aglutinante_inf_requerida' => $request->get("Ainf_requerida{$counters}"),
+                            'aglutinante_des_muestra' => $request->get("Ades_muestra{$counters}"),
+                            'aglutinante_ubicacion' => $request->get("Aubicacion{$counters}"),
+                            'aglutinante_responsable' => $request->get("Aresponsable{$counters}"),
+                            'aglutinante_identificacion_muestra'=> $request->get("Aiden_muestra{$counters}")]);
+                        }else{
+                        break;
+                    }
+                }
+            }
+
+            // RECUBRIMIENTOS
+            
+            for ($counters=0; $counters < 7 ; $counters++) { 
+                if ($request->get("Rmuestra{$counters}") != NULL) {
+                    if ($request->has("Rmuestra{$counters}")) {
+                        RecubrimientosSolicitud::create([
+                            'general_id' => $analisisg->id_general, 
+                            'recubrimiento_muestra' => $request->get("Rmuestra{$counters}"),
+                            'recubrimiento_nomenclatura' => $request->get("Rnomenclatura{$counters}"),
+                            'recubrimiento_inf_requerida' => $request->get("Rinf_requerida{$counters}"),
+                            'recubrimiento_des_muestra' => $request->get("Rdes_muestra{$counters}"),
+                            'recubrimiento_ubicacion' => $request->get("Rubicacion{$counters}"),
+                            'recubrimiento_responsable' => $request->get("Rresponsable{$counters}"),
+                            'recubrimiento_identificacion_muestra'=> $request->get("Riden_muestra{$counters}")]);
+                        }else{
+                        break;
+                    }
+                }
+            }
         }  
+
    
        return redirect()->route('analisisg.index')
                         ->with('success','Ficha Creada Exitosamente.');
@@ -176,6 +303,24 @@ class AnalisisGController extends Controller
         $estratigrafia = DB::table('estratigrafia_solicitud')->where('general_id', $id_general)
         ->select('estratigrafia_solicitud.*')
         ->get();
+        $revoque = DB::table('revoque_solicitud')->where('general_id', $id_general)
+        ->select('revoque_solicitud.*')
+        ->get();
+        $bol = DB::table('bol_solicitud')->where('general_id', $id_general)
+        ->select('bol_solicitud.*')
+        ->get();
+        $lamina = DB::table('laminas_solicitud')->where('general_id', $id_general)
+        ->select('laminas_solicitud.*')
+        ->get();
+        $pigmento = DB::table('pigmentos_solicitud')->where('general_id', $id_general)
+        ->select('pigmentos_solicitud.*')
+        ->get();
+        $aglutinante = DB::table('aglutinante_solicitud')->where('general_id', $id_general)
+        ->select('aglutinante_solicitud.*')
+        ->get();
+        $recubrimiento = DB::table('recubrimiento_solicitud')->where('general_id', $id_general)
+        ->select('recubrimiento_solicitud.*')
+        ->get();
         
         
 
@@ -184,7 +329,8 @@ class AnalisisGController extends Controller
 
         //dd($analisisgs);
 
-        return view('analisisg.show', compact('analisisgs','soportes','baseP','estratigrafia'));
+        return view('analisisg.show', compact('analisisgs','soportes','baseP','estratigrafia','revoque','bol',
+            'lamina','pigmento','aglutinante','recubrimiento'));
     }
 
     /**
@@ -207,10 +353,29 @@ class AnalisisGController extends Controller
         $estratigrafia = DB::table('estratigrafia_solicitud')->where('general_id', $id_general)
         ->select('estratigrafia_solicitud.*')
         ->get();
+        $revoque = DB::table('revoque_solicitud')->where('general_id', $id_general)
+        ->select('revoque_solicitud.*')
+        ->get();
+        $bol = DB::table('bol_solicitud')->where('general_id', $id_general)
+        ->select('bol_solicitud.*')
+        ->get();
+        $lamina = DB::table('laminas_solicitud')->where('general_id', $id_general)
+        ->select('laminas_solicitud.*')
+        ->get();
+        $pigmento = DB::table('pigmentos_solicitud')->where('general_id', $id_general)
+        ->select('pigmentos_solicitud.*')
+        ->get();
+        $aglutinante = DB::table('aglutinante_solicitud')->where('general_id', $id_general)
+        ->select('aglutinante_solicitud.*')
+        ->get();
+        $recubrimiento = DB::table('recubrimiento_solicitud')->where('general_id', $id_general)
+        ->select('recubrimiento_solicitud.*')
+        ->get();
 
         $analisisgs = $analisisg;
         
-        return view('analisisg.edit', compact('analisisgs','soportes','baseP','estratigrafia'));
+        return view('analisisg.edit', compact('analisisgs','soportes','baseP','estratigrafia','revoque','bol',
+            'lamina','pigmento','aglutinante','recubrimiento'));
     }
 
     /**
@@ -237,14 +402,29 @@ class AnalisisGController extends Controller
             $analisisg->foto = $nombre;
     }
 
+        //CONSULTAS
         $soporte = SoportesSolicitud::where('general_id', $id_general)->get();
         $baseP = base_solicitud::where('general_id', $id_general)->get();
         $estratigrafia = EstratigrafiaSolicitud::where('general_id', $id_general)->get();
+        $revoque = RevoqueSolicitud::where('general_id', $id_general)->get();
+        $bol = BolSolicitud::where('general_id', $id_general)->get();
+        $lamina = LaminasSolicitud::where('general_id', $id_general)->get();
+        $pigmento = PigmentosSolicitud::where('general_id', $id_general)->get();
+        $aglutinante = AglutinantesSolicitud::where('general_id', $id_general)->get();
+        $recubrimiento = RecubrimientosSolicitud::where('general_id', $id_general)->get();
+
+        //CONTADORES
         $contador_soporte = 0;
         $contador_base = 0;
         $contador_estratigrafia =0;
+        $contador_revoque = 0;
+        $contador_bol = 0;
+        $contador_laminas = 0;
+        $contador_pigmentos = 0;
+        $contador_aglutinante = 0;
+        $contador_recubrimiento = 0;
 
-        //dd($request->input("Smuestra{$contador_soporte}"));
+        //dd($request->all());
 
         //SOPORTE
         foreach ($soporte as $soportes) {
@@ -325,6 +505,180 @@ class AnalisisGController extends Controller
                     'estratigrafia_ubicacion' => $request->get("Eubicacion{$contador_estratigrafia}"),
                     'estratigrafia_responsable' => $request->get("Eresponsable{$contador_estratigrafia}"),
                     'estratigrafia_identificacion_muestra'=> $request->get("Eiden_muestra{$contador_estratigrafia}")
+                ]
+            );
+        }       
+    }
+
+    //REVOQUE
+
+     foreach ($revoque as $revoques) {
+        $revoques->revoque_muestra = $request->input("REmuestra_edit{$contador_revoque}");
+        $revoques->revoque_nomenclatura = $request->input("REnomenclatura_edit{$contador_revoque}");  
+        $revoques->revoque_inf_requerida = $request->input("REinf_requerida_edit{$contador_revoque}");
+        $revoques->revoque_des_muestra = $request->input("REdes_muestra_edit{$contador_revoque}");
+        $revoques->revoque_ubicacion = $request->input("REubicacion_edit{$contador_revoque}");
+        $revoques->revoque_responsable = $request->input("REresponsable_edit{$contador_revoque}");
+        $revoques->revoque_identificacion_muestra = $request->input("REiden_muestra_edit{$contador_revoque}");
+        $contador_revoque +=1;
+        $revoques->save();
+
+        if ($request->has('REmuestra' . $contador_revoque)) {
+            RevoqueSolicitud::firstOrCreate(
+                [
+                    'general_id' => $analisisg->id_general, 
+                    'revoque_muestra' => $request->get("REmuestra{$contador_revoque}"),
+                    'revoque_nomenclatura' => $request->get("REnomenclatura{$contador_revoque}"),
+                    'revoque_inf_requerida' => $request->get("REinf_requerida{$contador_revoque}"),
+                    'revoque_des_muestra' => $request->get("REdes_muestra{$contador_revoque}"),
+                    'revoque_ubicacion' => $request->get("REubicacion{$contador_revoque}"),
+                    'revoque_responsable' => $request->get("REresponsable{$contador_revoque}"),
+                    'revoque_identificacion_muestra'=> $request->get("REiden_muestra{$contador_revoque}")
+                ]
+            );
+        }       
+    }
+
+    // BOL
+
+    foreach ($bol as $bols) {
+        $bols->bol_muestra = $request->input("BOLmuestra_edit{$contador_bol}");
+        $bols->bol_nomenclatura = $request->input("BOLnomenclatura_edit{$contador_bol}");  
+        $bols->bol_inf_requerida = $request->input("BOLinf_requerida_edit{$contador_bol}");
+        $bols->bol_des_muestra = $request->input("BOLdes_muestra_edit{$contador_bol}");
+        $bols->bol_ubicacion = $request->input("BOLubicacion_edit{$contador_bol}");
+        $bols->bol_responsable = $request->input("BOLresponsable_edit{$contador_bol}");
+        $bols->bol_identificacion_muestra = $request->input("BOLiden_muestra_edit{$contador_bol}");
+        $contador_bol +=1;
+        $bols->save();
+
+        if ($request->has('BOLmuestra' . $contador_bol)) {
+            BolSolicitud::firstOrCreate(
+                [
+                    'general_id' => $analisisg->id_general, 
+                    'bol_muestra' => $request->get("BOLmuestra{$contador_bol}"),
+                    'bol_nomenclatura' => $request->get("BOLnomenclatura{$contador_bol}"),
+                    'bol_inf_requerida' => $request->get("BOLinf_requerida{$contador_bol}"),
+                    'bol_des_muestra' => $request->get("BOLdes_muestra{$contador_bol}"),
+                    'bol_ubicacion' => $request->get("BOLubicacion{$contador_bol}"),
+                    'bol_responsable' => $request->get("BOLresponsable{$contador_bol}"),
+                    'bol_identificacion_muestra'=> $request->get("BOLiden_muestra{$contador_bol}")
+                ]
+            );
+        }       
+    }
+
+    //LAMINAS METALICAS
+
+     foreach ($lamina as $laminas) {
+        $laminas->laminas_muestra = $request->input("LMmuestra_edit{$contador_laminas}");
+        $laminas->laminas_nomenclatura = $request->input("LMnomenclatura_edit{$contador_laminas}");  
+        $laminas->laminas_inf_requerida = $request->input("LMinf_requerida_edit{$contador_laminas}");
+        $laminas->laminas_des_muestra = $request->input("LMdes_muestra_edit{$contador_laminas}");
+        $laminas->laminas_ubicacion = $request->input("LMubicacion_edit{$contador_laminas}");
+        $laminas->laminas_responsable = $request->input("LMresponsable_edit{$contador_laminas}");
+        $laminas->laminas_identificacion_muestra = $request->input("LMiden_muestra_edit{$contador_laminas}");
+        $contador_laminas +=1;
+        $laminas->save();
+
+        if ($request->has('LMmuestra' . $contador_laminas)) {
+            LaminasSolicitud::firstOrCreate(
+                [
+                    'general_id' => $analisisg->id_general, 
+                    'laminas_muestra' => $request->get("LMmuestra{$contador_laminas}"),
+                    'laminas_nomenclatura' => $request->get("LMnomenclatura{$contador_laminas}"),
+                    'laminas_inf_requerida' => $request->get("LMinf_requerida{$contador_laminas}"),
+                    'laminas_des_muestra' => $request->get("LMdes_muestra{$contador_laminas}"),
+                    'laminas_ubicacion' => $request->get("LMubicacion{$contador_laminas}"),
+                    'laminas_responsable' => $request->get("LMresponsable{$contador_laminas}"),
+                    'laminas_identificacion_muestra'=> $request->get("LMiden_muestra{$contador_laminas}")
+                ]
+            );
+        }       
+    }
+
+    //PIGMENTOS
+
+    foreach ($pigmento as $pigmentos) {
+        $pigmentos->pigmentos_muestra = $request->input("Pmuestra_edit{$contador_pigmentos}");
+        $pigmentos->pigmentos_nomenclatura = $request->input("Pnomenclatura_edit{$contador_pigmentos}");  
+        $pigmentos->pigmentos_inf_requerida = $request->input("Pinf_requerida_edit{$contador_pigmentos}");
+        $pigmentos->pigmentos_des_muestra = $request->input("Pdes_muestra_edit{$contador_pigmentos}");
+        $pigmentos->pigmentos_ubicacion = $request->input("Pubicacion_edit{$contador_pigmentos}");
+        $pigmentos->pigmentos_responsable = $request->input("Presponsable_edit{$contador_pigmentos}");
+        $pigmentos->pigmentos_identificacion_muestra = $request->input("Piden_muestra_edit{$contador_pigmentos}");
+        $contador_pigmentos +=1;
+        $pigmentos->save();
+
+        if ($request->has('Pmuestra' . $contador_pigmentos)) {
+            PigmentosSolicitud::firstOrCreate(
+                [
+                    'general_id' => $analisisg->id_general, 
+                    'pigmentos_muestra' => $request->get("Pmuestra{$contador_pigmentos}"),
+                    'pigmentos_nomenclatura' => $request->get("Pnomenclatura{$contador_pigmentos}"),
+                    'pigmentos_inf_requerida' => $request->get("Pinf_requerida{$contador_pigmentos}"),
+                    'pigmentos_des_muestra' => $request->get("Pdes_muestra{$contador_pigmentos}"),
+                    'pigmentos_ubicacion' => $request->get("Pubicacion{$contador_pigmentos}"),
+                    'pigmentos_responsable' => $request->get("Presponsable{$contador_pigmentos}"),
+                    'pigmentos_identificacion_muestra'=> $request->get("Piden_muestra{$contador_pigmentos}")
+                ]
+            );
+        }       
+    }
+
+    //AGLUTINANTES
+
+    foreach ($aglutinante as $aglutinantes) {
+        $aglutinantes->aglutinante_muestra = $request->input("Amuestra_edit{$contador_aglutinante}");
+        $aglutinantes->aglutinante_nomenclatura = $request->input("Anomenclatura_edit{$contador_aglutinante}");  
+        $aglutinantes->aglutinante_inf_requerida = $request->input("Ainf_requerida_edit{$contador_aglutinante}");
+        $aglutinantes->aglutinante_des_muestra = $request->input("Ades_muestra_edit{$contador_aglutinante}");
+        $aglutinantes->aglutinante_ubicacion = $request->input("Aubicacion_edit{$contador_aglutinante}");
+        $aglutinantes->aglutinante_responsable = $request->input("Aresponsable_edit{$contador_aglutinante}");
+        $aglutinantes->aglutinante_identificacion_muestra = $request->input("Aiden_muestra_edit{$contador_aglutinante}");
+        $contador_aglutinante +=1;
+        $aglutinantes->save();
+
+        if ($request->has('Amuestra' . $contador_aglutinante)) {
+            AglutinantesSolicitud::firstOrCreate(
+                [
+                    'general_id' => $analisisg->id_general, 
+                    'aglutinante_muestra' => $request->get("Amuestra{$contador_aglutinante}"),
+                    'aglutinante_nomenclatura' => $request->get("Anomenclatura{$contador_aglutinante}"),
+                    'aglutinante_inf_requerida' => $request->get("Ainf_requerida{$contador_aglutinante}"),
+                    'aglutinante_des_muestra' => $request->get("Ades_muestra{$contador_aglutinante}"),
+                    'aglutinante_ubicacion' => $request->get("Aubicacion{$contador_aglutinante}"),
+                    'aglutinante_responsable' => $request->get("Aresponsable{$contador_aglutinante}"),
+                    'aglutinante_identificacion_muestra'=> $request->get("Aiden_muestra{$contador_aglutinante}")
+                ]
+            );
+        }       
+    }
+
+    //RECUBRIOMIENTOS
+
+    foreach ($recubrimiento as $recubrimientos) {
+        $recubrimientos->recubrimiento_muestra = $request->input("Rmuestra_edit{$contador_recubrimiento}");
+        $recubrimientos->recubrimiento_nomenclatura = $request->input("Rnomenclatura_edit{$contador_recubrimiento  }");  
+        $recubrimientos->recubrimiento_inf_requerida = $request->input("Rinf_requerida_edit{$contador_recubrimiento}");
+        $recubrimientos->recubrimiento_des_muestra = $request->input("Rdes_muestra_edit{$contador_recubrimiento}");
+        $recubrimientos->recubrimiento_ubicacion = $request->input("Rubicacion_edit{$contador_recubrimiento}");
+        $recubrimientos->recubrimiento_responsable = $request->input("Rresponsable_edit{$contador_recubrimiento}");
+        $recubrimientos->recubrimiento_identificacion_muestra = $request->input("Riden_muestra_edit{$contador_recubrimiento}");
+        $contador_recubrimiento +=1;
+        $recubrimientos->save();
+
+        if ($request->has('Rmuestra' . $contador_recubrimiento )) {
+            RecubrimientosSolicitud::firstOrCreate(
+                [
+                    'general_id' => $analisisg->id_general, 
+                    'recubrimiento_muestra' => $request->get("Rmuestra{$contador_recubrimiento }"),
+                    'recubrimiento_nomenclatura' => $request->get("Rnomenclatura{$contador_recubrimiento }"),
+                    'recubrimiento_inf_requerida' => $request->get("Rinf_requerida{$contador_recubrimiento }"),
+                    'recubrimiento_des_muestra' => $request->get("Rdes_muestra{$contador_recubrimiento }"),
+                    'recubrimiento_ubicacion' => $request->get("Rubicacion{$contador_recubrimiento }"),
+                    'recubrimiento_responsable' => $request->get("Rresponsable{$contador_recubrimiento }"),
+                    'recubrimiento_identificacion_muestra'=> $request->get("Riden_muestra{$contador_recubrimiento  }")
                 ]
             );
         }       
