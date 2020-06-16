@@ -192,11 +192,11 @@
                     <thead>
                         <tr>
                             <th><label><input type="checkbox" name="tsoporte" id="tsoporte" onchange="javascript:showSoporte()"> SOPORTE</label><br></th>
-                            <th><label><input type="checkbox" name="tbase" id="tbase" onchange="javascript:showBase()"> BASE DE PREPARACIóN</label><br></th>
-                            <th><label><input type="checkbox" name="testra" id="testra" onchange="javascript:showEstra()"> ESTRATIGRAFíA</label></th>
+                            <th><label><input type="checkbox" name="tbase" id="tbase" onchange="javascript:showBase()"> BASE DE PREPARACIÓN</label><br></th>
+                            <th><label><input type="checkbox" name="testra" id="testra" onchange="javascript:showEstra()"> ESTRATIGRAFÍA</label></th>
                             <th><label><input type="checkbox" name="trevo" id="trevo" onchange="javascript:showRevo()"> REVOQUE Y ENLUCIDO</label></th>
                             <th><label><input type="checkbox" name="tbol" id="tbol" onchange="javascript:showBol()"> BOL</label></th>
-                            <th><label><input type="checkbox" name="tlame" id="tlami" onchange="javascript:showLami()"> LáMINAS METáLICAS</label></th>
+                            <th><label><input type="checkbox" name="tlame" id="tlami" onchange="javascript:showLami()"> LÁMINAS METÁLICAS</label></th>
                             <th><label><input type="checkbox" name="tpig" id="tpig" onchange="javascript:showPig()"> PIGMENTOS</label></th>
                             
                             
@@ -334,6 +334,7 @@
                 </div>
                 </div>
                 <div class="input-group" id="tabrevo" style="display: none;">
+                    <div class="input-group" id="inputrevoque" >
                     <table class="table table-bordered"><strong>IV.REVOQUE Y ENLUCIDO</strong> 
                         <thead>
                             <tr align="center">
@@ -343,10 +344,10 @@
                                 <th style="background-color: #B248A5; color:white; width:300px">Descripcion de la muestra</th>
                                 <tbody>
                                     <tr>
-                                        <td><input type="text" name="REmuestra" style="width:300px"></td>
-                                        <td><input type="text" name="REnomenclatura" style="width:300px"></td>
-                                        <td><input type="text" name="REinf_requerida" style="width:300px"></td>
-                                        <td><input type="text" name="REdes_muestra" style="width:300px"></td>
+                                        <td><input type="text" name="REmuestra0" style="width:300px"></td>
+                                        <td><input type="text" name="REnomenclatura0" style="width:300px"></td>
+                                        <td><input type="text" name="REinf_requerida0" style="width:300px"></td>
+                                        <td><input type="text" name="REdes_muestra0" style="width:300px"></td>
                                     </tr>
                                 </tbody>
                                 <th style="background-color: #B248A5; color:white; width:300px">Ubicación</th>
@@ -356,14 +357,20 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td><input type="text" name="REubicacion" style="width:300px"></td>
-                                <td><input type="text" name="REresponsable" style="width:300px"></td>
-                                <td><input type="text" name="REiden_muestra" style="width:300px"></td>
+                                <td><input type="text" name="REubicacion0" style="width:300px"></td>
+                                <td><input type="text" name="REresponsable0" style="width:300px"></td>
+                                <td><input type="text" name="REiden_muestra0" style="width:300px"></td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
+                    <div align="center">
+                    <input type="button" id="otrorevoque" name="otrorevoque" class="btn-sm"  value="Agregar más" onclick="javascript:masrevoque()">
+                    <br><br>
+                </div>
+                </div>
                 <div class="input-group" id="tabbol" style="display: none;">
+                    <div class="input-group" id="inputbol">
                     <table class="table table-bordered"><strong>V.BOL</strong> 
                         <thead>
                             <tr align="center">
@@ -373,10 +380,10 @@
                                 <th style="background-color: #FF5050; color:white; width:300px">Descripcion de la muestra</th>
                                 <tbody>
                                     <tr>
-                                        <td><input type="text" name="BOLmuestra" style="width:300px"></td>
-                                        <td><input type="text" name="BOLnomenclatura" style="width:300px"></td>
-                                        <td><input type="text" name="BOLinf_requerida" style="width:300px"></td>
-                                        <td><input type="text" name="BOLdes_muestra" style="width:300px"></td>
+                                        <td><input type="text" name="BOLmuestra0" style="width:300px"></td>
+                                        <td><input type="text" name="BOLnomenclatura0" style="width:300px"></td>
+                                        <td><input type="text" name="BOLinf_requerida0" style="width:300px"></td>
+                                        <td><input type="text" name="BOLdes_muestra0" style="width:300px"></td>
                                     </tr>
                                 </tbody>
                                 <th style="background-color: #FF5050; color:white; width:300px">Ubicación</th>
@@ -386,14 +393,20 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td><input type="text" name="BOLubicacion" style="width:300px"></td>
-                                <td><input type="text" name="BOLresponsable" style="width:300px"></td>
-                                <td><input type="text" name="BOLiden_muestra" style="width:300px"></td>
+                                <td><input type="text" name="BOLubicacion0" style="width:300px"></td>
+                                <td><input type="text" name="BOLresponsable0" style="width:300px"></td>
+                                <td><input type="text" name="BOLiden_muestra0" style="width:300px"></td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
+                    <div align="center">
+                        <input type="button" id="otrobol" name="otrobol" class="btn-sm"  value="Agregar más" onclick="javascript:masbol()">
+                        <br><br>
+                    </div>
+                </div>
                 <div class="input-group" id="tablami" style="display: none;">
+                    <div class="input-group" id="inputlaminas">
                     <table class="table table-bordered"><strong>VI.LAMINAS METALICAS</strong> 
                         <thead>
                             <tr align="center">
@@ -403,10 +416,10 @@
                                 <th style="background-color: #3A5754; color:white; width:300px">Descripcion de la muestra</th>
                                 <tbody>
                                     <tr>
-                                        <td><input type="text" name="LMmuestra" style="width:300px"></td>
-                                        <td><input type="text" name="LMnomenclatura" style="width:300px"></td>
-                                        <td><input type="text" name="LMinf_requerida" style="width:300px"></td>
-                                        <td><input type="text" name="LMdes_muestra" style="width:300px"></td>
+                                        <td><input type="text" name="LMmuestra0" style="width:300px"></td>
+                                        <td><input type="text" name="LMnomenclatura0" style="width:300px"></td>
+                                        <td><input type="text" name="LMinf_requerida0" style="width:300px"></td>
+                                        <td><input type="text" name="LMdes_muestra0" style="width:300px"></td>
                                     </tr>
                                 </tbody>
                                 <th style="background-color: #3A5754; color:white; width:300px">Ubicación</th>
@@ -416,14 +429,20 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td><input type="text" name="LMubicacion" style="width:300px"></td>
-                                <td><input type="text" name="LMresponsable" style="width:300px"></td>
-                                <td><input type="text" name="LMiden_muestra" style="width:300px"></td>
+                                <td><input type="text" name="LMubicacion0" style="width:300px"></td>
+                                <td><input type="text" name="LMresponsable0" style="width:300px"></td>
+                                <td><input type="text" name="LMiden_muestra0" style="width:300px"></td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
+                    <div align="center">
+                        <input type="button" id="otrolaminas" name="otrolaminas" class="btn-sm"  value="Agregar más" onclick="javascript:maslaminas()">
+                        <br><br>
+                    </div>
+                </div>
                 <div class="input-group" id="tabpig" style="display: none;">
+                    <div class="input-group" id="inputpigmentos">
                     <table class="table table-bordered"><strong>VII.PIGMENTOS</strong> 
                         <thead>
                             <tr align="center">
@@ -433,10 +452,10 @@
                                 <th style="background-color: #5B9BD5; color:white; width:300px">Descripcion de la muestra</th>
                                 <tbody>
                                     <tr>
-                                        <td><input type="text" name="Pmuestra" style="width:300px"></td>
-                                        <td><input type="text" name="Pnomenclatura" style="width:300px"></td>
-                                        <td><input type="text" name="Pinf_requerida" style="width:300px"></td>
-                                        <td><input type="text" name="Pdes_muestra" style="width:300px"></td>
+                                        <td><input type="text" name="Pmuestra0" style="width:300px"></td>
+                                        <td><input type="text" name="Pnomenclatura0" style="width:300px"></td>
+                                        <td><input type="text" name="Pinf_requerida0" style="width:300px"></td>
+                                        <td><input type="text" name="Pdes_muestra0" style="width:300px"></td>
                                     </tr>
                                 </tbody>
                                 <th style="background-color: #5B9BD5; color:white; width:300px">Ubicación</th>
@@ -446,75 +465,90 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td><input type="text" name="Pubicacion" style="width:300px"></td>
-                                <td><input type="text" name="Presponsable" style="width:300px"></td>
-                                <td><input type="text" name="Piden_muestra" style="width:300px"></td>
+                                <td><input type="text" name="Pubicacion0" style="width:300px"></td>
+                                <td><input type="text" name="Presponsable0" style="width:300px"></td>
+                                <td><input type="text" name="Piden_muestra0" style="width:300px"></td>
                             </tr>
                         </tbody>
                     </table>
+                    </div>
+                    <div align="center">
+                        <input type="button" id="otropigmentos" name="otropigmentos" class="btn-sm"  value="Agregar más" onclick="javascript:maspigmentos()">
+                        <br><br>
+                    </div>
                 </div>
                 <div class="input-group" id="tabaglu" style="display: none;">
+                    <div class="input-group" id="inputaglutinante">
                     <table class="table table-bordered"><strong>VIII.AGLUTINANTE</strong> 
                         <thead>
                             <tr align="center">
-                                <th style="width:300px">Número de muestra</th>
-                                <th style="width:300px">Nomenclatura</th>
-                                <th style="width:300px">Información requerida</th>
-                                <th style="width:300px">Descripcion de la muestra</th>
+                                <th style="background-color: #F55587; color:white; width:300px">Número de muestra</th>
+                                <th style="background-color: #F55587; color:white; width:300px">Nomenclatura</th>
+                                <th style="background-color: #F55587; color:white; width:300px">Información requerida</th>
+                                <th style="background-color: #F55587; color:white; width:300px">Descripcion de la muestra</th>
                                 <tbody>
                                     <tr>
-                                        <td><input type="text" name="Amuestra" style="width:300px"></td>
-                                        <td><input type="text" name="Anomenclatura" style="width:300px"></td>
-                                        <td><input type="text" name="Ainf_requerida" style="width:300px"></td>
-                                        <td><input type="text" name="Ades_muestra" style="width:300px"></td>
+                                        <td><input type="text" name="Amuestra0" style="width:300px"></td>
+                                        <td><input type="text" name="Anomenclatura0" style="width:300px"></td>
+                                        <td><input type="text" name="Ainf_requerida0" style="width:300px"></td>
+                                        <td><input type="text" name="Ades_muestra0" style="width:300px"></td>
                                     </tr>
                                 </tbody>
-                                <th style="width:300px">Ubicación</th>
-                                <th style="width:300px">Motivo</th>
-                                <th style="width:300px">Responsable</th>
-                                <th style="width:300px">No. de indentificacion</th>
+                                <th style="background-color: #F55587; color:white; width:300px">Ubicación</th>
+                                <th style="background-color: #F55587; color:white; width:300px">Responsable</th>
+                                <th style="background-color: #F55587; color:white; width:300px">No. de indentificacion</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td><input type="text" name="Aubicacion" style="width:300px"></td>
-                                <td><input type="text" name="Amotivo" style="width:300px"></td>
-                                <td><input type="text" name="Aresponsable" style="width:300px"></td>
-                                <td><input type="text" name="Aiden_muestra" style="width:300px"></td>
+                                <td><input type="text" name="Aubicacion0" style="width:300px"></td>
+                                <td><input type="text" name="Aresponsable0" style="width:300px"></td>
+                                <td><input type="text" name="Aiden_muestra0" style="width:300px"></td>
                             </tr>
                         </tbody>
                     </table>
-                </div><div class="input-group" id="tabrecu" style="display: none;">
+                    </div>
+                    <div align="center">
+                        <input type="button" id="otroaglutinante" name="otroaglutinante" class="btn-sm"  value="Agregar más" onclick="javascript:masaglutinante()">
+                        <br><br>
+                    </div>
+                </div>
+                <div class="input-group" id="tabrecu" style="display: none;">
+                    <div class="input-group" id="inputrecubrimiento">
                     <table class="table table-bordered"><strong>IX.RECUBRIMIENTO</strong> 
                         <thead>
                             <tr align="center">
-                                <th style="width:300px">Número de muestra</th>
-                                <th style="width:300px">Nomenclatura</th>
-                                <th style="width:300px">Información requerida</th>
-                                <th style="width:300px">Descripcion de la muestra</th>
+                                <th style="background-color: #FBAE47; color:white; width:300px">Número de muestra</th>
+                                <th style="background-color: #FBAE47; color:white; width:300px">Nomenclatura</th>
+                                <th style="background-color: #FBAE47; color:white; width:300px">Información requerida</th>
+                                <th style="background-color: #FBAE47; color:white; width:300px">Descripcion de la muestra</th>
                                 <tbody>
                                     <tr>
-                                        <td><input type="text" name="Rmuestra" style="width:300px"></td>
-                                        <td><input type="text" name="Rnomenclatura" style="width:300px"></td>
-                                        <td><input type="text" name="Rinf_requerida" style="width:300px"></td>
-                                        <td><input type="text" name="Rdes_muestra" style="width:300px"></td>
+                                        <td><input type="text" name="Rmuestra0" style="width:300px"></td>
+                                        <td><input type="text" name="Rnomenclatura0" style="width:300px"></td>
+                                        <td><input type="text" name="Rinf_requerida0" style="width:300px"></td>
+                                        <td><input type="text" name="Rdes_muestra0" style="width:300px"></td>
                                     </tr>
                                 </tbody>
-                                <th style="width:300px">Ubicación</th>
-                                <th style="width:300px">Motivo</th>
-                                <th style="width:300px">Responsable</th>
-                                <th style="width:300px">No. de indentificacion</th>
+                                <th style="background-color: #FBAE47; color:white; width:300px">Ubicación</th>
+                                <th style="background-color: #FBAE47; color:white; width:300px">Responsable</th>
+                                <th style="background-color: #FBAE47; color:white; width:300px">No. de indentificacion</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td><input type="text" name="Rubicacion" style="width:300px"></td>
-                                <td><input type="text" name="Rmotivo" style="width:300px"></td>
-                                <td><input type="text" name="Rresponsable" style="width:300px"></td>
-                                <td><input type="text" name="Riden_muestra" style="width:300px"></td>
+                                <td><input type="text" name="Rubicacion0" style="width:300px"></td>
+                                <td><input type="text" name="Rresponsable0" style="width:300px"></td>
+                                <td><input type="text" name="Riden_muestra0" style="width:300px"></td>
                             </tr>
                         </tbody>
                     </table>
+                    </div>
+                    <div align="center">
+                        <input type="button" id="otrorecubrimiento" name="otrorecubrimiento" class="btn-sm"  value="Agregar más" onclick="javascript:masrecubrimiento()">
+                        <br><br>
+                    </div>
+                
                 </div>  
                 <div class="input-group" id="tabmaso" style="display: none;">
                     <table class="table table-bordered"><strong>X.MATERIAL ASOCIADO</strong> 
@@ -684,6 +718,7 @@
                 </form>
         </div>
 	</div>
+<<<<<<< Updated upstream
  </div>
 
 
@@ -691,4 +726,8 @@
  
 
 
+=======
+</div>
+<script src="../../bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+>>>>>>> Stashed changes
 @endsection

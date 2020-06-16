@@ -265,8 +265,244 @@ $contador_recubrimiento = 0;
                 <div id="inputestratigrafia"></div><br>
                 @endif
 
+<<<<<<< HEAD
              
              
+=======
+                @foreach($revoque as $revoques)
+                <div class="input-group" id="tabso" >
+                    <table class="table table-bordered"><strong>REVOQUE Y ENLUCIDO</strong> 
+                        <thead>
+                            <tr align="center">
+                                <th style="background-color: #B248A5; color:white;">Número de muestra</th>
+                                <th style="background-color: #B248A5; color:white;">Nomenclatura</th>
+                                <th style="background-color: #B248A5; color:white;">Información requerida</th>
+                                <th style="background-color: #B248A5; color:white;">Descripcion de la muestra</th>
+                                <th style="background-color: #B248A5; color:white;">Ubicación</th>
+                                <th style="background-color: #B248A5; color:white;">Responsable</th>
+                                <th style="background-color: #B248A5; color:white;">No. de indentificacion</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr align="center">
+                                <td><input type="text" name="REmuestra_edit{{$contador_revoque}}" value="{{ $revoques->revoque_muestra}}"></td>
+                                <td><input type="text" name="REnomenclatura_edit{{$contador_revoque}}" value="{{$revoques->revoque_nomenclatura}}"></td>
+                                <td><input type="text" name="REinf_requerida_edit{{$contador_revoque}}" value="{{$revoques->revoque_inf_requerida}}"></td>
+                                <td><input type="text" name="REdes_muestra_edit{{$contador_revoque}}" value="{{$revoques->revoque_des_muestra}}"></td>
+                                <td><input type="text" name="REubicacion_edit{{$contador_revoque}}" value="{{$revoques->revoque_ubicacion}}"></td>
+                                <td><input type="text" name="REresponsable_edit{{$contador_revoque}}" value="{{$revoques->revoque_responsable}}"></td>
+                                <td><input type="text" name="REiden_muestra_edit{{$contador_revoque}}" value="{{$revoques->revoque_identificacion_muestra}}"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <?php
+                    $contador_revoque +=1;
+                  ?>
+               @endforeach
+               @if($revoque->isEmpty())
+               @else
+               <div align="center">
+               <input type="button" id="otrorevoque" name="otrorevoque" class="btn-sm"  value="Agregar más" onclick="javascript:masrevoque()">
+                </div>
+                <div id="inputrevoque"></div><br>
+                @endif
+
+                 @foreach($bol as $bols)
+                <div class="input-group" id="tabso" >
+                    <table class="table table-bordered"><strong>V. BOL</strong> 
+                        <thead>
+                            <tr align="center">
+                                <th style="background-color: #FF5050; color:white;">Número de muestra</th>
+                                <th style="background-color: #FF5050; color:white;">Nomenclatura</th>
+                                <th style="background-color: #FF5050; color:white;">Información requerida</th>
+                                <th style="background-color: #FF5050; color:white;">Descripcion de la muestra</th>
+                                <th style="background-color: #FF5050; color:white;">Ubicación</th>
+                                <th style="background-color: #FF5050; color:white;">Responsable</th>
+                                <th style="background-color: #FF5050; color:white;">No. de indentificacion</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr align="center">
+                                <td><input type="text" name="BOLmuestra_edit{{$contador_revoque}}" value="{{ $bols->bol_muestra}}"></td>
+                                <td><input type="text" name="BOLnomenclatura_edit{{$contador_revoque}}" value="{{$bols->bol_nomenclatura}}"></td>
+                                <td><input type="text" name="BOLinf_requerida_edit{{$contador_revoque}}" value="{{$bols->bol_inf_requerida}}"></td>
+                                <td><input type="text" name="BOLdes_muestra_edit{{$contador_revoque}}" value="{{$bols->bol_des_muestra}}"></td>
+                                <td><input type="text" name="BOLubicacion_edit{{$contador_revoque}}" value="{{$bols->bol_ubicacion}}"></td>
+                                <td><input type="text" name="BOLresponsable_edit{{$contador_revoque}}" value="{{$bols->bol_responsable}}"></td>
+                                <td><input type="text" name="BOLiden_muestra_edit{{$contador_revoque}}" value="{{$bols->bol_identificacion_muestra}}"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <?php
+                    $contador_revoque +=1;
+                  ?>
+               @endforeach
+               @if($bol->isEmpty())
+               @else
+               <div align="center">
+               <input type="button" id="otrobol" name="otrobol" class="btn-sm"  value="Agregar más" onclick="javascript:masbol()">
+                </div>
+                <div id="inputbol"></div><br>
+                @endif
+
+                 @foreach($lamina as $laminas)
+                <div class="input-group" id="tabso" >
+                    <table class="table table-bordered"><strong>VI. LÁMINAS METÁLICAS</strong> 
+                        <thead>
+                            <tr align="center">
+                                <th style="background-color: #3A5754; color:white;">Número de muestra</th>
+                                <th style="background-color: #3A5754; color:white;">Nomenclatura</th>
+                                <th style="background-color: #3A5754; color:white;">Información requerida</th>
+                                <th style="background-color: #3A5754; color:white;">Descripcion de la muestra</th>
+                                <th style="background-color: #3A5754; color:white;">Ubicación</th>
+                                <th style="background-color: #3A5754; color:white;">Responsable</th>
+                                <th style="background-color: #3A5754; color:white;">No. de indentificacion</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr align="center">
+                                <td><input type="text" name="LMmuestra_edit{{$contador_laminas}}" value="{{ $laminas->laminas_muestra}}"></td>
+                                <td><input type="text" name="LMnomenclatura_edit{{$contador_laminas}}" value="{{$laminas->laminas_nomenclatura}}"></td>
+                                <td><input type="text" name="LMinf_requerida_edit{{$contador_laminas}}" value="{{$laminas->laminas_inf_requerida}}"></td>
+                                <td><input type="text" name="LMdes_muestra_edit{{$contador_laminas}}" value="{{$laminas->laminas_des_muestra}}"></td>
+                                <td><input type="text" name="LMubicacion_edit{{$contador_laminas}}" value="{{$laminas->laminas_ubicacion}}"></td>
+                                <td><input type="text" name="LMresponsable_edit{{$contador_laminas}}" value="{{$laminas->laminas_responsable}}"></td>
+                                <td><input type="text" name="LMiden_muestra_edit{{$contador_laminas}}" value="{{$laminas->laminas_identificacion_muestra}}"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <?php
+                    $contador_laminas +=1;
+                  ?>
+               @endforeach
+               @if($lamina->isEmpty())
+               @else
+               <div align="center">
+               <input type="button" id="otrolaminas" name="otrolaminas" class="btn-sm"  value="Agregar más" onclick="javascript:maslaminas()">
+                </div>
+                <div id="inputlaminas"></div><br>
+                @endif
+
+                @foreach($pigmento as $pigmentos)
+                <div class="input-group" id="tabso" >
+                    <table class="table table-bordered"><strong>VII.PIGMENTOS</strong> 
+                        <thead>
+                            <tr align="center">
+                                <th style="background-color: #5B9BD5; color:white;">Número de muestra</th>
+                                <th style="background-color: #5B9BD5; color:white;">Nomenclatura</th>
+                                <th style="background-color: #5B9BD5; color:white;">Información requerida</th>
+                                <th style="background-color: #5B9BD5; color:white;">Descripcion de la muestra</th>
+                                <th style="background-color: #5B9BD5; color:white;">Ubicación</th>
+                                <th style="background-color: #5B9BD5; color:white;">Responsable</th>
+                                <th style="background-color: #5B9BD5; color:white;">No. de indentificacion</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr align="center">
+                                <td><input type="text" name="Pmuestra_edit{{$contador_pigmentos}}" value="{{ $pigmentos->pigmentos_muestra}}"></td>
+                                <td><input type="text" name="Pnomenclatura_edit{{$contador_pigmentos}}" value="{{$pigmentos->pigmentos_nomenclatura}}"></td>
+                                <td><input type="text" name="Pinf_requerida_edit{{$contador_pigmentos}}" value="{{$pigmentos->pigmentos_inf_requerida}}"></td>
+                                <td><input type="text" name="Pdes_muestra_edit{{$contador_pigmentos}}" value="{{$pigmentos->pigmentos_des_muestra}}"></td>
+                                <td><input type="text" name="Pubicacion_edit{{$contador_pigmentos}}" value="{{$pigmentos->pigmentos_ubicacion}}"></td>
+                                <td><input type="text" name="Presponsable_edit{{$contador_pigmentos}}" value="{{$pigmentos->pigmentos_responsable}}"></td>
+                                <td><input type="text" name="Piden_muestra_edit{{$contador_pigmentos}}" value="{{$pigmentos->pigmentos_identificacion_muestra}}"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <?php
+                    $contador_pigmentos +=1;
+                  ?>
+               @endforeach
+               @if($pigmento->isEmpty())
+               @else
+               <div align="center">
+               <input type="button" id="otropigmentos" name="otropigmentos" class="btn-sm"  value="Agregar más" onclick="javascript:maspigmentos()">
+                </div>
+                <div id="inputpigmentos"></div><br>
+                @endif
+
+                @foreach($aglutinante as $aglutinantes)
+                <div class="input-group" id="tabso" >
+                    <table class="table table-bordered"><strong>VII.AGLUTINANTES</strong> 
+                        <thead>
+                            <tr align="center">
+                                <th style="background-color: #F55587; color:white;">Número de muestra</th>
+                                <th style="background-color: #F55587; color:white;">Nomenclatura</th>
+                                <th style="background-color: #F55587; color:white;">Información requerida</th>
+                                <th style="background-color: #F55587; color:white;">Descripcion de la muestra</th>
+                                <th style="background-color: #F55587; color:white;">Ubicación</th>
+                                <th style="background-color: #F55587; color:white;">Responsable</th>
+                                <th style="background-color: #F55587; color:white;">No. de indentificacion</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr align="center">
+                                <td><input type="text" name="Amuestra_edit{{$contador_aglutinante}}" value="{{ $aglutinantes->aglutinante_muestra}}"></td>
+                                <td><input type="text" name="Anomenclatura_edit{{$contador_aglutinante}}" value="{{$aglutinantes->aglutinante_nomenclatura}}"></td>
+                                <td><input type="text" name="Ainf_requerida_edit{{$contador_aglutinante}}" value="{{$aglutinantes->aglutinante_inf_requerida}}"></td>
+                                <td><input type="text" name="Ades_muestra_edit{{$contador_aglutinante}}" value="{{$aglutinantes->aglutinante_des_muestra}}"></td>
+                                <td><input type="text" name="Aubicacion_edit{{$contador_aglutinante}}" value="{{$aglutinantes->aglutinante_ubicacion}}"></td>
+                                <td><input type="text" name="Aresponsable_edit{{$contador_aglutinante}}" value="{{$aglutinantes->aglutinante_responsable}}"></td>
+                                <td><input type="text" name="Aiden_muestra_edit{{$contador_aglutinante}}" value="{{$aglutinantes->aglutinante_identificacion_muestra}}"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <?php
+                    $contador_aglutinante +=1;
+                  ?>
+               @endforeach
+               @if($aglutinante->isEmpty())
+               @else
+               <div align="center">
+               <input type="button" id="otroaglutinante" name="otroaglutinante" class="btn-sm"  value="Agregar más" onclick="javascript:masaglutinante()">
+                </div>
+                <div id="inputaglutinante"></div><br>
+                @endif
+
+                @foreach($recubrimiento as $recubrimientos)
+                <div class="input-group" id="tabso" >
+                    <table class="table table-bordered"><strong>X.RECUBRIMIENTOS</strong> 
+                        <thead>
+                            <tr align="center">
+                                <th style="background-color: #FBAE47; color:white;">Número de muestra</th>
+                                <th style="background-color: #FBAE47; color:white;">Nomenclatura</th>
+                                <th style="background-color: #FBAE47; color:white;">Información requerida</th>
+                                <th style="background-color: #FBAE47; color:white;">Descripcion de la muestra</th>
+                                <th style="background-color: #FBAE47; color:white;">Ubicación</th>
+                                <th style="background-color: #FBAE47; color:white;">Responsable</th>
+                                <th style="background-color: #FBAE47; color:white;">No. de indentificacion</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr align="center">
+                                <td><input type="text" name="Rmuestra_edit{{$contador_recubrimiento}}" value="{{ $recubrimientos->recubrimiento_muestra}}"></td>
+                                <td><input type="text" name="Rnomenclatura_edit{{$contador_recubrimiento}}" value="{{$recubrimientos->recubrimiento_nomenclatura}}"></td>
+                                <td><input type="text" name="Rinf_requerida_edit{{$contador_recubrimiento}}" value="{{$recubrimientos->recubrimiento_inf_requerida}}"></td>
+                                <td><input type="text" name="Rdes_muestra_edit{{$contador_recubrimiento}}" value="{{$recubrimientos->recubrimiento_des_muestra}}"></td>
+                                <td><input type="text" name="Rubicacion_edit{{$contador_recubrimiento}}" value="{{$recubrimientos->recubrimiento_ubicacion}}"></td>
+                                <td><input type="text" name="Rresponsable_edit{{$contador_recubrimiento}}" value="{{$recubrimientos->recubrimiento_responsable}}"></td>
+                                <td><input type="text" name="Riden_muestra_edit{{$contador_recubrimiento}}" value="{{$recubrimientos->recubrimiento_identificacion_muestra}}"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <?php
+                    $contador_recubrimiento +=1;
+                  ?>
+               @endforeach
+               @if($recubrimiento->isEmpty())
+               @else
+               <div align="center">
+               <input type="button" id="otrorecubrimiento" name="otrorecubrimiento" class="btn-sm"  value="Agregar más" onclick="javascript:masrecubrimiento()">
+                </div>
+                <div id="inputrecubrimiento"></div><br>
+                @endif
+>>>>>>> 4432738266f26bede9981349eb9e70e1bde6b423
                     <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                             <button type="submit" class="btn btn-primary btn-sm">Guardar</button>
                             <a href="{{route('analisisg.index')}}" class="btn btn-danger btn-sm">Cancelar</a>
