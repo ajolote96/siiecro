@@ -31,9 +31,10 @@
                     @csrf 
 
                     <BR>
-                    <div class="form-group">
-                        <div class="form-group">
+                    <div align="center">
+                        <table>
                             
+<<<<<<< HEAD
                             <div class="input-group" >
                                 <label for="id_de_obra" class="input-group-addon">ID Obra </label>
                                 <input type="text" name="id_de_obra" class="form-control"  value="{{ $analisisg->id_de_obra }}" style="width:200px" readonly><BR>    
@@ -61,18 +62,57 @@
                         </div><br><br>
                         
                         </div><br><br>
+=======
+                            <tr >
+                               <td> <label for="id_de_obra" class="input-group-addon" style="width: 300px; border:0;">ID Obra </label></td>
+                               <td> <input type="text" name="id_de_obra" class="form-control"  value="{{ $analisisg->id_de_obra }}" style="width:500px; text-align:center;"  readonly></td>    
+                            </tr>
+                           
+                            <tr >
+                               <td> <label for="titulo_obra" class="input-group-addon" style="width: 300px; border:0;">Titulo de la obra/pieza</label></td>
+                               <td> <input type="text" name="titulo_obra" class="form-control"  value="{{ $analisisg->titulo_obra }}" style="width:500px; text-align:center;" readonly></td>
+                            </tr>
+                            
+							 
+							<tr>
+                               <td> <span class="input-group-addon"style="width: 300px; border:0;">Temporalidad</span></td>
+                               <td> <input type="text" name="temp_obra" class="form-control"  value="{{ $analisisg->temp_obra }}" style="width:500px; text-align:center;" readonly></td>
+                            </tr>
+                        	 
+>>>>>>> e05399477cbb0b09534da7ad6cb31ea848dbff2c
                         
-                    	<div class="form-group">
+                            <tr>
+                              <td>  <label for="epoca_obra" class="input-group-addon"style="width: 300px; border:0;">Epoca de la obra</label></td>
+                              <td>  <input type="text" name="epoca_obra" class="form-control"  value="{{ $analisisg->epoca_obra }}" style="width:500px; text-align:center;" readonly></td>
+                            </tr>
+                          
+                            
+                            <tr>
+                              <td>  <label for="tipo_obj_obra" class="input-group-addon"style="width: 300px; border:0;">Tipo de objeto de la obra</label></td>
+                               <td> <input type="text" name="tipo_obj_obra" class="form-control"  value="{{$analisisg->tipo_obj_obra }}" style="width:500px; text-align:center;" readonly></td>
+                            </tr>
+
+
+
+                         
                     
                    
                     
+<<<<<<< HEAD
                     <div class="input-group">
                         <label for="respon_intervencion" class="input-group-addon">Responsable de la Intervencion</label>
                         <input type="text" class="form-control"  name="respon_intervencion"  value="{{ $analisisg->respon_intervencion }}" style="width:200px">
                     </div>
+=======
+                       <tr>
+                        <td><label for="respon_intervencion" class="input-group-addon"style="width: 300px; border:0;">Responsable de la Intervencion</label></td>
+                        <td><input type="text" class="form-control"  name="respon_intervencion"  value="{{ $analisisg->respon_intervencion }}" style="width:500px; text-align:center;"></td>
+                      </tr>
+>>>>>>> e05399477cbb0b09534da7ad6cb31ea848dbff2c
                     
-                </div><br><br>
+                  
                       
+<<<<<<< HEAD
                     <br><br>
                     <div class="input-group">
                     <div class="input-group date">
@@ -83,12 +123,21 @@
 
                         <input type="date" class="form-control date" name="fecha_de_inicio" placeholder="mm/dd/aaaa (Fecha de entrada)" value="{{ $analisisg->fecha_de_inicio }}" style="width:262px">
                     </div>
+=======
+                    
+                   
+                    
+                        <tr>
+                            <td> <i class="fa fa-calendar"style="width: 300px; border:0;"> Fecha de entrada</i></td>
+                           <td><input type="date" class="form-control date" name="fecha_de_inicio" placeholder="mm/dd/aaaa (Fecha de entrada)" value="{{ $analisisg->fecha_de_inicio }}" style="width:500px"></td>
+                        </tr>
+>>>>>>> e05399477cbb0b09534da7ad6cb31ea848dbff2c
                 
                     
-                    </div>
-                    </div><br><br>
-                    <div class="form-group">
+                     
+                       
                     
+<<<<<<< HEAD
                     <div class="input-group">
                         <label for="tecnica" class="input-group-addon">Tecnica</label>
                         <input type="text" class="form-control"  name="tecnica" value="{{ $analisisg->tecnica}}" style="width:200px">
@@ -107,8 +156,62 @@
                             <label class="input-group-addon">Diametro</label>
                             <input type="text" class="form-control" name="diametro" value="{{ $analisisg->diametro}}"><br>
                         </div>
+=======
+                    
+                     <tr>
+                       <td> <label for="tecnica" class="input-group-addon"style="width: 300px; border:0;">Tecnica</label></td>
+                        <td><input type="text" class="form-control"  name="tecnica" value="{{ $analisisg->tecnica}}" style="width:500px; text-align:center;"></td>
+                     </tr>
+
+
+
+
+                           </table>
                         
-                    </div><br><br>
+
+                           <div align="left">
+                    <table>
+                        <tr>
+                            <th></th>
+                            <th style="text-align:center; background-color: #7C858C; color:white;">Alto</th>
+                            <th style="text-align:center; background-color: #7C858C; color:white;">Ancho</th>
+                            <th style="text-align:center; background-color: #7C858C; color:white;">Profundidad</th>
+                            <th style="text-align:center; background-color: #7C858C; color:white;">Diametro</th>
+                        </tr>
+                        <tr>
+                            <th>Dimensiones</th>
+                            <td><input type="text" class="form-control" name="alto" value="{{ $analisisg->alto}}" style="width:200px; text-align:center; "></td></td>
+                            <td><input type="text" class="form-control" name="ancho" value="{{ $analisisg->ancho}}"style="width:200px; text-align:center; "></td></td>
+                            <td><input type="text" class="form-control" name="profundidad" value="{{ $analisisg->profundidad}}"style="width:200px; text-align:center; "></td>
+                            <td><input type="text" class="form-control" name="diametro" value="{{ $analisisg->diametro}}"style="width:200px; text-align:center; "></td>
+                        </tr>
+                    </table>
+
+
+
+
+
+
+
+
+</div>  <!--aca termina-->
+
+
+
+
+
+
+
+      
+                         
+
+      </div> <!-- por aca termina la tabla-->
+>>>>>>> e05399477cbb0b09534da7ad6cb31ea848dbff2c
+                        
+
+                    
+                <div class="col-md-12"></div>
+
                     
                     
                 </div><br><br>
