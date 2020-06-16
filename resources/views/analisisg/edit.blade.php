@@ -3,15 +3,11 @@
   $analisisg = $analisisgs->first();
 $contador_soporte = 0;
 $contador_base = 0;
-$contador_estratigrafia = 0;
-$contador_revoque = 0;
-$contador_bol = 0;
-$contador_laminas = 0;
-$contador_pigmentos = 0;
-$contador_aglutinante = 0;
-$contador_recubrimiento = 0;
-
-
+$contador_otros = 0;
+$contador_biodeterioro = 0;
+$contador_matag = 0;
+$contador_sales = 0;
+$contador_maso = 0;
 ?>
 @section('main-content')
 
@@ -23,9 +19,9 @@ $contador_recubrimiento = 0;
 <div class="box">
     <div class="box-body"  >
             <div class="panel">
-                <h1 style="background-color: grey; color:white; text-align:center;">Editar Solicitud de Análisis Científico </h1>
-
-
+                <h1>Editar Solicitud de Análisis Científico 
+			
+</h1>
                 @if ($errors->any())
                 <div class="alert alert-danger">
                     <strong>Vaya!</strong> Algo salio mal.<br><br>
@@ -47,30 +43,28 @@ $contador_recubrimiento = 0;
                             <input type="hidden" name="id_obra" class="form-control"  value="{{ $analisisg->id_obra }}" style="width:200px" readonly>
 
                             <div class="input-group" >
-                                <label for="id_de_obra" class="input-group-addon" style="width: 300px; border:0;">ID Obra </label>
-                                <input type="text" name="id_de_obra" class="form-control"  value="{{ $analisisg->id_de_obra }}" style="width:500px; text-align:center; " readonly><BR>    
+                                <label for="id_de_obra" class="input-group-addon">ID Obra </label>
+                                <input type="text" name="id_de_obra" class="form-control"  value="{{ $analisisg->id_de_obra }}" style="width:200px" readonly><BR>    
                             </div>
-                            <br><br>
                             <div class="input-group" >
-                                <label for="titulo_obra" class="input-group-addon"style="width: 300px; border:0;">Titulo de la obra/pieza</label>
-                                <input type="text" name="titulo_obra" class="form-control"  value="{{ $analisisg->titulo_obra }}" style="width:500px; text-align:center; " readonly><BR> 
+                                <label for="titulo_obra" class="input-group-addon">Titulo de la obra/pieza</label>
+                                <input type="text" name="titulo_obra" class="form-control"  value="{{ $analisisg->titulo_obra }}" style="width:200px" readonly><BR> 
                             </div>
-                            <br><br>
 							<div class="form-group">
 							<div class="input-group">
-                                <span class="input-group-addon"style="width: 300px; border:0;">Temporalidad</span>
-                                <input type="text" name="temp_obra" class="form-control"  value="{{ $analisisg->temp_obra }}" style="width:500px; text-align:center; "readonly>
+                                <span class="input-group-addon">Temporalidad</span>
+                                <input type="text" name="temp_obra" class="form-control"  value="{{ $analisisg->temp_obra }}" style="width:200px" readonly>
                             </div>
                         	</div><br><br>
                         
                             <div class="input-group ">
-                                <label for="epoca_obra" class="input-group-addon"style="width: 300px; border:0;">Epoca de la obra</label>
-                                <input type="text" name="epoca_obra" class="form-control"  value="{{ $analisisg->epoca_obra }}" style="width:500px; text-align:center; " readonly>
+                                <label for="epoca_obra" class="input-group-addon">Epoca de la obra</label>
+                                <input type="text" name="epoca_obra" class="form-control"  value="{{ $analisisg->epoca_obra }}" style="width:200px" readonly>
                             </div>
-                            <br><br>
+                           
                             <div class="input-group">
-                                <label for="tipo_obj_obra" class="input-group-addon"style="width: 300px; border:0;">Tipo de objeto de la obra</label>
-                                <input type="text" name="tipo_obj_obra" class="form-control"  value="{{$analisisg->tipo_obj_obra }}" style="width:500px; text-align:center; " readonly>
+                                <label for="tipo_obj_obra" class="input-group-addon">Tipo de objeto de la obra</label>
+                                <input type="text" name="tipo_obj_obra" class="form-control"  value="{{$analisisg->tipo_obj_obra }}" style="width:200px" readonly>
                             </div>
                         </div><br><br>
                         
@@ -80,25 +74,25 @@ $contador_recubrimiento = 0;
                     
                     
                     <div class="input-group">
-                        <label for="respon_intervencion" class="input-group-addon"style="width: 300px; border:0;">Responsable de la Intervencion</label>
-                        <input type="text" class="form-control"  name="respon_intervencion"  value="{{ $analisisg->respon_intervencion }}" style="width:500px; text-align:center; ">
+                        <label for="respon_intervencion" class="input-group-addon">Responsable de la Intervencion</label>
+                        <input type="text" class="form-control"  name="respon_intervencion"  value="{{ $analisisg->respon_intervencion }}" style="width:200px">
                     </div>
                     
                 </div><br><br>
                       <div class="input-group">
-                        <label for="foto" class="input-group-addon"style="width: 300px; border:0;">Foto</label>
-                        <input type="file" class="form-control"  name="foto" value="{{ $analisisg->foto}}" style="width:500px; text-align:center; ">
+                        <label for="foto" class="input-group-addon">Foto</label>
+                        <input type="file" class="form-control"  name="foto" value="{{ $analisisg->foto}}" >
                     </div>
-                <br><br>
-                    <div class="input-group" >
+                
+                    <div class="input-group">
                     <div class="input-group date">
 
                         <div class="input-group-addon">
-                             <i class="fa fa-calendar" class="input-group-addon"style="width: 300px; border:0;"> Fecha de entrada</i>
+                             <i class="fa fa-calendar"> Fecha de entrada</i>
 
                         </div>
 
-                        <input type="date" class="form-control date" name="fecha_de_inicio" placeholder="mm/dd/aaaa (Fecha de entrada)" value="{{ $analisisg->fecha_de_inicio }}" style="width:500px; text-align:center; ">
+                        <input type="date" class="form-control date" name="fecha_de_inicio" placeholder="mm/dd/aaaa (Fecha de entrada)" value="{{ $analisisg->fecha_de_inicio }}" style="width:262px">
                     </div>
                 
                     
@@ -125,18 +119,19 @@ $contador_recubrimiento = 0;
                     
                 </div><br><br>
                
+               <!--SOPORTE MUESTRA I-->
                @foreach($soportes as $soporte)
                 <div class="input-group" id="tabso" >
-                    <table class="table table-bordered"><strong>SOPORTE</strong> 
+                    <table class="table table-bordered" background-color: red;><strong>SOPORTE</strong> 
                         <thead>
                             <tr align="center">
-                                <th style="background-color: #C65911; color:white;">Número de muestra</th>
-                                <th style="background-color: #C65911; color:white;">Nomenclatura</th>
-                                <th style="background-color: #C65911; color:white;">Información requerida</th>
-                                <th style="background-color: #C65911; color:white;">Descripcion de la muestra</th>
-                                <th style="background-color: #C65911; color:white;">Ubicación</th>
-                                <th style="background-color: #C65911; color:white;">Responsable</th>
-                                <th style="background-color: #C65911; color:white;">No. de indentificacion</th>
+                                <th bgcolor="">Número de muestra</th>
+                                <th style="background-color: #C65911; color:white; width:300px">Nomenclatura</th>
+                                <th style="background-color: #C65911; color:white; width:300px">Información requerida</th>
+                                <th style="background-color: #C65911; color:white; width:300px">Descripcion de la muestra</th>
+                                <th style="background-color: #C65911; color:white; width:300px">Ubicación</th>
+                                <th style="background-color: #C65911; color:white; width:300px">Responsable</th>
+                                <th style="background-color: #C65911; color:white; width:300px">No. de indentificacion</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -151,10 +146,10 @@ $contador_recubrimiento = 0;
                             </tr>
                         </tbody>
                     </table>
-                </div>
+                    </div>
                 <?php
                     $contador_soporte +=1;
-                  ?>
+                  ?>  
                @endforeach
                @if($soportes->isEmpty())
                @else
@@ -163,18 +158,24 @@ $contador_recubrimiento = 0;
                 </div>
                 <div id="inputsoporte"></div><br>
                 @endif
+
+
+
+            
+            
+            <!--BASE MUESTRA II-->
                @foreach($baseP as $basesP)
                 <div class="input-group" id="tabso" >
-                    <table class="table table-bordered"><strong>BASE DE PREPARACIóN</strong> 
+                    <table class="table table-bordered" background-color: red;><strong>BASE DE PREPARACIóN</strong> 
                         <thead>
                             <tr align="center">
-                                <th style="background-color: #FFCC66; color:white;">Número de muestra</th>
-                                <th style="background-color: #FFCC66; color:white;">Nomenclatura</th>
-                                <th style="background-color: #FFCC66; color:white;">Información requerida</th>
-                                <th style="background-color: #FFCC66; color:white;">Descripcion de la muestra</th>
-                                <th style="background-color: #FFCC66; color:white;">Ubicación</th>
-                                <th style="background-color: #FFCC66; color:white;">Responsable</th>
-                                <th style="background-color: #FFCC66; color:white;">No. de indentificacion</th>
+                                <th bgcolor="">Número de muestra</th>
+                                <th style="background-color: #FFCC66; color:white; width:300px">Nomenclatura</th>
+                                <th style="background-color: #FFCC66; color:white; width:300px">Información requerida</th>
+                                <th style="background-color: #FFCC66; color:white; width:300px">Descripcion de la muestra</th>
+                                <th style="background-color: #FFCC66; color:white; width:300px">Ubicación</th>
+                                <th style="background-color: #FFCC66; color:white; width:300px">Responsable</th>
+                                <th style="background-color: #FFCC66; color:white; width:300px">No. de indentificacion</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -201,279 +202,219 @@ $contador_recubrimiento = 0;
                 </div>
                 <div id="inputbase"></div><br>
                 @endif
-
-                @foreach($estratigrafia as $estratigrafias)
-                <div class="input-group" id="tabso" >
-                    <table class="table table-bordered"><strong>ESTRATIGRAFÍA</strong> 
+                
+                <!--MATERIALES ASOCIADOS X-->
+                @foreach($maso as $materialaso)
+                <div class="input-group" id="tabmaso" >
+                    <table class="table table-bordered" background-color: red;><strong>MATERIAL ASOCIADO</strong> 
                         <thead>
                             <tr align="center">
-                                <th style="background-color: #008000; color:white;">Número de muestra</th>
-                                <th style="background-color: #008000; color:white;">Nomenclatura</th>
-                                <th style="background-color: #008000; color:white;">Información requerida</th>
-                                <th style="background-color: #008000; color:white;">Descripcion de la muestra</th>
-                                <th style="background-color: #008000; color:white;">Ubicación</th>
-                                <th style="background-color: #008000; color:white;">Responsable</th>
-                                <th style="background-color: #008000; color:white;">No. de indentificacion</th>
+                                <th style="background-color: #8686C4; color:white; width:300px">Número de muestra</th>
+                                <th style="background-color: #8686C4; color:white; width:300px">Nomenclatura</th>
+                                <th style="background-color: #8686C4; color:white; width:300px">Información requerida</th>
+                                <th style="background-color: #8686C4; color:white; width:300px">Descripcion de la muestra</th>
+                                <th style="background-color: #8686C4; color:white; width:300px">Ubicación</th>
+                                <th style="background-color: #8686C4; color:white; width:300px">Responsable</th>
+                                <th style="background-color: #8686C4; color:white; width:300px">No. de indentificacion</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr align="center">
-                                <td><input type="text" name="Emuestra_edit{{$contador_estratigrafia}}" value="{{ $estratigrafias->estratigrafia_muestra}}"></td>
-                                <td><input type="text" name="Enomenclatura_edit{{$contador_estratigrafia}}" value="{{$estratigrafias->estratigrafia_nomenclatura}}"></td>
-                                <td><input type="text" name="Einf_requerida_edit{{$contador_estratigrafia}}" value="{{$estratigrafias->estratigrafia_inf_requerida}}"></td>
-                                <td><input type="text" name="Edes_muestra_edit{{$contador_estratigrafia}}" value="{{$estratigrafias->estratigrafia_des_muestra}}"></td>
-                                <td><input type="text" name="Eubicacion_edit{{$contador_estratigrafia}}" value="{{$estratigrafias->estratigrafia_ubicacion}}"></td>
-                                <td><input type="text" name="Eresponsable_edit{{$contador_estratigrafia}}" value="{{$estratigrafias->estratigrafia_responsable}}"></td>
-                                <td><input type="text" name="Eiden_muestra_edit{{$contador_estratigrafia}}" value="{{$estratigrafias->estratigrafia_identificacion_muestra}}"></td>
+                                <td><input type="text" name="MASOmuestra_edit{{$contador_maso}}" value="{{ $materialaso->materialaso_muestra}}"></td>
+                                <td><input type="text" name="MASOnomenclatura_edit{{$contador_maso}}" value="{{ $materialaso->materialaso_nomenclatura}}"></td>
+                                <td><input type="text" name="MASOinf_requerida_edit{{$contador_maso}}" value="{{ $materialaso->materialaso_inf_requerida}}"></td>
+                                <td><input type="text" name="MASOdes_muestra_edit{{$contador_maso}}" value="{{ $materialaso->materialaso_des_muestra}}"></td>
+                                <td><input type="text" name="MASOubicacion_edit{{$contador_maso}}" value="{{ $materialaso->materialaso_ubicacion}}"></td>
+                                <td><input type="text" name="MASOresponsable_edit{{$contador_maso}}" value="{{ $materialaso->materialaso_responsable}}"></td>
+                                <td><input type="text" name="MASOiden_muestra_edit{{$contador_maso}}" value="{{ $materialaso->materialaso_identificacion_muestra}}"></td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
                 <?php
-                    $contador_estratigrafia +=1;
+                    $contador_maso +=1;
                   ?>
                @endforeach
-               @if($estratigrafia->isEmpty())
+               @if($maso->isEmpty())
                @else
                <div align="center">
-               <input type="button" id="otrobase" name="otrobase" class="btn-sm"  value="Agregar más" onclick="javascript:masestratigrafia()">
+               <input type="button" id="otromaso" name="otromaso" class="btn-sm"  value="Agregar más" onclick="javascript:masmaso()">
                 </div>
-                <div id="inputestratigrafia"></div><br>
+                <div id="inputmaso"></div><br>
                 @endif
 
-                @foreach($revoque as $revoques)
+                 <!--SALES XI-->
+                 @foreach($sal as $sales)
                 <div class="input-group" id="tabso" >
-                    <table class="table table-bordered"><strong>REVOQUE Y ENLUCIDO</strong> 
+                    <table class="table table-bordered" background-color: red;><strong>SALES</strong> 
                         <thead>
                             <tr align="center">
-                                <th style="background-color: #B248A5; color:white;">Número de muestra</th>
-                                <th style="background-color: #B248A5; color:white;">Nomenclatura</th>
-                                <th style="background-color: #B248A5; color:white;">Información requerida</th>
-                                <th style="background-color: #B248A5; color:white;">Descripcion de la muestra</th>
-                                <th style="background-color: #B248A5; color:white;">Ubicación</th>
-                                <th style="background-color: #B248A5; color:white;">Responsable</th>
-                                <th style="background-color: #B248A5; color:white;">No. de indentificacion</th>
+                                <th style="background-color: #009999; color:white; width:300px">Número de muestra</th>
+                                <th style="background-color: #009999; color:white; width:300px">Nomenclatura</th>
+                                <th style="background-color: #009999; color:white; width:300px">Información requerida</th>
+                                <th style="background-color: #009999; color:white; width:300px">Descripcion de la muestra</th>
+                                <th style="background-color: #009999; color:white; width:300px">Ubicación</th>
+                                <th style="background-color: #009999; color:white; width:300px">Responsable</th>
+                                <th style="background-color: #009999; color:white; width:300px">No. de indentificacion</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr align="center">
-                                <td><input type="text" name="REmuestra_edit{{$contador_revoque}}" value="{{ $revoques->revoque_muestra}}"></td>
-                                <td><input type="text" name="REnomenclatura_edit{{$contador_revoque}}" value="{{$revoques->revoque_nomenclatura}}"></td>
-                                <td><input type="text" name="REinf_requerida_edit{{$contador_revoque}}" value="{{$revoques->revoque_inf_requerida}}"></td>
-                                <td><input type="text" name="REdes_muestra_edit{{$contador_revoque}}" value="{{$revoques->revoque_des_muestra}}"></td>
-                                <td><input type="text" name="REubicacion_edit{{$contador_revoque}}" value="{{$revoques->revoque_ubicacion}}"></td>
-                                <td><input type="text" name="REresponsable_edit{{$contador_revoque}}" value="{{$revoques->revoque_responsable}}"></td>
-                                <td><input type="text" name="REiden_muestra_edit{{$contador_revoque}}" value="{{$revoques->revoque_identificacion_muestra}}"></td>
+                                <td><input type="text" name="SALmuestra_edit{{$contador_sales}}" value="{{ $sales->sales_muestra}}"></td>
+                                <td><input type="text" name="SALnomenclatura_edit{{$contador_sales}}" value="{{ $sales->sales_nomenclatura}}"></td>
+                                <td><input type="text" name="SALinf_requerida_edit{{$contador_sales}}" value="{{ $sales->sales_inf_requerida}}"></td>
+                                <td><input type="text" name="SALdes_muestra_edit{{$contador_sales}}" value="{{ $sales->sales_des_muestra}}"></td>
+                                <td><input type="text" name="SALubicacion_edit{{$contador_sales}}" value="{{ $sales->sales_ubicacion}}"></td>
+                                <td><input type="text" name="SALresponsable_edit{{$contador_sales}}" value="{{ $sales->sales_responsable}}"></td>
+                                <td><input type="text" name="SALiden_muestra_edit{{$contador_sales}}" value="{{ $sales->sales_identificacion_muestra}}"></td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
                 <?php
-                    $contador_revoque +=1;
+                    $contador_sales +=1;
                   ?>
                @endforeach
-               @if($revoque->isEmpty())
+               @if($sal->isEmpty())
                @else
                <div align="center">
-               <input type="button" id="otrorevoque" name="otrorevoque" class="btn-sm"  value="Agregar más" onclick="javascript:masrevoque()">
+               <input type="button" id="otrosales" name="otrosales" class="btn-sm"  value="Agregar más" onclick="javascript:massales()">
                 </div>
-                <div id="inputrevoque"></div><br>
+                <div id="inputsales"></div><br>
                 @endif
 
-                 @foreach($bol as $bols)
+
+                <!--MATERIAL AGREGADO XII-->
+                @foreach($materialag as $matag)
                 <div class="input-group" id="tabso" >
-                    <table class="table table-bordered"><strong>V. BOL</strong> 
+                    <table class="table table-bordered" background-color: red;><strong>MATERIAL AGREGADO</strong> 
                         <thead>
                             <tr align="center">
-                                <th style="background-color: #FF5050; color:white;">Número de muestra</th>
-                                <th style="background-color: #FF5050; color:white;">Nomenclatura</th>
-                                <th style="background-color: #FF5050; color:white;">Información requerida</th>
-                                <th style="background-color: #FF5050; color:white;">Descripcion de la muestra</th>
-                                <th style="background-color: #FF5050; color:white;">Ubicación</th>
-                                <th style="background-color: #FF5050; color:white;">Responsable</th>
-                                <th style="background-color: #FF5050; color:white;">No. de indentificacion</th>
+                                <th style="background-color: #7D10C0; color:white; width:300px">Número de muestra</th>
+                                <th style="background-color: #7D10C0; color:white; width:300px">Nomenclatura</th>
+                                <th style="background-color: #7D10C0; color:white; width:300px">Información requerida</th>
+                                <th style="background-color: #7D10C0; color:white; width:300px">Descripcion de la muestra</th>
+                                <th style="background-color: #7D10C0; color:white; width:300px">Ubicación</th>
+                                <th style="background-color: #7D10C0; color:white; width:300px">Responsable</th>
+                                <th style="background-color: #7D10C0; color:white; width:300px">No. de indentificacion</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr align="center">
-                                <td><input type="text" name="BOLmuestra_edit{{$contador_revoque}}" value="{{ $bols->bol_muestra}}"></td>
-                                <td><input type="text" name="BOLnomenclatura_edit{{$contador_revoque}}" value="{{$bols->bol_nomenclatura}}"></td>
-                                <td><input type="text" name="BOLinf_requerida_edit{{$contador_revoque}}" value="{{$bols->bol_inf_requerida}}"></td>
-                                <td><input type="text" name="BOLdes_muestra_edit{{$contador_revoque}}" value="{{$bols->bol_des_muestra}}"></td>
-                                <td><input type="text" name="BOLubicacion_edit{{$contador_revoque}}" value="{{$bols->bol_ubicacion}}"></td>
-                                <td><input type="text" name="BOLresponsable_edit{{$contador_revoque}}" value="{{$bols->bol_responsable}}"></td>
-                                <td><input type="text" name="BOLiden_muestra_edit{{$contador_revoque}}" value="{{$bols->bol_identificacion_muestra}}"></td>
+                                <td><input type="text" name="MAGmuestra_edit{{$contador_matag}}" value="{{ $matag->materialag_muestra}}"></td>
+                                <td><input type="text" name="MAGnomenclatura_edit{{$contador_matag}}" value="{{ $matag->materialag_nomenclatura}}"></td>
+                                <td><input type="text" name="MAGinf_requerida_edit{{$contador_matag}}" value="{{ $matag->materialag_inf_requerida}}"></td>
+                                <td><input type="text" name="MAGdes_muestra_edit{{$contador_matag}}" value="{{ $matag->materialag_des_muestra}}"></td>
+                                <td><input type="text" name="MAGubicacion_edit{{$contador_matag}}" value="{{ $matag->materialag_ubicacion}}"></td>
+                                <td><input type="text" name="MAGresponsable_edit{{$contador_matag}}" value="{{ $matag->materialag_responsable}}"></td>
+                                <td><input type="text" name="MAGiden_muestra_edit{{$contador_matag}}" value="{{ $matag->materialag_identificacion_muestra}}"></td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
                 <?php
-                    $contador_revoque +=1;
+                    $contador_matag +=1;
                   ?>
                @endforeach
-               @if($bol->isEmpty())
+               @if($materialag->isEmpty())
                @else
                <div align="center">
-               <input type="button" id="otrobol" name="otrobol" class="btn-sm"  value="Agregar más" onclick="javascript:masbol()">
+               <input type="button" id="otromatag" name="otromatag" class="btn-sm"  value="Agregar más" onclick="javascript:masmatag()">
                 </div>
-                <div id="inputbol"></div><br>
+                <div id="inputmatag"></div><br>
                 @endif
 
-                 @foreach($lamina as $laminas)
+
+            <!--BIODETERIORO MUESTRA XIII-->
+                @foreach($biodeterioro as $biodeterioros)
                 <div class="input-group" id="tabso" >
-                    <table class="table table-bordered"><strong>VI. LÁMINAS METÁLICAS</strong> 
+                    <table class="table table-bordered" background-color: red;><strong>BIODETERIORO</strong> 
                         <thead>
                             <tr align="center">
-                                <th style="background-color: #3A5754; color:white;">Número de muestra</th>
-                                <th style="background-color: #3A5754; color:white;">Nomenclatura</th>
-                                <th style="background-color: #3A5754; color:white;">Información requerida</th>
-                                <th style="background-color: #3A5754; color:white;">Descripcion de la muestra</th>
-                                <th style="background-color: #3A5754; color:white;">Ubicación</th>
-                                <th style="background-color: #3A5754; color:white;">Responsable</th>
-                                <th style="background-color: #3A5754; color:white;">No. de indentificacion</th>
+                                <th style="background-color: #A2C866; color:white; width:300px">Número de muestra</th>
+                                <th style="background-color: #A2C866; color:white; width:300px">Nomenclatura</th>
+                                <th style="background-color: #A2C866; color:white; width:300px">Información requerida</th>
+                                <th style="background-color: #A2C866; color:white; width:300px">Descripcion de la muestra</th>
+                                <th style="background-color: #A2C866; color:white; width:300px">Ubicación</th>
+                                <th style="background-color: #A2C866; color:white; width:300px">Responsable</th>
+                                <th style="background-color: #A2C866; color:white; width:300px">No. de indentificacion</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr align="center">
-                                <td><input type="text" name="LMmuestra_edit{{$contador_laminas}}" value="{{ $laminas->laminas_muestra}}"></td>
-                                <td><input type="text" name="LMnomenclatura_edit{{$contador_laminas}}" value="{{$laminas->laminas_nomenclatura}}"></td>
-                                <td><input type="text" name="LMinf_requerida_edit{{$contador_laminas}}" value="{{$laminas->laminas_inf_requerida}}"></td>
-                                <td><input type="text" name="LMdes_muestra_edit{{$contador_laminas}}" value="{{$laminas->laminas_des_muestra}}"></td>
-                                <td><input type="text" name="LMubicacion_edit{{$contador_laminas}}" value="{{$laminas->laminas_ubicacion}}"></td>
-                                <td><input type="text" name="LMresponsable_edit{{$contador_laminas}}" value="{{$laminas->laminas_responsable}}"></td>
-                                <td><input type="text" name="LMiden_muestra_edit{{$contador_laminas}}" value="{{$laminas->laminas_identificacion_muestra}}"></td>
+                                <td><input type="text" name="BDTmuestra_edit{{$contador_biodeterioro}}" value="{{ $biodeterioros->biodeterioro_muestra}}"></td>
+                                <td><input type="text" name="BDTnomenclatura_edit{{$contador_biodeterioro}}" value="{{ $biodeterioros->biodeterioro_nomenclatura}}"></td>
+                                <td><input type="text" name="BDTinf_requerida_edit{{$contador_biodeterioro}}" value="{{ $biodeterioros->biodeterioro_inf_requerida}}"></td>
+                                <td><input type="text" name="BDTdes_muestra_edit{{$contador_biodeterioro}}" value="{{ $biodeterioros->biodeterioro_des_muestra}}"></td>
+                                <td><input type="text" name="BDTubicacion_edit{{$contador_biodeterioro}}" value="{{ $biodeterioros->biodeterioro_ubicacion}}"></td>
+                                <td><input type="text" name="BDTresponsable_edit{{$contador_biodeterioro}}" value="{{ $biodeterioros->biodeterioro_responsable}}"></td>
+                                <td><input type="text" name="BDTiden_muestra_edit{{$contador_biodeterioro}}" value="{{ $biodeterioros->biodeterioro_identificacion_muestra}}"></td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
                 <?php
-                    $contador_laminas +=1;
+                    $contador_biodeterioro +=1;
                   ?>
                @endforeach
-               @if($lamina->isEmpty())
+               @if($biodeterioro->isEmpty())
                @else
                <div align="center">
-               <input type="button" id="otrolaminas" name="otrolaminas" class="btn-sm"  value="Agregar más" onclick="javascript:maslaminas()">
+               <input type="button" id="otrobiodeterioro" name="otrobiodeterioro" class="btn-sm"  value="Agregar más" onclick="javascript:masbiodeterioro()">
                 </div>
-                <div id="inputlaminas"></div><br>
+                <div id="inputbiodeterioro"></div><br>
                 @endif
 
-                @foreach($pigmento as $pigmentos)
+
+
+
+
+                <!--OTROS MUESTRA XIV-->
+                @foreach($otros as $otro)
                 <div class="input-group" id="tabso" >
-                    <table class="table table-bordered"><strong>VII.PIGMENTOS</strong> 
+                    <table class="table table-bordered" background-color: red;><strong>OTROS</strong> 
                         <thead>
                             <tr align="center">
-                                <th style="background-color: #5B9BD5; color:white;">Número de muestra</th>
-                                <th style="background-color: #5B9BD5; color:white;">Nomenclatura</th>
-                                <th style="background-color: #5B9BD5; color:white;">Información requerida</th>
-                                <th style="background-color: #5B9BD5; color:white;">Descripcion de la muestra</th>
-                                <th style="background-color: #5B9BD5; color:white;">Ubicación</th>
-                                <th style="background-color: #5B9BD5; color:white;">Responsable</th>
-                                <th style="background-color: #5B9BD5; color:white;">No. de indentificacion</th>
+                                <th style="background-color: #A5A5A5; color:white; width:300px">Número de muestra</th>
+                                <th style="background-color: #A5A5A5; color:white; width:300px">Nomenclatura</th>
+                                <th style="background-color: #A5A5A5; color:white; width:300px">Información requerida</th>
+                                <th style="background-color: #A5A5A5; color:white; width:300px">Descripcion de la muestra</th>
+                                <th style="background-color: #A5A5A5; color:white; width:300px">Ubicación</th>
+                                <th style="background-color: #A5A5A5; color:white; width:300px">Responsable</th>
+                                <th style="background-color: #A5A5A5; color:white; width:300px">No. de indentificacion</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr align="center">
-                                <td><input type="text" name="Pmuestra_edit{{$contador_pigmentos}}" value="{{ $pigmentos->pigmentos_muestra}}"></td>
-                                <td><input type="text" name="Pnomenclatura_edit{{$contador_pigmentos}}" value="{{$pigmentos->pigmentos_nomenclatura}}"></td>
-                                <td><input type="text" name="Pinf_requerida_edit{{$contador_pigmentos}}" value="{{$pigmentos->pigmentos_inf_requerida}}"></td>
-                                <td><input type="text" name="Pdes_muestra_edit{{$contador_pigmentos}}" value="{{$pigmentos->pigmentos_des_muestra}}"></td>
-                                <td><input type="text" name="Pubicacion_edit{{$contador_pigmentos}}" value="{{$pigmentos->pigmentos_ubicacion}}"></td>
-                                <td><input type="text" name="Presponsable_edit{{$contador_pigmentos}}" value="{{$pigmentos->pigmentos_responsable}}"></td>
-                                <td><input type="text" name="Piden_muestra_edit{{$contador_pigmentos}}" value="{{$pigmentos->pigmentos_identificacion_muestra}}"></td>
+                                <td><input type="text" name="OTmuestra_edit{{$contador_otros}}" value="{{ $otro->otros_muestra}}"></td>
+                                <td><input type="text" name="OTnomenclatura_edit{{$contador_otros}}" value="{{ $otro->otros_nomenclatura}}"></td>
+                                <td><input type="text" name="OTinf_requerida_edit{{$contador_otros}}" value="{{ $otro->otros_inf_requerida}}"></td>
+                                <td><input type="text" name="OTdes_muestra_edit{{$contador_otros}}" value="{{ $otro->otros_des_muestra}}"></td>
+                                <td><input type="text" name="OTubicacion_edit{{$contador_otros}}" value="{{ $otro->otros_ubicacion}}"></td>
+                                <td><input type="text" name="OTresponsable_edit{{$contador_otros}}" value="{{ $otro->otros_responsable}}"></td>
+                                <td><input type="text" name="OTiden_muestra_edit{{$contador_otros}}" value="{{ $otro->otros_identificacion_muestra}}"></td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
                 <?php
-                    $contador_pigmentos +=1;
-                  ?>
+                    $contador_otros +=1;
+                ?>  
                @endforeach
-               @if($pigmento->isEmpty())
+               @if($otros->isEmpty())
                @else
                <div align="center">
-               <input type="button" id="otropigmentos" name="otropigmentos" class="btn-sm"  value="Agregar más" onclick="javascript:maspigmentos()">
+               <input type="button" id="otrootros" name="otrootros" class="btn-sm"  value="Agregar más" onclick="javascript:masotros()">
                 </div>
-                <div id="inputpigmentos"></div><br>
+                <div id="inputotros"></div><br>
                 @endif
+               
 
-                @foreach($aglutinante as $aglutinantes)
-                <div class="input-group" id="tabso" >
-                    <table class="table table-bordered"><strong>VII.AGLUTINANTES</strong> 
-                        <thead>
-                            <tr align="center">
-                                <th style="background-color: #F55587; color:white;">Número de muestra</th>
-                                <th style="background-color: #F55587; color:white;">Nomenclatura</th>
-                                <th style="background-color: #F55587; color:white;">Información requerida</th>
-                                <th style="background-color: #F55587; color:white;">Descripcion de la muestra</th>
-                                <th style="background-color: #F55587; color:white;">Ubicación</th>
-                                <th style="background-color: #F55587; color:white;">Responsable</th>
-                                <th style="background-color: #F55587; color:white;">No. de indentificacion</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr align="center">
-                                <td><input type="text" name="Amuestra_edit{{$contador_aglutinante}}" value="{{ $aglutinantes->aglutinante_muestra}}"></td>
-                                <td><input type="text" name="Anomenclatura_edit{{$contador_aglutinante}}" value="{{$aglutinantes->aglutinante_nomenclatura}}"></td>
-                                <td><input type="text" name="Ainf_requerida_edit{{$contador_aglutinante}}" value="{{$aglutinantes->aglutinante_inf_requerida}}"></td>
-                                <td><input type="text" name="Ades_muestra_edit{{$contador_aglutinante}}" value="{{$aglutinantes->aglutinante_des_muestra}}"></td>
-                                <td><input type="text" name="Aubicacion_edit{{$contador_aglutinante}}" value="{{$aglutinantes->aglutinante_ubicacion}}"></td>
-                                <td><input type="text" name="Aresponsable_edit{{$contador_aglutinante}}" value="{{$aglutinantes->aglutinante_responsable}}"></td>
-                                <td><input type="text" name="Aiden_muestra_edit{{$contador_aglutinante}}" value="{{$aglutinantes->aglutinante_identificacion_muestra}}"></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <?php
-                    $contador_aglutinante +=1;
-                  ?>
-               @endforeach
-               @if($aglutinante->isEmpty())
-               @else
-               <div align="center">
-               <input type="button" id="otroaglutinante" name="otroaglutinante" class="btn-sm"  value="Agregar más" onclick="javascript:masaglutinante()">
-                </div>
-                <div id="inputaglutinante"></div><br>
-                @endif
 
-                @foreach($recubrimiento as $recubrimientos)
-                <div class="input-group" id="tabso" >
-                    <table class="table table-bordered"><strong>X.RECUBRIMIENTOS</strong> 
-                        <thead>
-                            <tr align="center">
-                                <th style="background-color: #FBAE47; color:white;">Número de muestra</th>
-                                <th style="background-color: #FBAE47; color:white;">Nomenclatura</th>
-                                <th style="background-color: #FBAE47; color:white;">Información requerida</th>
-                                <th style="background-color: #FBAE47; color:white;">Descripcion de la muestra</th>
-                                <th style="background-color: #FBAE47; color:white;">Ubicación</th>
-                                <th style="background-color: #FBAE47; color:white;">Responsable</th>
-                                <th style="background-color: #FBAE47; color:white;">No. de indentificacion</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr align="center">
-                                <td><input type="text" name="Rmuestra_edit{{$contador_recubrimiento}}" value="{{ $recubrimientos->recubrimiento_muestra}}"></td>
-                                <td><input type="text" name="Rnomenclatura_edit{{$contador_recubrimiento}}" value="{{$recubrimientos->recubrimiento_nomenclatura}}"></td>
-                                <td><input type="text" name="Rinf_requerida_edit{{$contador_recubrimiento}}" value="{{$recubrimientos->recubrimiento_inf_requerida}}"></td>
-                                <td><input type="text" name="Rdes_muestra_edit{{$contador_recubrimiento}}" value="{{$recubrimientos->recubrimiento_des_muestra}}"></td>
-                                <td><input type="text" name="Rubicacion_edit{{$contador_recubrimiento}}" value="{{$recubrimientos->recubrimiento_ubicacion}}"></td>
-                                <td><input type="text" name="Rresponsable_edit{{$contador_recubrimiento}}" value="{{$recubrimientos->recubrimiento_responsable}}"></td>
-                                <td><input type="text" name="Riden_muestra_edit{{$contador_recubrimiento}}" value="{{$recubrimientos->recubrimiento_identificacion_muestra}}"></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <?php
-                    $contador_recubrimiento +=1;
-                  ?>
-               @endforeach
-               @if($recubrimiento->isEmpty())
-               @else
                <div align="center">
-               <input type="button" id="otrorecubrimiento" name="otrorecubrimiento" class="btn-sm"  value="Agregar más" onclick="javascript:masrecubrimiento()">
+              
                 </div>
-                <div id="inputrecubrimiento"></div><br>
-                @endif
+               
                     <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                             <button type="submit" class="btn btn-primary btn-sm">Guardar</button>
                             <a href="{{route('analisisg.index')}}" class="btn btn-danger btn-sm">Cancelar</a>

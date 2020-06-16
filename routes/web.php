@@ -7,21 +7,9 @@ use App\AnalisisCientifico;
 use App\AniosTemporada;
 use App\TemporadasTrabajo;
 
-Route::get('/Soporte', ['uses' =>'ContactMessageController@create'
-
-])->name('soporte');
-
-Route::post('/Soporte', ['uses' =>'ContactMessageController@store',
-'as'=>'contact.store'
-
-]);
-
-
-/*
-
 Route::get('Soporte', function() {
     return view('soporte.mensaje_soporte');
-})->name('soporte');*/
+})->name('soporte');
 
 Route::get('Mensaje', 'ObrasController@mail', function() {
     
@@ -161,9 +149,9 @@ Route::get('AnalisisCientifico', function (Request $request) {
    $id_general = $request->get('id_general');
         $Analisisg = AnalisisG::orderBy('id_general', 'DESC')
         ->id($id_general)
-        ->paginate(15);
+        ->paginate(5);
         return view('analisisg.index',compact('Analisisg'))
-            ->with('i', (request()->input('page', 1) - 1) * 15);
+            ->with('i', (request()->input('page', 1) - 1) * 5);
 })->name('analisisg.index');
 
 Route::get('AnalisisCientifico/{id}/create', function ($id) {
@@ -191,11 +179,11 @@ Route::get('AnalisisCientifico/{id_general}/ver', 'AnalisisGController@show', fu
 //Rutas de registro de analisis cientifico
 Route::resource('RegistroCientifico','AnalisisCientificoController');
 Route::get('RegistroCientifico', 'AnalisisCientificoController@index', function (Request $request) {
-})->name('registro.index');
+})->name('registro.index')->middleware('permission:Consulta_General');
 Route::get('RegistroCientifico/{id}/create', 'AnalisisCientificoController@create', function ($id) {
-})->name('registro.create');
+})->name('registro.create')->middleware('permission:Captura_Avanzada_Nivel_2');
 Route::get('RegistroCientifico/ver/{idcientifico}', 'AnalisisCientificoController@show', function(Request $request, $idcientifico){
-})->name('registro.show');
+})->name('registro.show')->middleware('permission:Consulta_General');
 Route::get('RegistroCientifico/{idcientifico}/editar',  function ($idcientifico ) {
     $a_cientifico = AnalisisCientifico::findOrFail($idcientifico);
         return view('registro.edit', compact('a_cientifico'));

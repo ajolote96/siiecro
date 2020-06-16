@@ -44,9 +44,7 @@ class CreateObrasTable extends Migration
             $table->timestamps();
             
 
-            $table->foreign('trabajo_obra')->references('id_año_temporada_de_trabajo')->on('añodetemporada');
-
-            $table->foreign('temporada_trabajo')->references('id_temporada_de_trabajo')->on('temporadatrabajo');
+            
         });
     }
 

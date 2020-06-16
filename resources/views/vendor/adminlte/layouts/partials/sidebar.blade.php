@@ -39,7 +39,7 @@
                 </ul>
             </li>
             
-           @permission('Menu_Restauracion_Obra')
+           
             <li class="treeview menu-open">
                 <a href="#"><span>Restauración de Obra</span><i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
@@ -109,7 +109,7 @@
                                         <li class="active"><a href="{{ url('AnalisisCientifico') }}"><span>Listado de Solicitudes Analisis</span></a></li>
                                     <li><a href="#">Solicitud de registro de imagen</a></li>
                                 </ul>
-                                @endpermission
+                                
                             </li>
                            
                         </li>
