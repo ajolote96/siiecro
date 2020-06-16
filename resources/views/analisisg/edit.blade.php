@@ -15,9 +15,9 @@ $contador_estratigrafia = 0;
 <div class="box">
     <div class="box-body"  >
             <div class="panel">
-                <h1>Editar Solicitud de Análisis Científico 
-			
-</h1>
+                <h1 style="background-color: grey; color:white; text-align:center;">Editar Solicitud de Análisis Científico </h1>
+
+
                 @if ($errors->any())
                 <div class="alert alert-danger">
                     <strong>Vaya!</strong> Algo salio mal.<br><br>
@@ -39,28 +39,30 @@ $contador_estratigrafia = 0;
                             <input type="hidden" name="id_obra" class="form-control"  value="{{ $analisisg->id_obra }}" style="width:200px" readonly>
 
                             <div class="input-group" >
-                                <label for="id_de_obra" class="input-group-addon">ID Obra </label>
-                                <input type="text" name="id_de_obra" class="form-control"  value="{{ $analisisg->id_de_obra }}" style="width:200px" readonly><BR>    
+                                <label for="id_de_obra" class="input-group-addon" style="width: 300px; border:0;">ID Obra </label>
+                                <input type="text" name="id_de_obra" class="form-control"  value="{{ $analisisg->id_de_obra }}" style="width:500px; text-align:center; " readonly><BR>    
                             </div>
+                            <br><br>
                             <div class="input-group" >
-                                <label for="titulo_obra" class="input-group-addon">Titulo de la obra/pieza</label>
-                                <input type="text" name="titulo_obra" class="form-control"  value="{{ $analisisg->titulo_obra }}" style="width:200px" readonly><BR> 
+                                <label for="titulo_obra" class="input-group-addon"style="width: 300px; border:0;">Titulo de la obra/pieza</label>
+                                <input type="text" name="titulo_obra" class="form-control"  value="{{ $analisisg->titulo_obra }}" style="width:500px; text-align:center; " readonly><BR> 
                             </div>
+                            <br><br>
 							<div class="form-group">
 							<div class="input-group">
-                                <span class="input-group-addon">Temporalidad</span>
-                                <input type="text" name="temp_obra" class="form-control"  value="{{ $analisisg->temp_obra }}" style="width:200px" readonly>
+                                <span class="input-group-addon"style="width: 300px; border:0;">Temporalidad</span>
+                                <input type="text" name="temp_obra" class="form-control"  value="{{ $analisisg->temp_obra }}" style="width:500px; text-align:center; "readonly>
                             </div>
                         	</div><br><br>
                         
                             <div class="input-group ">
-                                <label for="epoca_obra" class="input-group-addon">Epoca de la obra</label>
-                                <input type="text" name="epoca_obra" class="form-control"  value="{{ $analisisg->epoca_obra }}" style="width:200px" readonly>
+                                <label for="epoca_obra" class="input-group-addon"style="width: 300px; border:0;">Epoca de la obra</label>
+                                <input type="text" name="epoca_obra" class="form-control"  value="{{ $analisisg->epoca_obra }}" style="width:500px; text-align:center; " readonly>
                             </div>
-                           
+                            <br><br>
                             <div class="input-group">
-                                <label for="tipo_obj_obra" class="input-group-addon">Tipo de objeto de la obra</label>
-                                <input type="text" name="tipo_obj_obra" class="form-control"  value="{{$analisisg->tipo_obj_obra }}" style="width:200px" readonly>
+                                <label for="tipo_obj_obra" class="input-group-addon"style="width: 300px; border:0;">Tipo de objeto de la obra</label>
+                                <input type="text" name="tipo_obj_obra" class="form-control"  value="{{$analisisg->tipo_obj_obra }}" style="width:500px; text-align:center; " readonly>
                             </div>
                         </div><br><br>
                         
@@ -70,25 +72,25 @@ $contador_estratigrafia = 0;
                     
                     
                     <div class="input-group">
-                        <label for="respon_intervencion" class="input-group-addon">Responsable de la Intervencion</label>
-                        <input type="text" class="form-control"  name="respon_intervencion"  value="{{ $analisisg->respon_intervencion }}" style="width:200px">
+                        <label for="respon_intervencion" class="input-group-addon"style="width: 300px; border:0;">Responsable de la Intervencion</label>
+                        <input type="text" class="form-control"  name="respon_intervencion"  value="{{ $analisisg->respon_intervencion }}" style="width:500px; text-align:center; ">
                     </div>
                     
                 </div><br><br>
                       <div class="input-group">
-                        <label for="foto" class="input-group-addon">Foto</label>
-                        <input type="file" class="form-control"  name="foto" value="{{ $analisisg->foto}}" >
+                        <label for="foto" class="input-group-addon"style="width: 300px; border:0;">Foto</label>
+                        <input type="file" class="form-control"  name="foto" value="{{ $analisisg->foto}}" style="width:500px; text-align:center; ">
                     </div>
-                
-                    <div class="input-group">
+                <br><br>
+                    <div class="input-group" >
                     <div class="input-group date">
 
                         <div class="input-group-addon">
-                             <i class="fa fa-calendar"> Fecha de entrada</i>
+                             <i class="fa fa-calendar" class="input-group-addon"style="width: 300px; border:0;"> Fecha de entrada</i>
 
                         </div>
 
-                        <input type="date" class="form-control date" name="fecha_de_inicio" placeholder="mm/dd/aaaa (Fecha de entrada)" value="{{ $analisisg->fecha_de_inicio }}" style="width:262px">
+                        <input type="date" class="form-control date" name="fecha_de_inicio" placeholder="mm/dd/aaaa (Fecha de entrada)" value="{{ $analisisg->fecha_de_inicio }}" style="width:500px; text-align:center; ">
                     </div>
                 
                     

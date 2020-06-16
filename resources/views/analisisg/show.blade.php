@@ -8,15 +8,18 @@
         </div>{{ $Obrasg->first()->id }}
 @endif-->
 
+
+
+
 <?php
           $analisisg = $analisisgs->first();
 
           ?>
 
 <div class="box">
-    <div class="box-body"  >
+    <div class="box-body">
             <div class="panel">
-                <h1>Solicitud de Análisis Científico: {{ $analisisg->id_general }}</h1>
+                <h1 style="background-color: grey; color:white; text-align:center;">Solicitud de Análisis Científico: {{ $analisisg->id_general }}</h1>
                 @if ($errors->any())
                 <div class="alert alert-danger">
                     <strong>Vaya!</strong> Algo salio mal.<br><br>
@@ -35,28 +38,31 @@
                         <div class="form-group">
                             
                             <div class="input-group" >
-                                <label for="id_de_obra" class="input-group-addon">ID Obra </label>
-                                <input type="text" name="id_de_obra" class="form-control"  value="{{ $analisisg->id_de_obra }}" style="width:200px" readonly><BR>    
+                                <label for="id_de_obra" class="input-group-addon" style="width: 300px; border:0;">ID Obra </label>
+                                <input type="text" name="id_de_obra" class="form-control"  value="{{ $analisisg->id_de_obra }}" style="width:500px; text-align:center;"  readonly><BR>    
                             </div>
+                            <br><br>
                             <div class="input-group" >
-                                <label for="titulo_obra" class="input-group-addon">Titulo de la obra/pieza</label>
-                                <input type="text" name="titulo_obra" class="form-control"  value="{{ $analisisg->titulo_obra }}" style="width:200px" readonly><BR> 
+                                <label for="titulo_obra" class="input-group-addon" style="width: 300px; border:0;">Titulo de la obra/pieza</label>
+                                <input type="text" name="titulo_obra" class="form-control"  value="{{ $analisisg->titulo_obra }}" style="width:500px; text-align:center;" readonly><BR> 
                             </div>
+                            <br><br>
 							<div class="form-group">
 							<div class="input-group">
-                                <span class="input-group-addon">Temporalidad</span>
-                                <input type="text" name="temp_obra" class="form-control"  value="{{ $analisisg->temp_obra }}" style="width:200px" readonly>
+                                <span class="input-group-addon"style="width: 300px; border:0;">Temporalidad</span>
+                                <input type="text" name="temp_obra" class="form-control"  value="{{ $analisisg->temp_obra }}" style="width:500px; text-align:center;" readonly>
                             </div>
                         	</div><br><br>
                         
                             <div class="input-group ">
-                                <label for="epoca_obra" class="input-group-addon">Epoca de la obra</label>
-                                <input type="text" name="epoca_obra" class="form-control"  value="{{ $analisisg->epoca_obra }}" style="width:200px" readonly>
+                                <label for="epoca_obra" class="input-group-addon"style="width: 300px; border:0;">Epoca de la obra</label>
+                                <input type="text" name="epoca_obra" class="form-control"  value="{{ $analisisg->epoca_obra }}" style="width:500px; text-align:center;" readonly>
                             </div>
+                            <br><br>
                             
                             <div class="input-group">
-                                <label for="tipo_obj_obra" class="input-group-addon">Tipo de objeto de la obra</label>
-                                <input type="text" name="tipo_obj_obra" class="form-control"  value="{{$analisisg->tipo_obj_obra }}" style="width:200px" readonly>
+                                <label for="tipo_obj_obra" class="input-group-addon"style="width: 300px; border:0;">Tipo de objeto de la obra</label>
+                                <input type="text" name="tipo_obj_obra" class="form-control"  value="{{$analisisg->tipo_obj_obra }}" style="width:500px; text-align:center;" readonly>
                             </div>
                         </div><br><br>
                         
@@ -67,17 +73,17 @@
                    
                     
                     <div class="input-group">
-                        <label for="respon_intervencion" class="input-group-addon">Responsable de la Intervencion</label>
-                        <input type="text" class="form-control"  name="respon_intervencion"  value="{{ $analisisg->respon_intervencion }}" style="width:200px">
+                        <label for="respon_intervencion" class="input-group-addon"style="width: 300px; border:0;">Responsable de la Intervencion</label>
+                        <input type="text" class="form-control"  name="respon_intervencion"  value="{{ $analisisg->respon_intervencion }}" style="width:500px; text-align:center;">
                     </div>
                     
                 </div><br><br>
                       
                     <br><br>
                     <div class="input-group">
-                    <div class="input-group date">
+                    <div class="input-group date" style="padding-left:250px;">
                         <div class="input-group-addon">
-                             <i class="fa fa-calendar"> Fecha de entrada</i>
+                             <i class="fa fa-calendar"style="width: 300px; border:0;"> Fecha de entrada</i>
 
                         </div>
 
@@ -90,8 +96,8 @@
                     <div class="form-group">
                     
                     <div class="input-group">
-                        <label for="tecnica" class="input-group-addon">Tecnica</label>
-                        <input type="text" class="form-control"  name="tecnica" value="{{ $analisisg->tecnica}}" style="width:200px">
+                        <label for="tecnica" class="input-group-addon"style="width: 300px; border:0;">Tecnica</label>
+                        <input type="text" class="form-control"  name="tecnica" value="{{ $analisisg->tecnica}}" style="width:500px; text-align:center;">
                     </div><br><br>
                     <div class="col-md-12"></div>
 
@@ -215,7 +221,7 @@
                 </div><br><br>
                     <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                             <a href="{{route('analisisg.index')}}" class="btn btn-danger btn-sm">Regresar</a>
-                    </div>
+                     
                 </form>
         </div>
 	</div>

@@ -7,12 +7,18 @@
             <p>{{ $message }}</p>
         </div>{{ $Obrasg->first()->id }}
 @endif-->
-<div class="box">
-    <div class="box-body"  >
+
+
+
+
+
+
+
+ 
+  <div class="box">
+    <div class="box-body">
             <div class="panel">
-                <h1>Solicitud de Análisis Científico 
-			
-</h1>
+                <h1 style="background-color: grey; color:white; text-align:center;">Solicitud de Análisis Científico </h1>
                 @if ($errors->any())
                 <div class="alert alert-danger">
                     <strong>Vaya!</strong> Algo salio mal.<br><br>
@@ -25,61 +31,114 @@
                 @endif
                 <form action="{{ route('AnalisisCientifico.store') }}" method="POST" class="form-inline text-left" enctype="multipart/form-data">
                     @csrf 
-
+                    
                     <BR>
                     <div class="form-group">
-                        <div class="form-group">
-                            <input type="hidden" name="id_obra" class="form-control"  value="{{ $obra->id }}" style="width:200px" readonly>
+                        <div class="form-group" style="margin: auto;" >
+                            <input type="hidden" name="id_obra" class="form-control"  value="{{ $obra->id }}" style="width:200px" readonly> 
                             <div class="input-group" >
-                                <label for="id_de_obra" class="input-group-addon">ID Obra </label>
-                                <input type="text" name="id_de_obra" class="form-control"  value="{{ $obra->id_de_obras }}" style="width:200px" readonly><BR>    
+                                <label for="id_de_obra" class="input-group-addon" style="width: 300px; border:0;">ID Obra </label>
+                                <input type="text" name="id_de_obra" class="form-control"  value="{{ $obra->id_de_obras }}" style="width:500px; text-align:center; " readonly><BR>    
                             </div>
+                            <br><br>
                             <div class="input-group" >
-                                <label for="titulo_obra" class="input-group-addon">Titulo de la obra/pieza</label>
-                                <input type="text" name="titulo_obra" class="form-control"  value="{{ $obra->titulo_obra }}" style="width:200px" readonly><BR> 
+                                <label for="titulo_obra" class="input-group-addon" style="width: 300px; border:0;">Titulo de la obra/pieza</label>
+                                <input type="text" name="titulo_obra" class="form-control"  value="{{ $obra->titulo_obra }}" style="width:500px; text-align:center;" readonly><BR> 
                             </div>
+                            <br><br>
 							<div class="form-group">
 							<div class="input-group">
-                                <span class="input-group-addon">Temporalidad</span>
-                                <input type="text" name="temp_obra" class="form-control"  value="{{ $obra->temp_obra }}" style="width:200px" readonly>
+                                <span class="input-group-addon" style="width: 300px; border:0;">Temporalidad</span>
+                                <input type="text" name="temp_obra" class="form-control"  value="{{ $obra->temp_obra }}" style="width:500px; text-align:center;" readonly>
                             </div>
                         	</div><br><br>
                         
                             <div class="input-group ">
-                                <label for="epoca_obra" class="input-group-addon">Epoca de la obra</label>
-                                <input type="text" name="epoca_obra" class="form-control"  value="{{ $obra->epoca_obra }}" style="width:200px" readonly>
+                                <label for="epoca_obra" class="input-group-addon" style="width: 300px; border:0;">Epoca de la obra</label>
+                                <input type="text" name="epoca_obra" class="form-control"  value="{{ $obra->epoca_obra }}" style="width:500px; text-align:center;" readonly>
                             </div>
+                            <br><br>
                             <div class="input-group">
-                                <label for="tipo_obj_obra" class="input-group-addon">Tipo de objeto de la obra</label>
-                                <input type="text" name="tipo_obj_obra" class="form-control"  value="{{$obra->tipo_obj_obra }}" style="width:200px" readonly>
+                                <label for="tipo_obj_obra" class="input-group-addon" style="width: 300px; border:0;">Tipo de objeto de la obra</label>
+                                <input type="text" name="tipo_obj_obra" class="form-control"  value="{{$obra->tipo_obj_obra }}" style="width:500px; text-align:center;" readonly>
                             </div>
-                        </div><br><br>
+                    <!--esto-->    </div><br><br>
+                    <div class="form-group">
+                    
+                    <div class="input-group">
+                        <label for="tecnica" class="input-group-addon" style="width: 300px; border:0;">Tecnica</label>
+                        <input type="text" class="form-control"  name="tecnica" value="{{ old('tecnica') }}" style="width:500px">
+                    </div><br><br>
+                    <div class="col-md-12"></div>
+
+                    <div class="input-group" >
+                    <div class="form-group" style="margin: auto;">
+                    <div class="input-group">
+
+
+                           <h2>Dimensiones:</h2>
+                            <br>
+                            <div class="input-group">
+                            <label class="input-group-addon"style="width: 300px; border:0;">Alto</label>
+                            <input type="text" class="form-control" name="alto" value="{{ old('alto') }}" style="width:500px; text-align:center; ">
+                            </div>
+                            <br><br>
+
+                            <div class="input-group">
+                            <label  class="input-group-addon"style="width: 300px; border:0;">Ancho</label>
+                            <input type="text" class="form-control" name="ancho" value="{{ old('ancho') }}"style="width:500px; text-align:center; ">
+                            </div>
+                            <br><br>
+                            <div class="input-group">
+                            <label class="input-group-addon" style="width: 300px; border:0;">Profundidad</label>
+                            <input type="text" class="form-control" name="profundidad" value="{{ old('profundidad') }}"style="width:500px; text-align:center; ">
+                             </div>
+
+                            <br><br>
+                            <div class="input-group">
+                            <label  class="input-group-addon"style="width: 300px; border:0;">Diametro</label> 
+                            <input type="text" class="form-control" name="diametro" value="{{ old('diametro') }}"style="width:500px; text-align:center; "><br>
+                            </div>
+                        </div>
+                    </div>
+                    </div><br><br>
+
+
+
+
+
+
+
+
+
+
+
+
                         
-                        
-                    	<div class="form-group">
+       <!-- esto-->     <div class="form-group">
                     
                     
                     
                     <div class="input-group">
-                        <label for="respon_intervencion" class="input-group-addon">Responsable de la Intervencion</label>
-                        <input type="text" class="form-control"  name="respon_intervencion"  value="{{ old('respon_intervencion') }}" style="width:200px">
+                        <label for="respon_intervencion" class="input-group-addon" style="width: 300px; border:0;">Responsable de la Intervencion</label>
+                        <input type="text" class="form-control"  name="respon_intervencion"  value="{{ old('respon_intervencion') }}" style="width:500px; text-align:center;">
                     </div>
                     
                 </div><br><br>
                       <div class="input-group">
-                        <label for="foto" class="input-group-addon">Foto</label>
-                        <input type="file" class="form-control"  name="foto"  >
+                        <label for="foto" class="input-group-addon "style="width: 300px; border:0;">Foto</label>
+                        <input type="file" class="form-control"  name="foto"  style="width: 500px;">
                     </div>
-                
+                     <br><br>
                     <div class="input-group">
                     <div class="input-group date">
 
-                        <div class="input-group-addon">
+                        <div class="input-group-addon" style="width: 300px; border:0;">
                              <i class="fa fa-calendar"> Fecha de inicio</i>
 
                         </div>
 
-                        <input type="date" class="form-control date" name="fecha_de_inicio" placeholder="mm/dd/aaaa (Fecha de entrada)"value="{{ old('fecha_de_inicio') }}" style="width:262px">
+                        <input type="date" class="form-control date" name="fecha_de_inicio" placeholder="mm/dd/aaaa (Fecha de entrada)"value="{{ old('fecha_de_inicio') }}" style="width:500px; text-align:center;">
                     </div>
                 
                     
@@ -87,29 +146,46 @@
                     </div><br><br><br>
                     
 
-                    <div class="form-group">
+                 <!--  <div class="form-group">
                     
                     <div class="input-group">
-                        <label for="tecnica" class="input-group-addon">Tecnica</label>
-                        <input type="text" class="form-control"  name="tecnica" value="{{ old('tecnica') }}" style="width:200px">
+                        <label for="tecnica" class="input-group-addon" style="width: 300px; border:0;">Tecnica</label>
+                        <input type="text" class="form-control"  name="tecnica" value="{{ old('tecnica') }}" style="width:500px">
                     </div><br><br>
                     <div class="col-md-12"></div>
 
+                    <div class="input-group" >
+                    <div class="form-group" style="margin: auto;">
                     <div class="input-group">
-                        <div class="input-group">
-                            <label class="input-group-addon">Dimensiones</label>
-                            <label class="input-group-addon">Alto</label>
-                            <input type="text" class="form-control" name="alto" value="{{ old('alto') }}"><br>
-                            <label class="input-group-addon">Ancho</label>
-                            <input type="text" class="form-control" name="ancho" value="{{ old('ancho') }}"><br>
-                            <label class="input-group-addon">Profundidad</label>
-                            <input type="text" class="form-control" name="profundidad" value="{{ old('profundidad') }}"><br>
-                            <label class="input-group-addon">Diametro</label>
-                            <input type="text" class="form-control" name="diametro" value="{{ old('diametro') }}"><br>
+
+
+                           <h2>Dimensiones:</h2>
+                            <br>
+                            <div class="input-group">
+                            <label class="input-group-addon"style="width: 300px; border:0;">Alto</label>
+                            <input type="text" class="form-control" name="alto" value="{{ old('alto') }}" style="width:500px; text-align:center; ">
+                            </div>
+                            <br><br>
+
+                            <div class="input-group">
+                            <label  class="input-group-addon"style="width: 300px; border:0;">Ancho</label>
+                            <input type="text" class="form-control" name="ancho" value="{{ old('ancho') }}"style="width:500px; text-align:center; ">
+                            </div>
+                            <br><br>
+                            <div class="input-group">
+                            <label class="input-group-addon" style="width: 300px; border:0;">Profundidad</label>
+                            <input type="text" class="form-control" name="profundidad" value="{{ old('profundidad') }}"style="width:500px; text-align:center; ">
+                             </div>
+
+                            <br><br>
+                            <div class="input-group">
+                            <label  class="input-group-addon"style="width: 300px; border:0;">Diametro</label> 
+                            <input type="text" class="form-control" name="diametro" value="{{ old('diametro') }}"style="width:500px; text-align:center; "><br>
+                            </div>
                         </div>
-                        
+                    </div>
                     </div><br><br>
-                    
+                    aqui termina lo comentado--> 
                     
                 </div><br><br>
                 <table class="table table-bordered"><b>ANALISIS</b><br>
@@ -608,5 +684,11 @@
                 </form>
         </div>
 	</div>
-</div>
+ </div>
+
+
+
+ 
+
+
 @endsection
