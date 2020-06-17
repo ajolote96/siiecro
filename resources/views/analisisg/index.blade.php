@@ -75,6 +75,8 @@
                 			</form></td>
 				            	
 				            	<td><a href="{{ route('registro.create', $analisg->id_general) }}" class="btn btn-block btn-success btn-xs" >Agregar registro</a></td>
+
+								<td><a target="_blank" href="{{ route('analisisgeneral.pdf', $analisg->id_general) }}" class="btn btn-block btn-success btn-xs" style="width:90px;">Imprimir</a></td>
 				            	
 				            	<form id="delete-{{ $analisg->id_general }}" action="{{ route('analisisg.destroy', $analisg->id_general) }}" method="POST">
 		                    	@method('delete')

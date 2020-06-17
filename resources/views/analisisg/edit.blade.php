@@ -323,19 +323,19 @@ $contador_maso = 0;
                         </thead>
                         <tbody>
                             <tr align="center">
-                                <td><input type="text" name="BOLmuestra_edit{{$contador_revoque}}" value="{{ $bols->bol_muestra}}"></td>
-                                <td><input type="text" name="BOLnomenclatura_edit{{$contador_revoque}}" value="{{$bols->bol_nomenclatura}}"></td>
-                                <td><input type="text" name="BOLinf_requerida_edit{{$contador_revoque}}" value="{{$bols->bol_inf_requerida}}"></td>
-                                <td><input type="text" name="BOLdes_muestra_edit{{$contador_revoque}}" value="{{$bols->bol_des_muestra}}"></td>
-                                <td><input type="text" name="BOLubicacion_edit{{$contador_revoque}}" value="{{$bols->bol_ubicacion}}"></td>
-                                <td><input type="text" name="BOLresponsable_edit{{$contador_revoque}}" value="{{$bols->bol_responsable}}"></td>
-                                <td><input type="text" name="BOLiden_muestra_edit{{$contador_revoque}}" value="{{$bols->bol_identificacion_muestra}}"></td>
+                                <td><input type="text" name="BOLmuestra_edit{{$contador_bol}}" value="{{ $bols->bol_muestra}}"></td>
+                                <td><input type="text" name="BOLnomenclatura_edit{{$contador_bol}}" value="{{$bols->bol_nomenclatura}}"></td>
+                                <td><input type="text" name="BOLinf_requerida_edit{{$contador_bol}}" value="{{$bols->bol_inf_requerida}}"></td>
+                                <td><input type="text" name="BOLdes_muestra_edit{{$contador_bol}}" value="{{$bols->bol_des_muestra}}"></td>
+                                <td><input type="text" name="BOLubicacion_edit{{$contador_bol}}" value="{{$bols->bol_ubicacion}}"></td>
+                                <td><input type="text" name="BOLresponsable_edit{{$contador_bol}}" value="{{$bols->bol_responsable}}"></td>
+                                <td><input type="text" name="BOLiden_muestra_edit{{$contador_bol}}" value="{{$bols->bol_identificacion_muestra}}"></td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
                 <?php
-                    $contador_revoque +=1;
+                    $contador_bol +=1;
                   ?>
                @endforeach
                @if($bol->isEmpty())
@@ -628,7 +628,7 @@ $contador_maso = 0;
                <div align="center">
                <input type="button" id="otromatag" name="otromatag" class="btn-sm"  value="Agregar más" onclick="javascript:masmatag()">
                 </div>
-                <div id="inputmatag"></div><br>
+                <div id="inputmaterialag"></div><br>
                 @endif
 
 
@@ -667,7 +667,7 @@ $contador_maso = 0;
                @if($biodeterioro->isEmpty())
                @else
                <div align="center">
-               <input type="button" id="otrobiodeterioro" name="otrobiodeterioro" class="btn-sm"  value="Agregar más" onclick="javascript:masbiodeterioro()">
+               <input type="button" id="otrobiodeterioro" name="otrobiodeterioro" class="btn-sm"  value="Agregar más" onclick="javascript:masbio()">
                 </div>
                 <div id="inputbiodeterioro"></div><br>
                 @endif
@@ -714,17 +714,6 @@ $contador_maso = 0;
                <input type="button" id="otrootros" name="otrootros" class="btn-sm"  value="Agregar más" onclick="javascript:masotros()">
                 </div>
                 <div id="inputotros"></div><br>
-                @endif
-               
-
-
-               <div align="center">
-              
-                </div>
-
-               
-
-                <div id="inputrecubrimiento"></div><br>
                 @endif
 
                     <div class="col-xs-12 col-sm-12 col-md-12 text-center">

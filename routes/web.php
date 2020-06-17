@@ -141,8 +141,84 @@ Route::put('Obra/{id}', function(Request $request, $id){
     return redirect()->route('Obras.index')->with('success','Obra Editada.');
 })->name('Obras.actualizar');
 
-
+//----------------------------------------------------------------------------------------------//
 //Rutas de solicitud de analisis cientifico
+
+Route::get('AnalisisCientifico/{id}/Pdf', function ($id_general){
+    $analisisg = AnalisisG::findOrFail($id_general);
+    $soportes = DB::table('soporte_solicitud')->where('general_id', $id_general)
+        ->select('soporte_solicitud.*')
+        ->get();
+       
+        //BASE II
+        $baseP = DB::table('base_solicituds')->where('general_id', $id_general)
+        ->select('base_solicituds.*')
+        ->get();
+        
+        //ESTATIGRAFIA III
+        $estratigrafia = DB::table('estratigrafia_solicitud')->where('general_id', $id_general)
+        ->select('estratigrafia_solicitud.*')
+        ->get();
+
+        //REVOQUE Y ENLUCIDO IV
+        $revoque = DB::table('revoque_solicitud')->where('general_id', $id_general)
+        ->select('revoque_solicitud.*')
+        ->get();
+        
+        //BOL V 
+        $bol = DB::table('bol_solicitud')->where('general_id', $id_general)
+        ->select('bol_solicitud.*')
+        ->get();
+
+        //LAMINAS METALICAS VI
+        $lamina = DB::table('laminas_solicitud')->where('general_id', $id_general)
+        ->select('laminas_solicitud.*')
+        ->get();
+
+        //PIGMENTOS VII
+        $pigmento = DB::table('pigmentos_solicitud')->where('general_id', $id_general)
+        ->select('pigmentos_solicitud.*')
+        ->get();
+
+        //AGLUTINANTES VIII
+        $aglutinante = DB::table('aglutinante_solicitud')->where('general_id', $id_general)
+        ->select('aglutinante_solicitud.*')
+        ->get();
+
+        //RECUBRIMIENTOS IX
+        $recubrimiento = DB::table('recubrimiento_solicitud')->where('general_id', $id_general)
+        ->select('recubrimiento_solicitud.*')
+        ->get();
+        
+        //MATERIAL ASOCIADO X
+        $maso = DB::table('material_asociado_solicitud')->where('general_id', $id_general)
+        ->select('material_asociado_solicitud.*')
+        ->get();
+
+        //SALES XI
+        $sal = DB::table('sales_solicitud')->where('general_id', $id_general)
+        ->select('sales_solicitud.*')
+        ->get();
+
+        //MATERIAL AGREGADO XII
+        $materialag = DB::table('material_agregado_solicitud')->where('general_id', $id_general)
+        ->select('material_agregado_solicitud.*')
+        ->get();
+
+        //Biodeterioro XIII
+        $biodeterioro = DB::table('biodeterioro_solicitud')->where('general_id', $id_general)
+        ->select('biodeterioro_solicitud.*')
+        ->get();
+
+        //OTROS XIV
+        $otros = DB::table('otros_solicitud')->where('general_id', $id_general)
+        ->select('otros_solicitud.*')
+        ->get();
+    $pdf = PDF::loadView('analisisg.imprimir_analisisg', compact('analisisg','soportes','baseP','estratigrafia','revoque','bol',
+    'lamina','pigmento','aglutinante','recubrimiento','otros','biodeterioro','materialag','sal','maso')  );
+    $pdf->setPaper('a3','landscape');
+    return $pdf->stream();
+})->name('analisisgeneral.pdf');
 
 Route::resource('AnalisisCientifico','AnalisisGController');
 Route::get('AnalisisCientifico', function (Request $request) {

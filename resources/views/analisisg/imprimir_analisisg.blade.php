@@ -1,26 +1,14 @@
-@extends('adminlte::layouts.app')
- 
-@section('main-content')
-
-<?php
-    $analisisg = $analisisgs->first();
-    $contador_soporte = 0;
-$contador_base = 0;
-$contador_estratigrafia = 0;
-$contador_revoque = 0;
-$contador_bol = 0;
-$contador_laminas = 0;
-$contador_pigmentos = 0;
-$contador_aglutinante = 0;
-$contador_recubrimiento = 0;
-
-
-?>
-
+<style> p.saltodepagina
+ {
+ page-break-after: always;
+ }
+ </style>
+ <img  align="left" width="200px" src="images/Logotipo_ECRO_Gris.png" >
 <div class="box">
     <div class="box-body"  >
-            <div class="panel" align="center">
-                <h1>Solicitud de Análisis Científico: {{ $analisisg->id_general }}</h1>
+    
+            <div class="panel" >
+             <h1 style=" text-align:center;">Solicitud de Análisis Científico</h1>
                 @if ($errors->any())
                 <div class="alert alert-danger">
                     <strong>Vaya!</strong> Algo salio mal.<br><br>
@@ -34,62 +22,63 @@ $contador_recubrimiento = 0;
                 <form action="{{ route('analisisg.actualizar', $analisisg->id_general) }}" method="POST" class="form-inline text-left" enctype="multipart/form-data">
                     @csrf 
 
-                    <div align="center">
-                        <table style="width: 50%" border="0">
+                    <div  align="center" >
+                        <table "width: 100%" border="0" align="center" cellspacing="4" cellpadding="4">
                             <tr>
-                                <th colspan="2" style="text-align:center; background-color: #7C858C; color:white;"><h3>Datos Generales</h3></th>
+                                <th colspan="4" style="text-align:center; background-color: #7C858C; color:white; font-size:30px; " ><h3>Datos Generales</h3></th>
+                            </tr>
+                           
+                            <tr >
+                               <td> <label for="id_de_obra" class="input-group-addon" style="width: 300px; font-size:20px; border:0;">ID Obra </label></td>
+                               <td style=" font-size:20px; text-align:center;">  {{ $analisisg->id_de_obra }} </td>    
                             </tr>
                             <tr >
-                               <td> <label for="id_de_obra" class="input-group-addon" style="width: 300px; border:0;">ID Obra </label></td>
-                               <td> <input type="text" name="id_de_obra" class="form-control"  value="{{ $analisisg->id_de_obra }}" style="width:500px; text-align:center;"  readonly></td>    
-                            </tr>
-                            <tr >
-                               <td> <label for="titulo_obra" class="input-group-addon" style="width: 300px; border:0;">Titulo de la obra/pieza</label></td>
-                               <td> <input type="text" name="titulo_obra" class="form-control"  value="{{ $analisisg->titulo_obra }}" style="width:500px; text-align:center;" readonly></td>
+                               <td> <label for="titulo_obra" class="input-group-addon" style="width: 300px; font-size:20px; border:0;">Titulo de la obra/pieza</label></td>
+                               <td style=" font-size:20px; text-align:center;">{{ $analisisg->titulo_obra }}</td>
                             </tr>
 							<tr>
-                               <td> <span class="input-group-addon"style="width: 300px; border:0;">Temporalidad</span></td>
-                               <td> <input type="text" name="temp_obra" class="form-control"  value="{{ $analisisg->temp_obra }}" style="width:500px; text-align:center;" readonly></td>
+                               <td> <span class="input-group-addon"style="width: 300px; font-size:20px; border:0;">Temporalidad</span></td>
+                               <td style=" font-size:20px; text-align:center;">{{ $analisisg->temp_obra }}</td>
                             </tr>
                             @if($analisisg->epoca_obra == NULL)
                             @else
                             <tr>
-                              <td>  <label for="epoca_obra" class="input-group-addon"style="width: 300px; border:0;">Epoca de la obra</label></td>
-                              <td>  <input type="text" name="epoca_obra" class="form-control"  value="{{ $analisisg->epoca_obra }}" style="width:500px; text-align:center;" readonly></td>
+                              <td>  <label for="epoca_obra" class="input-group-addon"style="width: 300px; font-size:20px; border:0;">Epoca de la obra</label></td>
+                              <td style=" font-size:20px; text-align:center;">{{ $analisisg->epoca_obra }}</td>
                             </tr>
                             @endif
                             <tr>
-                              <td>  <label for="tipo_obj_obra" class="input-group-addon"style="width: 300px; border:0;">Tipo de objeto de la obra</label></td>
-                               <td> <input type="text" name="tipo_obj_obra" class="form-control"  value="{{$analisisg->tipo_obj_obra }}" style="width:500px; text-align:center;" readonly></td>
+                              <td>  <label for="tipo_obj_obra" class="input-group-addon"style="width: 300px; font-size:20px; border:0;">Tipo de objeto de la obra</label></td>
+                               <td style=" font-size:20px; text-align:center;">{{$analisisg->tipo_obj_obra }}</td>
                             </tr>
                             <tr>
-                            <td><label for="anio_temporada_trabajo" class="input-group-addon" style="width: 300px;">Año de temporada de trabajo</label></td>
-                            <td><input type="text" name="anio_temporada_trabajo" class="form-control"  value="{{$analisisg->anio_temporada_trabajo }}" style="width:500px; text-align:center;" readonly></td>
+                            <td><label for="anio_temporada_trabajo" class="input-group-addon" style="width: 300px; font-size:20px;">Año de temporada de trabajo</label></td>
+                            <td style=" font-size:20px; text-align:center;">{{$analisisg->anio_temporada_trabajo }}</td>
                         </tr>
                         @if($analisisg->año_de_obra == NULL)
                         @else
                         <tr>
-                            <td><label for="año_de_obra" class="input-group-addon" style="width: 300px;">Año de la Obra</label></td>
-                            <td><input type="text" name="año_de_obra" class="form-control"  value="{{$analisisg->año_de_obra }}" style="width:500px; text-align:center;" readonly></td>
+                            <td><label for="año_de_obra" class="input-group-addon" style="width: 300px; font-size:20px;">Año de la Obra</label></td>
+                            <td style=" font-size:20px; text-align:center;">{{$analisisg->año_de_obra }}</td>
                         </tr>
                         @endif
                        <tr>
-                        <td><label for="respon_intervencion" class="input-group-addon"style="width: 300px; border:0;">Responsable de la Intervencion</label></td>
-                        <td><input type="text" class="form-control"  name="respon_intervencion"  value="{{ $analisisg->respon_intervencion }}" style="width:500px; text-align:center;"></td>
+                        <td><label for="respon_intervencion" class="input-group-addon"style="width: 300px; font-size:20px; border:0;">Responsable de la Intervencion</label></td>
+                        <td style=" font-size:20px; text-align:center;">{{ $analisisg->respon_intervencion }}</td>
                       </tr>
                      <tr>
-                       <td> <label for="tecnica" class="input-group-addon"style="width: 300px; border:0;">Tecnica</label></td>
-                        <td><input type="text" class="form-control"  name="tecnica" value="{{ $analisisg->tecnica}}" style="width:500px; text-align:center;"></td>
+                       <td> <label for="tecnica" class="input-group-addon"style="width: 300px; font-size:20px; border:0;">Tecnica</label></td>
+                        <td style=" font-size:20px; text-align:center;">{{ $analisisg->tecnica}}"</td>
                      </tr>
                      <tr>
-                            <td> <i class="fa fa-calendar"style="width: 300px; border:0;"> Fecha de entrada</i></td>
-                           <td><input type="text" class="form-control date" name="fecha_de_inicio" placeholder="mm/dd/aaaa (Fecha de entrada)" value="{{ $analisisg->fecha_de_inicio }}" style="width:500px;text-align:center;"></td>
+                     <td> <label for="tecnica" class="input-group-addon"style="width: 300px; font-size:20px; border:0;">Fecha de entrada</label></td>
+                           <td style=" font-size:20px; text-align:center;">{{ $analisisg->fecha_de_inicio }}</td>
                         </tr>
                  </table>
              </div>
-                 <br>
-                <div align="left"  style="padding-left: 20%">
-                    <table>
+             <!-- -->
+                <div align="left"  style="padding-left:-13%">
+                    <table "width: 100%" border="0" align="center" cellspacing="4" cellpadding="4">
                         <tr>
                             <th></th>
                             <th style="text-align:center; background-color: #7C858C; color:white;">Alto</th>
@@ -98,23 +87,21 @@ $contador_recubrimiento = 0;
                             <th style="text-align:center; background-color: #7C858C; color:white;">Diametro</th>
                         </tr>
                         <tr>
-                            <th>Dimensiones </th>
-                            <td><input type="text" class="form-control" name="alto" value="{{ $analisisg->alto}}" style="width:200px; text-align:center; "></td></td>
-                            <td><input type="text" class="form-control" name="ancho" value="{{ $analisisg->ancho}}"style="width:200px; text-align:center; "></td></td>
-                            <td><input type="text" class="form-control" name="profundidad" value="{{ $analisisg->profundidad}}"style="width:200px; text-align:center; "></td>
-                            <td><input type="text" class="form-control" name="diametro" value="{{ $analisisg->diametro}}"style="width:200px; text-align:center; "></td>
+                            <th style="font-size:30px;">Dimensiones </th>
+                            <td><input type="text" class="form-control" name="alto" value="{{ $analisisg->alto}}" style="width:143px; text-align:center; "></td></td>
+                            <td><input type="text" class="form-control" name="ancho" value="{{ $analisisg->ancho}}"style="width:143px; text-align:center; "></td></td>
+                            <td><input type="text" class="form-control" name="profundidad" value="{{ $analisisg->profundidad}}"style="width:143px; text-align:center; "></td>
+                            <td><input type="text" class="form-control" name="diametro" value="{{ $analisisg->diametro}}"style="width:143px; text-align:center; "></td>
                         </tr>
                     </table>
 
 </div>  <!--aca termina-->
 <br>
-                <div class="" align="center">
-                    <table style="width: 50%" class="table-bordered">
+                <div  align="center" style="padding-left:0%">
+                    <table style="width: 44%" class="table-bordered" align="center">
                         <tr>
                             <th style="text-align: center; background-color: #7C858C; color:white;">Foto de inicio</th>
                             <th style="text-align: center; background-color: #7C858C; color:white;">Esquema de toma de muestra</th>
-                        
-                        
                     </tr>
                     <tr>
                         <td align="center">
@@ -135,20 +122,21 @@ $contador_recubrimiento = 0;
                     </tr>
                     </table>  
                     </div>
-                    <h2 style="background-color: #7C858C; color:white; text-align:center;">Analisis</h2>
+                    <h2 style="background-color: #7C858C; color:white; text-align:center; ">Analisis</h2>
                <!--TABLA SOPORTE  I-->
                 @foreach($soportes as $soporte)
-                <div class="input-group" id="tabso" >
-                    <table class="table table-bordered" style="width: 50%"><strong>I. SOPORTE</strong> 
+                <div class="input-group" id="tabso"  style=" text-align:left;" >
+                <label><strong>I. SOPORTE</strong> </label>
+                    <table class="table table-bordered" style="width: 50%"> 
                         <thead>
                             <tr align="center">
-                                <th style="background-color: #C65911; color:white; width:300px">Número de muestra</th>
-                                <th style="background-color: #C65911; color:white; width:300px">Nomenclatura</th>
-                                <th style="background-color: #C65911; color:white; width:300px">Información requerida</th>
-                                <th style="background-color: #C65911; color:white; width:300px">Descripcion de la muestra</th>
-                                <th style="background-color: #C65911; color:white; width:300px">Ubicación</th>
-                                <th style="background-color: #C65911; color:white; width:300px">Responsable</th>
-                                <th style="background-color: #C65911; color:white; width:300px">No. de indentificacion</th>
+                                <th style="background-color: #C65911; color:white; ">Número de muestra</th>
+                                <th style="background-color: #C65911; color:white; ">Nomenclatura</th>
+                                <th style="background-color: #C65911; color:white; ">Información requerida</th>
+                                <th style="background-color: #C65911; color:white; ">Descripcion de la muestra</th>
+                                <th style="background-color: #C65911; color:white; ">Ubicación</th>
+                                <th style="background-color: #C65911; color:white; ">Responsable</th>
+                                <th style="background-color: #C65911; color:white; ">No. de indentificacion</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -168,17 +156,18 @@ $contador_recubrimiento = 0;
 
                 <!--TABLA BASE MUESTRA II -->
                @foreach($baseP as $bases)
-               <div class="input-group" id="tabbase" >
-                    <table class="table table-bordered" style="width: 50%"><strong>II.BASE DE PREPARACION</strong> 
+               <div class="input-group" id="tabbase"  style=" text-align:left;">
+               <label><strong>II. BASE DE PREPARACIÓN</strong> </label>
+                    <table class="table table-bordered" style="width: 50%">
                         <thead>
                             <tr align="center">
-                                <th style="background-color: #FFCC66; color:white; width:300px">Nomenclatura</th>
-                                <th style="background-color: #FFCC66; color:white; width:300px">Número de muestra</th>
-                                <th style="background-color: #FFCC66; color:white; width:300px">Información requerida</th>
-                                <th style="background-color: #FFCC66; color:white; width:300px">Descripcion de la muestra</th>
-                                <th style="background-color: #FFCC66; color:white; width:300px">Ubicación</th>
-                                <th style="background-color: #FFCC66; color:white; width:300px">Responsable</th>
-                                <th style="background-color: #FFCC66; color:white; width:300px">No. de indentificacion</th>
+                                <th style="background-color: #FFCC66; color:white; ">Nomenclatura</th>
+                                <th style="background-color: #FFCC66; color:white; ">Número de muestra</th>
+                                <th style="background-color: #FFCC66; color:white; ">Información requerida</th>
+                                <th style="background-color: #FFCC66; color:white; ">Descripcion de la muestra</th>
+                                <th style="background-color: #FFCC66; color:white; ">Ubicación</th>
+                                <th style="background-color: #FFCC66; color:white; ">Responsable</th>
+                                <th style="background-color: #FFCC66; color:white; ">No. de indentificacion</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -197,9 +186,11 @@ $contador_recubrimiento = 0;
                 @endforeach
 
                 <!--ESTATIGRAFIA-->
+                
                 @foreach($estratigrafia as $estratigrafias)
-               <div class="input-group" id="tabbase" >
-                    <table class="table table-bordered" style="width: 50%"><strong>III. ESTRATIGRAFÍA</strong> 
+                <div class="input-group" id="tabbase"  style=" text-align:left;">
+                <label><strong>III. ESTRATIGRAFÍA</strong> </label>
+                    <table class="table table-bordered" style="width: 50%">
                         <thead>
                             <tr align="center">
                                 <th style="background-color: #008000; color:white;">Número de muestra</th>
@@ -228,8 +219,9 @@ $contador_recubrimiento = 0;
 
                 <!--REVOQUE Y ENLUCIDO-->
                 @foreach($revoque as $revoques)
-               <div class="input-group" id="tabbase" >
-                    <table class="table table-bordered" style="width: 50%"><strong>IV. REVOQUE Y ENLUCIDO</strong> 
+               <div class="input-group" id="tabbase" style=" text-align:left;">
+               <label><strong>IV. REVOQUE Y ENLUCIDO</strong> </label>
+                    <table class="table table-bordered" style="width: 50%">
                         <thead>
                             <tr align="center">
                                 <th style="background-color: #B248A5; color:white;">Número de muestra</th>
@@ -258,8 +250,10 @@ $contador_recubrimiento = 0;
 
                 <!--BOL-->
                 @foreach($bol as $bols)
-               <div class="input-group" id="tabbol" >
-                    <table class="table table-bordered" style="width: 50%"><strong>VI. BOL</strong> 
+               <div class="input-group" id="tabbol" style=" text-align:left;">
+               <label><strong>VI. BOL</strong> </label>
+                    <table class="table table-bordered" style="width: 50%">
+                    
                         <thead>
                             <tr align="center">
                                 <th style="background-color: #FF5050; color:white;">Número de muestra</th>
@@ -288,8 +282,10 @@ $contador_recubrimiento = 0;
 
                 <!--LAMINAS METALICAS -->
                  @foreach($lamina as $laminas)
-               <div class="input-group" id="tabbol" >
-                    <table class="table table-bordered" style="width: 50%"><strong>VII. LÁMINAS METÁLICAS</strong> 
+               <div class="input-group" id="tabbol" style=" text-align:left;" >
+               <label><strong>VII. LÁMINAS METÁLICAS</strong> </label>
+                    <table class="table table-bordered" style="width: 50%">
+
                         <thead>
                             <tr align="center">
                                 <th style="background-color: #3A5754; color:white;">Número de muestra</th>
@@ -318,8 +314,9 @@ $contador_recubrimiento = 0;
 
                 <!-- PIGMENTOS -->
                 @foreach($pigmento as $pigmentos)
-               <div class="input-group" id="tabbol" >
-                    <table class="table table-bordered" style="width: 50%"><strong>VIII.PIGMENTOS</strong> 
+               <div class="input-group" id="tabbol" style=" text-align:left;" >
+               <label><strong>VIII.PIGMENTOS</strong></label>
+                    <table class="table table-bordered" style="width: 50%"> 
                         <thead>
                             <tr align="center">
                                 <th style="background-color: #5B9BD5; color:white;">Número de muestra</th>
@@ -348,8 +345,9 @@ $contador_recubrimiento = 0;
 
                 <!-- AGLUTINANTES -->
                 @foreach($aglutinante as $aglutinantes)
-               <div class="input-group" id="tabbol" >
-                    <table class="table table-bordered" style="width: 50%"><strong>IX.AGLUTINANTES</strong> 
+               <div class="input-group" id="tabbol" style=" text-align:left;">
+               <label><strong>IX.AGLUTINANTES</strong></label>
+                    <table class="table table-bordered" style="width: 50%">
                         <thead>
                             <tr align="center">
                                 <th style="background-color: #F55587; color:white;">Número de muestra</th>
@@ -378,8 +376,9 @@ $contador_recubrimiento = 0;
 
                 <!-- RECUBRIMIENTOS -->
                 @foreach($recubrimiento as $recubrimientos)
-               <div class="input-group" id="tabbol" >
-                    <table class="table table-bordered" style="width: 50%"><strong>X. RECUBRIMIENTOS</strong> 
+               <div class="input-group" id="tabbol" style=" text-align:left;">
+               <label><strong>X. RECUBRIMIENTOS</strong></label>
+                    <table class="table table-bordered" style="width: 50%"> 
                         <thead>
                             <tr align="center">
                                 <th style="background-color: #FBAE47; color:white;">Número de muestra</th>
@@ -409,17 +408,18 @@ $contador_recubrimiento = 0;
 
                 <!--MATERIAL ASOCIADO XI -->
                 @foreach($maso as $materialaso)
-               <div class="input-group" id="tabmaterialaso" >
-                    <table class="table table-bordered" style="width: 50%"><strong>XI. MATERIAL ASOCIADO </strong> 
+               <div class="input-group" id="tabmaterialaso" style=" text-align:left;">
+               <label><strong>XI. MATERIAL ASOCIADO </strong></label>
+                    <table class="table table-bordered" style="width: 50%"> 
                         <thead>
                             <tr align="center">
-                                <th style="background-color: #009999; color:white; width:300px">Nomenclatura</th>
-                                <th style="background-color: #009999; color:white; width:300px">Número de muestra</th>
-                                <th style="background-color: #009999; color:white; width:300px">Información requerida</th>
-                                <th style="background-color: #009999; color:white; width:300px">Descripcion de la muestra</th>
-                                <th style="background-color: #009999; color:white; width:300px">Ubicación</th>
-                                <th style="background-color: #009999; color:white; width:300px">Responsable</th>
-                                <th style="background-color: #009999; color:white; width:300px">No. de indentificacion</th>
+                                <th style="background-color: #009999; color:white;">Nomenclatura</th>
+                                <th style="background-color: #009999; color:white;">Número de muestra</th>
+                                <th style="background-color: #009999; color:white;">Información requerida</th>
+                                <th style="background-color: #009999; color:white;">Descripcion de la muestra</th>
+                                <th style="background-color: #009999; color:white;">Ubicación</th>
+                                <th style="background-color: #009999; color:white;">Responsable</th>
+                                <th style="background-color: #009999; color:white;">No. de indentificacion</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -440,17 +440,18 @@ $contador_recubrimiento = 0;
 
                 <!--SALES XII -->
                 @foreach($sal as $sales)
-               <div class="input-group" id="tabsales" >
-                    <table class="table table-bordered" style="width: 50%"><strong>XII. SALES </strong> 
+               <div class="input-group" id="tabsales" style=" text-align:left;" >
+               <label><strong>XII. SALES </strong></label>
+                    <table class="table table-bordered" style="width: 50%"> 
                         <thead>
                             <tr align="center">
-                                <th style="background-color: #009999; color:white; width:300px">Nomenclatura</th>
-                                <th style="background-color: #009999; color:white; width:300px">Número de muestra</th>
-                                <th style="background-color: #009999; color:white; width:300px">Información requerida</th>
-                                <th style="background-color: #009999; color:white; width:300px">Descripcion de la muestra</th>
-                                <th style="background-color: #009999; color:white; width:300px">Ubicación</th>
-                                <th style="background-color: #009999; color:white; width:300px">Responsable</th>
-                                <th style="background-color: #009999; color:white; width:300px">No. de indentificacion</th>
+                                <th style="background-color: #009999; color:white;">Nomenclatura</th>
+                                <th style="background-color: #009999; color:white;">Número de muestra</th>
+                                <th style="background-color: #009999; color:white;">Información requerida</th>
+                                <th style="background-color: #009999; color:white;">Descripcion de la muestra</th>
+                                <th style="background-color: #009999; color:white;">Ubicación</th>
+                                <th style="background-color: #009999; color:white;">Responsable</th>
+                                <th style="background-color: #009999; color:white;">No. de indentificacion</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -472,17 +473,18 @@ $contador_recubrimiento = 0;
                 
                 <!--MATERIAL AGREGADO XIII -->
                 @foreach($materialag as $matag)
-               <div class="input-group" id="tabmaterialag" >
-                    <table class="table table-bordered" style="width: 50%"><strong>XIII. MATERIAL AGREGADO </strong> 
+               <div class="input-group" id="tabmaterialag"  style=" text-align:left;">
+               <label><strong>XIII. MATERIAL AGREGADO </strong> </label>
+                    <table class="table table-bordered" style="width: 50%">
                         <thead>
                             <tr align="center">
-                                <th style="background-color: #7D10C0; color:white; width:300px">Nomenclatura</th>
-                                <th style="background-color: #7D10C0; color:white; width:300px">Número de muestra</th>
-                                <th style="background-color: #7D10C0; color:white; width:300px">Información requerida</th>
-                                <th style="background-color: #7D10C0; color:white; width:300px">Descripcion de la muestra</th>
-                                <th style="background-color: #7D10C0; color:white; width:300px">Ubicación</th>
-                                <th style="background-color: #7D10C0; color:white; width:300px">Responsable</th>
-                                <th style="background-color: #7D10C0; color:white; width:300px">No. de indentificacion</th>
+                                <th style="background-color: #7D10C0; color:white;">Nomenclatura</th>
+                                <th style="background-color: #7D10C0; color:white;">Número de muestra</th>
+                                <th style="background-color: #7D10C0; color:white;">Información requerida</th>
+                                <th style="background-color: #7D10C0; color:white;">Descripcion de la muestra</th>
+                                <th style="background-color: #7D10C0; color:white;">Ubicación</th>
+                                <th style="background-color: #7D10C0; color:white;">Responsable</th>
+                                <th style="background-color: #7D10C0; color:white;">No. de indentificacion</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -504,17 +506,18 @@ $contador_recubrimiento = 0;
 
                 <!--TABLA BIODETERIORO XIV -->
                 @foreach($biodeterioro as $biodeterioros)
-               <div class="input-group" id="tabbiodeterioro" >
-                    <table class="table table-bordered" style="width: 50%"><strong>XIV. BIODETERIORO </strong> 
+               <div class="input-group" id="tabbiodeterioro"  style=" text-align:left;">
+               <label><strong>XIV. BIODETERIORO </strong></label>
+                    <table class="table table-bordered" style="width: 50%"> 
                         <thead>
                             <tr align="center">
-                                <th style="background-color: #A2C866; color:white; width:300px">Nomenclatura</th>
-                                <th style="background-color: #A2C866; color:white; width:300px">Número de muestra</th>
-                                <th style="background-color: #A2C866; color:white; width:300px">Información requerida</th>
-                                <th style="background-color: #A2C866; color:white; width:300px">Descripcion de la muestra</th>
-                                <th style="background-color: #A2C866; color:white; width:300px">Ubicación</th>
-                                <th style="background-color: #A2C866; color:white; width:300px">Responsable</th>
-                                <th style="background-color: #A2C866; color:white; width:300px">No. de indentificacion</th>
+                                <th style="background-color: #A2C866; color:white;">Nomenclatura</th>
+                                <th style="background-color: #A2C866; color:white;">Número de muestra</th>
+                                <th style="background-color: #A2C866; color:white;">Información requerida</th>
+                                <th style="background-color: #A2C866; color:white;">Descripcion de la muestra</th>
+                                <th style="background-color: #A2C866; color:white;">Ubicación</th>
+                                <th style="background-color: #A2C866; color:white;">Responsable</th>
+                                <th style="background-color: #A2C866; color:white;">No. de indentificacion</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -538,17 +541,18 @@ $contador_recubrimiento = 0;
 
                 <!--TABLA OTROS XV -->
                 @foreach($otros as $otro)
-               <div class="input-group" id="tabbase" >
-                    <table class="table table-bordered" style="width: 50%"><strong>XV. OTROS</strong> 
+               <div class="input-group" id="tabbase"  style=" text-align:left;">
+               <label><strong>XV. OTROS</strong></label>
+                    <table class="table table-bordered" style="width: 50%"> 
                         <thead>
                             <tr align="center">
-                                <th style="background-color: #A5A5A5; color:white; width:300px" >Número de muestra</th>
-                                <th style="background-color: #A5A5A5; color:white; width:300px" >Nomenclatura</th>
-                                <th style="background-color: #A5A5A5; color:white; width:300px" >Información requerida</th>
-                                <th style="background-color: #A5A5A5; color:white; width:300px" >Descripcion de la muestra</th>
-                                <th style="background-color: #A5A5A5; color:white; width:300px" >Ubicación</th>
-                                <th style="background-color: #A5A5A5; color:white; width:300px" >Responsable</th>
-                                <th style="background-color: #A5A5A5; color:white; width:300px" >No. de indentificacion</th>
+                                <th style="background-color: #A5A5A5; color:white;" >Número de muestra</th>
+                                <th style="background-color: #A5A5A5; color:white;" >Nomenclatura</th>
+                                <th style="background-color: #A5A5A5; color:white;" >Información requerida</th>
+                                <th style="background-color: #A5A5A5; color:white;" >Descripcion de la muestra</th>
+                                <th style="background-color: #A5A5A5; color:white;" >Ubicación</th>
+                                <th style="background-color: #A5A5A5; color:white;" >Responsable</th>
+                                <th style="background-color: #A5A5A5; color:white;" >No. de indentificacion</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -566,11 +570,8 @@ $contador_recubrimiento = 0;
                 </div>
                 @endforeach
                 <br><br>
-                    <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                            <a href="{{route('analisisg.index')}}" class="btn btn-danger btn-sm">Regresar</a>
-                    </div>
+                  
                 </form>
         </div>
 	</div>
-</div>
-@endsection
+</div
