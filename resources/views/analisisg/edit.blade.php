@@ -43,80 +43,70 @@ $contador_maso = 0;
                 <form action="{{ route('analisisg.actualizar', $analisisg->id_general) }}" method="POST" class="form-inline text-left" enctype="multipart/form-data">
                     @method('put')
                     @csrf 
-
-                    
-                    <div align="center">
-                    <table>
-                    <tr ><th colspan="2" style="text-align:center; background-color: #7C858C; color:white;"><h3>Datos generales</h3></th></tr>
-                        <tr>
-                            
-                           <td> <input type="hidden" name="id_obra" class="form-control"  value="{{ $analisisg->id_obra }}" style="width:200px" readonly></td>
-
-                            <tr >
-                            <td> <label for="id_de_obra" class="input-group-addon" style="width: 300px; border:0;">ID Obra </label></td>
-                               <td> <input type="text" name="id_de_obra" class="form-control"  value="{{ $analisisg->id_de_obra }}" style="width:500px; text-align:center; "readonly></td>   
-                            </tr>
-                          
-                            <tr >
-                               <td> <label for="titulo_obra" class="input-group-addon"style="width: 300px; border:0;">Titulo de la obra/pieza</label></td> 
-                               <td> <input type="text" name="titulo_obra" class="form-control"  value="{{ $analisisg->titulo_obra }}" style="width:500px; text-align:center; " readonly></td> 
-                          </tr>
-                            
-						
-							<tr>
-                            <td> <span class="input-group-addon"style="width: 300px; border:0;">Temporalidad</span></td> 
-                            <td>  <input type="text" name="temp_obra" class="form-control"  value="{{ $analisisg->temp_obra }}" style="width:500px; text-align:center; "readonly></td> 
-                            </tr>
-                           
-                        
+<div align="center">
+                        <table style="width: 50%" border="0">
                             <tr>
-                            <td>  <label for="epoca_obra" class="input-group-addon"style="width: 300px; border:0;">Epoca de la obra</label></td> 
-                            <td>  <input type="text" name="epoca_obra" class="form-control"  value="{{ $analisisg->epoca_obra }}" style="width:500px; text-align:center; " readonly></td> 
+                                <th colspan="2" style="text-align:center; background-color: #7C858C; color:white;"><h3>Datos Generales</h3></th>
                             </tr>
-                           
+                            <tr >
+                               <td> <label for="id_de_obra" class="input-group-addon" style="width: 300px; border:0;">ID Obra </label></td>
+                               <td> <input type="text" name="id_de_obra" class="form-control"  value="{{ $analisisg->id_de_obra }}" style="width:500px; text-align:center;"  readonly></td>    
+                            </tr>
+                            <tr >
+                               <td> <label for="titulo_obra" class="input-group-addon" style="width: 300px; border:0;">Titulo de la obra/pieza</label></td>
+                               <td> <input type="text" name="titulo_obra" class="form-control"  value="{{ $analisisg->titulo_obra }}" style="width:500px; text-align:center;" readonly></td>
+                            </tr>
                             <tr>
-                            <td>  <label for="tipo_obj_obra" class="input-group-addon"style="width: 300px; border:0;">Tipo de objeto de la obra</label></td> 
-                            <td>   <input type="text" name="tipo_obj_obra" class="form-control"  value="{{$analisisg->tipo_obj_obra }}" style="width:500px; text-align:center; " readonly> </td> 
+                               <td> <span class="input-group-addon"style="width: 300px; border:0;">Temporalidad</span></td>
+                               <td> <input type="text" name="temp_obra" class="form-control"  value="{{ $analisisg->temp_obra }}" style="width:500px; text-align:center;" readonly></td>
                             </tr>
+                            <tr>
+                               <td> <span class="input-group-addon"style="width: 300px; border:0;">Sector de la obra</span></td>
+                               <td> <input type="text" name="sector_obra" class="form-control"  value="{{ $analisisg->sector_obra }}" style="width:500px; text-align:center;" readonly></td>
+                            </tr>
+                            @if($analisisg->epoca_obra == NULL)
+                            @else
+                            <tr>
+                              <td>  <label for="epoca_obra" class="input-group-addon"style="width: 300px; border:0;">Epoca de la obra</label></td>
+                              <td>  <input type="text" name="epoca_obra" class="form-control"  value="{{ $analisisg->epoca_obra }}" style="width:500px; text-align:center;" readonly></td>
+                            </tr>
+                            @endif
+                            <tr>
+                              <td>  <label for="tipo_obj_obra" class="input-group-addon"style="width: 300px; border:0;">Tipo de objeto de la obra</label></td>
+                               <td> <input type="text" name="tipo_obj_obra" class="form-control"  value="{{$analisisg->tipo_obj_obra }}" style="width:500px; text-align:center;" readonly></td>
+                            </tr>
+                            <tr>
+                            <td><label for="anio_temporada_trabajo" class="input-group-addon" style="width: 300px;">Año de temporada de trabajo</label></td>
+                            <td><input type="text" name="anio_temporada_trabajo" class="form-control"  value="{{$analisisg->anio_temporada_trabajo }}" style="width:500px; text-align:center;" readonly></td>
                         </tr>
-                        
-                        
-                    	<tr>
-                    
-                    
-                    
+                        @if($analisisg->año_de_obra == NULL)
+                        @else
                         <tr>
-                        <td><label for="respon_intervencion" class="input-group-addon"style="width: 300px; border:0;">Responsable de la Intervencion</label>
-                        <td><input type="text" class="form-control"  name="respon_intervencion"  value="{{ $analisisg->respon_intervencion }}" style="width:500px; text-align:center; ">
+                            <td><label for="año_de_obra" class="input-group-addon" style="width: 300px;">Año de la Obra</label></td>
+                            <td><input type="text" name="año_de_obra" class="form-control"  value="{{$analisisg->año_de_obra }}" style="width:500px; text-align:center;" readonly></td>
                         </tr>
-                    
-                        </tr> 
+                        @endif
+                       <tr>
+                        <td><label for="respon_intervencion" class="input-group-addon"style="width: 300px; border:0;">Responsable de la Intervencion</label></td>
+                        <td><input type="text" class="form-control"  name="respon_intervencion"  value="{{ $analisisg->respon_intervencion }}" style="width:500px; text-align:center;"></td>
+                      </tr>
                       <tr>
-                      <td><label for="foto" class="input-group-addon"style="width: 300px; border:0;">Foto</label></td> 
-                      <td><input type="file" class="form-control"  name="foto" value="{{ $analisisg->foto}}" style="width:500px; text-align:center; "></td> 
+                       <td> <label for="tecnica" class="input-group-addon"style="width: 300px; border:0;">Tecnica</label></td>
+                        <td><input type="text" class="form-control"  name="tecnica" value="{{ $analisisg->tecnica}}" style="width:500px; text-align:center;"></td>
+                     </tr>
+                     <tr>
+                        <td>Esquema de toma de muestra</td>
+                        <td><input type="file" class="form-control date" name="esquema_muestras" placeholder="{{ $analisisg->esquema_muestras }}"  style="width:500px;text-align:center;"></td>
                     </tr>
-  
-                    <tr >
-                    <tr>
+                     <tr>
+                            <td> <i class="fa fa-calendar"style="width: 300px; border:0;"> Fecha de inicio de intervención</i></td>
+                           <td><input type="date" class="form-control date" name="fecha_de_inicio" placeholder="mm/dd/aaaa (Fecha de entrada)" value="{{ $analisisg->fecha_de_inicio }}" style="width:500px;text-align:center;"></td>
+                        </tr>
 
-                        
-                        <td> <i class="fa fa-calendar" class="input-group-addon"style="width: 300px; border:0;"> Fecha de entrada</i></td> 
-
-                       
-
-                       <td> <input type="date" class="form-control date" name="fecha_de_inicio" placeholder="mm/dd/aaaa (Fecha de entrada)" value="{{ $analisisg->fecha_de_inicio }}" style="width:500px; text-align:center; "></td> 
-                   </tr>
-                
-                    
-                    
-                        </tr> 
-                                       
-
-                    
-</table>
-
-<br> <br>
-<div align="left">
+                 </table>
+             </div>
+                 <br>
+                <div align="left"  style="padding-left: 20%">
                     <table>
                         <tr>
                             <th></th>
@@ -126,30 +116,22 @@ $contador_maso = 0;
                             <th style="text-align:center; background-color: #7C858C; color:white;">Diametro</th>
                         </tr>
                         <tr>
-                            <th>Dimensiones</th>
+                            <th>Dimensiones </th>
                             <td><input type="text" class="form-control" name="alto" value="{{ $analisisg->alto}}" style="width:200px; text-align:center; "></td></td>
                             <td><input type="text" class="form-control" name="ancho" value="{{ $analisisg->ancho}}"style="width:200px; text-align:center; "></td></td>
                             <td><input type="text" class="form-control" name="profundidad" value="{{ $analisisg->profundidad}}"style="width:200px; text-align:center; "></td>
                             <td><input type="text" class="form-control" name="diametro" value="{{ $analisisg->diametro}}"style="width:200px; text-align:center; "></td>
                         </tr>
                     </table>
-</div>
 
-<!-- SOPORTE I -->
 </div>
-<h2 style="background-color: grey; color:white; text-align:center;">Analisis</h2>
+<h2 style="background-color: #7C858C; color:white; text-align:center;">Analisis</h2>
                @foreach($soportes as $soporte)
-
-             
                 <div class="input-group" id="tabso" >
-             
-                    <table class="table table-bordered"><strong>I. SOPORTE</strong> 
-
-                    
-
+                    <table class="table table-bordered" style="width: 50%"><strong>I. SOPORTE</strong> 
                         <thead>
                             <tr align="center">
-                                <th bgcolor="">Número de muestra</th>
+                                <th style="background-color: #C65911; color:white; width:300px">Número de muestra</th>
                                 <th style="background-color: #C65911; color:white; width:300px">Nomenclatura</th>
                                 <th style="background-color: #C65911; color:white; width:300px">Información requerida</th>
                                 <th style="background-color: #C65911; color:white; width:300px">Descripcion de la muestra</th>
@@ -187,10 +169,10 @@ $contador_maso = 0;
             <!--BASE DE PREPARACION II-->
                @foreach($baseP as $basesP)
                 <div class="input-group" id="tabso" >
-                    <table class="table table-bordered" background-color: red;><strong>II. BASE DE PREPARACIóN</strong> 
+                    <table class="table table-bordered" style="width: 50%"><strong>II. BASE DE PREPARACIóN</strong> 
                         <thead>
                             <tr align="center">
-                                <th bgcolor="">Número de muestra</th>
+                                <th style="background-color: #FFCC66; color:white; width:300px">Número de muestra</th>
                                 <th style="background-color: #FFCC66; color:white; width:300px">Nomenclatura</th>
                                 <th style="background-color: #FFCC66; color:white; width:300px">Información requerida</th>
                                 <th style="background-color: #FFCC66; color:white; width:300px">Descripcion de la muestra</th>
@@ -227,7 +209,7 @@ $contador_maso = 0;
                 <!--ESTATIGRAFIA III-->
                 @foreach($estratigrafia as $estratigrafias)
                 <div class="input-group" id="tabso" >
-                    <table class="table table-bordered"><strong>III. ESTRATIGRAFÍA</strong> 
+                    <table class="table table-bordered" style="width: 50%"><strong>III. ESTRATIGRAFÍA</strong> 
                         <thead>
                             <tr align="center">
                                 <th style="background-color: #008000; color:white;">Número de muestra</th>
@@ -268,7 +250,7 @@ $contador_maso = 0;
                 <!--REVOQUE Y ENLUCIDO IV-->
                 @foreach($revoque as $revoques)
                 <div class="input-group" id="tabso" >
-                    <table class="table table-bordered"><strong>IV. REVOQUE Y ENLUCIDO</strong> 
+                    <table class="table table-bordered" style="width: 50%"><strong>IV. REVOQUE Y ENLUCIDO</strong> 
                         <thead>
                             <tr align="center">
                                 <th style="background-color: #B248A5; color:white;">Número de muestra</th>
@@ -309,7 +291,7 @@ $contador_maso = 0;
                 <!--BOL VI-->
                 @foreach($bol as $bols)
                 <div class="input-group" id="tabso" >
-                    <table class="table table-bordered"><strong>VI. BOL</strong> 
+                    <table class="table table-bordered" style="width: 50%"><strong>VI. BOL</strong> 
                         <thead>
                             <tr align="center">
                                 <th style="background-color: #FF5050; color:white;">Número de muestra</th>
@@ -349,7 +331,7 @@ $contador_maso = 0;
                 <!--LAMINAS METALICAS VII-->
                 @foreach($lamina as $laminas)
                 <div class="input-group" id="tabso" >
-                    <table class="table table-bordered"><strong>VII. LÁMINAS METÁLICAS</strong> 
+                    <table class="table table-bordered" style="width: 50%"><strong>VII. LÁMINAS METÁLICAS</strong> 
                         <thead>
                             <tr align="center">
                                 <th style="background-color: #3A5754; color:white;">Número de muestra</th>
@@ -390,7 +372,7 @@ $contador_maso = 0;
                 <!--PIGMENTOS VIII-->
                 @foreach($pigmento as $pigmentos)
                 <div class="input-group" id="tabso" >
-                    <table class="table table-bordered"><strong>VIII.PIGMENTOS</strong> 
+                    <table class="table table-bordered" style="width: 50%"><strong>VIII.PIGMENTOS</strong> 
                         <thead>
                             <tr align="center">
                                 <th style="background-color: #5B9BD5; color:white;">Número de muestra</th>
@@ -431,7 +413,7 @@ $contador_maso = 0;
                 <!--AGLUTINANTES IX-->
                 @foreach($aglutinante as $aglutinantes)
                 <div class="input-group" id="tabso" >
-                    <table class="table table-bordered"><strong>IX.AGLUTINANTES</strong> 
+                    <table class="table table-bordered" style="width: 50%"><strong>IX.AGLUTINANTES</strong> 
                         <thead>
                             <tr align="center">
                                 <th style="background-color: #F55587; color:white;">Número de muestra</th>
@@ -471,7 +453,7 @@ $contador_maso = 0;
                 <!--RECUBRIMIENTOS X-->
                 @foreach($recubrimiento as $recubrimientos)
                 <div class="input-group" id="tabso" >
-                    <table class="table table-bordered"><strong>X.RECUBRIMIENTOS</strong> 
+                    <table class="table table-bordered" style="width: 50%"><strong>X.RECUBRIMIENTOS</strong> 
                         <thead>
                             <tr align="center">
                                 <th style="background-color: #FBAE47; color:white;">Número de muestra</th>
@@ -512,7 +494,7 @@ $contador_maso = 0;
                 <!--MATERIALES ASOCIADOS XI-->
                 @foreach($maso as $materialaso)
                 <div class="input-group" id="tabmaso" >
-                    <table class="table table-bordered" background-color: red;><strong>XI. MATERIAL ASOCIADO</strong> 
+                    <table class="table table-bordered" style="width: 50%"><strong>XI. MATERIAL ASOCIADO</strong> 
                         <thead>
                             <tr align="center">
                                 <th style="background-color: #8686C4; color:white; width:300px">Número de muestra</th>
@@ -553,7 +535,7 @@ $contador_maso = 0;
                  <!--SALES XII-->
                  @foreach($sal as $sales)
                 <div class="input-group" id="tabso" >
-                    <table class="table table-bordered" background-color: red;><strong>XII. SALES</strong> 
+                    <table class="table table-bordered" style="width: 50%"><strong>XII. SALES</strong> 
                         <thead>
                             <tr align="center">
                                 <th style="background-color: #009999; color:white; width:300px">Número de muestra</th>
@@ -594,7 +576,7 @@ $contador_maso = 0;
                 <!--MATERIAL AGREGADO XIII-->
                 @foreach($materialag as $matag)
                 <div class="input-group" id="tabso" >
-                    <table class="table table-bordered" background-color: red;><strong>XIII. MATERIAL AGREGADO</strong> 
+                    <table class="table table-bordered" style="width: 50%"><strong>XIII. MATERIAL AGREGADO</strong> 
                         <thead>
                             <tr align="center">
                                 <th style="background-color: #7D10C0; color:white; width:300px">Número de muestra</th>
@@ -635,7 +617,7 @@ $contador_maso = 0;
             <!--BIODETERIORO MUESTRA XIV-->
                 @foreach($biodeterioro as $biodeterioros)
                 <div class="input-group" id="tabso" >
-                    <table class="table table-bordered" background-color: red;><strong>XIV. BIODETERIORO</strong> 
+                    <table class="table table-bordered" style="width: 50%"><strong>XIV. BIODETERIORO</strong> 
                         <thead>
                             <tr align="center">
                                 <th style="background-color: #A2C866; color:white; width:300px">Número de muestra</th>
@@ -679,7 +661,7 @@ $contador_maso = 0;
                 <!--OTROS MUESTRA XV-->
                 @foreach($otros as $otro)
                 <div class="input-group" id="tabso" >
-                    <table class="table table-bordered" background-color: red;><strong>XV. OTROS</strong> 
+                    <table class="table table-bordered" style="width: 50%"><strong>XV. OTROS</strong> 
                         <thead>
                             <tr align="center">
                                 <th style="background-color: #A5A5A5; color:white; width:300px">Número de muestra</th>

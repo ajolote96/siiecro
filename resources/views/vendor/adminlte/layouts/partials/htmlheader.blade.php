@@ -37,6 +37,7 @@
             'csrfToken' => csrf_token(),
         ]) !!};
     </script>
+
     <!-- <script type="text/javascript">
 
         $(".validar_form").submit(function () {
@@ -93,6 +94,7 @@
                 tipo_bien_cultural.style.display='block';
             }
         }
+
 
         function tipodeobjeto(sel) {
             if (sel.value=="Otro") {

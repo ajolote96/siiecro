@@ -2,6 +2,7 @@
 
 @section('main-content')
 
+
 <!--@if ($message = Session::get('success'))
         <div class="alert alert-success">
             <p>{{ $message }}</p>
@@ -10,9 +11,7 @@
 <div class="box">
     <div class="box-body"  >
             <div class="panel">
-                <h1>Solicitud de Análisis Científico
-
-</h1>
+                <h1 style=" text-align:center;">Solicitud de Análisis Científico</h1>
                 @if ($errors->any())
                 <div class="alert alert-danger">
                     <strong>Vaya!</strong> Algo salio mal.<br><br>
@@ -24,8 +23,8 @@
                 </div>
                 @endif
                 <form action="{{ route('AnalisisCientifico.store') }}" method="POST" class="form-inline text-left" enctype="multipart/form-data">
-                    @csrf
 
+                    @csrf
                     <input hidden="" type="text" name="id_obra" value="{{ $obra->id }}">
                     <BR>
                     <div align="center">
@@ -42,6 +41,10 @@
                         <tr>
                             <td><span class="input-group-addon" style="width: 300px; border:0;">Temporalidad</span></td>
                             <td><input type="text" name="temp_obra" class="form-control"  value="{{ $obra->temp_obra }}" style="width:500px; text-align:center;" readonly></td>
+                        </tr>
+                        <tr>
+                            <td><span class="input-group-addon" style="width: 300px; border:0;">Sector de la obra</span></td>
+                            <td><input type="text" name="sector_obra" class="form-control"  value="{{ $obra->sector_obra }}" style="width:500px; text-align:center;" readonly></td>
                         </tr>
                         @if($obra->epoca_obra == NULL)
                         @else
@@ -112,8 +115,6 @@
                         </tr>
                     </table>
 </div>
-
-
                 </div><br><br>
                 <table class="table table-bordered"><b>ANALISIS</b><br>
                     <thead>
@@ -301,7 +302,7 @@
                 <!--BOL-->
                 <div class="input-group" id="tabbol" style="display: none;">
                     <div class="input-group" id="inputbol">
-                    <table class="table table-bordered"><strong>V.BOL</strong> 
+                    <table class="table table-bordered"><strong>VI.BOL</strong> 
                         <thead>
                             <tr align="center">
                                 <th style="background-color: #FF5050; color:white; width:300px">Número de muestra</th>
@@ -688,8 +689,10 @@
                             <button type="submit" class="btn btn-primary btn-sm">Capturar</button>
                             <a href="{{route('Obras.index')}}" class="btn btn-danger btn-sm">Cancelar</a>
                     </div>
+                    </div>
                 </form>
         </div>
 	</div>
 </div>
 @endsection
+
