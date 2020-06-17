@@ -7,9 +7,20 @@ use App\AnalisisCientifico;
 use App\AniosTemporada;
 use App\TemporadasTrabajo;
 
-Route::get('Soporte', function() {
+Route::get('/Soporte', ['uses' =>'ContactMessageController@create'
+
+])->name('soporte');
+
+Route::post('/Soporte', ['uses' =>'ContactMessageController@store',
+'as'=>'contact.store'
+
+]);
+
+
+
+/*Route::get('Soporte', function() {
     return view('soporte.mensaje_soporte');
-})->name('soporte');
+})->name('soporte');*/
 
 Route::get('Mensaje', 'ObrasController@mail', function() {
     
@@ -149,18 +160,14 @@ Route::get('AnalisisCientifico', function (Request $request) {
    $id_general = $request->get('id_general');
         $Analisisg = AnalisisG::orderBy('id_general', 'DESC')
         ->id($id_general)
-        ->paginate(5);
+        ->paginate(15);
         return view('analisisg.index',compact('Analisisg'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
+            ->with('i', (request()->input('page', 1) - 1) * 15);
 })->name('analisisg.index');
 
 Route::get('AnalisisCientifico/{id}/create', function ($id) {
 
         $obra = Obras::findOrFail($id);
-<<<<<<< HEAD
-
-=======
->>>>>>> 41f2540f8e422effcbd58a1c718e51b40a705029
         $anio = DB::table('anio_temporada')->where('obra_id', $id)
         ->select('anio_temporada.anio_temporada_trabajo')
         ->get();
@@ -187,19 +194,19 @@ Route::get('AnalisisCientifico/{id_general}/ver', 'AnalisisGController@show', fu
 //Rutas de registro de analisis cientifico
 Route::resource('RegistroCientifico','AnalisisCientificoController');
 Route::get('RegistroCientifico', 'AnalisisCientificoController@index', function (Request $request) {
-})->name('registro.index')->middleware('permission:Consulta_General');
+})->name('registro.index');
 Route::get('RegistroCientifico/{id}/create', 'AnalisisCientificoController@create', function ($id) {
-})->name('registro.create')->middleware('permission:Captura_Avanzada_Nivel_2');
+})->name('registro.create');
 Route::get('RegistroCientifico/ver/{idcientifico}', 'AnalisisCientificoController@show', function(Request $request, $idcientifico){
-})->name('registro.show')->middleware('permission:Consulta_General');
+})->name('registro.show');
 Route::get('RegistroCientifico/{idcientifico}/editar',  function ($idcientifico ) {
     $a_cientifico = AnalisisCientifico::findOrFail($idcientifico);
         return view('registro.edit', compact('a_cientifico'));
-})->name('registro.editar')->middleware('permission:');
+})->name('registro.editar');
 Route::delete('RegistroCientifico/{idcientifico}',  'AnalisisCientificoController@destroy', function($idcientifico){
 })->name('registro.destroy');
 Route::put('RegistroCientifico/{id_general}/editar', 'AnalisisCientificoController@update', function(Request $request, $idcientifico){
 })->name('registro.actualizar');
 Route::get('RegistroCientifico/{id_general}/ver', 'AnalisisCientificoController@show', function(Request $request, $idcientifico){
-})->name('registro.show')  ->middleware('permission:');
+})->name('registro.show');
 

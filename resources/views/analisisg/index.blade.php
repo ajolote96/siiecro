@@ -34,7 +34,6 @@
         					<th>Año</th>
         					<th>Epoca de la Obra</th>
 				            <th>Temporalidad</th>
-				            <th>Tipo de Objeto de la Obra</th>
 				            <th>Sector</th>
 				            <th>responsable de la Intervencion</th>
 				            <th>Año de temporada de trabajo</th>
@@ -50,11 +49,10 @@
 				            <td>{{ $analisg->año }}</td>
 				            <td>{{ $analisg->epoca_obra }}</td>
 				            <td>{{ $analisg->temp_obra }}</td>
-				            <td>{{ $analisg->tipo_obj_obra }}</td>
-				            <td>{{ $analisg->sector }}</td>
+				            <td>{{ $analisg->sector_obra }}</td>
 				            <td>{{ $analisg->respon_intervencion }}</td>
-				            <td>{{ $analisg->año_proyec_obra }}</td>
-                            <td>{{ \Carbon\Carbon::parse($analisg->fecha_de_inicio)->format('d/m/Y') }}</td>
+				            <td>{{ $analisg->anio_temporada_trabajo }}</td>
+                           
                             @if($analisg->foto == 'Sin imagen')
                             <td>Sin imagen</td>
                             @else

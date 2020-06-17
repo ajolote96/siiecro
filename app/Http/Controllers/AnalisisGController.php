@@ -603,7 +603,7 @@ class AnalisisGController extends Controller
             $analisisg->esquema_muestras = $nombre;
     }
         //DECLARACION DE LAS XV TABLAS    
-
+    //dd($analisisg);
         //SOPORTE I
         $soporte = SoportesSolicitud::where('general_id', $id_general)->get();
        
@@ -673,6 +673,7 @@ class AnalisisGController extends Controller
         $soportes->soporte_responsable = $request->input("Sresponsable_edit{$contador_soporte}");
         $soportes->soporte_identificacion_muestra = $request->input("Siden_muestra_edit{$contador_soporte}");
         $contador_soporte +=1;
+        //dd($soportes);
         $soportes->save();
 
         if ($request->has('Smuestra' . $contador_soporte)) {
@@ -788,6 +789,7 @@ class AnalisisGController extends Controller
         $bols->bol_responsable = $request->input("BOLresponsable_edit{$contador_bol}");
         $bols->bol_identificacion_muestra = $request->input("BOLiden_muestra_edit{$contador_bol}");
         $contador_bol +=1;
+        //dd($bols);
         $bols->save();
 
         if ($request->has('BOLmuestra' . $contador_bol)) {

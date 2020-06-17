@@ -2,13 +2,7 @@
 
 @section('main-content')
 
-<<<<<<< HEAD
- 
-  <div class="box">
-    <div class="box-body">
-            <div class="panel">
-                
-=======
+
 <!--@if ($message = Session::get('success'))
         <div class="alert alert-success">
             <p>{{ $message }}</p>
@@ -17,10 +11,7 @@
 <div class="box">
     <div class="box-body"  >
             <div class="panel">
-                <h1>Solicitud de Análisis Científico
-
-</h1>
->>>>>>> 41f2540f8e422effcbd58a1c718e51b40a705029
+                <h1 style=" text-align:center;">Solicitud de Análisis Científico</h1>
                 @if ($errors->any())
                 <div class="alert alert-danger">
                     <strong>Vaya!</strong> Algo salio mal.<br><br>
@@ -34,14 +25,12 @@
                 <form action="{{ route('AnalisisCientifico.store') }}" method="POST" class="form-inline text-left" enctype="multipart/form-data">
 
                     @csrf
-
                     <input hidden="" type="text" name="id_obra" value="{{ $obra->id }}">
                     <BR>
                     <div align="center">
                     <table style="width: 50%"  border="0" >
                         <tr><th colspan="2" style="text-align:center; background-color: #7C858C; color:white;"><h3>Datos Generales</h3></th></tr>
                         <tr >
-
                             <td><label for="id_de_obra" class="input-group-addon" style="width: 300px; border:0;">ID Obra </label></td>
                             <td><input type="text" name="id_de_obra" class="form-control"  value="{{ $obra->id_de_obras }}" style="width:500px; text-align:center; " readonly></td>
                         </tr>
@@ -52,6 +41,10 @@
                         <tr>
                             <td><span class="input-group-addon" style="width: 300px; border:0;">Temporalidad</span></td>
                             <td><input type="text" name="temp_obra" class="form-control"  value="{{ $obra->temp_obra }}" style="width:500px; text-align:center;" readonly></td>
+                        </tr>
+                        <tr>
+                            <td><span class="input-group-addon" style="width: 300px; border:0;">Sector de la obra</span></td>
+                            <td><input type="text" name="sector_obra" class="form-control"  value="{{ $obra->sector_obra }}" style="width:500px; text-align:center;" readonly></td>
                         </tr>
                         @if($obra->epoca_obra == NULL)
                         @else
@@ -75,7 +68,6 @@
                             <td><label for="anio_temporada_trabajo" class="input-group-addon" style="width: 300px;">Año de la temporada de trabajo</label></td>
                             <td><select class="form-control" name="anio_temporada_trabajo" style="width: 500px; text-align:center;">
                                 <option value="" style="text-align:center;">Selecciona una opción</option>
-
                                 @foreach($anio as $anios)
                                 <option value="{{$anios->anio_temporada_trabajo}}" >{{$anios->anio_temporada_trabajo}}</option>
                                 @endforeach
@@ -310,7 +302,7 @@
                 <!--BOL-->
                 <div class="input-group" id="tabbol" style="display: none;">
                     <div class="input-group" id="inputbol">
-                    <table class="table table-bordered"><strong>V.BOL</strong> 
+                    <table class="table table-bordered"><strong>VI.BOL</strong> 
                         <thead>
                             <tr align="center">
                                 <th style="background-color: #FF5050; color:white; width:300px">Número de muestra</th>

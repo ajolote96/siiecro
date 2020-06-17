@@ -19,7 +19,7 @@ $contador_recubrimiento = 0;
 
 <div class="box">
     <div class="box-body"  >
-            <div class="panel">
+            <div class="panel" align="center">
                 <h1>Solicitud de Análisis Científico: {{ $analisisg->id_general }}</h1>
                 @if ($errors->any())
                 <div class="alert alert-danger">
@@ -77,14 +77,14 @@ $contador_recubrimiento = 0;
                         <td><label for="respon_intervencion" class="input-group-addon"style="width: 300px; border:0;">Responsable de la Intervencion</label></td>
                         <td><input type="text" class="form-control"  name="respon_intervencion"  value="{{ $analisisg->respon_intervencion }}" style="width:500px; text-align:center;"></td>
                       </tr>
-                        <tr>
-                            <td> <i class="fa fa-calendar"style="width: 300px; border:0;"> Fecha de entrada</i></td>
-                           <td><input type="text" class="form-control date" name="fecha_de_inicio" placeholder="mm/dd/aaaa (Fecha de entrada)" value="{{ $analisisg->fecha_de_inicio }}" style="width:500px;text-align:center;"></td>
-                        </tr>
                      <tr>
                        <td> <label for="tecnica" class="input-group-addon"style="width: 300px; border:0;">Tecnica</label></td>
                         <td><input type="text" class="form-control"  name="tecnica" value="{{ $analisisg->tecnica}}" style="width:500px; text-align:center;"></td>
                      </tr>
+                     <tr>
+                            <td> <i class="fa fa-calendar"style="width: 300px; border:0;"> Fecha de entrada</i></td>
+                           <td><input type="text" class="form-control date" name="fecha_de_inicio" placeholder="mm/dd/aaaa (Fecha de entrada)" value="{{ $analisisg->fecha_de_inicio }}" style="width:500px;text-align:center;"></td>
+                        </tr>
                  </table>
              </div>
                  <br>
@@ -135,12 +135,11 @@ $contador_recubrimiento = 0;
                     </tr>
                     </table>  
                     </div>
-                
-               
+                    <h2 style="background-color: #7C858C; color:white; text-align:center;">Analisis</h2>
                <!--TABLA SOPORTE  I-->
                 @foreach($soportes as $soporte)
                 <div class="input-group" id="tabso" >
-                    <table class="table table-bordered" background-color: red;><strong>SOPORTE</strong> 
+                    <table class="table table-bordered" style="width: 50%"><strong>I. SOPORTE</strong> 
                         <thead>
                             <tr align="center">
                                 <th style="background-color: #C65911; color:white; width:300px">Número de muestra</th>
@@ -170,7 +169,7 @@ $contador_recubrimiento = 0;
                 <!--TABLA BASE MUESTRA II -->
                @foreach($baseP as $bases)
                <div class="input-group" id="tabbase" >
-                    <table class="table table-bordered"><strong>BASE DE PREPARACION</strong> 
+                    <table class="table table-bordered" style="width: 50%"><strong>II.BASE DE PREPARACION</strong> 
                         <thead>
                             <tr align="center">
                                 <th style="background-color: #FFCC66; color:white; width:300px">Nomenclatura</th>
@@ -200,7 +199,7 @@ $contador_recubrimiento = 0;
                 <!--ESTATIGRAFIA-->
                 @foreach($estratigrafia as $estratigrafias)
                <div class="input-group" id="tabbase" >
-                    <table class="table table-bordered"><strong>ESTRATIGRAFÍA</strong> 
+                    <table class="table table-bordered" style="width: 50%"><strong>III. ESTRATIGRAFÍA</strong> 
                         <thead>
                             <tr align="center">
                                 <th style="background-color: #008000; color:white;">Número de muestra</th>
@@ -230,7 +229,7 @@ $contador_recubrimiento = 0;
                 <!--REVOQUE Y ENLUCIDO-->
                 @foreach($revoque as $revoques)
                <div class="input-group" id="tabbase" >
-                    <table class="table table-bordered"><strong>REVOQUE Y ENLUCIDO</strong> 
+                    <table class="table table-bordered" style="width: 50%"><strong>IV. REVOQUE Y ENLUCIDO</strong> 
                         <thead>
                             <tr align="center">
                                 <th style="background-color: #B248A5; color:white;">Número de muestra</th>
@@ -260,7 +259,7 @@ $contador_recubrimiento = 0;
                 <!--BOL-->
                 @foreach($bol as $bols)
                <div class="input-group" id="tabbol" >
-                    <table class="table table-bordered"><strong>V. BOL</strong> 
+                    <table class="table table-bordered" style="width: 50%"><strong>VI. BOL</strong> 
                         <thead>
                             <tr align="center">
                                 <th style="background-color: #FF5050; color:white;">Número de muestra</th>
@@ -290,7 +289,7 @@ $contador_recubrimiento = 0;
                 <!--LAMINAS METALICAS -->
                  @foreach($lamina as $laminas)
                <div class="input-group" id="tabbol" >
-                    <table class="table table-bordered"><strong>V. LÁMINAS METÁLICAS</strong> 
+                    <table class="table table-bordered" style="width: 50%"><strong>VII. LÁMINAS METÁLICAS</strong> 
                         <thead>
                             <tr align="center">
                                 <th style="background-color: #3A5754; color:white;">Número de muestra</th>
@@ -320,7 +319,7 @@ $contador_recubrimiento = 0;
                 <!-- PIGMENTOS -->
                 @foreach($pigmento as $pigmentos)
                <div class="input-group" id="tabbol" >
-                    <table class="table table-bordered"><strong>VII.PIGMENTOS</strong> 
+                    <table class="table table-bordered" style="width: 50%"><strong>VIII.PIGMENTOS</strong> 
                         <thead>
                             <tr align="center">
                                 <th style="background-color: #5B9BD5; color:white;">Número de muestra</th>
@@ -350,7 +349,7 @@ $contador_recubrimiento = 0;
                 <!-- AGLUTINANTES -->
                 @foreach($aglutinante as $aglutinantes)
                <div class="input-group" id="tabbol" >
-                    <table class="table table-bordered"><strong>VII.AGLUTINANTES</strong> 
+                    <table class="table table-bordered" style="width: 50%"><strong>IX.AGLUTINANTES</strong> 
                         <thead>
                             <tr align="center">
                                 <th style="background-color: #F55587; color:white;">Número de muestra</th>
@@ -380,7 +379,7 @@ $contador_recubrimiento = 0;
                 <!-- RECUBRIMIENTOS -->
                 @foreach($recubrimiento as $recubrimientos)
                <div class="input-group" id="tabbol" >
-                    <table class="table table-bordered"><strong>X. RECUBRIMIENTOS</strong> 
+                    <table class="table table-bordered" style="width: 50%"><strong>X. RECUBRIMIENTOS</strong> 
                         <thead>
                             <tr align="center">
                                 <th style="background-color: #FBAE47; color:white;">Número de muestra</th>
@@ -411,7 +410,7 @@ $contador_recubrimiento = 0;
                 <!--MATERIAL ASOCIADO XI -->
                 @foreach($maso as $materialaso)
                <div class="input-group" id="tabmaterialaso" >
-                    <table class="table table-bordered"><strong>XI MATERIAL ASOCIADO </strong> 
+                    <table class="table table-bordered" style="width: 50%"><strong>XI. MATERIAL ASOCIADO </strong> 
                         <thead>
                             <tr align="center">
                                 <th style="background-color: #009999; color:white; width:300px">Nomenclatura</th>
@@ -442,7 +441,7 @@ $contador_recubrimiento = 0;
                 <!--SALES XII -->
                 @foreach($sal as $sales)
                <div class="input-group" id="tabsales" >
-                    <table class="table table-bordered"><strong>XII SALES </strong> 
+                    <table class="table table-bordered" style="width: 50%"><strong>XII. SALES </strong> 
                         <thead>
                             <tr align="center">
                                 <th style="background-color: #009999; color:white; width:300px">Nomenclatura</th>
@@ -474,7 +473,7 @@ $contador_recubrimiento = 0;
                 <!--MATERIAL AGREGADO XIII -->
                 @foreach($materialag as $matag)
                <div class="input-group" id="tabmaterialag" >
-                    <table class="table table-bordered"><strong>XIII MATERIAL AGREGADO </strong> 
+                    <table class="table table-bordered" style="width: 50%"><strong>XIII. MATERIAL AGREGADO </strong> 
                         <thead>
                             <tr align="center">
                                 <th style="background-color: #7D10C0; color:white; width:300px">Nomenclatura</th>
@@ -506,7 +505,7 @@ $contador_recubrimiento = 0;
                 <!--TABLA BIODETERIORO XIV -->
                 @foreach($biodeterioro as $biodeterioros)
                <div class="input-group" id="tabbiodeterioro" >
-                    <table class="table table-bordered"><strong>XIV BIODETERIORO </strong> 
+                    <table class="table table-bordered" style="width: 50%"><strong>XIV. BIODETERIORO </strong> 
                         <thead>
                             <tr align="center">
                                 <th style="background-color: #A2C866; color:white; width:300px">Nomenclatura</th>
@@ -540,7 +539,7 @@ $contador_recubrimiento = 0;
                 <!--TABLA OTROS XV -->
                 @foreach($otros as $otro)
                <div class="input-group" id="tabbase" >
-                    <table class="table table-bordered"><strong>V. OTROS</strong> 
+                    <table class="table table-bordered" style="width: 50%"><strong>XV. OTROS</strong> 
                         <thead>
                             <tr align="center">
                                 <th style="background-color: #A5A5A5; color:white; width:300px" >Número de muestra</th>
@@ -566,19 +565,7 @@ $contador_recubrimiento = 0;
                     </table>
                 </div>
                 @endforeach
-                
-                
-                <div class="" align="center">
-                        <label for="foto" class="">Foto:</label>
-                        
-                    </div>
-                <div class="" align="center">
-                    @if($analisisg->foto == 'Sin imagen')
-                        <input type="text" class="form-control"  name="respon_intervencion" border="0" value="Sin imagen" style="width:200px">
-                        @else
-                        <a align="center" target="_blank" href="http://127.0.0.1:8000/images/{{$analisisg->foto}} "><img  width="600px" src="{{asset('images/'.$analisisg->foto)}}" class=""></a>
-                        @endif
-                </div><br><br>
+                <br><br>
                     <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                             <a href="{{route('analisisg.index')}}" class="btn btn-danger btn-sm">Regresar</a>
                     </div>

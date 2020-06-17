@@ -15,22 +15,22 @@ class AnalisisG extends Model
         'titulo_obra',
     	'temp_obra',
     	'epoca_obra',
+        'sector_obra',
     	'tipo_obj_obra',
-    	'lugar_proce_ori',
-    	'lugar_proce_act',
-    	'no_inv_obra',
+    	'año_de_obra',
     	'respon_intervencion',
-    	'proyecto_obra',
-    	'año_proyec_obra',
+    	'anio_temporada_trabajo',
         'fecha_de_inicio',
         'foto'=>'required|image|mimes:jpeg,jpg,png',
+        'esquema_muestras'=>'required|image|mimes:jpeg,jpg,png',
         'alto',
         'ancho',	
         'profundidad',
         'diametro',
         'tecnica',
-        'autor',
         'analisis'
+
+        
         
     ];
 

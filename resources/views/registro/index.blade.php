@@ -64,15 +64,11 @@
                             <td><a target="_blank" href="{{ "images/$cienti->esquema" }}"><img  width="200px" src="images/{{ $cienti->esquema }}" class="zoom"></a></td>
                             @endif
 				            <td>
-				            	@permission('Consulta_General')
 				            	<td><a href="{{ route('registro.show', $cienti->idcientifico) }}" class="btn btn-block btn-info btn-xs" style="width:70px;">Ver mas</a></td>
-				            	@endpermission
-				            	@permission('Editar_Avanzada_2')
+				            	
 				            	<td><a href="{{ route('registro.editar', $cienti->idcientifico) }}" class="btn btn-block btn-warning btn-xs" style="width:70px;">Editar</a></td>
-				            	@endpermission
-				            	@permission('Eliminar_Avanzada_2')
 				            	<td><a href="javascript: document.getElementById('delete-{{ $cienti->idcientifico }}').submit()" class="btn btn-block btn-danger btn-xs" onclick="return confirm('¿Seguro que deseas eliminarlo?')" style="width:70px;">Eliminar</a></td>
-				            	@endpermission
+				            	
 				            	<form id="delete-{{ $cienti->idcientifico }}" action="{{ route('registro.destroy', $cienti->idcientifico) }}" method="POST">
 		                    	@method('delete')
 		 						@csrf
