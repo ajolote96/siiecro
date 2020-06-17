@@ -6,19 +6,10 @@
     <div class="box-body"  >
             <div class="panel">
 
-<style>
-
-.invalid-feedback{
-
-display:block;
-
-}
+   
 
 
-</style>
-
-
-   <section class="form_wrap" >
+    <section class="form_wrap" >
 
         <section class="cantact_info">
             <section class="info_title">
@@ -26,80 +17,33 @@ display:block;
                 <h2>INFORMACION<br>DE CONTACTO</h2>
             </section>
             <section class="info_items">
-                <p><span class="fa fa-envelope"></span> jose.bcarranza@academicos.udg.mx</p>
+                <p><span class="fa fa-envelope"></span> bonilla@gmail.com</p>
 
-         
-
-
-
-
-
-            @if (Session::has('flash_message'))
-            
-            <div class="alert alert-success">
-                {{Session::get('flash_message')}}
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-    <span aria-hidden="true">&times;</span>
-  </button>
-            </div>
-
-            @endif
-
-   </section>
+            </section>
         </section>
 
-
-
-        <form method="post" action="{{route('contact.store')}}" class="form_contact">
-            <h2 style="text-align: center;">Envia un mensaje</h2>
-            {{csrf_field()}}
-
-           
-                 
+        <form action="{{ route('mensaje') }}" method="POST" class="form_contact">
+            <h2>Envia un mensaje</h2>
+            <div class="user_info">
                 <label for="names">Nombres *</label>
-                <input type="text" id="name" name="name" value="{{ Auth::user()->name }}" class="form-control"required>
-                @if ($errors->has('name'))
-            <small class="form-text invalid-feedback">{{$errors->first('name')}}</small>
-            @endif
-           
+                <input type="text" id="names" name="nombre" required>
 
+                <label for="phone">Telefono / Celular</label>
+                <input type="text" id="phone" name="telefono">
 
-
-  
                 <label for="email">Correo electronico *</label>
-                <input type="text" class="form-control" id="email" value="{{ Auth::user()->email }}" name="email"required>
-                @if ($errors->has('email'))
-            <small class="form-text invalid-feedback">{{$errors->first('email')}}</small>
-            @endif
+                <input type="text" id="email" name="correo"required>
 
- 
-
-
-
-  
                 <label for="mensaje">Mensaje *</label>
-                <textarea id="mensaje" class="form-control"  name="message"required></textarea>
-                   @if ($errors->has('message'))
-            <small class="form-text invalid-feedback">{{$errors->first('message')}}</small>
-            @endif
-       
+                <textarea id="mensaje" name="mensaje"required></textarea>
 
-
-
-           <input type="submit" value="Enviar Mensaje" id="btnSend">
+                <input type="submit" value="Enviar Mensaje" id="btnSend">
             </div>
         </form>
 
-
-
     </section>
-
-</div>
-
 </div>
 </div>
 </div>
-
-
 
 @endsection

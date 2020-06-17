@@ -14,6 +14,12 @@ use App\LaminasSolicitud;
 use App\PigmentosSolicitud;
 use App\AglutinantesSolicitud;
 use App\RecubrimientosSolicitud;
+use App\otros_solicituds;
+use App\biodeterioro_solicitud;
+use App\material_agregado_solicitud;
+use App\SalesSolicitud;
+use App\MaterialAsociado;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 
@@ -32,9 +38,9 @@ class AnalisisGController extends Controller
         $id = $request->get('id_general');
         $Analisisg = AnalisisG::orderBy('id_general', 'DESC')
         ->id($id)
-        ->paginate(10);
+        ->paginate(5);
         return view('analisisg.index',compact('Analisisg'))
-            ->with('i', (request()->input('page', 1) - 1) * 10);
+            ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     /**
@@ -87,22 +93,28 @@ class AnalisisGController extends Controller
             $request->file('foto')->move('images', $nombre);
             $analisisg->foto = $nombre;
         }
+
+        if ($request->hasFile('esquema_muestras')) {
+            //$analisisg->foto = $request->file('foto')->store('public');
+
+            $nombre=$request->file('esquema_muestras')->getClientOriginalName();
+            $request->file('esquema_muestras')->move('images', $nombre);
+            $analisisg->esquema_muestras = $nombre;
+        }
         
         
         
             
         //dd($request->all());
         if ($analisisg->save()) {
-
-            //Agregar SOPORTE
-
+        
+            // SOPORTE MUESTRA I
             for ($counters=0; $counters < 7 ; $counters++) { 
                 $obtener_id = AnalisisG::latest('id_general')->first();
                 if ($request->get("Smuestra{$counters}") != NULL) {
 
                     if ($request->has("Smuestra{$counters}")) {
-                        SoportesSolicitud::create([
-                            'general_id' => $analisisg->id_general,
+                        SoportesSolicitud::create(['general_id' => $analisisg->id_general, 
                             'soporte_muestra' => $request->get("Smuestra{$counters}"),
                             'soporte_nomenclatura' => $request->get("Snomenclatura{$counters}"),
                             'soporte_inf_requerida' => $request->get("Sinf_requerida{$counters}"),
@@ -115,9 +127,8 @@ class AnalisisGController extends Controller
                     }
                 }
             }
-
-            //Agregar BASE PREPARACION
-
+         
+        //BASE DE PREPARACION II
              for ($counters=0; $counters < 7 ; $counters++) { 
                 if ($request->get("BPmuestra{$counters}") != NULL) {
                     if ($request->has("BPmuestra{$counters}")) {
@@ -135,9 +146,8 @@ class AnalisisGController extends Controller
                     }
                 }
             }
-
-            //Agregar ESTRATIGRAFIA
-
+            
+            //ESTATIGRAFIA III
             for ($counters=0; $counters < 7 ; $counters++) { 
                 if ($request->get("Emuestra{$counters}") != NULL) {
                     if ($request->has("Emuestra{$counters}")) {
@@ -156,8 +166,8 @@ class AnalisisGController extends Controller
                 }
             }
 
-            // AGREGAR REVOQUE
-
+            
+            //REVOQUE Y ENLUCIDO IV
             for ($counters=0; $counters < 7 ; $counters++) { 
                 if ($request->get("REmuestra{$counters}") != NULL) {
                     if ($request->has("REmuestra{$counters}")) {
@@ -175,9 +185,8 @@ class AnalisisGController extends Controller
                     }
                 }
             }
-
-            //AGREGAR BOL
-
+            
+            //BOL V
             for ($counters=0; $counters < 7 ; $counters++) { 
                 if ($request->get("BOLmuestra{$counters}") != NULL) {
                     if ($request->has("BOLmuestra{$counters}")) {
@@ -196,8 +205,7 @@ class AnalisisGController extends Controller
                 }
             }
 
-            // LAMINAS METALICAS
-
+            //LAMINAS METALICAS VI
             for ($counters=0; $counters < 7 ; $counters++) { 
                 if ($request->get("LMmuestra{$counters}") != NULL) {
                     if ($request->has("LMmuestra{$counters}")) {
@@ -216,8 +224,7 @@ class AnalisisGController extends Controller
                 }
             }
 
-            // PIGMENTOS
-
+            //PIGMENTOS VII
             for ($counters=0; $counters < 7 ; $counters++) { 
                 if ($request->get("Pmuestra{$counters}") != NULL) {
                     if ($request->has("Pmuestra{$counters}")) {
@@ -236,8 +243,7 @@ class AnalisisGController extends Controller
                 }
             }
 
-            // AGLUTINANTES
-
+            //AGLUTINANTES VIII
             for ($counters=0; $counters < 7 ; $counters++) { 
                 if ($request->get("Amuestra{$counters}") != NULL) {
                     if ($request->has("Amuestra{$counters}")) {
@@ -256,8 +262,8 @@ class AnalisisGController extends Controller
                 }
             }
 
-            // RECUBRIMIENTOS
-            
+
+            //RECUBRIMIENTOS IX
             for ($counters=0; $counters < 7 ; $counters++) { 
                 if ($request->get("Rmuestra{$counters}") != NULL) {
                     if ($request->has("Rmuestra{$counters}")) {
@@ -275,8 +281,115 @@ class AnalisisGController extends Controller
                     }
                 }
             }
-        }  
+         
+            
+            //MATERIAL ASOCIADO X
+            for ($counters=0; $counters < 7 ; $counters++) { 
+                $obtener_id = AnalisisG::latest('id_general')->first();
+                if ($request->get("MASOmuestra{$counters}") != NULL) {
 
+                    if ($request->has("MASOmuestra{$counters}")) {
+                        MaterialAsociado::create(['general_id' => $analisisg->id_general, 
+                        'materialaso_muestra' => $request->get("MASOmuestra{$counters}"),
+                        'materialaso_nomenclatura' => $request->get("MASOnomenclatura{$counters}"),
+                        'materialaso_inf_requerida' => $request->get("MASOinf_requerida{$counters}"),
+                        'materialaso_des_muestra' => $request->get("MASOdes_muestra{$counters}"),
+                        'materialaso_ubicacion' => $request->get("MASOubicacion{$counters}"),
+                        'materialaso_responsable' => $request->get("MASOresponsable{$counters}"),
+                        'materialaso_identificacion_muestra'=> $request->get("MASOiden_muestra{$counters}")]);
+                    }else{
+                        break;
+                    }
+                }
+            }
+
+
+            
+            //SALES XI
+            for ($counters=0; $counters < 7 ; $counters++) { 
+                $obtener_id = AnalisisG::latest('id_general')->first();
+                if ($request->get("SALmuestra{$counters}") != NULL) {
+
+                    if ($request->has("SALmuestra{$counters}")) {
+                        SalesSolicitud::create(['general_id' => $analisisg->id_general, 
+                        'sales_muestra' => $request->get("SALmuestra{$counters}"),
+                        'sales_nomenclatura' => $request->get("SALnomenclatura{$counters}"),
+                        'sales_inf_requerida' => $request->get("SALinf_requerida{$counters}"),
+                        'sales_des_muestra' => $request->get("SALdes_muestra{$counters}"),
+                        'sales_ubicacion' => $request->get("SALubicacion{$counters}"),
+                        'sales_responsable' => $request->get("SALresponsable{$counters}"),
+                        'sales_identificacion_muestra'=> $request->get("SALiden_muestra{$counters}")]);
+                    }else{
+                        break;
+                    }
+                }
+            }
+
+
+            //MATERIAL AGREGADO XII
+            for ($counters=0; $counters < 7 ; $counters++) { 
+                $obtener_id = AnalisisG::latest('id_general')->first();
+                if ($request->get("MAGmuestra{$counters}") != NULL) {
+
+                    if ($request->has("MAGmuestra{$counters}")) {
+                        material_agregado_solicitud::create(['general_id' => $analisisg->id_general, 
+                        'materialag_muestra' => $request->get("MAGmuestra{$counters}"),
+                        'materialag_nomenclatura' => $request->get("MAGnomenclatura{$counters}"),
+                        'materialag_inf_requerida' => $request->get("MAGinf_requerida{$counters}"),
+                        'materialag_des_muestra' => $request->get("MAGdes_muestra{$counters}"),
+                        'materialag_ubicacion' => $request->get("MAGubicacion{$counters}"),
+                        'materialag_responsable' => $request->get("MAGresponsable{$counters}"),
+                        'materialag_identificacion_muestra'=> $request->get("MAGiden_muestra{$counters}")]);
+                    }else{
+                        break;
+                    }
+                }
+            }
+
+
+            
+            //BIODETERIORO XIII 
+            for ($counters=0; $counters < 7 ; $counters++) { 
+                $obtener_id = AnalisisG::latest('id_general')->first();
+                if ($request->get("BDTmuestra{$counters}") != NULL) {
+
+                    if ($request->has("BDTmuestra{$counters}")) {
+                        biodeterioro_solicitud::create(['general_id' => $analisisg->id_general, 
+                        'biodeterioro_muestra' => $request->get("BDTmuestra{$counters}"),
+                        'biodeterioro_nomenclatura' => $request->get("BDTnomenclatura{$counters}"),
+                        'biodeterioro_inf_requerida' => $request->get("BDTinf_requerida{$counters}"),
+                        'biodeterioro_des_muestra' => $request->get("BDTdes_muestra{$counters}"),
+                        'biodeterioro_ubicacion' => $request->get("BDTubicacion{$counters}"),
+                        'biodeterioro_responsable' => $request->get("BDTresponsable{$counters}"),
+                        'biodeterioro_identificacion_muestra'=> $request->get("BDTiden_muestra{$counters}")]);
+                    }else{
+                        break;
+                    }
+                }
+            }
+        
+
+
+            //OTROS Muestra XIV
+            for ($counters=0; $counters < 7 ; $counters++) { 
+                $obtener_id = AnalisisG::latest('id_general')->first();
+                if ($request->get("OTmuestra{$counters}") != NULL) {
+
+                    if ($request->has("OTmuestra{$counters}")) {
+                        otros_solicituds::create(['general_id' => $analisisg->id_general, 
+                        'otros_muestra' => $request->get("OTmuestra{$counters}"),
+                        'otros_nomenclatura' => $request->get("OTnomenclatura{$counters}"),
+                        'otros_inf_requerida' => $request->get("OTinf_requerida{$counters}"),
+                        'otros_des_muestra' => $request->get("OTdes_muestra{$counters}"),
+                        'otros_ubicacion' => $request->get("OTubicacion{$counters}"),
+                        'otros_responsable' => $request->get("OTresponsable{$counters}"),
+                        'otros_identificacion_muestra'=> $request->get("OTiden_muestra{$counters}")]);
+                    }else{
+                        break;
+                    }
+                }
+            }
+        }  
    
        return redirect()->route('analisisg.index')
                         ->with('success','Ficha Creada Exitosamente.');
@@ -294,34 +407,76 @@ class AnalisisGController extends Controller
         $analisisg = DB::table('analisisg')->where('id_general', $id_general)
         ->select('analisisg.*')
         ->get();
+        
+        //SOPORTE I 
         $soportes = DB::table('soporte_solicitud')->where('general_id', $id_general)
         ->select('soporte_solicitud.*')
         ->get();
+       
+        //BASE II
         $baseP = DB::table('base_solicituds')->where('general_id', $id_general)
         ->select('base_solicituds.*')
         ->get();
+        
+        //ESTATIGRAFIA III
         $estratigrafia = DB::table('estratigrafia_solicitud')->where('general_id', $id_general)
         ->select('estratigrafia_solicitud.*')
         ->get();
+
+        //REVOQUE Y ENLUCIDO IV
         $revoque = DB::table('revoque_solicitud')->where('general_id', $id_general)
         ->select('revoque_solicitud.*')
         ->get();
+        
+        //BOL V 
         $bol = DB::table('bol_solicitud')->where('general_id', $id_general)
         ->select('bol_solicitud.*')
         ->get();
+
+        //LAMINAS METALICAS VI
         $lamina = DB::table('laminas_solicitud')->where('general_id', $id_general)
         ->select('laminas_solicitud.*')
         ->get();
+
+        //PIGMENTOS VII
         $pigmento = DB::table('pigmentos_solicitud')->where('general_id', $id_general)
         ->select('pigmentos_solicitud.*')
         ->get();
+
+        //AGLUTINANTES VIII
         $aglutinante = DB::table('aglutinante_solicitud')->where('general_id', $id_general)
         ->select('aglutinante_solicitud.*')
         ->get();
+
+        //RECUBRIMIENTOS IX
         $recubrimiento = DB::table('recubrimiento_solicitud')->where('general_id', $id_general)
         ->select('recubrimiento_solicitud.*')
         ->get();
         
+        //MATERIAL ASOCIADO X
+        $maso = DB::table('material_asociado_solicitud')->where('general_id', $id_general)
+        ->select('material_asociado_solicitud.*')
+        ->get();
+
+        //SALES XI
+        $sal = DB::table('sales_solicitud')->where('general_id', $id_general)
+        ->select('sales_solicitud.*')
+        ->get();
+
+        //MATERIAL AGREGADO XII
+        $materialag = DB::table('material_agregado_solicitud')->where('general_id', $id_general)
+        ->select('material_agregado_solicitud.*')
+        ->get();
+
+        //Biodeterioro XIII
+        $biodeterioro = DB::table('biodeterioro_solicitud')->where('general_id', $id_general)
+        ->select('biodeterioro_solicitud.*')
+        ->get();
+
+        //OTROS XIV
+        $otros = DB::table('otros_solicitud')->where('general_id', $id_general)
+        ->select('otros_solicitud.*')
+        ->get();
         
 
 
@@ -329,8 +484,8 @@ class AnalisisGController extends Controller
 
         //dd($analisisgs);
 
-        return view('analisisg.show', compact('analisisgs','soportes','baseP','estratigrafia','revoque','bol',
-            'lamina','pigmento','aglutinante','recubrimiento'));
+        return view('analisisg.show', compact('analisisgs', 'soportes','baseP','estratigrafia','revoque','bol',
+        'lamina','pigmento','aglutinante','recubrimiento','otros','biodeterioro','materialag','sal','maso'));
     }
 
     /**
@@ -344,38 +499,85 @@ class AnalisisGController extends Controller
         $analisisg = DB::table('analisisg')->where('id_general', $id_general)
         ->select('analisisg.*')
         ->get();
+       
+        //SOPORTE I
         $soportes = DB::table('soporte_solicitud')->where('general_id', $id_general)
         ->select('soporte_solicitud.*')
         ->get();
+        
+        //BASE II
         $baseP = DB::table('base_solicituds')->where('general_id', $id_general)
         ->select('base_solicituds.*')
         ->get();
+
+        //ESTATIGRAFIA III
         $estratigrafia = DB::table('estratigrafia_solicitud')->where('general_id', $id_general)
         ->select('estratigrafia_solicitud.*')
         ->get();
+
+        //REVOQUE IV
         $revoque = DB::table('revoque_solicitud')->where('general_id', $id_general)
         ->select('revoque_solicitud.*')
         ->get();
+
+        //BOL V 
         $bol = DB::table('bol_solicitud')->where('general_id', $id_general)
         ->select('bol_solicitud.*')
         ->get();
+
+        //LAMINA VI
         $lamina = DB::table('laminas_solicitud')->where('general_id', $id_general)
         ->select('laminas_solicitud.*')
         ->get();
+
+        //PIGMENTO VII
         $pigmento = DB::table('pigmentos_solicitud')->where('general_id', $id_general)
         ->select('pigmentos_solicitud.*')
         ->get();
+
+        //AGLUTINANTE VIII
         $aglutinante = DB::table('aglutinante_solicitud')->where('general_id', $id_general)
         ->select('aglutinante_solicitud.*')
         ->get();
+
+        //RECUBRIMIENTO IX
         $recubrimiento = DB::table('recubrimiento_solicitud')->where('general_id', $id_general)
         ->select('recubrimiento_solicitud.*')
         ->get();
 
+
+        //MATERIAL ASOCIADO X
+        $maso = DB::table('material_asociado_solicitud')->where('general_id', $id_general)
+        ->select('material_asociado_solicitud.*')
+        ->get();
+
+        //SALES XI
+        $sal = DB::table('sales_solicitud')->where('general_id', $id_general)
+        ->select('sales_solicitud.*')
+        ->get();
+
+        //MATERIAL AGREGADO XII
+        $materialag = DB::table('material_agregado_solicitud')->where('general_id', $id_general)
+        ->select('material_agregado_solicitud.*')
+        ->get();
+        
+        //BIODETERIORO XIV
+        $biodeterioro = DB::table('biodeterioro_solicitud')->where('general_id', $id_general)
+        ->select('biodeterioro_solicitud.*')
+        ->get();
+
+
+        //OTROS XV
+        $otros = DB::table('otros_solicitud')->where('general_id', $id_general)
+        ->select('otros_solicitud.*')
+        ->get();
+
         $analisisgs = $analisisg;
+
+        // SE DAN DE ALTA TODAS LAS TABLAS
         
         return view('analisisg.edit', compact('analisisgs','soportes','baseP','estratigrafia','revoque','bol',
-            'lamina','pigmento','aglutinante','recubrimiento'));
+        'lamina','pigmento','aglutinante','recubrimiento','otros','biodeterioro','materialag','sal','maso'));
     }
 
     /**
@@ -388,45 +590,80 @@ class AnalisisGController extends Controller
     public function update(Request $request, $id_general)
     {
         $analisisg = AnalisisG::findOrFail($id_general);
-        $analisisg->id_obra = $request->input('id_obra');
-        $analisisg->id_de_obra = $request->input('id_de_obra');
-        $analisisg->titulo_obra = $request->input('titulo_obra');
-        $analisisg->temp_obra = $request->input('temp_obra');
-        $analisisg->epoca_obra = $request->input('epoca_obra');
-        $analisisg->tipo_obj_obra = $request->input('tipo_obj_obra');
+        $analisisg->diametro = $request->input('diametro');
+        $analisisg->profundidad = $request->input('profundidad');
+        $analisisg->ancho = $request->input('ancho');
+        $analisisg->alto = $request->input('alto');
+        $analisisg->tecnica = $request->input('tecnica');
         $analisisg->respon_intervencion = $request->input('respon_intervencion');
         $analisisg->fecha_de_inicio = $request->input('fecha_de_inicio');
-        if ($request->hasFile('foto')) {
-        $nombre=$request->file('foto')->getClientOriginalName();
-            $request->file('foto')->move('images', $nombre);
-            $analisisg->foto = $nombre;
+        if ($request->hasFile('esquema_muestras')) {
+        $nombre=$request->file('esquema_muestras')->getClientOriginalName();
+            $request->file('esquema_muestras')->move('images', $nombre);
+            $analisisg->esquema_muestras = $nombre;
     }
+        //DECLARACION DE LAS XV TABLAS    
 
-        //CONSULTAS
+        //SOPORTE I
         $soporte = SoportesSolicitud::where('general_id', $id_general)->get();
+       
+        //BASE   II
         $baseP = base_solicitud::where('general_id', $id_general)->get();
+        
+        //ESTATIGRAFIA III
         $estratigrafia = EstratigrafiaSolicitud::where('general_id', $id_general)->get();
+        
+        //REVOQUE IV
         $revoque = RevoqueSolicitud::where('general_id', $id_general)->get();
+        
+        //BOL V
         $bol = BolSolicitud::where('general_id', $id_general)->get();
+        
+        //LAMINA VI 
         $lamina = LaminasSolicitud::where('general_id', $id_general)->get();
+        
+        //PIGMENTO VII
         $pigmento = PigmentosSolicitud::where('general_id', $id_general)->get();
+        
+        //AGLUTINANTE VIII
         $aglutinante = AglutinantesSolicitud::where('general_id', $id_general)->get();
+        
+        //RECUBRIMIENTO IX
         $recubrimiento = RecubrimientosSolicitud::where('general_id', $id_general)->get();
 
-        //CONTADORES
-        $contador_soporte = 0;
-        $contador_base = 0;
+        //MATERIAL ASOCIADO X
+        $maso = MaterialAsociado::where('general_id', $id_general)->get();
+
+        //SALES XI
+        $sal = SalesSolicitud::where('general_id' , $id_general)->get();
+
+        //MATERIAL AGREGADO XII
+        $matag = material_agregado_solicitud::where('general_id', $id_general)->get();
+
+        //BIODETERIORO XIII
+        $biodeterioro = biodeterioro_solicitud::where('general_id', $id_general)->get();
+
+        //OTROS XIV
+        $otro = otros_solicituds::where('general_id', $id_general)->get();
+
+        //CONTADORES 
+        $contador_soporte = 0;   
+        $contador_base = 0;    
         $contador_estratigrafia =0;
         $contador_revoque = 0;
         $contador_bol = 0;
         $contador_laminas = 0;
         $contador_pigmentos = 0;
         $contador_aglutinante = 0;
-        $contador_recubrimiento = 0;
-
+        $contador_recubrimiento = 0;  
+        $contador_maso = 0;     
+        $contador_sal = 0;         
+        $contador_matag = 0;    
+        $contador_biodeterioro = 0; 
+        $contador_otro = 0;     
         //dd($request->all());
 
-        //SOPORTE
+        //METODO DE ACTUALIZACION DE SOPORTE I
         foreach ($soporte as $soportes) {
         $soportes->soporte_muestra = $request->input("Smuestra_edit{$contador_soporte}");
         $soportes->soporte_nomenclatura = $request->input("Snomenclatura_edit{$contador_soporte}");  
@@ -453,7 +690,8 @@ class AnalisisGController extends Controller
             );
         }       
     }
-    // BASE PREPARACION
+
+    //METODO DE ACTUALIZACION DE  BASE II
         foreach ($baseP as $basesP) {
         $basesP->base_muestra = $request->input("BPmuestra_edit{$contador_base}");
         $basesP->base_nomenclatura = $request->input("BPnomenclatura_edit{$contador_base}");  
@@ -481,7 +719,7 @@ class AnalisisGController extends Controller
         }       
     }
 
-    //ESTRATIGRAFIA
+    //ESTRATIGRAFIA III
 
     foreach ($estratigrafia as $estratigrafias) {
         $estratigrafias->estratigrafia_muestra = $request->input("Emuestra_edit{$contador_estratigrafia}");
@@ -510,7 +748,7 @@ class AnalisisGController extends Controller
         }       
     }
 
-    //REVOQUE
+    //REVOQUE IV
 
      foreach ($revoque as $revoques) {
         $revoques->revoque_muestra = $request->input("REmuestra_edit{$contador_revoque}");
@@ -539,7 +777,7 @@ class AnalisisGController extends Controller
         }       
     }
 
-    // BOL
+    // BOL V
 
     foreach ($bol as $bols) {
         $bols->bol_muestra = $request->input("BOLmuestra_edit{$contador_bol}");
@@ -568,7 +806,7 @@ class AnalisisGController extends Controller
         }       
     }
 
-    //LAMINAS METALICAS
+    //LAMINAS METALICAS VI
 
      foreach ($lamina as $laminas) {
         $laminas->laminas_muestra = $request->input("LMmuestra_edit{$contador_laminas}");
@@ -597,7 +835,7 @@ class AnalisisGController extends Controller
         }       
     }
 
-    //PIGMENTOS
+    //PIGMENTOS VII
 
     foreach ($pigmento as $pigmentos) {
         $pigmentos->pigmentos_muestra = $request->input("Pmuestra_edit{$contador_pigmentos}");
@@ -626,7 +864,7 @@ class AnalisisGController extends Controller
         }       
     }
 
-    //AGLUTINANTES
+    //AGLUTINANTES VIII
 
     foreach ($aglutinante as $aglutinantes) {
         $aglutinantes->aglutinante_muestra = $request->input("Amuestra_edit{$contador_aglutinante}");
@@ -655,7 +893,7 @@ class AnalisisGController extends Controller
         }       
     }
 
-    //RECUBRIOMIENTOS
+    //RECUBRIOMIENTOSIX
 
     foreach ($recubrimiento as $recubrimientos) {
         $recubrimientos->recubrimiento_muestra = $request->input("Rmuestra_edit{$contador_recubrimiento}");
@@ -679,6 +917,156 @@ class AnalisisGController extends Controller
                     'recubrimiento_ubicacion' => $request->get("Rubicacion{$contador_recubrimiento }"),
                     'recubrimiento_responsable' => $request->get("Rresponsable{$contador_recubrimiento }"),
                     'recubrimiento_identificacion_muestra'=> $request->get("Riden_muestra{$contador_recubrimiento  }")
+                ]
+            );
+        }       
+    }
+
+
+
+    //METODO DE ACTUALIZACION MATERIAL ASOCIADO X
+    foreach ($maso as $materialaso) {
+        $materialaso->materialaso_muestra = $request->input("MASOmuestra_edit{$contador_maso}");
+        $materialaso->materialaso_nomenclatura = $request->input("MASOnomenclatura_edit{$contador_maso}");  
+        $materialaso->materialaso_inf_requerida = $request->input("MASOinf_requerida_edit{$contador_maso}");
+        $materialaso->materialaso_des_muestra = $request->input("MASOdes_muestra_edit{$contador_maso}");
+        $materialaso->materialaso_ubicacion = $request->input("MASOubicacion_edit{$contador_maso}");
+        $materialaso->materialaso_responsable = $request->input("MASOresponsable_edit{$contador_maso}");
+        $materialaso->materialaso_identificacion_muestra = $request->input("MASOiden_muestra_edit{$contador_maso}");
+        $contador_maso +=1;
+        //dd($materialaso);
+        $materialaso->save();
+
+        if ($request->has('MASOmuestra' . $contador_maso)) {
+            MaterialAsociado::firstOrCreate(
+                [   
+                    'general_id' => $analisisg->id_general, 
+                    'materialaso_muestra' => $request->get("MASOmuestra{$contador_maso}"),
+                    'materialaso_nomenclatura' => $request->get("MASOnomenclatura{$contador_maso}"),
+                    'materialaso_inf_requerida' => $request->get("MASOinf_requerida{$contador_maso}"),
+                    'materialaso_des_muestra' => $request->get("MASOdes_muestra{$contador_maso}"),
+                    'materialaso_ubicacion' => $request->get("MASOubicacion{$contador_maso}"),
+                    'materialaso_responsable' => $request->get("MASOresponsable{$contador_maso}"),
+                    'materialaso_identificacion_muestra'=> $request->get("MASOiden_muestra{$contador_maso}")
+                ]
+            );
+        }       
+    }
+
+    //METODO DE ACTUALIZACION SALES XI
+    foreach ($sal as $sales) {
+        $sales->sales_muestra = $request->input("SALmuestra_edit{$contador_sal}");
+        $sales->sales_nomenclatura = $request->input("SALnomenclatura_edit{$contador_sal}");  
+        $sales->sales_inf_requerida = $request->input("SALinf_requerida_edit{$contador_sal}");
+        $sales->sales_des_muestra = $request->input("SALdes_muestra_edit{$contador_sal}");
+        $sales->sales_ubicacion = $request->input("SALubicacion_edit{$contador_sal}");
+        $sales->sales_responsable = $request->input("SALresponsable_edit{$contador_sal}");
+        $sales->sales_identificacion_muestra = $request->input("SALiden_muestra_edit{$contador_sal}");
+        $contador_sal +=1;
+        //dd($sales);
+        $sales->save();
+
+        if ($request->has('SALmuestra' . $contador_sal)) {
+            SalesSolicitud::firstOrCreate(
+                [   
+                    'general_id' => $analisisg->id_general, 
+                    'sales_muestra' => $request->get("SALmuestra{$contador_sal}"),
+                    'sales_nomenclatura' => $request->get("SALnomenclatura{$contador_sal}"),
+                    'sales_inf_requerida' => $request->get("SALinf_requerida{$contador_sal}"),
+                    'sales_des_muestra' => $request->get("SALdes_muestra{$contador_sal}"),
+                    'sales_ubicacion' => $request->get("SALubicacion{$contador_sal}"),
+                    'sales_responsable' => $request->get("SALresponsable{$contador_sal}"),
+                    'sales_identificacion_muestra'=> $request->get("SALiden_muestra{$contador_sal}")
+                ]
+            );
+        }       
+    }
+
+
+    
+    //METODO DE ACTUALIZACION MATERIAL AGREGADO XII
+    foreach ($matag as $materialags) {
+        $materialags->materialag_muestra = $request->input("MAGmuestra_edit{$contador_matag}");
+        $materialags->materialag_nomenclatura = $request->input("MAGnomenclatura_edit{$contador_matag}");  
+        $materialags->materialag_inf_requerida = $request->input("MAGinf_requerida_edit{$contador_matag}");
+        $materialags->materialag_des_muestra = $request->input("MAGdes_muestra_edit{$contador_matag}");
+        $materialags->materialag_ubicacion = $request->input("MAGubicacion_edit{$contador_matag}");
+        $materialags->materialag_responsable = $request->input("MAGresponsable_edit{$contador_matag}");
+        $materialags->materialag_identificacion_muestra = $request->input("MAGiden_muestra_edit{$contador_matag}");
+        $contador_matag +=1;
+        $materialags->save();
+
+        if ($request->has('MAGmuestra' . $contador_matag)) {
+            material_agregado_solicitud::firstOrCreate(
+                [   
+                    'general_id' => $analisisg->id_general, 
+                    'materialag_muestra' => $request->get("MAGmuestra{$contador_matag}"),
+                    'materialag_nomenclatura' => $request->get("MAGnomenclatura{$contador_matag}"),
+                    'materialag_inf_requerida' => $request->get("MAGinf_requerida{$contador_matag}"),
+                    'materialag_des_muestra' => $request->get("MAGdes_muestra{$contador_matag}"),
+                    'materialag_ubicacion' => $request->get("MAGubicacion{$contador_matag}"),
+                    'materialag_responsable' => $request->get("MAGresponsable{$contador_matag}"),
+                    'materialag_identificacion_muestra'=> $request->get("MAGiden_muestra{$contador_matag}")
+                ]
+            );
+        }       
+    }
+
+
+
+
+    //METODO DE ACTUALIZACION BIODETERIORO XIII
+    foreach ($biodeterioro as $biodeterioros) {
+        $biodeterioros->biodeterioro_muestra = $request->input("BDTmuestra_edit{$contador_biodeterioro}");
+        $biodeterioros->biodeterioro_nomenclatura = $request->input("BDTnomenclatura_edit{$contador_biodeterioro}");  
+        $biodeterioros->biodeterioro_inf_requerida = $request->input("BDTinf_requerida_edit{$contador_biodeterioro}");
+        $biodeterioros->biodeterioro_des_muestra = $request->input("BDTdes_muestra_edit{$contador_biodeterioro}");
+        $biodeterioros->biodeterioro_ubicacion = $request->input("BDTubicacion_edit{$contador_biodeterioro}");
+        $biodeterioros->biodeterioro_responsable = $request->input("BDTresponsable_edit{$contador_biodeterioro}");
+        $biodeterioros->biodeterioro_identificacion_muestra = $request->input("BDTiden_muestra_edit{$contador_biodeterioro}");
+        $contador_biodeterioro +=1;
+        $biodeterioros->save();
+
+        if ($request->has('BDTmuestra' . $contador_biodeterioro)) {
+            biodeterioro_solicitud::firstOrCreate(
+                [
+                    'general_id' => $analisisg->id_general, 
+                    'biodeterioro_muestra' => $request->get("BDTmuestra{$contador_biodeterioro}"),
+                    'biodeterioro_nomenclatura' => $request->get("BDTnomenclatura{$contador_biodeterioro}"),
+                    'biodeterioro_inf_requerida' => $request->get("BDTinf_requerida{$contador_biodeterioro}"),
+                    'biodeterioro_des_muestra' => $request->get("BDTdes_muestra{$contador_biodeterioro}"),
+                    'biodeterioro_ubicacion' => $request->get("BDTubicacion{$contador_biodeterioro}"),
+                    'biodeterioro_responsable' => $request->get("BDTresponsable{$contador_biodeterioro}"),
+                    'biodeterioro_identificacion_muestra'=> $request->get("BDTiden_muestra{$contador_biodeterioro}")
+                ]
+            );
+        }       
+    }
+
+
+    //METODO DE ACTUALIZACION OTROS XIV
+    foreach ($otro as $otros) {
+        $otros->otros_muestra = $request->input("OTmuestra_edit{$contador_otro}");
+        $otros->otros_nomenclatura = $request->input("OTnomenclatura_edit{$contador_otro}");  
+        $otros->otros_inf_requerida = $request->input("OTinf_requerida_edit{$contador_otro}");
+        $otros->otros_des_muestra = $request->input("OTdes_muestra_edit{$contador_otro}");
+        $otros->otros_ubicacion = $request->input("OTubicacion_edit{$contador_otro}");
+        $otros->otros_responsable = $request->input("OTresponsable_edit{$contador_otro}");
+        $otros->otros_identificacion_muestra = $request->input("OTiden_muestra_edit{$contador_otro}");
+        $contador_otro +=1;
+        $otros->save();
+
+        if ($request->has('OTmuestra' . $contador_base)) {
+            otros_solicituds::firstOrCreate(
+                [
+                    'general_id' => $analisisg->id_general, 
+                    'otros_muestra' => $request->get("OTmuestra{$contador_otro}"),
+                    'otros_nomenclatura' => $request->get("OTnomenclatura{$contador_otro}"),
+                    'otros_inf_requerida' => $request->get("OTinf_requerida{$contador_otro}"),
+                    'otros_des_muestra' => $request->get("OTdes_muestra{$contador_otro}"),
+                    'otros_ubicacion' => $request->get("OTubicacion{$contador_otro}"),
+                    'otros_responsable' => $request->get("OTresponsable{$contador_otro}"),
+                    'otros_identificacion_muestra'=> $request->get("OTiden_muestra{$contador_otro}")
                 ]
             );
         }       

@@ -34,7 +34,7 @@ $res = $con->query($sql);
   <head>  
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
-
+    /*<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />*/
       google.charts.load("current", {packages:["corechart"]});
       google.charts.setOnLoadCallback(drawChart);
       function drawChart() {

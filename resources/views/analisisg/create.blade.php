@@ -1,12 +1,26 @@
 @extends('adminlte::layouts.app')
- 
+
 @section('main-content')
 
+<<<<<<< HEAD
  
   <div class="box">
     <div class="box-body">
             <div class="panel">
                 
+=======
+<!--@if ($message = Session::get('success'))
+        <div class="alert alert-success">
+            <p>{{ $message }}</p>
+        </div>{{ $Obrasg->first()->id }}
+@endif-->
+<div class="box">
+    <div class="box-body"  >
+            <div class="panel">
+                <h1>Solicitud de Análisis Científico
+
+</h1>
+>>>>>>> 41f2540f8e422effcbd58a1c718e51b40a705029
                 @if ($errors->any())
                 <div class="alert alert-danger">
                     <strong>Vaya!</strong> Algo salio mal.<br><br>
@@ -18,13 +32,16 @@
                 </div>
                 @endif
                 <form action="{{ route('AnalisisCientifico.store') }}" method="POST" class="form-inline text-left" enctype="multipart/form-data">
-                    @csrf 
-                    
+
+                    @csrf
+
+                    <input hidden="" type="text" name="id_obra" value="{{ $obra->id }}">
                     <BR>
                     <div align="center">
-                    <table style="width: 65%" border="0" >
-                        <tr><th colspan="2" style="text-align:center; background-color: #7C858C; color:white;"><h3>Solicitud de Análisis Científico</h3></th></tr>
-                        <tr>
+                    <table style="width: 50%"  border="0" >
+                        <tr><th colspan="2" style="text-align:center; background-color: #7C858C; color:white;"><h3>Datos Generales</h3></th></tr>
+                        <tr >
+
                             <td><label for="id_de_obra" class="input-group-addon" style="width: 300px; border:0;">ID Obra </label></td>
                             <td><input type="text" name="id_de_obra" class="form-control"  value="{{ $obra->id_de_obras }}" style="width:500px; text-align:center; " readonly></td>
                         </tr>
@@ -36,22 +53,28 @@
                             <td><span class="input-group-addon" style="width: 300px; border:0;">Temporalidad</span></td>
                             <td><input type="text" name="temp_obra" class="form-control"  value="{{ $obra->temp_obra }}" style="width:500px; text-align:center;" readonly></td>
                         </tr>
+                        @if($obra->epoca_obra == NULL)
+                        @else
                         <tr>
                             <td><label for="epoca_obra" class="input-group-addon" style="width: 300px; border:0;">Epoca de la obra</label></td>
                             <td><input type="text" name="epoca_obra" class="form-control"  value="{{ $obra->epoca_obra }}" style="width:500px; text-align:center;" readonly></td>
                         </tr>
+                        @endif
                         <tr>
                             <td><label for="tipo_obj_obra" class="input-group-addon" style="width: 300px;">Tipo de objeto de la obra</label></td>
                             <td><input type="text" name="tipo_obj_obra" class="form-control"  value="{{$obra->tipo_obj_obra }}" style="width:500px; text-align:center;" readonly></td>
                         </tr>
+                        @if($obra->año_de_obra == NULL)
+                        @else
                         <tr>
                             <td><label for="año_de_obra" class="input-group-addon" style="width: 300px;">Año de la Obra</label></td>
                             <td><input type="text" name="año_de_obra" class="form-control"  value="{{$obra->año }}" style="width:500px; text-align:center;" readonly></td>
                         </tr>
+                        @endif
                         <tr>
                             <td><label for="anio_temporada_trabajo" class="input-group-addon" style="width: 300px;">Año de la temporada de trabajo</label></td>
-                            <td><select class="input-group-addon" style="width: 500px;">
-                                <option value="" >Selecciona una opción</option>
+                            <td><select class="form-control" name="anio_temporada_trabajo" style="width: 500px; text-align:center;">
+                                <option value="" style="text-align:center;">Selecciona una opción</option>
 
                                 @foreach($anio as $anios)
                                 <option value="{{$anios->anio_temporada_trabajo}}" >{{$anios->anio_temporada_trabajo}}</option>
@@ -60,17 +83,21 @@
                             </td>
                         </tr>
                         <tr>
-                            <td><label for="tecnica" class="input-group-addon" style="width: 300px; border:0;">Tecnica</label></td>
-                            <td><input type="text" class="form-control"  name="tecnica" value="{{ old('tecnica') }}" style="width:500px"></td>
+                            <td><label for="tecnica" class="input-group-addon" style="width: 300px; ">Tecnica</label></td>
+                            <td><input type="text" class="form-control"  name="tecnica" value="{{ old('tecnica') }}" style="width:500px; text-align:center;"></td>
                         </tr>
                         
                         <tr>
-                            <td><label for="respon_intervencion" class="input-group-addon" style="width: 300px; border:0;">Responsable de la Intervencion</label></td>
-                            <td><input type="text" class="form-control"  name="respon_intervencion"  value="{{ old('respon_intervencion') }}" style="width:500px; text-align:center;"></td>
+                            <td><label for="respon_intervencion" class="input-group-addon" style="width: 300px; text-align:center;">Responsable de la Intervencion</label></td>
+                            <td><input type="text" class="form-control"  name="respon_intervencion"  value="{{ old('respon_intervencion') }}" style="width:500px;text-align:center;"></td>
                         </tr>
                         <tr>
-                            <td><label for="foto" class="input-group-addon "style="width: 300px; border:0;">Foto</label></td>
+                            <td><label for="foto" class="input-group-addon "style="width: 300px;text-align:center;">Foto de inicio</label></td>
                             <td><input type="file" class="form-control"  name="foto"  style="width: 500px;"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="esquema_muestras" class="input-group-addon "style="width: 300px;text-align:center;">Esquema de toma de muestra</label></td>
+                            <td><input type="file" class="form-control"  name="esquema_muestras"  style="width: 500px;"></td>
                         </tr>
                         <tr>
                             <td><i class="fa fa-calendar"> Fecha de inicio</i></td>
@@ -78,7 +105,7 @@
                         </tr>
                     </table>
                     <br>
-                    <div style="padding-left: 290px" align="left">
+                    <div style="padding-left: 20%" align="left">
                     <table>
                         <tr>
                             <th></th>
@@ -96,22 +123,20 @@
                         </tr>
                     </table>
 </div>
-                
-                    
                 </div><br><br>
                 <table class="table table-bordered"><b>ANALISIS</b><br>
                     <thead>
                         <tr>
                             <th><label><input type="checkbox" name="tsoporte" id="tsoporte" onchange="javascript:showSoporte()"> SOPORTE</label><br></th>
-                            <th><label><input type="checkbox" name="tbase" id="tbase" onchange="javascript:showBase()"> BASE DE PREPARACIÓN</label><br></th>
-                            <th><label><input type="checkbox" name="testra" id="testra" onchange="javascript:showEstra()"> ESTRATIGRAFÍA</label></th>
+                            <th><label><input type="checkbox" name="tbase" id="tbase" onchange="javascript:showBase()"> BASE DE PREPARACIóN</label><br></th>
+                            <th><label><input type="checkbox" name="testra" id="testra" onchange="javascript:showEstra()"> ESTRATIGRAFíA</label></th>
                             <th><label><input type="checkbox" name="trevo" id="trevo" onchange="javascript:showRevo()"> REVOQUE Y ENLUCIDO</label></th>
                             <th><label><input type="checkbox" name="tbol" id="tbol" onchange="javascript:showBol()"> BOL</label></th>
-                            <th><label><input type="checkbox" name="tlame" id="tlami" onchange="javascript:showLami()"> LÁMINAS METÁLICAS</label></th>
+                            <th><label><input type="checkbox" name="tlame" id="tlami" onchange="javascript:showLami()"> LáMINAS METáLICAS</label></th>
                             <th><label><input type="checkbox" name="tpig" id="tpig" onchange="javascript:showPig()"> PIGMENTOS</label></th>
-                            
-                            
-                            
+
+
+
                         </tr>
                     </thead>
                     <tbody>
@@ -125,10 +150,12 @@
                                 <td><label><input type="checkbox" name="totro" id="totro" onchange="javascript:showOtro()"> OTROS</label></td>
                                 </tr>
                         </tbody>
-                </table>            
+                </table>
+
+                <!--SOPORTE -->
                 <div class="input-group" id="tabso" style="display: none;">
                     <div class="input-group" id="inputsoporte" >
-                    <table class="table table-bordered" ><strong>I.SOPORTE</strong> 
+                    <table class="table table-bordered"><strong>I.SOPORTE</strong>
                         <thead>
                             <tr align="center">
                                 <th style="background-color: #C65911; color:white; width:300px">Número de muestra </th>
@@ -155,14 +182,8 @@
                                 <td><input type="text" name="Subicacion0" style="width:300px"></td>
                                 <td><input type="text" name="Sresponsable0" style="width:300px"></td>
                                 <td><input type="text" name="Siden_muestra0" style="width:300px"></td>
-
                             </tr>
-
-                    
-
                         </tbody>
-                        
-
                     </table>
                     </div>
                     <div align="center">
@@ -170,9 +191,11 @@
                     <br><br>
                 </div>
                 </div>
+
+                <!--BASE DE PREPARACION -->
                 <div class="input-group" id="tabbase" style="display: none;">
                     <div class="input-group" id="inputbase" >
-                    <table class="table table-bordered"><strong>II.BASE DE PREPARACIóN</strong> 
+                    <table class="table table-bordered"><strong>II.BASE DE PREPARACIóN</strong>
                         <thead>
                             <tr align="center">
                                 <th style="background-color: #FFCC66; color:white; width:300px">Número de muestra</th>
@@ -208,6 +231,7 @@
                 </div>
 
 
+                <!--ESTATIGRAFIA-->
                 <div class="input-group" id="tabestra" style="display: none;">
                     <div class="input-group" id="inputestratigrafia" >
                     <table class="table table-bordered"><strong>III. ESTRATIGRAFíA</strong> 
@@ -244,6 +268,8 @@
                     <br><br>
                 </div>
                 </div>
+
+                <!--REVOQUE Y ENLUCIDO-->
                 <div class="input-group" id="tabrevo" style="display: none;">
                     <div class="input-group" id="inputrevoque" >
                     <table class="table table-bordered"><strong>IV.REVOQUE Y ENLUCIDO</strong> 
@@ -280,6 +306,8 @@
                     <br><br>
                 </div>
                 </div>
+
+                <!--BOL-->
                 <div class="input-group" id="tabbol" style="display: none;">
                     <div class="input-group" id="inputbol">
                     <table class="table table-bordered"><strong>V.BOL</strong> 
@@ -316,6 +344,8 @@
                         <br><br>
                     </div>
                 </div>
+
+                <!--LAMINAS METALICAS-->
                 <div class="input-group" id="tablami" style="display: none;">
                     <div class="input-group" id="inputlaminas">
                     <table class="table table-bordered"><strong>VI.LAMINAS METALICAS</strong> 
@@ -352,6 +382,8 @@
                         <br><br>
                     </div>
                 </div>
+
+                <!--PIGMENTOS-->
                 <div class="input-group" id="tabpig" style="display: none;">
                     <div class="input-group" id="inputpigmentos">
                     <table class="table table-bordered"><strong>VII.PIGMENTOS</strong> 
@@ -388,6 +420,9 @@
                         <br><br>
                     </div>
                 </div>
+                
+
+                <!--AGLUTINANTE-->
                 <div class="input-group" id="tabaglu" style="display: none;">
                     <div class="input-group" id="inputaglutinante">
                     <table class="table table-bordered"><strong>VIII.AGLUTINANTE</strong> 
@@ -424,6 +459,9 @@
                         <br><br>
                     </div>
                 </div>
+               
+               
+                <!--RECUBRIMIENTO-->
                 <div class="input-group" id="tabrecu" style="display: none;">
                     <div class="input-group" id="inputrecubrimiento">
                     <table class="table table-bordered"><strong>IX.RECUBRIMIENTO</strong> 
@@ -459,168 +497,201 @@
                         <input type="button" id="otrorecubrimiento" name="otrorecubrimiento" class="btn-sm"  value="Agregar más" onclick="javascript:masrecubrimiento()">
                         <br><br>
                     </div>
-                
-                </div>  
+                    </div>
+
+
+                <!-- MATERIAL ASOCIADO X -->
                 <div class="input-group" id="tabmaso" style="display: none;">
-                    <table class="table table-bordered"><strong>X.MATERIAL ASOCIADO</strong> 
+                <div class="input-group" id="inputmaso" > 
+                    <table class="table table-bordered"><strong>X.MATERIAL ASOCIADO</strong>
                         <thead>
                             <tr align="center">
-                                <th style="width:300px">Número de muestra</th>
-                                <th style="width:300px">Nomenclatura</th>
-                                <th style="width:300px">Información requerida</th>
-                                <th style="width:300px">Descripcion de la muestra</th>
+                                <th style="background-color:#8686C4; color:white; width:300px">Número de muestra</th>
+                                <th style="background-color:#8686C4; color:white; width:300px">Nomenclatura</th>
+                                <th style="background-color:#8686C4; color:white; width:300px">Información requerida</th>
+                                <th style="background-color:#8686C4; color:white; width:300px">Descripcion de la muestra</th>
                                 <tbody>
                                     <tr>
-                                        <td><input type="text" name="MASOmuestra" style="width:300px"></td>
-                                        <td><input type="text" name="MASOnomenclatura" style="width:300px"></td>
-                                        <td><input type="text" name="MASOinf_requerida" style="width:300px"></td>
-                                        <td><input type="text" name="MASOdes_muestra" style="width:300px"></td>
+                                        <td><input type="text" name="MASOmuestra0" style="width:300px"></td>
+                                        <td><input type="text" name="MASOnomenclatura0" style="width:300px"></td>
+                                        <td><input type="text" name="MASOinf_requerida0" style="width:300px"></td>
+                                        <td><input type="text" name="MASOdes_muestra0" style="width:300px"></td>
                                     </tr>
                                 </tbody>
-                                <th style="width:300px">Ubicación</th>
-                                <th style="width:300px">Motivo</th>
-                                <th style="width:300px">Responsable</th>
-                                <th style="width:300px">No. de indentificacion</th>
+                                <th style="background-color:#8686C4; color:white; width:300px">Ubicación</th>
+                                <th style="background-color:#8686C4; color:white; width:300px">Responsable</th>
+                                <th style="background-color:#8686C4; color:white; width:300px">No. de indentificacion</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td><input type="text" name="MASOubicacion" style="width:300px"></td>
-                                <td><input type="text" name="MASOmotivo" style="width:300px"></td>
-                                <td><input type="text" name="MASOresponsable" style="width:300px"></td>
-                                <td><input type="text" name="MASOiden_muestra" style="width:300px"></td>
+                                <td><input type="text" name="MASOubicacion0" style="width:300px"></td>
+                                <td><input type="text" name="MASOresponsable0" style="width:300px"></td>
+                                <td><input type="text" name="MASOiden_muestra0" style="width:300px"></td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
+                <div align="center">
+                        <input type="button" id="otromaso" name="otromaso" class="btn-sm"  value="Agregar más" onclick="javascript:masmaso()">
+                        <br><br>
+                    </div>
+                </div>
+
+
+                <!-- SALES XI -->
                 <div class="input-group" id="tabsal" style="display: none;">
-                    <table class="table table-bordered"><strong>XI.SALES</strong> 
+                <div class="input-group" id="inputsales" > 
+                    <table class="table table-bordered"><strong>XI.SALES</strong>
                         <thead>
                             <tr align="center">
-                                <th style="width:300px">Número de muestra</th>
-                                <th style="width:300px">Nomenclatura</th>
-                                <th style="width:300px">Información requerida</th>
-                                <th style="width:300px">Descripcion de la muestra</th>
+                                <th style="background-color:#009999; color:white; width:300px">Número de muestra</th>
+                                <th style="background-color:#009999; color:white; width:300px">Nomenclatura</th>
+                                <th style="background-color:#009999; color:white; width:300px">Información requerida</th>
+                                <th style="background-color:#009999; color:white; width:300px">Descripcion de la muestra</th>
                                 <tbody>
                                     <tr>
-                                        <td><input type="text" name="SALmuestra" style="width:300px"></td>
-                                        <td><input type="text" name="SALnomenclatura" style="width:300px"></td>
-                                        <td><input type="text" name="SALinf_requerida" style="width:300px"></td>
-                                        <td><input type="text" name="SALdes_muestra" style="width:300px"></td>
+                                        <td><input type="text" name="SALmuestra0" style="width:300px"></td>
+                                        <td><input type="text" name="SALnomenclatura0" style="width:300px"></td>
+                                        <td><input type="text" name="SALinf_requerida0" style="width:300px"></td>
+                                        <td><input type="text" name="SALdes_muestra0" style="width:300px"></td>
                                     </tr>
                                 </tbody>
-                                <th style="width:300px">Ubicación</th>
-                                <th style="width:300px">Motivo</th>
-                                <th style="width:300px">Responsable</th>
-                                <th style="width:300px">No. de indentificacion</th>
+                                <th style="background-color:#009999; color:white; width:300px">Ubicación</th>
+                                <th style="background-color:#009999; color:white; width:300px">Responsable</th>
+                                <th style="background-color:#009999; color:white; width:300px">No. de indentificacion</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                
-                                <td><input type="text" name="SALubicacion" style="width:300px"></td>
-                                <td><input type="text" name="SALmotivo" style="width:300px"></td>
-                                <td><input type="text" name="SALresponsable" style="width:300px"></td>
-                                <td><input type="text" name="SALiden_muestra" style="width:300px"></td>
+                                <td><input type="text" name="SALubicacion0" style="width:300px"></td>
+                                <td><input type="text" name="SALresponsable0" style="width:300px"></td>
+                                <td><input type="text" name="SALiden_muestra0" style="width:300px"></td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
+                <div align="center">
+                        <input type="button" id="otrosal" name="otrosal" class="btn-sm"  value="Agregar más" onclick="javascript:massales()">
+                        <br><br>
+                    </div>
+                </div>
+
+
+                <!-- NATERIAL AGREGADO XII-->
                 <div class="input-group" id="tabmagre" style="display: none;">
-                    <table class="table table-bordered"><strong>XII.MATERIAL AGREGADO</strong> 
+                <div class="input-group" id="inputmaterialag" > 
+                    <table class="table table-bordered"><strong>XII.MATERIAL AGREGADO</strong>
                         <thead>
                             <tr align="center">
-                                <th style="width:300px">Número de muestra</th>
-                                <th style="width:300px">Nomenclatura</th>
-                                <th style="width:300px">Información requerida</th>
-                                <th style="width:300px">Descripcion de la muestra</th>
+                                <th style="background-color:#7D10C0; color:white; width:300px">Número de muestra</th>
+                                <th style="background-color:#7D10C0; color:white; width:300px">Nomenclatura</th>
+                                <th style="background-color:#7D10C0; color:white; width:300px">Información requerida</th>
+                                <th style="background-color:#7D10C0; color:white; width:300px">Descripcion de la muestra</th>
                                 <tbody>
                                     <tr>
-                                        <td><input type="text" name="MAGREmuestra" style="width:300px"></td>
-                                        <td><input type="text" name="MAGREnomenclatura" style="width:300px"></td>
-                                        <td><input type="text" name="MAGREinf_requerida" style="width:300px"></td>
-                                        <td><input type="text" name="MAGREdes_muestra" style="width:300px"></td>
+                                        <td><input type="text" name="MAGmuestra0" style="width:300px"></td>
+                                        <td><input type="text" name="MAGnomenclatura0" style="width:300px"></td>
+                                        <td><input type="text" name="MAGinf_requerida0" style="width:300px"></td>
+                                        <td><input type="text" name="MAGdes_muestra0" style="width:300px"></td>
                                     </tr>
                                 </tbody>
-                                <th style="width:300px">Ubicación</th>
-                                <th style="width:300px">Motivo</th>
-                                <th style="width:300px">Responsable</th>
-                                <th style="width:300px">No. de indentificacion</th>
+                                <th style="background-color:#7D10C0; color:white; width:300px">Ubicación</th>
+                                <th style="background-color:#7D10C0; color:white; width:300px">Responsable</th>
+                                <th style="background-color:#7D10C0; color:white; width:300px">No. de indentificacion</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td><input type="text" name="MAGREubicacion" style="width:300px"></td>
-                                <td><input type="text" name="MAGREmotivo" style="width:300px"></td>
-                                <td><input type="text" name="MAGREresponsable" style="width:300px"></td>
-                                <td><input type="text" name="MAGREiden_muestra" style="width:300px"></td>
+                                <td><input type="text" name="MAGubicacion0" style="width:300px"></td>
+                                <td><input type="text" name="MAGresponsable0" style="width:300px"></td>
+                                <td><input type="text" name="MAGiden_muestra0" style="width:300px"></td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
+                <div align="center">
+                        <input type="button" id="otromatag" name="otromatag" class="btn-sm"  value="Agregar más" onclick="javascript:masmatag()">
+                        <br><br>
+                    </div>
+                </div>
+
+
+                <!-- BIODETERIODO XIII-->
                 <div class="input-group" id="tabbio" style="display: none;">
-                    <table class="table table-bordered"><strong>XIII.BIOTERIORO</strong> 
+                <div class="input-group" id="inputbiodeterioro" > 
+                    <table class="table table-bordered"><strong>XIII.BIODETERIODO</strong>
                         <thead>
                             <tr align="center">
-                                <th style="width:300px">Número de muestra</th>
-                                <th style="width:300px">Nomenclatura</th>
-                                <th style="width:300px">Información requerida</th>
-                                <th style="width:300px">Descripcion de la muestra</th>
+                                <th style="background-color:#A2C866; color:white; width:300px">Número de muestra</th>
+                                <th style="background-color:#A2C866; color:white; width:300px">Nomenclatura</th>
+                                <th style="background-color:#A2C866; color:white; width:300px">Información requerida</th>
+                                <th style="background-color:#A2C866; color:white; width:300px">Descripcion de la muestra</th>
                                 <tbody>
                                     <tr>
-                                        <td><input type="text" name="BIOmuestra" style="width:300px"></td>
-                                        <td><input type="text" name="BIOnomenclatura" style="width:300px"></td>
-                                        <td><input type="text" name="BIOinf_requerida" style="width:300px"></td>
-                                        <td><input type="text" name="BIOdes_muestra" style="width:300px"></td>
+                                        <td><input type="text" name="BDTmuestra0" style="width:300px"></td>
+                                        <td><input type="text" name="BDTnomenclatura0" style="width:300px"></td>
+                                        <td><input type="text" name="BDTinf_requerida0" style="width:300px"></td>
+                                        <td><input type="text" name="BDTdes_muestra0" style="width:300px"></td>
                                     </tr>
                                 </tbody>
-                                <th style="width:300px">Ubicación</th>
-                                <th style="width:300px">Motivo</th>
-                                <th style="width:300px">Responsable</th>
-                                <th style="width:300px">No. de indentificacion</th>
+                                <th style="background-color:#A2C866; color:white; width:300px">Ubicación</th>
+                                <th style="background-color:#A2C866; color:white; width:300px">Responsable</th>
+                                <th style="background-color:#A2C866; color:white; width:300px">No. de indentificacion</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td><input type="text" name="BIOubicacion" style="width:300px"></td>
-                                <td><input type="text" name="BIOmotivo" style="width:300px"></td>
-                                <td><input type="text" name="BIOresponsable" style="width:300px"></td>
-                                <td><input type="text" name="BIOiden_muestra" style="width:300px"></td>
+                                <td><input type="text" name="BDTubicacion0" style="width:300px"></td>
+                                <td><input type="text" name="BDTresponsable0" style="width:300px"></td>
+                                <td><input type="text" name="BDTiden_muestra0" style="width:300px"></td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
+                <div align="center">
+                        <input type="button" id="otrobio" name="otrobio" class="btn-sm"  value="Agregar más" onclick="javascript:masbio()">
+                        <br><br>
+                    </div>
+                </div>
+
+
+                <!--OTROS XIV-->
                 <div class="input-group" id="tabotro" style="display: none;">
-                    <table class="table table-bordered"><strong>XIV.OTROS</strong> 
+                    <div class="input-group" id="inputotros">
+                    <table class="table table-bordered"><strong>XIV.OTROS</strong>
                         <thead>
                             <tr align="center">
-                                <th style="width:300px">Número de muestra</th>
-                                <th style="width:300px">Nomenclatura</th>
-                                <th style="width:300px">Información requerida</th>
-                                <th style="width:300px">Descripcion de la muestra</th>
+                                <th style="background-color: #A5A5A5; color:white; width:300px">Número de muestra</th>
+                                <th style="background-color: #A5A5A5; color:white; width:300px">Nomenclatura</th>
+                                <th style="background-color: #A5A5A5; color:white; width:300px">Información requerida</th>
+                                <th style="background-color: #A5A5A5; color:white; width:300px">Descripcion de la muestra</th>
                                 <tbody>
                                     <tr>
-                                        <td><input type="text" name="OTROmuestra" style="width:300px"></td>
-                                        <td><input type="text" name="OTROnomenclatura" style="width:300px"></td>
-                                        <td><input type="text" name="OTROinf_requerida" style="width:300px"></td>
-                                        <td><input type="text" name="OTROdes_muestra" style="width:300px"></td>
+                                        <td><input type="text" name="OTmuestra0" style="width:300px"></td>
+                                        <td><input type="text" name="OTnomenclatura0" style="width:300px"></td>
+                                        <td><input type="text" name="OTinf_requerida0" style="width:300px"></td>
+                                        <td><input type="text" name="OTdes_muestra0" style="width:300px"></td>
                                     </tr>
                                 </tbody>
-                                <th style="width:300px">Ubicación</th>
-                                <th style="width:300px">Motivo</th>
-                                <th style="width:300px">Responsable</th>
-                                <th style="width:300px">No. de indentificacion</th>
+                                <th style="background-color: #A5A5A5; color:white; width:300px">Ubicación</th>
+                                <th style="background-color: #A5A5A5; color:white; width:300px">Responsable</th>
+                                <th style="background-color: #A5A5A5; color:white; width:300px">No. de indentificacion</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td><input type="text" name="OTROubicacion" style="width:300px"></td>
-                                <td><input type="text" name="OTROmotivo" style="width:300px"></td>
-                                <td><input type="text" name="OTROresponsable" style="width:300px"></td>
-                                <td><input type="text" name="OTROiden_muestra" style="width:300px"></td>
+                                <td><input type="text" name="OTubicacion0" style="width:300px"></td>
+                                <td><input type="text" name="OTresponsable0" style="width:300px"></td>
+                                <td><input type="text" name="OTiden_muestra0" style="width:300px"></td>
                             </tr>
                         </tbody>
                     </table>
+                    </div>
+                    <div align="center">
+                        <input type="button" id="otrootros" name="otrootros" class="btn-sm"  value="Agregar más" onclick="javascript:masotros()">
+                        <br><br>
+                    </div>
                 </div>
                     <div class="col-md-12 text-center">
                             <button type="submit" class="btn btn-primary btn-sm">Capturar</button>
@@ -630,8 +701,6 @@
                 </form>
         </div>
 	</div>
-
- </div>
 </div>
-<script src="../../bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
 @endsection
+
