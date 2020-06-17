@@ -26,89 +26,92 @@
                 <form action="{{ route('AnalisisCientifico.store') }}" method="POST" class="form-inline text-left" enctype="multipart/form-data">
                     @csrf
 
+                    <input hidden="" type="text" name="id_obra" value="{{ $obra->id }}">
                     <BR>
-                    <div class="form-group">
-                        <div class="form-group">
-                            <input type="hidden" name="id_obra" class="form-control"  value="{{ $obra->id }}" style="width:200px" readonly>
-                            <div class="input-group" >
-                                <label for="id_de_obra" class="input-group-addon">ID Obra </label>
-                                <input type="text" name="id_de_obra" class="form-control"  value="{{ $obra->id_de_obras }}" style="width:200px" readonly><BR>
-                            </div>
-                            <div class="input-group" >
-                                <label for="titulo_obra" class="input-group-addon">Titulo de la obra/pieza</label>
-                                <input type="text" name="titulo_obra" class="form-control"  value="{{ $obra->titulo_obra }}" style="width:200px" readonly><BR>
-                            </div>
-							<div class="form-group">
-							<div class="input-group">
-                                <span class="input-group-addon">Temporalidad</span>
-                                <input type="text" name="temp_obra" class="form-control"  value="{{ $obra->temp_obra }}" style="width:200px" readonly>
-                            </div>
-                        	</div><br><br>
-
-                            <div class="input-group ">
-                                <label for="epoca_obra" class="input-group-addon">Epoca de la obra</label>
-                                <input type="text" name="epoca_obra" class="form-control"  value="{{ $obra->epoca_obra }}" style="width:200px" readonly>
-                            </div>
-                            <div class="input-group">
-                                <label for="tipo_obj_obra" class="input-group-addon">Tipo de objeto de la obra</label>
-                                <input type="text" name="tipo_obj_obra" class="form-control"  value="{{$obra->tipo_obj_obra }}" style="width:200px" readonly>
-                            </div>
-                        </div><br><br>
-
-
-                    	<div class="form-group">
-
-
-
-                    <div class="input-group">
-                        <label for="respon_intervencion" class="input-group-addon">Responsable de la Intervencion</label>
-                        <input type="text" class="form-control"  name="respon_intervencion"  value="{{ old('respon_intervencion') }}" style="width:200px">
-                    </div>
-
-                </div><br><br>
-                      <div class="input-group">
-                        <label for="foto" class="input-group-addon">Foto</label>
-                        <input type="file" class="form-control"  name="foto"  >
-                    </div>
-
-                    <div class="input-group">
-                    <div class="input-group date">
-
-                        <div class="input-group-addon">
-                             <i class="fa fa-calendar"> Fecha de inicio</i>
-
-                        </div>
-
-                        <input type="date" class="form-control date" name="fecha_de_inicio" placeholder="mm/dd/aaaa (Fecha de entrada)"value="{{ old('fecha_de_inicio') }}" style="width:262px">
-                    </div>
-
-
-                    </div>
-                    </div><br><br><br>
-
-
-                    <div class="form-group">
-
-                    <div class="input-group">
-                        <label for="tecnica" class="input-group-addon">Tecnica</label>
-                        <input type="text" class="form-control"  name="tecnica" value="{{ old('tecnica') }}" style="width:200px">
-                    </div><br><br>
-                    <div class="col-md-12"></div>
-
-                    <div class="input-group">
-                        <div class="input-group">
-                            <label class="input-group-addon">Dimensiones</label>
-                            <label class="input-group-addon">Alto</label>
-                            <input type="text" class="form-control" name="alto" value="{{ old('alto') }}"><br>
-                            <label class="input-group-addon">Ancho</label>
-                            <input type="text" class="form-control" name="ancho" value="{{ old('ancho') }}"><br>
-                            <label class="input-group-addon">Profundidad</label>
-                            <input type="text" class="form-control" name="profundidad" value="{{ old('profundidad') }}"><br>
-                            <label class="input-group-addon">Diametro</label>
-                            <input type="text" class="form-control" name="diametro" value="{{ old('diametro') }}"><br>
-                        </div>
-
-                    </div><br><br>
+                    <div align="center">
+                    <table style="width: 50%"  border="0" >
+                        <tr><th colspan="2" style="text-align:center; background-color: #7C858C; color:white;"><h3>Datos Generales</h3></th></tr>
+                        <tr >
+                            <td><label for="id_de_obra" class="input-group-addon" style="width: 300px; border:0;">ID Obra </label></td>
+                            <td><input type="text" name="id_de_obra" class="form-control"  value="{{ $obra->id_de_obras }}" style="width:500px; text-align:center; " readonly></td>
+                        </tr>
+                        <tr>
+                            <td><label for="titulo_obra" class="input-group-addon" style="width: 300px; border:0;">Titulo de la obra/pieza</label></td>
+                            <td><input type="text" name="titulo_obra" class="form-control"  value="{{ $obra->titulo_obra }}" style="width:500px; text-align:center;" readonly></td>
+                        </tr>
+                        <tr>
+                            <td><span class="input-group-addon" style="width: 300px; border:0;">Temporalidad</span></td>
+                            <td><input type="text" name="temp_obra" class="form-control"  value="{{ $obra->temp_obra }}" style="width:500px; text-align:center;" readonly></td>
+                        </tr>
+                        @if($obra->epoca_obra == NULL)
+                        @else
+                        <tr>
+                            <td><label for="epoca_obra" class="input-group-addon" style="width: 300px; border:0;">Epoca de la obra</label></td>
+                            <td><input type="text" name="epoca_obra" class="form-control"  value="{{ $obra->epoca_obra }}" style="width:500px; text-align:center;" readonly></td>
+                        </tr>
+                        @endif
+                        <tr>
+                            <td><label for="tipo_obj_obra" class="input-group-addon" style="width: 300px;">Tipo de objeto de la obra</label></td>
+                            <td><input type="text" name="tipo_obj_obra" class="form-control"  value="{{$obra->tipo_obj_obra }}" style="width:500px; text-align:center;" readonly></td>
+                        </tr>
+                        @if($obra->año_de_obra == NULL)
+                        @else
+                        <tr>
+                            <td><label for="año_de_obra" class="input-group-addon" style="width: 300px;">Año de la Obra</label></td>
+                            <td><input type="text" name="año_de_obra" class="form-control"  value="{{$obra->año }}" style="width:500px; text-align:center;" readonly></td>
+                        </tr>
+                        @endif
+                        <tr>
+                            <td><label for="anio_temporada_trabajo" class="input-group-addon" style="width: 300px;">Año de la temporada de trabajo</label></td>
+                            <td><select class="form-control" name="anio_temporada_trabajo" style="width: 500px; text-align:center;">
+                                <option value="" style="text-align:center;">Selecciona una opción</option>
+                                @foreach($anio as $anios)
+                                <option value="{{$anios->anio_temporada_trabajo}}" >{{$anios->anio_temporada_trabajo}}</option>
+                                @endforeach
+                            </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label for="tecnica" class="input-group-addon" style="width: 300px; ">Tecnica</label></td>
+                            <td><input type="text" class="form-control"  name="tecnica" value="{{ old('tecnica') }}" style="width:500px; text-align:center;"></td>
+                        </tr>
+                        
+                        <tr>
+                            <td><label for="respon_intervencion" class="input-group-addon" style="width: 300px; text-align:center;">Responsable de la Intervencion</label></td>
+                            <td><input type="text" class="form-control"  name="respon_intervencion"  value="{{ old('respon_intervencion') }}" style="width:500px;text-align:center;"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="foto" class="input-group-addon "style="width: 300px;text-align:center;">Foto de inicio</label></td>
+                            <td><input type="file" class="form-control"  name="foto"  style="width: 500px;"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="esquema_muestras" class="input-group-addon "style="width: 300px;text-align:center;">Esquema de toma de muestra</label></td>
+                            <td><input type="file" class="form-control"  name="esquema_muestras"  style="width: 500px;"></td>
+                        </tr>
+                        <tr>
+                            <td><i class="fa fa-calendar"> Fecha de inicio</i></td>
+                            <td><input type="date" class="form-control date" name="fecha_de_inicio" placeholder="mm/dd/aaaa (Fecha de entrada)"value="{{ old('fecha_de_inicio') }}" style="width:500px; text-align:center;"></td>
+                        </tr>
+                    </table>
+                    <br>
+                    <div style="padding-left: 20%" align="left">
+                    <table>
+                        <tr>
+                            <th></th>
+                            <th style="text-align:center; background-color: #7C858C; color:white;">Alto</th>
+                            <th style="text-align:center; background-color: #7C858C; color:white;">Ancho</th>
+                            <th style="text-align:center; background-color: #7C858C; color:white;">Profundidad</th>
+                            <th style="text-align:center; background-color: #7C858C; color:white;">Diametro</th>
+                        </tr>
+                        <tr>
+                            <th>Dimensiones</th>
+                            <td><input type="text" class="form-control" name="alto" value="{{ old('alto') }}" style="width:200px; text-align:center; "></td></td>
+                            <td><input type="text" class="form-control" name="ancho" value="{{ old('ancho') }}"style="width:200px; text-align:center; "></td></td>
+                            <td><input type="text" class="form-control" name="profundidad" value="{{ old('profundidad') }}"style="width:200px; text-align:center; "></td>
+                            <td><input type="text" class="form-control" name="diametro" value="{{ old('diametro') }}"style="width:200px; text-align:center; "></td>
+                        </tr>
+                    </table>
+</div>
 
 
                 </div><br><br>
@@ -139,15 +142,17 @@
                                 </tr>
                         </tbody>
                 </table>
+
+                <!--SOPORTE -->
                 <div class="input-group" id="tabso" style="display: none;">
                     <div class="input-group" id="inputsoporte" >
                     <table class="table table-bordered"><strong>I.SOPORTE</strong>
                         <thead>
                             <tr align="center">
-                                <th style="background-color: #7C858C; color:white; width:300px">Número de muestra </th>
-                                <th style="width:300px">Nomenclatura</th>
-                                <th style="width:300px">Información requerida</th>
-                                <th style="width:300px">Descripcion de la muestra</th>
+                                <th style="background-color: #C65911; color:white; width:300px">Número de muestra </th>
+                                <th style="background-color: #C65911; color:white; width:300px">Nomenclatura</th>
+                                <th style="background-color: #C65911; color:white; width:300px">Información requerida</th>
+                                <th style="background-color: #C65911; color:white; width:300px">Descripcion de la muestra</th>
                             </tr>
                              <tbody>
                             <tr >
@@ -158,9 +163,9 @@
                             </tr>
                         </tbody>
                             <tr>
-                                <th style="width:300px">Ubicación</th>
-                                <th style="width:300px">Responsable</th>
-                                <th style="width:300px">No. de indentificacion</th>
+                                <th style="background-color: #C65911; color:white; width:300px">Ubicación</th>
+                                <th style="background-color: #C65911; color:white; width:300px">Responsable</th>
+                                <th style="background-color: #C65911; color:white; width:300px">No. de indentificacion</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -168,12 +173,8 @@
                                 <td><input type="text" name="Subicacion0" style="width:300px"></td>
                                 <td><input type="text" name="Sresponsable0" style="width:300px"></td>
                                 <td><input type="text" name="Siden_muestra0" style="width:300px"></td>
-
                             </tr>
-
                         </tbody>
-
-
                     </table>
                     </div>
                     <div align="center">
@@ -181,15 +182,17 @@
                     <br><br>
                 </div>
                 </div>
+
+                <!--BASE DE PREPARACION -->
                 <div class="input-group" id="tabbase" style="display: none;">
                     <div class="input-group" id="inputbase" >
                     <table class="table table-bordered"><strong>II.BASE DE PREPARACIóN</strong>
                         <thead>
                             <tr align="center">
-                                <th style="width:300px">Número de muestra</th>
-                                <th style="width:300px">Nomenclatura</th>
-                                <th style="width:300px">Información requerida</th>
-                                <th style="width:300px">Descripción de la muestra</th>
+                                <th style="background-color: #FFCC66; color:white; width:300px">Número de muestra</th>
+                                <th style="background-color: #FFCC66; color:white; width:300px">Nomenclatura</th>
+                                <th style="background-color: #FFCC66; color:white; width:300px">Información requerida</th>
+                                <th style="background-color: #FFCC66; color:white; width:300px">Descripción de la muestra</th>
                                 <tbody>
                                     <tr>
                                         <td><input type="text" name="BPmuestra0" style="width:300px"></td>
@@ -198,9 +201,9 @@
                                         <td><input type="text" name="BPdes_muestra0" style="width:300px"></td>
                                     </tr>
                                 </tbody>
-                                <th style="width:300px">Ubicación</th>
-                                <th style="width:300px">Responsable</th>
-                                <th style="width:300px">No. de indentificación</th>
+                                <th style="background-color: #FFCC66; color:white; width:300px">Ubicación</th>
+                                <th style="background-color: #FFCC66; color:white; width:300px">Responsable</th>
+                                <th style="background-color: #FFCC66; color:white; width:300px">No. de indentificación</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -219,230 +222,275 @@
                 </div>
 
 
+                <!--ESTATIGRAFIA-->
                 <div class="input-group" id="tabestra" style="display: none;">
-                    <table class="table table-bordered"><strong>III.ESTRATIGRAFíA</strong>
+                    <div class="input-group" id="inputestratigrafia" >
+                    <table class="table table-bordered"><strong>III. ESTRATIGRAFíA</strong> 
                         <thead>
                             <tr align="center">
-                                <th style="width:300px"> Número de muestra</th>
-                                <th style="width:300px">Nomenclatura</th>
-                                <th style="width:300px">Información requerida</th>
-                                <th style="width:300px">Descripción de la muestra</th>
+                                <th style="background-color: #008000; color:white; width:300px"> Número de muestra</th>
+                                <th style="background-color: #008000; color:white; width:300px">Nomenclatura</th>
+                                <th style="background-color: #008000; color:white; width:300px">Información requerida</th>
+                                <th style="background-color: #008000; color:white; width:300px">Descripción de la muestra</th>
                                 <tbody>
                                     <tr>
-                                        <td><input type="text" name="Emuestra" style="width:300px"></td>
-                                        <td><input type="text" name="Enomenclatura" style="width:300px"></td>
-                                        <td><input type="text" name="Einf_requerida" style="width:300px"></td>
-                                        <td><input type="text" name="Edes_muestra" style="width:300px"></td>
+                                        <td><input type="text" name="Emuestra0" style="width:300px"></td>
+                                        <td><input type="text" name="Enomenclatura0" style="width:300px"></td>
+                                        <td><input type="text" name="Einf_requerida0" style="width:300px"></td>
+                                        <td><input type="text" name="Edes_muestra0" style="width:300px"></td>
                                     </tr>
                                 </tbody>
-                                <th style="width:300px">Ubicación</th>
-                                <th style="width:300px">Motivo</th>
-                                <th style="width:300px">Responsable</th>
-                                <th style="width:300px">No. de indentificacion</th>
+                                <th style="background-color: #008000; color:white; width:300px">Ubicación</th>
+                                <th style="background-color: #008000; color:white; width:300px">Responsable</th>
+                                <th style="background-color: #008000; color:white; width:300px">No. de indentificacion</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td><input type="text" name="Eubicacion" style="width:300px"></td>
-                                <td><input type="text" name="Emotivo" style="width:300px"></td>
-                                <td><input type="text" name="Eresponsable" style="width:300px"></td>
-                                <td><input type="text" name="Eiden_muestra" style="width:300px"></td>
+                                <td><input type="text" name="Eubicacion0" style="width:300px"></td>
+                                <td><input type="text" name="Eresponsable0" style="width:300px"></td>
+                                <td><input type="text" name="Eiden_muestra0" style="width:300px"></td>
                             </tr>
                         </tbody>
                     </table>
+                    </div>
+                    <div align="center">
+                    <input type="button" id="otroestratigrafia" name="otroestratigrafia" class="btn-sm"  value="Agregar más" onclick="javascript:masestratigrafia()">
+                    <br><br>
                 </div>
+                </div>
+
+                <!--REVOQUE Y ENLUCIDO-->
                 <div class="input-group" id="tabrevo" style="display: none;">
-                    <table class="table table-bordered"><strong>IV.REVOQUE Y ENLUCIDO</strong>
+                    <div class="input-group" id="inputrevoque" >
+                    <table class="table table-bordered"><strong>IV.REVOQUE Y ENLUCIDO</strong> 
                         <thead>
                             <tr align="center">
-                                <th style="width:300px">Número de muestra</th>
-                                <th style="width:300px">Nomenclatura</th>
-                                <th style="width:300px">Información requerida</th>
-                                <th style="width:300px">Descripcion de la muestra</th>
+                                <th style="background-color: #B248A5; color:white; width:300px">Número de muestra</th>
+                                <th style="background-color: #B248A5; color:white; width:300px">Nomenclatura</th>
+                                <th style="background-color: #B248A5; color:white; width:300px">Información requerida</th>
+                                <th style="background-color: #B248A5; color:white; width:300px">Descripcion de la muestra</th>
                                 <tbody>
                                     <tr>
-                                        <td><input type="text" name="REmuestra" style="width:300px"></td>
-                                        <td><input type="text" name="REnomenclatura" style="width:300px"></td>
-                                        <td><input type="text" name="REinf_requerida" style="width:300px"></td>
-                                        <td><input type="text" name="REdes_muestra" style="width:300px"></td>
+                                        <td><input type="text" name="REmuestra0" style="width:300px"></td>
+                                        <td><input type="text" name="REnomenclatura0" style="width:300px"></td>
+                                        <td><input type="text" name="REinf_requerida0" style="width:300px"></td>
+                                        <td><input type="text" name="REdes_muestra0" style="width:300px"></td>
                                     </tr>
                                 </tbody>
-                                <th style="width:300px">Ubicación</th>
-                                <th style="width:300px">Motivo</th>
-                                <th style="width:300px">Responsable</th>
-                                <th style="width:300px">No. de indentificacion</th>
+                                <th style="background-color: #B248A5; color:white; width:300px">Ubicación</th>
+                                <th style="background-color: #B248A5; color:white; width:300px">Responsable</th>
+                                <th style="background-color: #B248A5; color:white; width:300px">No. de indentificacion</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td><input type="text" name="REubicacion" style="width:300px"></td>
-                                <td><input type="text" name="REmotivo" style="width:300px"></td>
-                                <td><input type="text" name="REresponsable" style="width:300px"></td>
-                                <td><input type="text" name="REiden_muestra" style="width:300px"></td>
+                                <td><input type="text" name="REubicacion0" style="width:300px"></td>
+                                <td><input type="text" name="REresponsable0" style="width:300px"></td>
+                                <td><input type="text" name="REiden_muestra0" style="width:300px"></td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
+                    <div align="center">
+                    <input type="button" id="otrorevoque" name="otrorevoque" class="btn-sm"  value="Agregar más" onclick="javascript:masrevoque()">
+                    <br><br>
+                </div>
+                </div>
+
+                <!--BOL-->
                 <div class="input-group" id="tabbol" style="display: none;">
-                    <table class="table table-bordered"><strong>V.BOL</strong>
+                    <div class="input-group" id="inputbol">
+                    <table class="table table-bordered"><strong>V.BOL</strong> 
                         <thead>
                             <tr align="center">
-                                <th style="width:300px">Número de muestra</th>
-                                <th style="width:300px">Nomenclatura</th>
-                                <th style="width:300px">Información requerida</th>
-                                <th style="width:300px">Descripcion de la muestra</th>
+                                <th style="background-color: #FF5050; color:white; width:300px">Número de muestra</th>
+                                <th style="background-color: #FF5050; color:white; width:300px">Nomenclatura</th>
+                                <th style="background-color: #FF5050; color:white; width:300px">Información requerida</th>
+                                <th style="background-color: #FF5050; color:white; width:300px">Descripcion de la muestra</th>
                                 <tbody>
                                     <tr>
-                                        <td><input type="text" name="BOLmuestra" style="width:300px"></td>
-                                        <td><input type="text" name="BOLnomenclatura" style="width:300px"></td>
-                                        <td><input type="text" name="BOLinf_requerida" style="width:300px"></td>
-                                        <td><input type="text" name="BOLdes_muestra" style="width:300px"></td>
+                                        <td><input type="text" name="BOLmuestra0" style="width:300px"></td>
+                                        <td><input type="text" name="BOLnomenclatura0" style="width:300px"></td>
+                                        <td><input type="text" name="BOLinf_requerida0" style="width:300px"></td>
+                                        <td><input type="text" name="BOLdes_muestra0" style="width:300px"></td>
                                     </tr>
                                 </tbody>
-                                <th style="width:300px">Ubicación</th>
-                                <th style="width:300px">Motivo</th>
-                                <th style="width:300px">Responsable</th>
-                                <th style="width:300px">No. de indentificacion</th>
+                                <th style="background-color: #FF5050; color:white; width:300px">Ubicación</th>
+                                <th style="background-color: #FF5050; color:white; width:300px">Responsable</th>    
+                                <th style="background-color: #FF5050; color:white; width:300px">No. de indentificacion</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td><input type="text" name="BOLubicacion" style="width:300px"></td>
-                                <td><input type="text" name="BOLmotivo" style="width:300px"></td>
-                                <td><input type="text" name="BOLresponsable" style="width:300px"></td>
-                                <td><input type="text" name="BOLiden_muestra" style="width:300px"></td>
+                                <td><input type="text" name="BOLubicacion0" style="width:300px"></td>
+                                <td><input type="text" name="BOLresponsable0" style="width:300px"></td>
+                                <td><input type="text" name="BOLiden_muestra0" style="width:300px"></td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
+                    <div align="center">
+                        <input type="button" id="otrobol" name="otrobol" class="btn-sm"  value="Agregar más" onclick="javascript:masbol()">
+                        <br><br>
+                    </div>
+                </div>
+
+                <!--LAMINAS METALICAS-->
                 <div class="input-group" id="tablami" style="display: none;">
-                    <table class="table table-bordered"><strong>VI.LAMINAS METALICAS</strong>
+                    <div class="input-group" id="inputlaminas">
+                    <table class="table table-bordered"><strong>VI.LAMINAS METALICAS</strong> 
                         <thead>
                             <tr align="center">
-                                <th style="width:300px">Número de muestra</th>
-                                <th style="width:300px">Nomenclatura</th>
-                                <th style="width:300px">Información requerida</th>
-                                <th style="width:300px">Descripcion de la muestra</th>
+                                <th style="background-color: #3A5754; color:white; width:300px">Número de muestra</th>
+                                <th style="background-color: #3A5754; color:white; width:300px">Nomenclatura</th>
+                                <th style="background-color: #3A5754; color:white; width:300px">Información requerida</th>
+                                <th style="background-color: #3A5754; color:white; width:300px">Descripcion de la muestra</th>
                                 <tbody>
                                     <tr>
-                                        <td><input type="text" name="LMmuestra" style="width:300px"></td>
-                                        <td><input type="text" name="LMnomenclatura" style="width:300px"></td>
-                                        <td><input type="text" name="LMinf_requerida" style="width:300px"></td>
-                                        <td><input type="text" name="LMdes_muestra" style="width:300px"></td>
+                                        <td><input type="text" name="LMmuestra0" style="width:300px"></td>
+                                        <td><input type="text" name="LMnomenclatura0" style="width:300px"></td>
+                                        <td><input type="text" name="LMinf_requerida0" style="width:300px"></td>
+                                        <td><input type="text" name="LMdes_muestra0" style="width:300px"></td>
                                     </tr>
                                 </tbody>
-                                <th style="width:300px">Ubicación</th>
-                                <th style="width:300px">Motivo</th>
-                                <th style="width:300px">Responsable</th>
-                                <th style="width:300px">No. de indentificacion</th>
+                                <th style="background-color: #3A5754; color:white; width:300px">Ubicación</th>
+                                <th style="background-color: #3A5754; color:white; width:300px">Responsable</th>
+                                <th style="background-color: #3A5754; color:white; width:300px">No. de indentificacion</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td><input type="text" name="LMubicacion" style="width:300px"></td>
-                                <td><input type="text" name="LMmotivo" style="width:300px"></td>
-                                <td><input type="text" name="LMresponsable" style="width:300px"></td>
-                                <td><input type="text" name="LMiden_muestra" style="width:300px"></td>
+                                <td><input type="text" name="LMubicacion0" style="width:300px"></td>
+                                <td><input type="text" name="LMresponsable0" style="width:300px"></td>
+                                <td><input type="text" name="LMiden_muestra0" style="width:300px"></td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
+                    <div align="center">
+                        <input type="button" id="otrolaminas" name="otrolaminas" class="btn-sm"  value="Agregar más" onclick="javascript:maslaminas()">
+                        <br><br>
+                    </div>
+                </div>
+
+                <!--PIGMENTOS-->
                 <div class="input-group" id="tabpig" style="display: none;">
-                    <table class="table table-bordered"><strong>VII.PIGMENTOS</strong>
+                    <div class="input-group" id="inputpigmentos">
+                    <table class="table table-bordered"><strong>VII.PIGMENTOS</strong> 
                         <thead>
                             <tr align="center">
-                                <th style="width:300px">Número de muestra</th>
-                                <th style="width:300px">Nomenclatura</th>
-                                <th style="width:300px">Información requerida</th>
-                                <th style="width:300px">Descripcion de la muestra</th>
+                                <th style="background-color: #5B9BD5; color:white; width:300px">Número de muestra</th>
+                                <th style="background-color: #5B9BD5; color:white; width:300px">Nomenclatura</th>
+                                <th style="background-color: #5B9BD5; color:white; width:300px">Información requerida</th>
+                                <th style="background-color: #5B9BD5; color:white; width:300px">Descripcion de la muestra</th>
                                 <tbody>
                                     <tr>
-                                        <td><input type="text" name="Pmuestra" style="width:300px"></td>
-                                        <td><input type="text" name="Pnomenclatura" style="width:300px"></td>
-                                        <td><input type="text" name="Pinf_requerida" style="width:300px"></td>
-                                        <td><input type="text" name="Pdes_muestra" style="width:300px"></td>
+                                        <td><input type="text" name="Pmuestra0" style="width:300px"></td>
+                                        <td><input type="text" name="Pnomenclatura0" style="width:300px"></td>
+                                        <td><input type="text" name="Pinf_requerida0" style="width:300px"></td>
+                                        <td><input type="text" name="Pdes_muestra0" style="width:300px"></td>
                                     </tr>
                                 </tbody>
-                                <th style="width:300px">Ubicación</th>
-                                <th style="width:300px">Motivo</th>
-                                <th style="width:300px">Responsable</th>
-                                <th style="width:300px">No. de indentificacion</th>
+                                <th style="background-color: #5B9BD5; color:white; width:300px">Ubicación</th>
+                                <th style="background-color: #5B9BD5; color:white; width:300px">Responsable</th>
+                                <th style="background-color: #5B9BD5; color:white; width:300px">No. de indentificacion</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td><input type="text" name="Pubicacion" style="width:300px"></td>
-                                <td><input type="text" name="Pmotivo" style="width:300px"></td>
-                                <td><input type="text" name="Presponsable" style="width:300px"></td>
-                                <td><input type="text" name="Piden_muestra" style="width:300px"></td>
+                                <td><input type="text" name="Pubicacion0" style="width:300px"></td>
+                                <td><input type="text" name="Presponsable0" style="width:300px"></td>
+                                <td><input type="text" name="Piden_muestra0" style="width:300px"></td>
                             </tr>
                         </tbody>
                     </table>
-                </div>
-                <div class="input-group" id="tabaglu" style="display: none;">
-                    <table class="table table-bordered"><strong>VIII.AGLUTINANTE</strong>
-                        <thead>
-                            <tr align="center">
-                                <th style="width:300px">Número de muestra</th>
-                                <th style="width:300px">Nomenclatura</th>
-                                <th style="width:300px">Información requerida</th>
-                                <th style="width:300px">Descripcion de la muestra</th>
-                                <tbody>
-                                    <tr>
-                                        <td><input type="text" name="Amuestra" style="width:300px"></td>
-                                        <td><input type="text" name="Anomenclatura" style="width:300px"></td>
-                                        <td><input type="text" name="Ainf_requerida" style="width:300px"></td>
-                                        <td><input type="text" name="Ades_muestra" style="width:300px"></td>
-                                    </tr>
-                                </tbody>
-                                <th style="width:300px">Ubicación</th>
-                                <th style="width:300px">Motivo</th>
-                                <th style="width:300px">Responsable</th>
-                                <th style="width:300px">No. de indentificacion</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><input type="text" name="Aubicacion" style="width:300px"></td>
-                                <td><input type="text" name="Amotivo" style="width:300px"></td>
-                                <td><input type="text" name="Aresponsable" style="width:300px"></td>
-                                <td><input type="text" name="Aiden_muestra" style="width:300px"></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div><div class="input-group" id="tabrecu" style="display: none;">
-                    <table class="table table-bordered"><strong>IX.RECUBRIMIENTO</strong>
-                        <thead>
-                            <tr align="center">
-                                <th style="width:300px">Número de muestra</th>
-                                <th style="width:300px">Nomenclatura</th>
-                                <th style="width:300px">Información requerida</th>
-                                <th style="width:300px">Descripcion de la muestra</th>
-                                <tbody>
-                                    <tr>
-                                        <td><input type="text" name="Rmuestra" style="width:300px"></td>
-                                        <td><input type="text" name="Rnomenclatura" style="width:300px"></td>
-                                        <td><input type="text" name="Rinf_requerida" style="width:300px"></td>
-                                        <td><input type="text" name="Rdes_muestra" style="width:300px"></td>
-                                    </tr>
-                                </tbody>
-                                <th style="width:300px">Ubicación</th>
-                                <th style="width:300px">Motivo</th>
-                                <th style="width:300px">Responsable</th>
-                                <th style="width:300px">No. de indentificacion</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><input type="text" name="Rubicacion" style="width:300px"></td>
-                                <td><input type="text" name="Rmotivo" style="width:300px"></td>
-                                <td><input type="text" name="Rresponsable" style="width:300px"></td>
-                                <td><input type="text" name="Riden_muestra" style="width:300px"></td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    </div>
+                    <div align="center">
+                        <input type="button" id="otropigmentos" name="otropigmentos" class="btn-sm"  value="Agregar más" onclick="javascript:maspigmentos()">
+                        <br><br>
+                    </div>
                 </div>
                 
+
+                <!--AGLUTINANTE-->
+                <div class="input-group" id="tabaglu" style="display: none;">
+                    <div class="input-group" id="inputaglutinante">
+                    <table class="table table-bordered"><strong>VIII.AGLUTINANTE</strong> 
+                        <thead>
+                            <tr align="center">
+                                <th style="background-color: #F55587; color:white; width:300px">Número de muestra</th>
+                                <th style="background-color: #F55587; color:white; width:300px">Nomenclatura</th>
+                                <th style="background-color: #F55587; color:white; width:300px">Información requerida</th>
+                                <th style="background-color: #F55587; color:white; width:300px">Descripcion de la muestra</th>
+                                <tbody>
+                                    <tr>
+                                        <td><input type="text" name="Amuestra0" style="width:300px"></td>
+                                        <td><input type="text" name="Anomenclatura0" style="width:300px"></td>
+                                        <td><input type="text" name="Ainf_requerida0" style="width:300px"></td>
+                                        <td><input type="text" name="Ades_muestra0" style="width:300px"></td>
+                                    </tr>
+                                </tbody>
+                                <th style="background-color: #F55587; color:white; width:300px">Ubicación</th>
+                                <th style="background-color: #F55587; color:white; width:300px">Responsable</th>
+                                <th style="background-color: #F55587; color:white; width:300px">No. de indentificacion</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><input type="text" name="Aubicacion0" style="width:300px"></td>
+                                <td><input type="text" name="Aresponsable0" style="width:300px"></td>
+                                <td><input type="text" name="Aiden_muestra0" style="width:300px"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    </div>
+                    <div align="center">
+                        <input type="button" id="otroaglutinante" name="otroaglutinante" class="btn-sm"  value="Agregar más" onclick="javascript:masaglutinante()">
+                        <br><br>
+                    </div>
+                </div>
+               
+               
+                <!--RECUBRIMIENTO-->
+                <div class="input-group" id="tabrecu" style="display: none;">
+                    <div class="input-group" id="inputrecubrimiento">
+                    <table class="table table-bordered"><strong>IX.RECUBRIMIENTO</strong> 
+                        <thead>
+                            <tr align="center">
+                                <th style="background-color: #FBAE47; color:white; width:300px">Número de muestra</th>
+                                <th style="background-color: #FBAE47; color:white; width:300px">Nomenclatura</th>
+                                <th style="background-color: #FBAE47; color:white; width:300px">Información requerida</th>
+                                <th style="background-color: #FBAE47; color:white; width:300px">Descripcion de la muestra</th>
+                                <tbody>
+                                    <tr>
+                                        <td><input type="text" name="Rmuestra0" style="width:300px"></td>
+                                        <td><input type="text" name="Rnomenclatura0" style="width:300px"></td>
+                                        <td><input type="text" name="Rinf_requerida0" style="width:300px"></td>
+                                        <td><input type="text" name="Rdes_muestra0" style="width:300px"></td>
+                                    </tr>
+                                </tbody>
+                                <th style="background-color: #FBAE47; color:white; width:300px">Ubicación</th>
+                                <th style="background-color: #FBAE47; color:white; width:300px">Responsable</th>
+                                <th style="background-color: #FBAE47; color:white; width:300px">No. de indentificacion</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><input type="text" name="Rubicacion0" style="width:300px"></td>
+                                <td><input type="text" name="Rresponsable0" style="width:300px"></td>
+                                <td><input type="text" name="Riden_muestra0" style="width:300px"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    </div>
+                    <div align="center">
+                        <input type="button" id="otrorecubrimiento" name="otrorecubrimiento" class="btn-sm"  value="Agregar más" onclick="javascript:masrecubrimiento()">
+                        <br><br>
+                    </div>
+                    </div>
+
+
                 <!-- MATERIAL ASOCIADO X -->
                 <div class="input-group" id="tabmaso" style="display: none;">
                 <div class="input-group" id="inputmaso" > 
@@ -521,7 +569,6 @@
                 </div>
 
 
-
                 <!-- NATERIAL AGREGADO XII-->
                 <div class="input-group" id="tabmagre" style="display: none;">
                 <div class="input-group" id="inputmaterialag" > 
@@ -559,6 +606,7 @@
                         <br><br>
                     </div>
                 </div>
+
 
                 <!-- BIODETERIODO XIII-->
                 <div class="input-group" id="tabbio" style="display: none;">
@@ -598,16 +646,17 @@
                     </div>
                 </div>
 
+
                 <!--OTROS XIV-->
                 <div class="input-group" id="tabotro" style="display: none;">
                     <div class="input-group" id="inputotros">
                     <table class="table table-bordered"><strong>XIV.OTROS</strong>
                         <thead>
                             <tr align="center">
-                                <th style="width:300px">Número de muestra</th>
-                                <th style="width:300px">Nomenclatura</th>
-                                <th style="width:300px">Información requerida</th>
-                                <th style="width:300px">Descripcion de la muestra</th>
+                                <th style="background-color: #A5A5A5; color:white; width:300px">Número de muestra</th>
+                                <th style="background-color: #A5A5A5; color:white; width:300px">Nomenclatura</th>
+                                <th style="background-color: #A5A5A5; color:white; width:300px">Información requerida</th>
+                                <th style="background-color: #A5A5A5; color:white; width:300px">Descripcion de la muestra</th>
                                 <tbody>
                                     <tr>
                                         <td><input type="text" name="OTmuestra0" style="width:300px"></td>
@@ -616,9 +665,9 @@
                                         <td><input type="text" name="OTdes_muestra0" style="width:300px"></td>
                                     </tr>
                                 </tbody>
-                                <th style="width:300px">Ubicación</th>
-                                <th style="width:300px">Responsable</th>
-                                <th style="width:300px">No. de indentificacion</th>
+                                <th style="background-color: #A5A5A5; color:white; width:300px">Ubicación</th>
+                                <th style="background-color: #A5A5A5; color:white; width:300px">Responsable</th>
+                                <th style="background-color: #A5A5A5; color:white; width:300px">No. de indentificacion</th>
                             </tr>
                         </thead>
                         <tbody>

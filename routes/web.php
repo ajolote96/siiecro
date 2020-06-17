@@ -157,8 +157,12 @@ Route::get('AnalisisCientifico', function (Request $request) {
 Route::get('AnalisisCientifico/{id}/create', function ($id) {
 
         $obra = Obras::findOrFail($id);
-    return view('analisisg.create', compact('obra'));
+        $anio = DB::table('anio_temporada')->where('obra_id', $id)
+        ->select('anio_temporada.anio_temporada_trabajo')
+        ->get();
+    return view('analisisg.create', compact('obra','anio'));
 })->name('analisisg.create');
+
 
 Route::get('AnalisisCientifico/{id_general}/editar', 'AnalisisGController@edit', function (Request $request, $id_general) {
     

@@ -147,16 +147,17 @@
             $('#inputtemporadas').append(inputtemporadas)
             window.contatemporadas += 1;
         }
-
+        
+        //SOPORTE I
         window.contasoporte = 1
         function massoporte() {
             var inputsoporte = `<table class="table table-bordered"  background-color: red;><strong>I.SOPORTE</strong>
                         <thead>
                             <tr align="center">
-                                <th style="width:300px">Número de muestra </th>
-                                <th style="width:300px">Nomenclatura</th>
-                                <th style="width:300px">Información requerida</th>
-                                <th style="width:300px">Descripcion de la muestra</th>
+                                <th style="background-color: #C65911; color:white; width:300px">Número de muestra </th>
+                                <th style="background-color: #C65911; color:white; width:300px">Nomenclatura</th>
+                                <th style="background-color: #C65911; color:white; width:300px">Información requerida</th>
+                                <th style="background-color: #C65911; color:white; width:300px">Descripcion de la muestra</th>
                             </tr>
                              <tbody>
                             <tr >
@@ -167,9 +168,9 @@
                             </tr>
                         </tbody>
                             <tr>
-                                <th style="width:300px">Ubicación</th>
-                                <th style="width:300px">Responsable</th>
-                                <th style="width:300px">No. de indentificacion</th>
+                                <th style="style="background-color: #C65911; color:white; width:300px">Ubicación</th>
+                                <th style="style="background-color: #C65911; color:white; width:300px">Responsable</th>
+                                <th style="style="background-color: #C65911; color:white; width:300px">No. de indentificacion</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -191,15 +192,16 @@
             window.contasoporte += 1;
         }
 
+        //BASE DE PREPARACION II
         window.contabase = 1
         function masbase() {
             var inputbase = `<table class="table table-bordered"  background-color: red;><strong>II.BASE DE PREPARACIóN</strong>
                         <thead>
                             <tr align="center">
-                                <th style="width:300px">Número de muestra </th>
-                                <th style="width:300px">Nomenclatura</th>
-                                <th style="width:300px">Información requerida</th>
-                                <th style="width:300px">Descripcion de la muestra</th>
+                                <th style="background-color: #FFCC66; color:white; width:300px">Número de muestra </th>
+                                <th style="background-color: #FFCC66; color:white; width:300px">Nomenclatura</th>
+                                <th style="background-color: #FFCC66; color:white; width:300px">Información requerida</th>
+                                <th style="background-color: #FFCC66; color:white; width:300px">Descripcion de la muestra</th>
                             </tr>
                              <tbody>
                             <tr >
@@ -210,9 +212,9 @@
                             </tr>
                         </tbody>
                             <tr>
-                                <th style="width:300px">Ubicación</th>
-                                <th style="width:300px">Responsable</th>
-                                <th style="width:300px">No. de indentificacion</th>
+                                <th style="background-color: #FFCC66; color:white; width:300px">Ubicación</th>
+                                <th style="background-color: #FFCC66; color:white; width:300px">Responsable</th>
+                                <th style="background-color: #FFCC66; color:white; width:300px">No. de indentificacion</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -233,6 +235,281 @@
             $('#inputbase').append(inputbase)
             window.contabase += 1;
         }
+
+
+        //ESTRATIGRAFIA III
+        window.contaestratigrafia = 1
+        function masestratigrafia() {
+         var inputestratigrafia = `<table class="table table-bordered"  background-color: red;><strong>III. ESTRATIGRAFíA</strong> 
+                        <thead>
+                            <tr align="center">
+                                <th style="background-color: #008000; color:white; width:300px">Número de muestra </th>
+                                <th style="background-color: #008000; color:white; width:300px">Nomenclatura</th>
+                                <th style="background-color: #008000; color:white; width:300px">Información requerida</th>
+                                <th style="background-color: #008000; color:white; width:300px">Descripcion de la muestra</th>
+                            </tr>
+                             <tbody>
+                            <tr >
+                                <td><input type="text" name="Emuestra${window.contaestratigrafia}" style="width:300px"></td>
+                                <td><input type="text" name="Enomenclatura${window.contaestratigrafia}" style="width:300px"></td>
+                                <td><input type="text" name="Einf_requerida${window.contaestratigrafia}" style="width:300px"></td>
+                                <td><input type="text" name="Edes_muestra${window.contaestratigrafia}" style="width:300px"></td>
+                            </tr>
+                        </tbody>
+                            <tr>
+                                <th style="background-color: #008000; color:white; width:300px">Ubicación</th>
+                                <th style="background-color: #008000; color:white; width:300px">Responsable</th>
+                                <th style="background-color: #008000; color:white; width:300px">No. de indentificacion</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><input type="text" name="Eubicacion${window.contaestratigrafia}" style="width:300px"></td>
+                                <td><input type="text" name="Eresponsable${window.contaestratigrafia}" style="width:300px"></td>
+                                <td><input type="text" name="Eiden_muestra${window.contaestratigrafia}" style="width:300px"></td>
+                                
+
+                            </tr>
+
+                    
+
+                        </tbody>
+                        
+
+                    </table>`
+      $('#inputestratigrafia').append(inputestratigrafia)
+      window.contaestratigrafia += 1;
+  }
+
+        //REVOQUE Y ENLUCIDO IV
+        window.contarevoque = 1
+        function masrevoque() {
+        var inputrevoque = `<table class="table table-bordered"  background-color: red;><strong>IV. REVOQUE Y ENLUCIDO</strong> 
+                        <thead>
+                            <tr align="center">
+                                <th style="background-color: #B248A5; color:white; width:300px">Número de muestra </th>
+                                <th style="background-color: #B248A5; color:white; width:300px">Nomenclatura</th>
+                                <th style="background-color: #B248A5; color:white; width:300px">Información requerida</th>
+                                <th style="background-color: #B248A5; color:white; width:300px">Descripcion de la muestra</th>
+                            </tr>
+                             <tbody>
+                            <tr >
+                                <td><input type="text" name="REmuestra${window.contarevoque}" style="width:300px"></td>
+                                <td><input type="text" name="REnomenclatura${window.contarevoque}" style="width:300px"></td>
+                                <td><input type="text" name="REinf_requerida${window.contarevoque}" style="width:300px"></td>
+                                <td><input type="text" name="REdes_muestra${window.contarevoque}" style="width:300px"></td>
+                            </tr>
+                        </tbody>
+                            <tr>
+                                <th style="background-color: #B248A5; color:white; width:300px">Ubicación</th>
+                                <th style="background-color: #B248A5; color:white; width:300px">Responsable</th>
+                                <th style="background-color: #B248A5; color:white; width:300px">No. de indentificacion</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><input type="text" name="REubicacion${window.contarevoque}" style="width:300px"></td>
+                                <td><input type="text" name="REresponsable${window.contarevoque}" style="width:300px"></td>
+                                <td><input type="text" name="REiden_muestra${window.contarevoque}" style="width:300px"></td>
+                                
+
+                            </tr>
+
+                    
+
+                        </tbody>
+                        
+
+                    </table>`
+                    $('#inputrevoque').append(inputrevoque)
+                    window.contarevoque += 1;
+                }
+
+                // BOL V
+                window.contabol = 1
+                function masbol() {
+            var inputbol = `<table class="table table-bordered"><strong>VI. BOL</strong> 
+                        <thead>
+                            <tr align="center">
+                                <th style="background-color: #FF5050; color:white; width:300px">Número de muestra </th>
+                                <th style="background-color: #FF5050; color:white; width:300px">Nomenclatura</th>
+                                <th style="background-color: #FF5050; color:white; width:300px">Información requerida</th>
+                                <th style="background-color: #FF5050; color:white; width:300px">Descripcion de la muestra</th>
+                            </tr>
+                             <tbody>
+                            <tr >
+                                <td><input type="text" name="BOLmuestra${window.contabol}" style="width:300px"></td>
+                                <td><input type="text" name="BOLnomenclatura${window.contabol}" style="width:300px"></td>
+                                <td><input type="text" name="BOLinf_requerida${window.contabol}" style="width:300px"></td>
+                                <td><input type="text" name="BOLdes_muestra${window.contabol}" style="width:300px"></td>
+                            </tr>
+                        </tbody>
+                            <tr>
+                                <th style="background-color: #FF5050; color:white; width:300px">Ubicación</th>
+                                <th style="background-color: #FF5050; color:white; width:300px">Responsable</th>
+                                <th style="background-color: #FF5050; color:white; width:300px">No. de indentificacion</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><input type="text" name="BOLubicacion${window.contabol}" style="width:300px"></td>
+                                <td><input type="text" name="BOLresponsable${window.contabol}" style="width:300px"></td>
+                                <td><input type="text" name="BOLiden_muestra${window.contabol}" style="width:300px"></td>
+                            </tr>
+                        </tbody>
+                  </table>`
+                $('#inputbol').append(inputbol)
+                 window.contabol += 1;
+                }
+
+                //LAMINAS METALICAS VI
+                window.contalaminas = 1
+                function maslaminas() {
+                var inputlaminas = `<table class="table table-bordered"><strong>VII. LÁMINAS METÁLICAS</strong> 
+                        <thead>
+                            <tr align="center">
+                                <th style="background-color: #3A5754; color:white; width:300px">Número de muestra </th>
+                                <th style="background-color: #3A5754; color:white; width:300px">Nomenclatura</th>
+                                <th style="background-color: #3A5754; color:white; width:300px">Información requerida</th>
+                                <th style="background-color: #3A5754; color:white; width:300px">Descripcion de la muestra</th>
+                            </tr>
+                             <tbody>
+                            <tr >
+                                <td><input type="text" name="LMmuestra${window.contalaminas}" style="width:300px"></td>
+                                <td><input type="text" name="LMnomenclatura${window.contalaminas}" style="width:300px"></td>
+                                <td><input type="text" name="LMinf_requerida${window.contalaminas}" style="width:300px"></td>
+                                <td><input type="text" name="LMdes_muestra${window.contalaminas}" style="width:300px"></td>
+                            </tr>
+                        </tbody>
+                            <tr>
+                                <th style="background-color: #3A5754; color:white; width:300px">Ubicación</th>
+                                <th style="background-color: #3A5754; color:white; width:300px">Responsable</th>
+                                <th style="background-color: #3A5754; color:white; width:300px">No. de indentificacion</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><input type="text" name="LMubicacion${window.contalaminas}" style="width:300px"></td>
+                                <td><input type="text" name="LMresponsable${window.contalaminas}" style="width:300px"></td>
+                                <td><input type="text" name="LMiden_muestra${window.contalaminas}" style="width:300px"></td>
+                            </tr>
+                        </tbody>
+                    </table>`
+                    $('#inputlaminas').append(inputlaminas)
+                    window.contalaminas += 1;
+                     }
+
+  //PIGMENTOS VII
+  window.contapigmentos = 1
+  function maspigmentos() {
+      var inputpigmentos = `<table class="table table-bordered"><strong>VIII.PIGMENTOS</strong> 
+                        <thead>
+                            <tr align="center">
+                                <th style="background-color: #5B9BD5; color:white; width:300px">Número de muestra </th>
+                                <th style="background-color: #5B9BD5; color:white; width:300px">Nomenclatura</th>
+                                <th style="background-color: #5B9BD5; color:white; width:300px">Información requerida</th>
+                                <th style="background-color: #5B9BD5; color:white; width:300px">Descripcion de la muestra</th>
+                            </tr>
+                             <tbody>
+                            <tr >
+                                <td><input type="text" name="Pmuestra${window.contapigmentos}" style="width:300px"></td>
+                                <td><input type="text" name="Pnomenclatura${window.contapigmentos}" style="width:300px"></td>
+                                <td><input type="text" name="Pinf_requerida${window.contapigmentos}" style="width:300px"></td>
+                                <td><input type="text" name="Pdes_muestra${window.contapigmentos}" style="width:300px"></td>
+                            </tr>
+                        </tbody>
+                            <tr>
+                                <th style="background-color: #5B9BD5; color:white; width:300px">Ubicación</th>
+                                <th style="background-color: #5B9BD5; color:white; width:300px">Responsable</th>
+                                <th style="background-color: #5B9BD5; color:white; width:300px">No. de indentificacion</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><input type="text" name="Pubicacion${window.contapigmentos}" style="width:300px"></td>
+                                <td><input type="text" name="Presponsable${window.contapigmentos}" style="width:300px"></td>
+                                <td><input type="text" name="Piden_muestra${window.contapigmentos}" style="width:300px"></td>
+                            </tr>
+                        </tbody>
+                    </table>`
+      $('#inputpigmentos').append(inputpigmentos)
+      window.contapigmentos += 1;
+  }
+
+  //AGLUTINANTES VIII
+  window.contaaglutinante = 1
+  function masaglutinante() {
+      var inputaglutinante = `<table class="table table-bordered"><strong>IX.AGLUTINANTES</strong> 
+                        <thead>
+                            <tr align="center">
+                                <th style="background-color: #F55587; color:white; width:300px">Número de muestra </th>
+                                <th style="background-color: #F55587; color:white; width:300px">Nomenclatura</th>
+                                <th style="background-color: #F55587; color:white; width:300px">Información requerida</th>
+                                <th style="background-color: #F55587; color:white; width:300px">Descripcion de la muestra</th>
+                            </tr>
+                             <tbody>
+                            <tr >
+                                <td><input type="text" name="Amuestra${window.contaaglutinante}" style="width:300px"></td>
+                                <td><input type="text" name="Anomenclatura${window.contaaglutinante}" style="width:300px"></td>
+                                <td><input type="text" name="Ainf_requerida${window.contaaglutinante}" style="width:300px"></td>
+                                <td><input type="text" name="Ades_muestra${window.contaaglutinante}" style="width:300px"></td>
+                            </tr>
+                        </tbody>
+                            <tr>
+                                <th style="background-color: #F55587; color:white; width:300px">Ubicación</th>
+                                <th style="background-color: #F55587; color:white; width:300px">Responsable</th>
+                                <th style="background-color: #F55587; color:white; width:300px">No. de indentificacion</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><input type="text" name="Aubicacion${window.contaaglutinante}" style="width:300px"></td>
+                                <td><input type="text" name="Aresponsable${window.contaaglutinante}" style="width:300px"></td>
+                                <td><input type="text" name="Aiden_muestra${window.contaaglutinante}" style="width:300px"></td>
+                            </tr>
+                        </tbody>
+                    </table>`
+      $('#inputaglutinante').append(inputaglutinante)
+      window.contaaglutinante += 1;
+  }
+
+  // RECUBRIMIENTO IX
+   window.contarecubrimiento = 1
+  function masrecubrimiento() {
+      var inputrecubrimiento = `<table class="table table-bordered"><strong>X. RECUBRIMIENTOS</strong> 
+                        <thead>
+                            <tr align="center">
+                                <th style="background-color: #FBAE47; color:white; width:300px">Número de muestra </th>
+                                <th style="background-color: #FBAE47; color:white; width:300px">Nomenclatura</th>
+                                <th style="background-color: #FBAE47; color:white; width:300px">Información requerida</th>
+                                <th style="background-color: #FBAE47; color:white; width:300px">Descripcion de la muestra</th>
+                            </tr>
+                             <tbody>
+                            <tr >
+                                <td><input type="text" name="Rmuestra${window.contarecubrimiento}" style="width:300px"></td>
+                                <td><input type="text" name="Rnomenclatura${window.contarecubrimiento}" style="width:300px"></td>
+                                <td><input type="text" name="Rinf_requerida${window.contarecubrimiento}" style="width:300px"></td>
+                                <td><input type="text" name="Rdes_muestra${window.contarecubrimiento}" style="width:300px"></td>
+                            </tr>
+                        </tbody>
+                            <tr>
+                                <th style="background-color: #FBAE47; color:white; width:300px">Ubicación</th>
+                                <th style="background-color: #FBAE47; color:white; width:300px">Responsable</th>
+                                <th style="background-color: #FBAE47; color:white; width:300px">No. de indentificacion</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><input type="text" name="Rubicacion${window.contarecubrimiento}" style="width:300px"></td>
+                                <td><input type="text" name="Rresponsable${window.contarecubrimiento}" style="width:300px"></td>
+                                <td><input type="text" name="Riden_muestra${window.contarecubrimiento}" style="width:300px"></td>
+                            </tr>
+                        </tbody>
+                    </table>`
+      $('#inputrecubrimiento').append(inputrecubrimiento)
+      window.contarecubrimiento += 1;
+  }
+
         
         /* MATERIAL ASOCIADO*/
         window.contamaso = 1
@@ -420,10 +697,10 @@
             var inputotros = `<table class="table table-bordered"  ><strong>XIV.OTROS</strong>
                         <thead>
                             <tr align="center">
-                                <th style="width:300px">Número de muestra </th>
-                                <th style="width:300px">Nomenclatura</th>
-                                <th style="width:300px">Información requerida</th>
-                                <th style="width:300px">Descripcion de la muestra</th>
+                                <th style="background-color: #A5A5A5; color:white; width:300px">Número de muestra </th>
+                                <th style="background-color: #A5A5A5; color:white; width:300px">Nomenclatura</th>
+                                <th style="background-color: #A5A5A5; color:white; width:300px">Información requerida</th>
+                                <th style="background-color: #A5A5A5; color:white; width:300px">Descripcion de la muestra</th>
                             </tr>
                              <tbody>
                             <tr >
@@ -434,9 +711,9 @@
                             </tr>
                         </tbody>
                             <tr>
-                                <th style="width:300px">Ubicación</th>
-                                <th style="width:300px">Responsable</th>
-                                <th style="width:300px">No. de indentificacion</th>
+                                <th style="background-color: #A5A5A5; color:white; width:300px">Ubicación</th>
+                                <th style="background-color: #A5A5A5; color:white; width:300px">Responsable</th>
+                                <th style="background-color: #A5A5A5; color:white; width:300px">No. de indentificacion</th>
                             </tr>
                         </thead>
                         <tbody>
