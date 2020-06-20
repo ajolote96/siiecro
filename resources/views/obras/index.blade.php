@@ -17,7 +17,7 @@
 			Obras Registradas
 			{{ Form::open(['route' => 'Obras.index', 'method' => 'GET', 'class' => 'form-inline pull-right']) }}
 			<div class="form-group">
-				{{ Form::text('busqueda', null, ['class' => 'form-control', 'placeholder' => 'ID'])}}
+				{{ Form::text('busqueda', null, ['class' => 'form-control', 'placeholder' => 'Titulo'])}}
 			</div>
 			<div class="form-group">
 				<button type="submit" class="btn btn-default">

@@ -108,14 +108,14 @@
                             @if($analisisg->foto == 'Sin imagen')
                         <input type="text" class="form-control"  name="foto" border="0" value="Sin imagen" style="width:200px">
                         @else
-                        <a align="center" target="_blank" href="http://127.0.0.1:8000/images/{{$analisisg->foto}} "><img  width="400px" src="{{asset('images/'.$analisisg->foto)}}" class=""></a>
+                        <img  width="400px" src="images/{{$analisisg->foto}}" class="">
                         @endif  
                         </td>
                         <td align="center">
                             @if($analisisg->esquema_muestras == 'Sin imagen')
                         <input type="text" class="form-control"  name="esquema_muestras" border="0" value="Sin imagen" style="width:200px">
                         @else
-                        <a align="center" target="_blank" href="http://127.0.0.1:8000/images/{{$analisisg->esquema_muestras}} "><img  width="400px" src="{{asset('images/'.$analisisg->esquema_muestras)}}" class=""></a>
+                        <img  width="400px" src="images/{{$analisisg->esquema_muestras}}" class="">
                         @endif
                         </td>
                         

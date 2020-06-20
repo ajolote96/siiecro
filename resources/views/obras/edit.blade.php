@@ -284,7 +284,7 @@ $contador_anio = 0;
   $contador_anio +=1;
 ?>
 @endforeach
-<input type="button" id="otroaño" name="otroaño" value="Agregar más" onclick="javascript:masañostemp()"></td>
+<input type="button" id="otroaño" name="otroaño" class="btn-sm" value="Agregar más" onclick="javascript:masañostemp()"></td>
 </tr>
 <tr>
 <td></td>
@@ -302,7 +302,7 @@ $contador_anio = 0;
 
 
 @endforeach
-<input type="button" id="otratemporada" name="otratemporada" value="Agregar más" onclick="javascript:mastemporadas()"></td></tr>
+<input type="button" id="otratemporada" class="btn-sm" name="otratemporada" value="Agregar más" onclick="javascript:mastemporadas()"></td></tr>
 <tr>
   <td></td>
   <td id="inputtemporadas"></td>

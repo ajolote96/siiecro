@@ -170,9 +170,9 @@
                             </tr>
                         </tbody>
                             <tr>
-                                <th style="style="background-color: #C65911; color:white; width:300px">Ubicación</th>
-                                <th style="style="background-color: #C65911; color:white; width:300px">Responsable</th>
-                                <th style="style="background-color: #C65911; color:white; width:300px">No. de indentificacion</th>
+                                <th style="background-color: #C65911; color:white; width:300px">Ubicación</th>
+                                <th style="background-color: #C65911; color:white; width:300px">Responsable</th>
+                                <th style="background-color: #C65911; color:white; width:300px">No. de indentificacion</th>
                             </tr>
                         </thead>
                         <tbody>

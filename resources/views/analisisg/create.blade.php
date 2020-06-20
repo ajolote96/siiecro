@@ -40,7 +40,7 @@
                         </tr>
                         <tr>
                             <td><span class="input-group-addon" style="width: 300px; border:0;">Temporalidad</span></td>
-                            <td><input type="text" name="temp_obra" class="form-control"  value="{{ $obra->temp_obra }}" style="width:500px; text-align:center;" readonly></td>
+                            <td><input type="text" name="temp_obra" class="form-control"  value="12" style="width:500px; text-align:center;" readonly></td>
                         </tr>
                         <tr>
                             <td><span class="input-group-addon" style="width: 300px; border:0;">Sector de la obra</span></td>

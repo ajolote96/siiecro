@@ -163,7 +163,7 @@
                     </div> 
                     <div class="col-md-12 text-center">
                             <button type="submit" class="btn btn-primary btn-sm">Capturar</button>
-                            <a href="{{route('Obras.index')}}" class="btn btn-danger btn-sm">Cancelar</a>
+                            <a href="{{route('registro.index')}}" class="btn btn-danger btn-sm">Cancelar</a>
                     </div>
                 </form>
         </div>
