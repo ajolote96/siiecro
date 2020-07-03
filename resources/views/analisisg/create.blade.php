@@ -43,7 +43,7 @@
                             <td><input type="text" name="temp_obra" class="form-control"  value="12" style="width:500px; text-align:center;" readonly></td>
                         </tr>
                         <tr>
-                            <td><span class="input-group-addon" style="width: 300px; border:0;">Sector de la obra</span></td>
+                            <td><span class="input-group-addon" style="width: 300px; border:0;">Área de la obra</span></td>
                             <td><input type="text" name="sector_obra" class="form-control"  value="{{ $obra->sector_obra }}" style="width:500px; text-align:center;" readonly></td>
                         </tr>
                         @if($obra->epoca_obra == NULL)
@@ -75,12 +75,12 @@
                             </td>
                         </tr>
                         <tr>
-                            <td><label for="tecnica" class="input-group-addon" style="width: 300px; ">Tecnica</label></td>
+                            <td><label for="tecnica" class="input-group-addon" style="width: 300px; ">Técnica</label></td>
                             <td><input type="text" class="form-control"  name="tecnica" value="{{ old('tecnica') }}" style="width:500px; text-align:center;"></td>
                         </tr>
                         
                         <tr>
-                            <td><label for="respon_intervencion" class="input-group-addon" style="width: 300px; text-align:center;">Responsable de la Intervencion</label></td>
+                            <td><label for="respon_intervencion" class="input-group-addon" style="width: 300px; text-align:center;">Responsable de la Intervención</label></td>
                             <td><input type="text" class="form-control"  name="respon_intervencion"  value="{{ old('respon_intervencion') }}" style="width:500px;text-align:center;"></td>
                         </tr>
                         <tr>
@@ -104,7 +104,7 @@
                             <th style="text-align:center; background-color: #7C858C; color:white;">Alto</th>
                             <th style="text-align:center; background-color: #7C858C; color:white;">Ancho</th>
                             <th style="text-align:center; background-color: #7C858C; color:white;">Profundidad</th>
-                            <th style="text-align:center; background-color: #7C858C; color:white;">Diametro</th>
+                            <th style="text-align:center; background-color: #7C858C; color:white;">Diámetro</th>
                         </tr>
                         <tr>
                             <th>Dimensiones</th>
@@ -114,18 +114,19 @@
                             <td><input type="text" class="form-control" name="diametro" value="{{ old('diametro') }}"style="width:200px; text-align:center; "></td>
                         </tr>
                     </table>
-</div>
-                </div><br><br>
-                <table class="table table-bordered"><b>ANALISIS</b><br>
+
+</div><br><br>
+                
+                <table class="table table-bordered"><h3 style="text-align:center; background-color: #7C858C; color:white;">ANALISIS</h3><br></div>
                     <thead>
                         <tr>
-                            <th><label><input type="checkbox" name="tsoporte" id="tsoporte" onchange="javascript:showSoporte()"> SOPORTE</label><br></th>
-                            <th><label><input type="checkbox" name="tbase" id="tbase" onchange="javascript:showBase()"> BASE DE PREPARACIóN</label><br></th>
-                            <th><label><input type="checkbox" name="testra" id="testra" onchange="javascript:showEstra()"> ESTRATIGRAFíA</label></th>
-                            <th><label><input type="checkbox" name="trevo" id="trevo" onchange="javascript:showRevo()"> REVOQUE Y ENLUCIDO</label></th>
-                            <th><label><input type="checkbox" name="tbol" id="tbol" onchange="javascript:showBol()"> BOL</label></th>
-                            <th><label><input type="checkbox" name="tlame" id="tlami" onchange="javascript:showLami()"> LáMINAS METáLICAS</label></th>
-                            <th><label><input type="checkbox" name="tpig" id="tpig" onchange="javascript:showPig()"> PIGMENTOS</label></th>
+                            <th><label><input type="checkbox" name="tsoporte" id="tsoporte" onchange="javascript:showSoporte()">I. SOPORTE</label><br></th>
+                            <th><label><input type="checkbox" name="tbase" id="tbase" onchange="javascript:showBase()">II. BASE DE PREPARACIÓN</label><br></th>
+                            <th><label><input type="checkbox" name="testra" id="testra" onchange="javascript:showEstra()">III. ESTRATIGRAFÍA</label></th>
+                            <th><label><input type="checkbox" name="trevo" id="trevo" onchange="javascript:showRevo()">IV. REVOQUE Y ENLUCIDO</label></th>
+                            <th><label><input type="checkbox" name="tbol" id="tbol" onchange="javascript:showBol()">VI. BOL</label></th>
+                            <th><label><input type="checkbox" name="tlame" id="tlami" onchange="javascript:showLami()">VII. LÁMINAS METÁLICAS</label></th>
+                            <th><label><input type="checkbox" name="tpig" id="tpig" onchange="javascript:showPig()">VIII. PIGMENTOS</label></th>
 
 
 
@@ -133,13 +134,13 @@
                     </thead>
                     <tbody>
                             <tr>
-                                <td><label><input type="checkbox" name="taglu" id="taglu" onchange="javascript:showAglu()"> AGLUTINANTE</label></td>
-                                <td><label><input type="checkbox" name="trecu" id="trecu" onchange="javascript:showRecu()"> RECUBRIMIENTO</label></td>
-                                <td><label><input type="checkbox" name="tmaso" id="tmaso" onchange="javascript:showMaso()"> MATERIAL ASOCIADO</label></td>
-                                <td><label><input type="checkbox" name="tsal" id="tsal" onchange="javascript:showSal()"> SALES</label></td>
-                                <td><label><input type="checkbox" name="tmagre" id="tmagre" onchange="javascript:showMagre()"> MATERIAL AGREGADO</label></td>
-                                <td><label><input type="checkbox" name="tbio" id="tbio" onchange="javascript:showBio()"> BIODETERIORO</label></td>
-                                <td><label><input type="checkbox" name="totro" id="totro" onchange="javascript:showOtro()"> OTROS</label></td>
+                                <td><label><input type="checkbox" name="taglu" id="taglu" onchange="javascript:showAglu()">IX. AGLUTINANTE</label></td>
+                                <td><label><input type="checkbox" name="trecu" id="trecu" onchange="javascript:showRecu()">X. RECUBRIMIENTO</label></td>
+                                <td><label><input type="checkbox" name="tmaso" id="tmaso" onchange="javascript:showMaso()">XI. MATERIAL ASOCIADO</label></td>
+                                <td><label><input type="checkbox" name="tsal" id="tsal" onchange="javascript:showSal()">XII. SALES</label></td>
+                                <td><label><input type="checkbox" name="tmagre" id="tmagre" onchange="javascript:showMagre()">XIII. MATERIAL AGREGADO</label></td>
+                                <td><label><input type="checkbox" name="tbio" id="tbio" onchange="javascript:showBio()">XIV. BIODETERIORO</label></td>
+                                <td><label><input type="checkbox" name="totro" id="totro" onchange="javascript:showOtro()">XV. OTROS</label></td>
                                 </tr>
                         </tbody>
                 </table>
@@ -187,7 +188,7 @@
                 <!--BASE DE PREPARACION -->
                 <div class="input-group" id="tabbase" style="display: none;">
                     <div class="input-group" id="inputbase" >
-                    <table class="table table-bordered"><strong>II.BASE DE PREPARACIóN</strong>
+                    <table class="table table-bordered"><strong>II.BASE DE PREPARACIÓN</strong>
                         <thead>
                             <tr align="center">
                                 <th style="background-color: #FFCC66; color:white; width:300px">Número de muestra</th>
@@ -226,7 +227,7 @@
                 <!--ESTATIGRAFIA-->
                 <div class="input-group" id="tabestra" style="display: none;">
                     <div class="input-group" id="inputestratigrafia" >
-                    <table class="table table-bordered"><strong>III. ESTRATIGRAFíA</strong> 
+                    <table class="table table-bordered"><strong>III. ESTRATIGRAFÍA</strong> 
                         <thead>
                             <tr align="center">
                                 <th style="background-color: #008000; color:white; width:300px"> Número de muestra</th>

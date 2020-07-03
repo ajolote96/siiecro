@@ -101,7 +101,7 @@
                                   <option>Armas Blancas</option>
                                   <option>Armas de Fuego</option>
                                   <option>Pintura sobre Lámina</option>
-                                  <option>Maquinaria</option>
+                                  <option>Mecánico</option>
                                   <option>Utilitario</option>
                                   <option>Científico</option>
                                   <option>Otro</option>
@@ -228,7 +228,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td style="font-size:25px;">Sector:</td>
+                            <td style="font-size:25px;">Área de la obra:</td>
                             <td>
                                 <select class="input-group-addon" name="sector_obra" id="sectordeobra" onChange="sectorobra(this)" value="{{ old('sector_obra') }}" style="width:550px; font-size:18px;">
                                     <option value="" >Selecciona una opción</option>

@@ -51,6 +51,49 @@ Route::get('index', function () {
     return view('Obras.index');
 });
 
+// Rutas de los Seminarios
+Route::get('STRC', function (Request $request) {
+    $id = $request->get('busqueda');
+    $Obras = Obras::where('titulo_obra','like',"%$id%")->paginate(15);
+    return view('seminarios.indexstrc',compact('Obras'))
+     ->with('i', (request()->input('page', 1) - 1) * 15);
+})->name('Obra.strc');
+
+Route::get('STRPM', function (Request $request) {
+    $id = $request->get('busqueda');
+    $Obras = Obras::where('titulo_obra','like',"%$id%")->paginate(15);
+    return view('seminarios.indexstrpm',compact('Obras'))
+     ->with('i', (request()->input('page', 1) - 1) * 15);
+})->name('Obra.strpm');
+
+Route::get('STRPC', function (Request $request) {
+    $id = $request->get('busqueda');
+    $Obras = Obras::where('titulo_obra','like',"%$id%")->paginate(15);
+    return view('seminarios.indexstrpc',compact('Obras'))
+     ->with('i', (request()->input('page', 1) - 1) * 15);
+})->name('Obra.strpc');
+
+Route::get('STREP', function (Request $request) {
+    $id = $request->get('busqueda');
+    $Obras = Obras::where('titulo_obra','like',"%$id%")->paginate(15);
+    return view('seminarios.indexstrep',compact('Obras'))
+     ->with('i', (request()->input('page', 1) - 1) * 15);
+})->name('Obra.strep');
+
+Route::get('STREPYDG', function (Request $request) {
+    $id = $request->get('busqueda');
+    $Obras = Obras::where('titulo_obra','like',"%$id%")->paginate(15);
+    return view('seminarios.indexstrepydg',compact('Obras'))
+     ->with('i', (request()->input('page', 1) - 1) * 15);
+})->name('Obra.strepydg');
+
+Route::get('STRM', function (Request $request) {
+    $id = $request->get('busqueda');
+    $Obras = Obras::where('titulo_obra','like',"%$id%")->paginate(15);
+    return view('seminarios.indexstrm',compact('Obras'))
+     ->with('i', (request()->input('page', 1) - 1) * 15);
+})->name('Obra.strm');
+
 Route::get('Obra/Capturar', function () {
     return view('obras.create');
 })->middleware('permission:Captura_de_Solicitud');

@@ -104,7 +104,7 @@ $contador_anio = 0;
         <option>Armas Blancas</option>
         <option>Armas de Fuego</option>
         <option>Pintura sobre Lámina</option>
-        <option>Maquinaria</option>
+        <option>Mecánico</option>
         <option>Utilitario</option>
         <option>Científico</option>
         <option>Otro</option>
@@ -224,7 +224,7 @@ $contador_anio = 0;
 </tr>
 
 <tr>
-  <td style="font-size:25px;">Sector:</td>
+  <td style="font-size:25px;">Área de la obra:</td>
   <td style="font-size:25px;"><select class="input-group-addon" name="sector_obra" id="sectordeobra" onChange="sectorobra(this)" value="{{ $obras_ver->sector_obra }}" style="width:550px; font-size:18px;">
                             <option value="{{ $obras_ver->sector_obra }}" >{{ $obras_ver->sector_obra }}</option>
                             <option>Seminario Taller de Restauración de Cerámica</option>

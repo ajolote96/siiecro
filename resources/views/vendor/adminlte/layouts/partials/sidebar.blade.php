@@ -50,7 +50,7 @@
                                     </span>
                                     </a>
                                     <ul class="treeview-menu" style="display: none;">
-                                    <li class="active"><a href="{{ url('Obras') }}"><span>Realizar Solicitud de Analisis</span></a></li>
+                                    <li class="active"><a href="{{ route('Obra.strc') }}"><span>Realizar Solicitud de Analisis</span></a></li>
                                         <li class="active"><a href="{{ url('AnalisisCientifico') }}"><span>Listado de Solicitudes Analisis</span></a></li>
                                     <li><a href="#">Solicitud de registro de imagen</a></li>
                                 </ul>
@@ -61,7 +61,7 @@
                                     </span>
                                     </a>
                                     <ul class="treeview-menu" style="display: none;">
-                                    <li class="active"><a href="{{ url('Obras') }}"><span>Realizar Solicitud de Analisis</span></a></li>
+                                    <li class="active"><a href="{{ route('Obra.strpm') }}"><span>Realizar Solicitud de Analisis</span></a></li>
                                         <li class="active"><a href="{{ url('AnalisisCientifico') }}"><span>Listado de Solicitudes Analisis</span></a></li>
                                     <li><a href="#">Solicitud de registro de imagen</a></li>
                                 </ul>
@@ -72,7 +72,7 @@
                                     </span>
                                     </a>
                                     <ul class="treeview-menu" style="display: none;">
-                                    <li class="active"><a href="{{ url('Obras') }}"><span>Realizar Solicitud de Analisis</span></a></li>
+                                    <li class="active"><a href="{{ route('Obra.strpc') }}"><span>Realizar Solicitud de Analisis</span></a></li>
                                         <li class="active"><a href="{{ url('AnalisisCientifico') }}"><span>Listado de Solicitudes Analisis</span></a></li>
                                     <li><a href="#">Solicitud de registro de imagen</a></li>
                                 </ul>
@@ -83,7 +83,7 @@
                                     </span>
                                     </a>
                                     <ul class="treeview-menu" style="display: none;">
-                                    <li class="active"><a href="{{ url('Obras') }}"><span>Realizar Solicitud de Analisis</span></a></li>
+                                    <li class="active"><a href="{{ route('Obra.strep') }}"><span>Realizar Solicitud de Analisis</span></a></li>
                                         <li class="active"><a href="{{ url('AnalisisCientifico') }}"><span>Listado de Solicitudes Analisis</span></a></li>
                                     <li><a href="#">Solicitud de registro de imagen</a></li>
                                 </ul>
@@ -94,7 +94,7 @@
                                     </span>
                                     </a>
                                     <ul class="treeview-menu" style="display: none;">
-                                    <li class="active"><a href="{{ url('Obras') }}"><span>Realizar Solicitud de Analisis</span></a></li>
+                                    <li class="active"><a href="{{ route('Obra.strepydg') }}"><span>Realizar Solicitud de Analisis</span></a></li>
                                         <li class="active"><a href="{{ url('AnalisisCientifico') }}"><span>Listado de Solicitudes Analisis</span></a></li>
                                     <li><a href="#">Solicitud de registro de imagen</a></li>
                                 </ul>
@@ -105,7 +105,7 @@
                                     </span>
                                     </a>
                                     <ul class="treeview-menu" style="display: none;">
-                                    <li class="active"><a href="{{ url('Obras') }}"><span>Realizar Solicitud de Analisis</span></a></li>
+                                    <li class="active"><a href="{{ route('Obra.strm') }}"><span>Realizar Solicitud de Analisis</span></a></li>
                                         <li class="active"><a href="{{ url('AnalisisCientifico') }}"><span>Listado de Solicitudes Analisis</span></a></li>
                                     <li><a href="#">Solicitud de registro de imagen</a></li>
                                 </ul>

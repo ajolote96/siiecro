@@ -158,7 +158,7 @@
 @endpermission
 @permission('Consulta_General_Basica','Consulta_General_Avanzada_2')
 <tr>
-  <td style="font-size:25px;">Sector:</td>
+  <td style="font-size:25px;">Área de la obra:</td>
   <td style="font-size:25px;"><input type="text" readonly class="form-control" name="sector_obra" value="{{ $obras_ver->sector_obra }}" style="width:550px; font-size:18px;">
                            </td>
 </tr>

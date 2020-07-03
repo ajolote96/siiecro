@@ -51,6 +51,10 @@ $contador_recubrimiento = 0;
                                <td> <span class="input-group-addon"style="width: 300px; border:0;">Temporalidad</span></td>
                                <td> <input type="text" name="temp_obra" class="form-control"  value="{{ $analisisg->temp_obra }}" style="width:500px; text-align:center;" readonly></td>
                             </tr>
+                            <tr>
+                               <td> <span class="input-group-addon"style="width: 300px; border:0;">Área de la obra</span></td>
+                               <td> <input type="text" name="sector_obra" class="form-control"  value="{{ $analisisg->sector_obra }}" style="width:500px; text-align:center;" readonly></td>
+                            </tr>
                             @if($analisisg->epoca_obra == NULL)
                             @else
                             <tr>
@@ -74,11 +78,11 @@ $contador_recubrimiento = 0;
                         </tr>
                         @endif
                        <tr>
-                        <td><label for="respon_intervencion" class="input-group-addon"style="width: 300px; border:0;">Responsable de la Intervencion</label></td>
+                        <td><label for="respon_intervencion" class="input-group-addon"style="width: 300px; border:0;">Responsable de la Intervención</label></td>
                         <td><input type="text" class="form-control"  name="respon_intervencion"  value="{{ $analisisg->respon_intervencion }}" style="width:500px; text-align:center;"></td>
                       </tr>
                      <tr>
-                       <td> <label for="tecnica" class="input-group-addon"style="width: 300px; border:0;">Tecnica</label></td>
+                       <td> <label for="tecnica" class="input-group-addon"style="width: 300px; border:0;">Técnica</label></td>
                         <td><input type="text" class="form-control"  name="tecnica" value="{{ $analisisg->tecnica}}" style="width:500px; text-align:center;"></td>
                      </tr>
                      <tr>
@@ -169,7 +173,7 @@ $contador_recubrimiento = 0;
                 <!--TABLA BASE MUESTRA II -->
                @foreach($baseP as $bases)
                <div class="input-group" id="tabbase" >
-                    <table class="table table-bordered" style="width: 50%"><strong>II.BASE DE PREPARACION</strong> 
+                    <table class="table table-bordered" style="width: 50%"><strong>II.BASE DE PREPARACIÓN</strong> 
                         <thead>
                             <tr align="center">
                                 <th style="background-color: #FFCC66; color:white; width:300px">Nomenclatura</th>

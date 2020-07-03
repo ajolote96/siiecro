@@ -56,7 +56,7 @@
                                 <td><input type="date" class="form-control date" name="fecha_inicio" placeholder="mm/dd/aaaa (Fecha de entrada)" value="{{ $a_cientifico->fecha_inicio }}" style="width:500px; text-align:center;" readonly></td>
                             </tr>
                             <tr>
-                                <td><label for="tecnica" class="input-group-addon">Tecnica</label></td>
+                                <td><label for="tecnica" class="input-group-addon">Técnica</label></td>
                                 <td><input type="text" class="form-control"  name="tecnica" value="{{ $a_cientifico->tecnica }}" style="width:500px; text-align:center;" readonly></td>
                             </tr>
                             <tr>
@@ -72,11 +72,11 @@
                                 <td><input type="text" class="form-control"  name="lugar_de_resguardo" value="{{$a_cientifico->lugar_de_resguardo}}" style="width:500px; text-align:center;" readonly></td>
                             </tr>
                             <tr>
-                                <td><label for="caracte_analisis" class="input-group-addon">Caracterizacion de analisis</label></td>
+                                <td><label for="caracte_analisis" class="input-group-addon">Caracterización de análisis</label></td>
                                 <td><input type="text" class="form-control"  name="caracte_analisis" value="{{$a_cientifico->caracte_analisis}}" style="width:500px; text-align:center;" readonly></td>
                             </tr>
                             <tr>
-                                <td style="text-align:center;"><i class="fa fa-calendar" > Fecha de analisis cientifico</i></td>
+                                <td style="text-align:center;"><i class="fa fa-calendar" > Fecha de análisis cientificos</i></td>
                                 <td><input type="date" class="form-control date" name="fecha_analisis_cientifico" value="{{$a_cientifico->fecha_analisis_cientifico}}" style="width:500px; text-align:center;" readonly></td>
                             </tr>
                             <tr>
@@ -84,11 +84,11 @@
                                 <td><input type="text" class="form-control"  name="profesor_responsable" value="{{$a_cientifico->profesor_responsable}}" style="width:500px; text-align:center;" readonly></td>
                             </tr>
                             <tr>
-                                <td><label for="persona_realizo_analisis" class="input-group-addon">Persona que realizo el analisis</label></td>
+                                <td><label for="persona_realizo_analisis" class="input-group-addon">Persona que realizo el análisis</label></td>
                                 <td><input type="text" class="form-control"  name="persona_realizo_analisis" value="{{$a_cientifico->persona_realizo_analisis}}" style="width:500px; text-align:center;" readonly></td>
                             </tr>
                             <tr>
-                                <td><label for="forma_obtencion_muestra" class="input-group-addon">Forma de obtencion de las muestras</label></td>
+                                <td><label for="forma_obtencion_muestra" class="input-group-addon">Forma de obtención de las muestras</label></td>
                                 <td><input type="text" class="form-control"  name="forma_obtencion_muestra" value="{{$a_cientifico->forma_obtencion_muestra}}" style="width:500px; text-align:center;" readonly></td>
                             </tr>
                             <tr>
@@ -100,38 +100,38 @@
                                 <td><input type="text" class="form-control"  name="tipo_material" value="{{$a_cientifico->tipo_material}}" style="width:500px; text-align:center;" readonly></td>
                             </tr>
                             <tr>
-                                <td><label for="descripcion" class="input-group-addon">Descripcion</label></td>
+                                <td><label for="descripcion" class="input-group-addon">Descripción</label></td>
                                 <td><input type="text" class="form-control"  name="descripcion" value="{{$a_cientifico->descripcion}}" style="width:500px; text-align:center;" readonly></td>
                             </tr>
                             <tr>
-                                <td><label for="info_definir" class="input-group-addon">Informacion por definir</label></td>
+                                <td><label for="info_definir" class="input-group-addon">Información por definir</label></td>
                                 <td><input type="text" class="form-control"  name="info_definir" value="{{$a_cientifico->info_definir}}" style="width:500px; text-align:center;" readonly></td>
                             </tr>
                             <tr>
                                 <th colspan="2" style="text-align:center; background-color: #7C858C; color:white;"><h3>Datos Analíticos</h3></th>
                             </tr>
                             <tr>
-                                <td><label for="analisis_microestructural" class="input-group-addon">Analisis Morfológico</label></td>
+                                <td><label for="analisis_microestructural" class="input-group-addon">Análisis Morfológico</label></td>
                                 <td><input type="text" class="form-control"  name="analisis_morfologico" value="{{$a_cientifico->analisis_morfologico}}" style="width:500px; text-align:center;" readonly></td>
                             </tr>
                             <tr>
-                                <td><label for="analisis_microquimico" class="input-group-addon">Analisis microquimico</label></td>
+                                <td><label for="analisis_microquimico" class="input-group-addon">Análisis microquímico</label></td>
                                 <td><input type="text" class="form-control"  name="analisis_microquimico" value="{{$a_cientifico->analisis_microquimico}}" style="width:500px; text-align:center;" readonly></td>
                             </tr>
                             <tr>
-                                <td><label for="analisis_elemental" class="input-group-addon">Analisis microelemental</label></td>
+                                <td><label for="analisis_elemental" class="input-group-addon">Análisis microelemental</label></td>
                                 <td><input type="text" class="form-control"  name="analisis_elemental" value="{{$a_cientifico->analisis_elemental}}" style="width:500px; text-align:center;" readonly></td>
                             </tr>
                             <tr>
-                                <td><label for="analisis_molecular" class="input-group-addon">Analisis molecular</label></td>
+                                <td><label for="analisis_molecular" class="input-group-addon">Análisis molecular</label></td>
                                 <td><input type="text" class="form-control"  name="analisis_molecular" value="{{$a_cientifico->analisis_molecular}}" style="width:500px; text-align:center;" readonly></td>
                             </tr>
                             <tr>
-                                <td><label for="analisis_de_tincion" class="input-group-addon">Analisis de tincion</label></td>
+                                <td><label for="analisis_de_tincion" class="input-group-addon">Análisis de tinción</label></td>
                                 <td><input type="text" class="form-control"  name="analisis_de_tincion" value="{{$a_cientifico->analisis_de_tincion}}" style="width:500px; text-align:center;" readonly></td>
                             </tr>
                             <tr>
-                                <td><label for="analisis_microbiologicos" class="input-group-addon">Analisis Microbiológicos</label></td>
+                                <td><label for="analisis_microbiologicos" class="input-group-addon">Análisis Microbiológicos</label></td>
                                 <td><input type="text" class="form-control"  name="analisis_microbiologicos" value="{{$a_cientifico->analisis_microbiologicos}}" style="width:500px; text-align:center;" readonly></td>
                             </tr>
                             <tr>
@@ -142,7 +142,7 @@
                                 <th colspan="2" style="text-align:center; background-color: #7C858C; color:white;"><h3>Resultados</h3></th>
                             </tr>
                             <tr>
-                                <td><label for="resultado_conclucion_general" class="input-group-addon">Conclusión Generak</label></td>
+                                <td><label for="resultado_conclucion_general" class="input-group-addon">Conclusión General</label></td>
                                 <td><input type="text" class="form-control"  name="resultado_conclucion_general" value="{{$a_cientifico->resultado_conclucion_general}}" style="width:500px; text-align:center;" readonly></td>
                             </tr>
                             <tr>

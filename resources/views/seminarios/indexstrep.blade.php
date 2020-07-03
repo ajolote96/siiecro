@@ -16,7 +16,7 @@
 			<div align="center">
 			<h1>
 			Obras Registradas
-			{{ Form::open(['route' => 'Obras.index', 'method' => 'GET', 'class' => 'form-inline pull-right']) }}
+			{{ Form::open(['route' => 'Obra.strc', 'method' => 'GET', 'class' => 'form-inline pull-right']) }}
 			<div class="form-group">
 				{{ Form::text('busqueda', null, ['class' => 'form-control', 'placeholder' => 'Titulo'])}}
 			</div>
@@ -48,8 +48,9 @@
        				</thead>
        				<tbody>
        					@foreach ($Obras as $Obra)
+       					@if($Obra->sector_obra == 'Seminario Taller de Restauración de Escultura Policromada' || $Obra->sector_obra == 'Servicio Social - Seminario Taller de Restauración de Escultura Policromada' || $Obra->sector_obra == 'Práctica de Campo - Seminario Taller de Restauración de Escultura Policromada' )
+       					
        					<tr>
-       						
        						<td>{{ $Obra->id_de_obras }}</td>
 				            <td>{{ $Obra->titulo_obra }}</td>
 				            <td>{{ $Obra->año }}</td>
@@ -58,8 +59,6 @@
 				            <td>{{ $Obra->tipo_obj_obra }}</td>
 				            <td>{{ $Obra->sector_obra }}</td>
 				            <td>
-				            
-							
 				            <td><a href="{{ route('Obras.show', $Obra->id) }}" class="btn btn-block btn-info btn-xs" style="width:70px;">Ver mas</a></td>
 				            
 
@@ -68,17 +67,25 @@
 		                    @endpermission
 		                    
 		                    <td>
+
+
 							<form id="delete-{{ $Obra->id }}" action="{{ route('Obras.destroy', $Obra->id) }}" method="POST">
 								<a href="javascript:document.getElementById('delete-{{ $Obra->id }}').submit()" class="btn btn-block btn-danger btn-xs" onclick="return confirm('¿Seguro que deseas eliminarlo?')" style="width:70px;">Eliminar</a>
 		                    @method('delete')
 		 					@csrf
                 			</form>
+  							
+
 		                    </td>
+		                    
+		                    <td><a href="{{ route('analisisg.create', $Obra->id) }}" class="btn btn-block btn-success btn-xs" style="width:90px;">Agregar ficha</a></td>
+		                   
 							<td><a target="_blank" href="{{ route('Obras.pdf', $Obra->id) }}" class="btn btn-block btn-success btn-xs" style="width:90px;">Imprimir</a></td>
 
-		                    
             				</td>
+            				
         				</tr> 
+        				@endif
           				@endforeach
     				</tbody>
        					

@@ -905,5 +905,100 @@
                 element.style.display='none';
             }
         }
+
+        // TERCER FICHA
+        function tipomaterial(sel) {
+            if (sel.value=="Otro") {
+                tipomateotro.style.display='block';
+                selecttipomate.style.display='none';
+            } else {
+                tipomateotro.style.display='none';
+                selecttipomate.style.display='block';
+            }
+        }
+
+        function formaobtencion(sel) {
+            if (sel.value=="Otro") {
+                formamuestra.style.display='block';
+                selectformamuestra.style.display='none';
+            } else {
+                formamuestra.style.display='none';
+                selectformamuestra.style.display='block';
+            }
+        }
+
+        function infodefinir(sel) {
+            if (sel.value=="Otro") {
+                infodefinirotro.style.display='block';
+                selectinfo.style.display='none';
+            } else {
+                infodefinirotro.style.display='none';
+                selectinfo.style.display='block';
+            }
+        }
+
+        function analmicro(sel) {
+            if (sel.value=="Otro") {
+                analmorfootro.style.display='block';
+                selecmorfo.style.display='none';
+            } else {
+                analmorfootro.style.display='none';
+                selecmorfo.style.display='block';
+            }
+        }
+        function analmicroquimico(sel) {
+            if (sel.value=="Otro") {
+                analmicroquimicootro.style.display='block';
+                selecmicroquimico.style.display='none';
+            } else {
+                analmicroquimicootro.style.display='none';
+                selecmicroquimico.style.display='block';
+            }
+        }
+        function analelemental(sel) {
+            if (sel.value=="Otro") {
+                analelementalotro.style.display='block';
+                selecelemental.style.display='none';
+            } else {
+                analelementalotro.style.display='none';
+                selecelemental.style.display='block';
+            }
+        }
+        function analmole(sel) {
+            if (sel.value=="Otro") {
+                analmoleotro.style.display='block';
+                selecmole.style.display='none';
+            } else {
+                analmoleotro.style.display='none';
+                selecmole.style.display='block';
+            }
+        }
+        function analtincion(sel) {
+            if (sel.value=="Otro") {
+                analtincionotro.style.display='block';
+                selectincion.style.display='none';
+            } else {
+                analtincionotro.style.display='none';
+                selectincion.style.display='block';
+            }
+        }
+        function analmicrobiologicos(sel) {
+            if (sel.value=="Otro") {
+                analmicrobiologicosotro.style.display='block';
+                selecmicrobiologicos.style.display='none';
+            } else {
+                analmicrobiologicosotro.style.display='none';
+                selecmicrobiologicos.style.display='block';
+            }
+        }
+        function interpretacion(sel) {
+            if (sel.value=="Otro") {
+                analinterpretacionotro.style.display='block';
+                selecinterpretacion.style.display='none';
+            } else {
+                analinterpretacionotro.style.display='none';
+                selecinterpretacion.style.display='block';
+            }
+        }
     </script>
 </head>
