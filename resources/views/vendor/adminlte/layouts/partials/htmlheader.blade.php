@@ -1000,5 +1000,28 @@
                 selecinterpretacion.style.display='block';
             }
         }
+
+         window.contaresultados = 1
+        function masresultados() {
+            var inputresultados = `<br><table style="width: 50%"  border="0">
+                            <tr>
+                                <td><label for="resultado_interpretacion" class="input-group-addon" style="width: 400px">Resultado Interpretación</label></td>
+                                <td><input type="text" class="form-control" name="resultado_interpretacion${window.contaresultados}" style="width:500px; text-align:center;"></td>
+                            </tr>
+                            <tr>
+                                <td><label for="resultado_descripcion" class="input-group-addon">Resultado Descripción</label></td>
+                                <td><input type="text" class="form-control" name="resultado_descripcion${window.contaresultados}" style="width:500px; text-align:center;"></td>
+                            </tr>
+                            <tr>
+                                <td><label for="resultado_imagenes" class="input-group-addon">Resultado Imagenes</label></td>
+                                <td><input type="file" class="form-control" name="resultado_imagenes${window.contaresultados}" style="width:500px; text-align:center;"></td>
+                            </tr>
+                            <tr>
+                                <td><label for="resultado_datos" class="input-group-addon">Resultado Datos</label></td>
+                                <td><input type="file" class="form-control" name="resultado_datos${window.contaresultados}" style="width:500px; text-align:center;"><br><br></td>
+                            </tr></table>`
+            $('#inputresultados').append(inputresultados)
+            window.contaresultados += 1;
+        }
     </script>
 </head>

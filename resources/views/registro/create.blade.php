@@ -67,7 +67,52 @@
                             <tr>
                             <tr>
                                 <td><label for="nomenclatura_muestra" class="input-group-addon">Nomenclatura de la muestra</label></td>
-                                <td><input type="text" class="form-control"  name="nomenclatura_muestra" style="width:500px; text-align:center;" ></td>
+                                <td><select type="text" class="form-control"  name="nomenclatura_muestra" style="width:500px; text-align:center;" >
+                                    <option value="" style="text-align:center;">Selecciona una opción</option>
+                                    @foreach($soportes as $soporte)
+                                <option value="{{$soporte->soporte_nomenclatura}}" >{{$soporte->soporte_nomenclatura}}</option>
+                                @endforeach
+                                @foreach($baseP as $basesP)
+                                <option value="{{$basesP->base_nomenclatura}}" >{{$basesP->base_nomenclatura}}</option>
+                                @endforeach
+                                @foreach($estratigrafia as $estratigrafias)
+                                <option value="{{$estratigrafias->estratigrafia_nomenclatura}}" >{{$estratigrafias->estratigrafia_nomenclatura}}</option>
+                                @endforeach
+                                @foreach($revoque as $revoques)
+                                <option value="{{$revoques->revoque_nomenclatura}}" >{{$revoques->revoque_nomenclatura}}</option>
+                                @endforeach
+                                @foreach($bol as $bols)
+                                <option value="{{$bols->bol_nomenclatura}}" >{{$bols->bol_nomenclatura}}</option>
+                                @endforeach
+                                @foreach($lamina as $laminas)
+                                <option value="{{$laminas->laminas_nomenclatura}}" >{{$laminas->laminas_nomenclatura}}</option>
+                                @endforeach
+                                @foreach($pigmento as $pigmentos)
+                                <option value="{{$pigmentos->pigmentos_nomenclatura}}" >{{$pigmentos->pigmentos_nomenclatura}}</option>
+                                @endforeach
+                                @foreach($aglutinante as $aglutinantes)
+                                <option value="{{$aglutinantes->aglutinante_nomenclatura}}" >{{$aglutinantes->aglutinante_nomenclatura}}</option>
+                                @endforeach
+                                @foreach($recubrimiento as $recubrimientos)
+                                <option value="{{$recubrimientos->recubrimiento_nomenclatura}}" >{{$recubrimientos->recubrimiento_nomenclatura}}</option>
+                                @endforeach
+                                @foreach($maso as $masos)
+                                <option value="{{$masos->materialaso_nomenclatura}}" >{{$masos->materialaso_nomenclatura}}</option>
+                                @endforeach
+                                @foreach($sal as $sales)
+                                <option value="{{$sales->sales_nomenclatura}}" >{{$sales->sales_nomenclatura}}</option>
+                                @endforeach
+                                @foreach($materialag as $materialags)
+                                <option value="{{$materialags->materialag_nomenclatura}}" >{{$materialags->materialag_nomenclatura}}</option>
+                                @endforeach
+                                @foreach($biodeterioro as $biodeterioros)
+                                <option value="{{$biodeterioros->biodeterioro_nomenclatura}}" >{{$biodeterioros->biodeterioro_nomenclatura}}</option>
+                                @endforeach
+                                @foreach($otro as $otros)
+                                <option value="{{$otros->otros_nomenclatura}}" >{{$otros->otros_nomenclatura}}</option>
+                                @endforeach
+                                </select>
+                                </td>
                             </tr>
                             <tr>
                                 <td><label for="lugar_de_resguardo" class="input-group-addon">Lugar de Resguardo</label></td>
@@ -296,6 +341,7 @@
                                 </select>
                                 <input type="text" class="form-control" id="analmicrobiologicosotro" name="analmicrobiologicosotro" placeholder="Otro" value="" style="width:500px; font-size:18px; display: none;"></td>
                             </tr>
+                            
                             <tr>
                                 <td><label for="otros" class="input-group-addon">Otros</label></td>
                                 <td><input type="text" class="form-control"  name="otros" style="width:500px; text-align:center;"></td>
@@ -303,8 +349,36 @@
                             <tr>
                                 <th colspan="2" style="text-align:center; background-color: #7C858C; color:white;"><h3>Resultados</h3></th>
                             </tr>
+                        </table>
+                            <div id="inputresultados">
+                                <table style="width: 50%"  border="0">
                             <tr>
-                                <td><label for="resultado_conclucion_general" class="input-group-addon">Conclusión General</label></td>
+                                <td><label for="resultado_interpretacion" class="input-group-addon" style="width: 400px">Resultado Interpretación</label></td>
+                                <td><input type="text" class="form-control" name="resultado_interpretacion0" style="width:500px; text-align:center;"></td>
+                            </tr>
+                            <tr>
+                                <td><label for="resultado_descripcion" class="input-group-addon">Resultado Descripción</label></td>
+                                <td><input type="text" class="form-control" name="resultado_descripcion0" style="width:500px; text-align:center;"></td>
+                            </tr>
+                            <tr>
+                                <td><label for="resultado_imagenes" class="input-group-addon">Resultado Imagenes</label></td>
+                                <td><input type="file" class="form-control" name="resultado_imagenes0" style="width:500px; text-align:center;"></td>
+                            </tr>
+                            <tr>
+                                <td><label for="resultado_datos" class="input-group-addon">Resultado Datos</label></td>
+                                <td><input type="file" class="form-control" name="resultado_datos0" style="width:500px; text-align:center;"><br><br></td>
+                            </tr>
+                            </table>
+                            </div>
+                            <tr align=" center">
+                                <div align="center">
+                                    <td></td>
+                                    <td>
+                            <input type="button" id="otroresultados" name="otroresultados" class="btn-sm"  value="Agregar más" onclick="javascript:masresultados()"><br><br></td></div>
+                            <table style="width: 50%"  border="0">
+                            </tr>
+                            <tr>
+                                <td><label for="resultado_conclucion_general" class="input-group-addon" style="width: 400px">Conclusión General</label></td>
                                 <td><input type="text" class="form-control"  name="resultado_conclucion_general" style="width:500px; text-align:center;"></td>
                             </tr>
                             <tr>
@@ -457,6 +531,7 @@
                                 </select>
                                 <input type="text" class="form-control" id="analinterpretacionotro" name="analinterpretacionotro" placeholder="Otro" value="" style="width:500px; font-size:18px; display: none;"></td>
                             </tr>
+                           
                         </table>
                     </div> 
                     <div class="col-md-12 text-center">

@@ -94,6 +94,56 @@ Route::get('STRM', function (Request $request) {
      ->with('i', (request()->input('page', 1) - 1) * 15);
 })->name('Obra.strm');
 
+// LISTADO DE SEMINARIOS
+Route::get('ListadoSTRC', function (Request $request) {
+   $id_general = $request->get('busqueda');
+        $Analisisg = AnalisisG::where('titulo_obra', 'like', "%$id_general%")
+        ->paginate(15);
+        return view('seminarios.listadostrc',compact('Analisisg'))
+            ->with('i', (request()->input('page', 1) - 1) * 15);
+})->name('lista.strc');
+
+Route::get('ListadoSTREP', function (Request $request) {
+   $id_general = $request->get('busqueda');
+        $Analisisg = AnalisisG::where('titulo_obra', 'like', "%$id_general%")
+        ->paginate(15);
+        return view('seminarios.listadostrep',compact('Analisisg'))
+            ->with('i', (request()->input('page', 1) - 1) * 15);
+})->name('lista.strep');
+
+Route::get('ListadoSTREPYDG', function (Request $request) {
+   $id_general = $request->get('busqueda');
+        $Analisisg = AnalisisG::where('titulo_obra', 'like', "%$id_general%")
+        ->paginate(15);
+        return view('seminarios.listadostrepydg',compact('Analisisg'))
+            ->with('i', (request()->input('page', 1) - 1) * 15);
+})->name('lista.strepydg');
+
+Route::get('ListadoSTRM', function (Request $request) {
+   $id_general = $request->get('busqueda');
+        $Analisisg = AnalisisG::where('titulo_obra', 'like', "%$id_general%")
+        ->paginate(15);
+        return view('seminarios.listadostrm',compact('Analisisg'))
+            ->with('i', (request()->input('page', 1) - 1) * 15);
+})->name('lista.strm');
+
+Route::get('ListadoSTRPC', function (Request $request) {
+   $id_general = $request->get('busqueda');
+        $Analisisg = AnalisisG::where('titulo_obra', 'like', "%$id_general%")
+        ->paginate(15);
+        return view('seminarios.listadostrpc',compact('Analisisg'))
+            ->with('i', (request()->input('page', 1) - 1) * 15);
+})->name('lista.strpc');
+
+Route::get('ListadoSTRPM', function (Request $request) {
+   $id_general = $request->get('busqueda');
+        $Analisisg = AnalisisG::where('titulo_obra', 'like', "%$id_general%")
+        ->paginate(15);
+        return view('seminarios.listadostrpm',compact('Analisisg'))
+            ->with('i', (request()->input('page', 1) - 1) * 15);
+})->name('lista.strpm');
+
+
 Route::get('Obra/Capturar', function () {
     return view('obras.create');
 })->middleware('permission:Captura_de_Solicitud');
@@ -276,9 +326,8 @@ Route::get('AnalisisCientifico/{id}/Pdf', function ($id_general){
 
 Route::resource('AnalisisCientifico','AnalisisGController');
 Route::get('AnalisisCientifico', function (Request $request) {
-   $id_general = $request->get('id_general');
-        $Analisisg = AnalisisG::orderBy('id_general', 'DESC')
-        ->id($id_general)
+   $id_general = $request->get('busqueda');
+        $Analisisg = AnalisisG::where('titulo_obra', 'like', "%$id_general%")
         ->paginate(15);
         return view('analisisg.index',compact('Analisisg'))
             ->with('i', (request()->input('page', 1) - 1) * 15);

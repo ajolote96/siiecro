@@ -34,7 +34,7 @@
         					<th>Año</th>
         					<th>Epoca de la Obra</th>
 				            <th>Temporalidad</th>
-				            <th>Sector</th>
+				            <th>Área</th>
 				            <th>responsable de la Intervencion</th>
 				            <th>Año de temporada de trabajo</th>
                             <th>Foto</th>

@@ -14,7 +14,7 @@
 			Registro de Análisis Científico
 			{{ Form::open(['route' => 'registro.index', 'method' => 'GET', 'class' => 'form-inline pull-right']) }}
 			<div class="form-group">
-				<input  class="form-control" type="text" name="id_obra" placeholder="ID">
+				<input  class="form-control" type="text" name="busqueda" placeholder="Titulo">
 			</div>
 			<div class="form-group">
 				<button type="submit" class="btn btn-default">
@@ -29,35 +29,24 @@
 				<table id="tablaObras" class="table table-hover" role="grid" align="center">
 					<thead >
         				<tr align="center" >
-        					<th>ID de Registro</th>
-        					<th>ID Obra</th>
+        					<th>Nomenclatura</th>
         					<th>Titulo de la Obra</th>
-				            <th>temporada de obra</th>
-				            <th>Epoca de la Obra</th>
-				            <th>Lugar de procedencia original</th>
-				            <th>Lugar de procedencia actual</th>
-				            <th>Profesor responsable del Análisis Científico</th>
-				            <th>Proyecto de la Obra</th>
-				            <th>Año de proyecto</th>
-                            <th>Fecha de inicio</th>
-                            <th>Foto</th>
+				            <th>Área</th>
+				            <th>Caracterización de Tipo de Análisis</th>
+				            <th>Interpretación Particular</th>
+				            <th>Foto</th>
             				<th>Acción</th>
         				</tr>
        				</thead>
        				<tbody>
        					@foreach ($a_cientifico as $cienti)
        					<tr align="center">
-       						<td>{{ $cienti->idcientifico }}</td>
-       						<td>{{ $cienti->id_obras }}</td>
+       						<td>{{ $cienti->nomenclatura_muestra }}</td>
 				            <td>{{ $cienti->titulo_obra }}</td>
-				            <td>{{ $cienti->temp_trabajo }}</td>
-				            <td>{{ $cienti->epoca }}</td>
-				            <td>{{ $cienti->lugar_p_origen }}</td>
-				            <td>{{ $cienti->lugar_p_actual }}</td>
-				            <td>{{ $cienti->profesor_responsable }}</td>
-				            <td>{{ $cienti->proyecto_ecro }}</td>
-				            <td>{{ $cienti->año_proyecto }}</td>
-                            <td>{{ \Carbon\Carbon::parse($cienti->fecha_inicio)->format('d/m/Y') }}</td>
+				            <td></td>
+				            <td>{{ $cienti->caracte_analisis }}</td>
+				            <td>{{ $cienti->interpretacion_particular }}</td>
+				            
                             @if($cienti->esquema == 'Sin imagen')
                             <td>Sin imagen</td>
                             @else
