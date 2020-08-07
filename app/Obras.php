@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Obras extends Model
 {
+    //METODO PARA ESPECIFICAR LAS VARIABLES QUE USARA ESTE MODELO
     protected $fillable = [
         'id',
         'id_de_obras',

@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class EstratigrafiaSolicitud extends Model
 {
+    //METODO PARA ESPECIFICAR LAS VARIABLES QUE USARA ESTE MODELO
     protected $table = 'estratigrafia_solicitud';
     protected $fillable = [
     	'general_id',

@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class AnalisisCientifico extends Model
 {
+    //METODO PARA ESPECIFICAR LAS VARIABLES QUE USARA ESTE MODELO
     protected $table = 'analisiscientifico';
     protected $primaryKey = 'idcientifico';
     protected $fillable = [
@@ -41,6 +42,7 @@ class AnalisisCientifico extends Model
         'resultado_conclucion_general',
         'interpretacion_particular' ,
     ];
+
 
     public function scopeId($query, $id)
     {

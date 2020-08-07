@@ -7,6 +7,8 @@ use App\AnalisisCientifico;
 use App\AniosTemporada;
 use App\TemporadasTrabajo;
 
+
+//RUTAS PARA LA VISTA DE SOPORTE (MANDAR CORREO)
 Route::get('/Soporte', ['uses' =>'ContactMessageController@create'
 
 ])->name('soporte');
@@ -17,24 +19,6 @@ Route::post('/Soporte', ['uses' =>'ContactMessageController@store',
 ]);
 
 
-
-/*Route::get('Soporte', function() {
-    return view('soporte.mensaje_soporte');
-})->name('soporte');*/
-
-Route::get('Mensaje', 'ObrasController@mail', function() {
-    
-})->name('mensaje');
-
-Route::get('Perfil/Actualizar', 'UserController@edit');
-
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('home', function () {
-    return view('home');
-})->name('inicio');
-
 Route::group(['middleware' => 'auth'], function () {
     //    Route::get('/link1', function ()    {
 //        // Uses Auth Middleware
@@ -43,61 +27,66 @@ Route::group(['middleware' => 'auth'], function () {
     #adminlte_routes
 });
 
-
-// Rutas de Obras
-Route::resource('Obras','ObrasController');
-
-Route::get('index', function () {
-    return view('Obras.index');
+//RUTA PARA LA VISTA DE INICIO DE SESION
+Route::get('/', function () {
+    return view('welcome');
 });
 
-// Rutas de los Seminarios
+//RUTA PARA LA VISTA DE INICIO
+Route::get('home', function () {
+    return view('home');
+})->name('inicio');
+
+
+//----------------------------------------------------------------------------------------------------------//
+// Rutas de los Seminarios para la seccion de la segunda ficha (SOLICITUD DE ANALISIS CIENTIFICO)
 Route::get('STRC', function (Request $request) {
     $id = $request->get('busqueda');
-    $Obras = Obras::where('titulo_obra','like',"%$id%")->paginate(15);
+    $Obras = Obras::where('id_de_obras','like',"%$id%")->paginate(15);
     return view('seminarios.indexstrc',compact('Obras'))
      ->with('i', (request()->input('page', 1) - 1) * 15);
 })->name('Obra.strc');
 
 Route::get('STRPM', function (Request $request) {
     $id = $request->get('busqueda');
-    $Obras = Obras::where('titulo_obra','like',"%$id%")->paginate(15);
+    $Obras = Obras::where('id_de_obras','like',"%$id%")->paginate(15);
     return view('seminarios.indexstrpm',compact('Obras'))
      ->with('i', (request()->input('page', 1) - 1) * 15);
 })->name('Obra.strpm');
 
 Route::get('STRPC', function (Request $request) {
     $id = $request->get('busqueda');
-    $Obras = Obras::where('titulo_obra','like',"%$id%")->paginate(15);
+    $Obras = Obras::where('id_de_obras','like',"%$id%")->paginate(15);
     return view('seminarios.indexstrpc',compact('Obras'))
      ->with('i', (request()->input('page', 1) - 1) * 15);
 })->name('Obra.strpc');
 
 Route::get('STREP', function (Request $request) {
     $id = $request->get('busqueda');
-    $Obras = Obras::where('titulo_obra','like',"%$id%")->paginate(15);
+    $Obras = Obras::where('id_de_obras','like',"%$id%")->paginate(15);
     return view('seminarios.indexstrep',compact('Obras'))
      ->with('i', (request()->input('page', 1) - 1) * 15);
 })->name('Obra.strep');
 
 Route::get('STREPYDG', function (Request $request) {
     $id = $request->get('busqueda');
-    $Obras = Obras::where('titulo_obra','like',"%$id%")->paginate(15);
+    $Obras = Obras::where('id_de_obras','like',"%$id%")->paginate(15);
     return view('seminarios.indexstrepydg',compact('Obras'))
      ->with('i', (request()->input('page', 1) - 1) * 15);
 })->name('Obra.strepydg');
 
 Route::get('STRM', function (Request $request) {
     $id = $request->get('busqueda');
-    $Obras = Obras::where('titulo_obra','like',"%$id%")->paginate(15);
+    $Obras = Obras::where('id_de_obras','like',"%$id%")->paginate(15);
     return view('seminarios.indexstrm',compact('Obras'))
      ->with('i', (request()->input('page', 1) - 1) * 15);
 })->name('Obra.strm');
 
-// LISTADO DE SEMINARIOS
+//-------------------------------------------------------------------------------------------------//
+// LISTADO DE SEMINARIOS PARA LA SECCION DE LA TERCERA FICHA (REFISTRO DE ANALISIS CIENTIFICO)
 Route::get('ListadoSTRC', function (Request $request) {
    $id_general = $request->get('busqueda');
-        $Analisisg = AnalisisG::where('titulo_obra', 'like', "%$id_general%")
+        $Analisisg = AnalisisG::where('id_de_obras', 'like', "%$id_general%")
         ->paginate(15);
         return view('seminarios.listadostrc',compact('Analisisg'))
             ->with('i', (request()->input('page', 1) - 1) * 15);
@@ -105,7 +94,7 @@ Route::get('ListadoSTRC', function (Request $request) {
 
 Route::get('ListadoSTREP', function (Request $request) {
    $id_general = $request->get('busqueda');
-        $Analisisg = AnalisisG::where('titulo_obra', 'like', "%$id_general%")
+        $Analisisg = AnalisisG::where('id_de_obras', 'like', "%$id_general%")
         ->paginate(15);
         return view('seminarios.listadostrep',compact('Analisisg'))
             ->with('i', (request()->input('page', 1) - 1) * 15);
@@ -113,7 +102,7 @@ Route::get('ListadoSTREP', function (Request $request) {
 
 Route::get('ListadoSTREPYDG', function (Request $request) {
    $id_general = $request->get('busqueda');
-        $Analisisg = AnalisisG::where('titulo_obra', 'like', "%$id_general%")
+        $Analisisg = AnalisisG::where('id_de_obras', 'like', "%$id_general%")
         ->paginate(15);
         return view('seminarios.listadostrepydg',compact('Analisisg'))
             ->with('i', (request()->input('page', 1) - 1) * 15);
@@ -121,7 +110,7 @@ Route::get('ListadoSTREPYDG', function (Request $request) {
 
 Route::get('ListadoSTRM', function (Request $request) {
    $id_general = $request->get('busqueda');
-        $Analisisg = AnalisisG::where('titulo_obra', 'like', "%$id_general%")
+        $Analisisg = AnalisisG::where('id_de_obras', 'like', "%$id_general%")
         ->paginate(15);
         return view('seminarios.listadostrm',compact('Analisisg'))
             ->with('i', (request()->input('page', 1) - 1) * 15);
@@ -129,7 +118,7 @@ Route::get('ListadoSTRM', function (Request $request) {
 
 Route::get('ListadoSTRPC', function (Request $request) {
    $id_general = $request->get('busqueda');
-        $Analisisg = AnalisisG::where('titulo_obra', 'like', "%$id_general%")
+        $Analisisg = AnalisisG::where('id_de_obras', 'like', "%$id_general%")
         ->paginate(15);
         return view('seminarios.listadostrpc',compact('Analisisg'))
             ->with('i', (request()->input('page', 1) - 1) * 15);
@@ -137,13 +126,19 @@ Route::get('ListadoSTRPC', function (Request $request) {
 
 Route::get('ListadoSTRPM', function (Request $request) {
    $id_general = $request->get('busqueda');
-        $Analisisg = AnalisisG::where('titulo_obra', 'like', "%$id_general%")
+        $Analisisg = AnalisisG::where('id_de_obras', 'like', "%$id_general%")
         ->paginate(15);
         return view('seminarios.listadostrpm',compact('Analisisg'))
             ->with('i', (request()->input('page', 1) - 1) * 15);
 })->name('lista.strpm');
 
+//-------------------------------------------------------------------------------------//
+// Rutas de Obras
+Route::resource('Obras','ObrasController');
 
+Route::get('index', function () {
+    return view('Obras.index');
+});
 Route::get('Obra/Capturar', function () {
     return view('obras.create');
 })->middleware('permission:Captura_de_Solicitud');
@@ -327,7 +322,7 @@ Route::get('AnalisisCientifico/{id}/Pdf', function ($id_general){
 Route::resource('AnalisisCientifico','AnalisisGController');
 Route::get('AnalisisCientifico', function (Request $request) {
    $id_general = $request->get('busqueda');
-        $Analisisg = AnalisisG::where('titulo_obra', 'like', "%$id_general%")
+        $Analisisg = AnalisisG::where('id_de_obra', 'like', "%$id_general%")
         ->paginate(15);
         return view('analisisg.index',compact('Analisisg'))
             ->with('i', (request()->input('page', 1) - 1) * 15);
@@ -359,6 +354,7 @@ Route::put('AnalisisCientifico/{id_general}/editar', 'AnalisisGController@update
 Route::get('AnalisisCientifico/{id_general}/ver', 'AnalisisGController@show', function(Request $request, $id_general){
 })->name('analisisg.show');
 
+//------------------------------------------------------------------------------------------------------//
 //Rutas de registro de analisis cientifico
 Route::resource('RegistroCientifico','AnalisisCientificoController');
 Route::get('RegistroCientifico', 'AnalisisCientificoController@index', function (Request $request) {

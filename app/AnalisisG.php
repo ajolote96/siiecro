@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class AnalisisG extends Model
 {
+    //METODO PARA ESPECIFICAR LAS VARIABLES QUE USARA ESTE MODELO
 	protected $table = 'analisisg';
     protected $primaryKey = 'id_general';
     protected $fillable = [

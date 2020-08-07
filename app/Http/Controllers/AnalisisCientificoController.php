@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+//declaracion de los modelos que se utilizaran en el controlador
 use DB;
 use App\AnalisisG;
 use App\Obras;
@@ -32,8 +33,9 @@ class AnalisisCientificoController extends Controller
      */
     public function index(Request $request)
     {
+        //Funcion para mandar la consulta de la base de datos a la vista index de registro de analisis cientifico
         $id = $request->get('busqueda');
-        $a_cientifico = AnalisisCientifico::orderBy('titulo_obra', 'like', "%$id%")
+        $a_cientifico = AnalisisCientifico::orderBy('id_obras', 'like', "%$id%")
         ->paginate(15);
         return view('registro.index',compact('a_cientifico'))
             ->with('i', (request()->input('page', 1) - 1) * 15);
@@ -46,6 +48,8 @@ class AnalisisCientificoController extends Controller
      */
     public function create($id)
     {
+        //Funcion para mandar la consulta de la base de datos a la vista de create de registro de analisis cientifico
+
         $analisisg = AnalisisG::findOrFail($id);
         $tempo = DB::table('temporada_trabajo')->where('obra_id', $analisisg->id_obra)
         ->select('temporada_trabajo.temporada_trabajo')
@@ -133,6 +137,7 @@ class AnalisisCientificoController extends Controller
      */
     public function store(Request $request)
     {
+        //Funcion para crear el registro un la base de datos en registro de analisis cientifico
         $request->validate([
             'idcientifico',
             'id_gene',
@@ -170,9 +175,9 @@ class AnalisisCientificoController extends Controller
             'interpretacion_particular'  => 'required', 
         ]);
 
+        //Codigo para almacenar imagenes o archivos
         $a_cientifico = (new analisisCientifico)->fill($request->all());
         if ($request->hasFile('esquema')) {
-            //$a_cientifico->esquema = $request->file('esquema')->store('public');
             $nombre=$request->file('esquema')->getClientOriginalName();
             $request->file('esquema')->move('images', $nombre);
             $a_cientifico->esquema = $nombre;
@@ -189,7 +194,7 @@ class AnalisisCientificoController extends Controller
             
         
         if($a_cientifico->save()) {
-
+            //Codigo para almacenar mas de un registro
             for ($counter=0; $counter < 7 ; $counter++) { 
                 //$obtener_id = AnalisisG::latest('id_general')->first();
                 if ($request->get("resultado_interpretacion{$counter}") != NULL) {
@@ -236,6 +241,7 @@ dd($request->resultado_imagenes{$counter});
      */
     public function show(AnalisisCientifico $analisisCientifico, $id)
     {
+        //Funcion para mandar la consulta de la base de datos a la vista de show de registro de analisis cientifico
         $a_cientifico = AnalisisCientifico::findOrFail($id);
         return view('registro.show', compact('a_cientifico'));
     }
@@ -248,6 +254,7 @@ dd($request->resultado_imagenes{$counter});
      */
     public function edit(AnalisisCientifico $analisisCientifico, $idcientifico)
     {
+        //Funcion para mandar la consulta de la base de datos a la vista de edit de registro de analisis cientifico
         $a_cientifico = AnalisisCientifico::findOrFail($idcientifico);
         return view('registro.edit', compact('a_cientifico'));    
     }
@@ -261,6 +268,7 @@ dd($request->resultado_imagenes{$counter});
      */
     public function update(Request $request, $idcientifico)
     {
+        //Funcion para actualizar de la base de datos de registro de analisis cientifico
         $a_cientifico = AnalisisCientifico::findOrFail($idcientifico);
         $a_cientifico->id_obras = $request->input('id_obras');
         $a_cientifico->titulo_obra = $request->input('titulo_obra');
@@ -288,7 +296,7 @@ dd($request->resultado_imagenes{$counter});
         
 
         
-            
+    //metodo para actualizar imagenes
         if ($request->hasFile('esquema')) {
         //$a_cientifico->esquema = $request->file('esquema')->store('public');
         $nombre=$request->file('esquema')->getClientOriginalName();
@@ -314,6 +322,7 @@ dd($request->resultado_imagenes{$counter});
      */
     public function destroy(AnalisisCientifico $analisisCientifico, $idcientifico)
     {
+        //Funcion para eliminar de la base de datos de registro de analisis cientifico
         $a_cientifico = AnalisisCientifico::findOrFail($idcientifico);
         $a_cientifico->delete();
         return redirect()->route('registro.index')->with('success','Registro eliminado.');

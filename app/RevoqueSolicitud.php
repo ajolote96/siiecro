@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class RevoqueSolicitud extends Model
 {
+    //METODO PARA ESPECIFICAR LAS VARIABLES QUE USARA ESTE MODELO
     protected $table = 'revoque_solicitud';
     protected $fillable = [
     	'general_id',

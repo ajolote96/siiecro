@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+//declaracion de los modelos que se utilizaran en el controlador
 use DB;
 use App\AniosTemporada;
 use App\Obras;
@@ -62,6 +63,9 @@ class ObrasController extends Controller
 
     public function index(Request $request)
     {
+
+      //Funcion para mandar la consulta de la base de datos a la vista index de obras
+
         $id = $request->get('busqueda');
         $Obras = Obras::where('titulo_obra','like',"%$id%")->paginate(10);
         return view('obras.index',compact('Obras'))
@@ -86,6 +90,7 @@ class ObrasController extends Controller
      */
     public function store(Request $request)
     {
+        //Funcion para crear en la consulta de la base de datos 
         $request->validate([
             'id',
             'id_de_obras',
@@ -177,6 +182,7 @@ class ObrasController extends Controller
      */
     public function show($ido)
     {
+        //Funcion para mandar la consulta de la base de datos a la vista show de obras
         $obra = DB::table('obras')->where('obras.id', $ido)
         ->leftjoin('anio_temporada', 'obras.id', '=' , 'anio_temporada.obra_id')
         ->select('obras.*', 'anio_temporada.anio_temporada_trabajo')
@@ -213,7 +219,7 @@ class ObrasController extends Controller
      */
     public function update(Request $request, Obras $Obras)
     {
-
+        //Funcion para actualizar en la base de datos 
         $request->validate([
             'id',
             'titulo_obra' => 'required',
@@ -257,17 +263,7 @@ class ObrasController extends Controller
      * @param  \App\Obras  $obras
      * @return \Illuminate\Http\Response
      */
-    public function borrar(Obras $id)
-    {
-
-         Obras::destroy($id);
-         //$id->delete();
-         //$Obras = Obras::find($id);
-
-
-        return view('Obras.index');
-                        //->with('success','Obra Eliminada.');
-    }
+    
     public function destroy(Request $id)
     {
         /* $Obras = Obras::findOrFail($id->id);

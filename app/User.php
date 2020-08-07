@@ -13,6 +13,7 @@ use Hash;
 
 class User extends Model implements AuthenticatableContract, CanResetPasswordContract, ValidatingModelInterface, HashMethodInterface
 {
+    //METODO PARA ESPECIFICAR LAS VARIABLES QUE USARA ESTE MODELO
   use Authenticatable, CanResetPassword, ValidatingModelTrait, EntrustUserTrait;
 
     protected $throwValidationExceptions = true;

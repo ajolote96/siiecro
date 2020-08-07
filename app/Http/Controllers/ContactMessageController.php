@@ -16,6 +16,7 @@ class ContactMessageController extends Controller
             public function store(Request $request)
             {
 
+                //CAMPOS OBLIGATORIOS Y SE VALIDAN
         $this->validate($request,[
             'name'=>'required',
             'email'=>'required|email',
@@ -23,11 +24,13 @@ class ContactMessageController extends Controller
            
         ]);
 
+            //FUNCION PARA MANDAR EL CORREO
             Mail::send('emails.contact-message',[
             'msg'=>$request->message,'datos'=>$request->email,'nombres'=>$request->name
             ], function ($mail) use($request) {
             $mail->from($request->email,$request->name);
 
+            //AQUI SE ESPCIFICA A QUE EMAIL SE MANDA EL MENSAJE
             $mail->to('irving.bravo@alumnos.udg.mx')->subject('contact message');
             });
 

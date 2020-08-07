@@ -62,7 +62,10 @@
             }
         }
     </script> -->
+
+
     <script type="text/javascript">
+     //JS PARA MOSTRAR U OCULTAR DIFERENTES ATRIBUTOS EN LA VISTA
         function tipodebien(sel) {
             if (sel.value=="Arqueológico") {
                 $("#cultura").show();
@@ -95,7 +98,7 @@
             }
         }
 
-
+//JS PARA MOSTRAR U OCULTAR DIFERENTES ATRIBUTOS EN LA VISTA/
         function tipodeobjeto(sel) {
             if (sel.value=="Otro") {
                 tdootro.style.display='block';
@@ -105,7 +108,7 @@
                 tipoobjeto.style.display='block';
             }
         }
-
+//JS PARA MOSTRAR U OCULTAR DIFERENTES ATRIBUTOS EN LA VISTA/
         function temporal(sel) {
             if (sel.value=="Otro") {
                 tempotro.style.display='block';
@@ -115,7 +118,7 @@
                 temporalidadobra.style.display='block';
             }
         }
-
+//JS PARA MOSTRAR U OCULTAR DIFERENTES ATRIBUTOS EN LA VISTA/
         function epocaobra(sel) {
             if (sel.value=="Otro") {
                 epocaotro.style.display='block';
@@ -125,7 +128,7 @@
                 epocadeobra.style.display='block';
             }
         }
-
+//JS PARA MOSTRAR U OCULTAR DIFERENTES ATRIBUTOS EN LA VISTA/
         function sectorobra(sel) {
             if (sel.value=="Otro") {
                 sectorotro.style.display='block';
@@ -135,7 +138,7 @@
                 sectordeobra.style.display='block';
             }
         }
-
+//JS PARA LOS METODOS RECURSIVO DE MOSTRAR MAS CAMPOS EN LAS VISTAS CON EL BOTON "AGREGAR MAS"/
         window.contadoraños = 1
         function masañostemp() {
             var inputaños = `<br><input type="text" class="form-control"  name="anio${window.contadoraños}" placeholder="Año de Temporada de Trabajo" value="" style=" width:450px; font-size:18px; ">`
@@ -1001,6 +1004,7 @@
             }
         }
 
+//JS PARA LOS METODOS RECURSIVO DE MOSTRAR MAS CAMPOS EN LAS VISTAS CON EL BOTON "AGREGAR MAS"/
          window.contaresultados = 1
         function masresultados() {
             var inputresultados = `<br><table style="width: 50%"  border="0">

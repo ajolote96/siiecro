@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+//declaracion de los modelos que se utilizaran en el controlador
 use DB;
 use App\AnalisisG;
 use App\Obras;
@@ -35,6 +36,8 @@ class AnalisisGController extends Controller
 
     public function index(Request $request)
     {
+
+        //Funcion para mandar la consulta de la base de datos a la vista index de solicitud de analisis cientifico
         $id = $request->get('id_general');
         $Analisisg = AnalisisG::orderBy('id_general', 'DESC')
         ->id($id)
@@ -65,6 +68,7 @@ class AnalisisGController extends Controller
      */
     public function store(Request $request)
     {
+        //Funcion para crear el registro un la base de datos en solicitud de analisis cientifico
         $request->validate([
             'id_general',
             'id_obra',
@@ -108,6 +112,7 @@ class AnalisisGController extends Controller
         //dd($request->all());
         if ($analisisg->save()) {
         
+        //METODOS PARA CREAR LOS REGISTROS EN LAS DIFERENTES TABLAS ADICIONALES
             // SOPORTE MUESTRA I
             for ($counters=0; $counters < 7 ; $counters++) { 
                 $obtener_id = AnalisisG::latest('id_general')->first();
@@ -403,7 +408,7 @@ class AnalisisGController extends Controller
      */
     public function show(AnalisisG $analisisG, $id_general)
     {
-        
+        //Funcion para mandar la consulta de la base de datos a la vista de show de solicitud de analisis cientifico
         $analisisg = DB::table('analisisg')->where('id_general', $id_general)
         ->select('analisisg.*')
         ->get();
@@ -496,6 +501,8 @@ class AnalisisGController extends Controller
      */
     public function edit(AnalisisG $analisisG, $id_general)
     {
+
+        //Funcion para mandar la consulta de la base de datos a la vista de edit de solicitud de analisis cientifico
         $analisisg = DB::table('analisisg')->where('id_general', $id_general)
         ->select('analisisg.*')
         ->get();
@@ -589,6 +596,7 @@ class AnalisisGController extends Controller
      */
     public function update(Request $request, $id_general)
     {
+        //Funcion para actualizar de la base de datos de solicitud de analisis cientifico
         $analisisg = AnalisisG::findOrFail($id_general);
         $analisisg->diametro = $request->input('diametro');
         $analisisg->profundidad = $request->input('profundidad');
@@ -1087,6 +1095,7 @@ class AnalisisGController extends Controller
      */
     public function destroy(AnalisisG $analisisG, $id_general)
     {
+        //Funcion para eliminar de la base de datos de solicitud de analisis cientifico
         $analisisg = AnalisisG::findOrFail($id_general);
     $analisisg->delete();
     return redirect()->route('analisisg.index')->with('success','Solicitud Eliminada.');
