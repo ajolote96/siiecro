@@ -43,7 +43,7 @@
 @endpermission
 @permission(['Consulta_General_Basica','Consulta_General_Avanzada_2','Consulta_Externa'])
 <tr>
-  <td style="font-size:25px;">Titulo de la Obra:</td>
+  <td style="font-size:25px;">Título de la Obra:</td>
     <td style="font-size:25px;"><input type="text" readonly name="titulo_obra" class="form-control" placeholder="Titulo de la Obra" value="{{ $obras_ver->titulo_obra }}" style="width:550px; font-size:18px;"></td>
 </tr>
 @if($obras_ver->autor != NULL)
@@ -105,7 +105,7 @@
 @endif
 @if($obras_ver->epoca_obra != NULL)
 <tr>
-  <td style="font-size:25px;">Epoca de la Obra:</td>
+  <td style="font-size:25px;">Época de la Obra:</td>
   <td style="font-size:25px;"><input  type="text" name="epoca_obra" readonly class="form-control" placeholder="Epoca de la Obra" value="{{ $obras_ver->epoca_obra }}" style="width:550px; font-size:18px;"></td>
 </tr>
 @endif
@@ -125,14 +125,14 @@
 @endif
 @if($obras_ver->epoca_confirm != NULL)
 <tr>
-  <td style="font-size:25px;">Epoca de la Obra Confirmada:</td>
+  <td style="font-size:25px;">Época de la Obra Confirmada:</td>
   <td><input type="text"  class="form-control" name="epoca_confirm" readonly value="{{ $obras_ver->epoca_confirm }}" style="width:550px; font-size:18px;">
   </td>
 </tr>
 @endif
 @if($obras_ver->epoca_aproxi != NULL)
 <tr>
-  <td style="font-size:25px;">Epoca de la Obra Aproximada:</td>
+  <td style="font-size:25px;">Época de la Obra Aproximada:</td>
   <td style="font-size:25px;"><input type="text" readonly class="form-control" name="epoca_aproxi" value="{{ $obras_ver->epoca_aproxi }}" style="width:550px; font-size:18px;">
   </td>
 </tr>

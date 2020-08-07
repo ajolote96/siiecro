@@ -41,7 +41,7 @@
         					<th>Epoca</th>
         					<th>Temporalidad</th>
         					<th>Tipo de Objeto</th>
-				            <th>Sector de la obra</th>
+				            <th>Área</th>
             				<th>Acción</th>
         				</tr>
        				</thead>

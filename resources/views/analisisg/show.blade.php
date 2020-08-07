@@ -34,7 +34,7 @@ $contador_recubrimiento = 0;
                 <form action="{{ route('analisisg.actualizar', $analisisg->id_general) }}" method="POST" class="form-inline text-left" enctype="multipart/form-data">
                     @csrf 
 
-                    <div align="center">
+                    <div align="center" style="overflow-x: auto;">
                         <table style="width: 50%" border="0">
                             <tr>
                                 <th colspan="2" style="text-align:center; background-color: #7C858C; color:white;"><h3>Datos Generales</h3></th>
@@ -51,10 +51,6 @@ $contador_recubrimiento = 0;
                                <td> <span class="input-group-addon"style="width: 300px; border:0;">Temporalidad</span></td>
                                <td> <input type="text" name="temp_obra" class="form-control"  value="{{ $analisisg->temp_obra }}" style="width:500px; text-align:center;" readonly></td>
                             </tr>
-                            <tr>
-                               <td> <span class="input-group-addon"style="width: 300px; border:0;">Área de la obra</span></td>
-                               <td> <input type="text" name="sector_obra" class="form-control"  value="{{ $analisisg->sector_obra }}" style="width:500px; text-align:center;" readonly></td>
-                            </tr>
                             @if($analisisg->epoca_obra == NULL)
                             @else
                             <tr>
@@ -62,21 +58,26 @@ $contador_recubrimiento = 0;
                               <td>  <input type="text" name="epoca_obra" class="form-control"  value="{{ $analisisg->epoca_obra }}" style="width:500px; text-align:center;" readonly></td>
                             </tr>
                             @endif
-                            <tr>
-                              <td>  <label for="tipo_obj_obra" class="input-group-addon"style="width: 300px; border:0;">Tipo de objeto de la obra</label></td>
-                               <td> <input type="text" name="tipo_obj_obra" class="form-control"  value="{{$analisisg->tipo_obj_obra }}" style="width:500px; text-align:center;" readonly></td>
-                            </tr>
-                            <tr>
-                            <td><label for="anio_temporada_trabajo" class="input-group-addon" style="width: 300px;">Año de temporada de trabajo</label></td>
-                            <td><input type="text" name="anio_temporada_trabajo" class="form-control"  value="{{$analisisg->anio_temporada_trabajo }}" style="width:500px; text-align:center;" readonly></td>
-                        </tr>
-                        @if($analisisg->año_de_obra == NULL)
+                            @if($analisisg->año_de_obra == NULL)
                         @else
                         <tr>
                             <td><label for="año_de_obra" class="input-group-addon" style="width: 300px;">Año de la Obra</label></td>
                             <td><input type="text" name="año_de_obra" class="form-control"  value="{{$analisisg->año_de_obra }}" style="width:500px; text-align:center;" readonly></td>
                         </tr>
                         @endif
+                            <tr>
+                              <td>  <label for="tipo_obj_obra" class="input-group-addon"style="width: 300px; border:0;">Tipo de objeto de la obra</label></td>
+                               <td> <input type="text" name="tipo_obj_obra" class="form-control"  value="{{$analisisg->tipo_obj_obra }}" style="width:500px; text-align:center;" readonly></td>
+                            </tr>
+                            <tr>
+                               <td> <span class="input-group-addon"style="width: 300px; border:0;">Área de la obra</span></td>
+                               <td> <input type="text" name="sector_obra" class="form-control"  value="{{ $analisisg->sector_obra }}" style="width:500px; text-align:center;" readonly></td>
+                            </tr>
+                            <tr>
+                            <td><label for="anio_temporada_trabajo" class="input-group-addon" style="width: 300px;">Año de temporada de trabajo</label></td>
+                            <td><input type="text" name="anio_temporada_trabajo" class="form-control"  value="{{$analisisg->anio_temporada_trabajo }}" style="width:500px; text-align:center;" readonly></td>
+                        </tr>
+                        
                        <tr>
                         <td><label for="respon_intervencion" class="input-group-addon"style="width: 300px; border:0;">Responsable de la Intervención</label></td>
                         <td><input type="text" class="form-control"  name="respon_intervencion"  value="{{ $analisisg->respon_intervencion }}" style="width:500px; text-align:center;"></td>
@@ -112,7 +113,8 @@ $contador_recubrimiento = 0;
 
 </div>  <!--aca termina-->
 <br>
-                <div class="" align="center">
+    <div style="overflow-x: auto;">
+                <div class="" align="center" style="overflow-x: auto;">
                     <table style="width: 50%" class="table-bordered">
                         <tr>
                             <th style="text-align: center; background-color: #7C858C; color:white;">Foto de inicio</th>
@@ -139,7 +141,7 @@ $contador_recubrimiento = 0;
                     </tr>
                     </table>  
                     </div>
-                    <h2 style="background-color: #7C858C; color:white; text-align:center;">Analisis</h2>
+                    <h2 style="background-color: #7C858C; color:white; text-align:center;">Análisis</h2>
                <!--TABLA SOPORTE  I-->
                 @foreach($soportes as $soporte)
                 <div class="input-group" id="tabso" >
@@ -569,7 +571,9 @@ $contador_recubrimiento = 0;
                     </table>
                 </div>
                 @endforeach
+            </div>
                 <br><br>
+
                     <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                             <a href="{{route('analisisg.index')}}" class="btn btn-danger btn-sm">Regresar</a>
                     </div>

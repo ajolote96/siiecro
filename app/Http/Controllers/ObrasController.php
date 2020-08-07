@@ -190,7 +190,7 @@ class ObrasController extends Controller
         
         //$anio = AniosTemporada::where('obra_id', $obra->id)->join('anio_temporada_trabajo');
         //dd($obras);
-        return view('Obras.show', compact('obras', 'tempo'));
+        return view('obras.show', compact('obras', 'tempo'));
     }
 
     /**

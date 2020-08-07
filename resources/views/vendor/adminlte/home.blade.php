@@ -48,7 +48,7 @@ $res = $con->query($sql);
   ?>
      ]);
         var options = {
-          title: 'Obras del dia'
+          title: 'Registros de Obras Totales'
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('donutchart'));

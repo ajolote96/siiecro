@@ -37,7 +37,7 @@
 @endpermission
 @permission(['Consulta_General_Basica','Consulta_General_Avanzada_2','Consulta_Externa'])
 <tr>
-  <td style="font-size:20px;">Titulo de la Obra:</td>
+  <td style="font-size:20px;">Título de la Obra:</td>
     <td style="font-size:20px;">{{ $obra->titulo_obra }}</td>
 </tr>
 @if($obra->autor != NULL)
@@ -97,7 +97,7 @@
 @endif
 @if($obra->epoca_obra != NULL)
 <tr>
-  <td style="font-size:20px;">Epoca de la Obra:</td>
+  <td style="font-size:20px;">Época de la Obra:</td>
   <td style="font-size:20px;">{{ $obra->epoca_obra }}</td>
 </tr>
 @endif
@@ -117,13 +117,13 @@
 @endif
 @if($obra->epoca_confirm != NULL)
 <tr>
-  <td style="font-size:20px;">Epoca de la Obra Confirmada:</td>
+  <td style="font-size:20px;">Época de la Obra Confirmada:</td>
   <td style="font-size:20px;">{{ $obra->epoca_confirm }}</td>
 </tr>
 @endif
 @if($obra->epoca_aproxi != NULL)
 <tr>
-  <td style="font-size:20px;">Epoca de la Obra Aproximada:</td>
+  <td style="font-size:20px;">Época de la Obra Aproximada:</td>
   <td style="font-size:20px;">{{ $obra->epoca_aproxi }}</td>
 </tr>
 @endif

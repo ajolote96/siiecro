@@ -2,12 +2,6 @@
 
 @section('main-content')
 
-
-<!--@if ($message = Session::get('success'))
-        <div class="alert alert-success">
-            <p>{{ $message }}</p>
-        </div>{{ $Obrasg->first()->id }}
-@endif-->
 <div class="box">
     <div class="box-body"  >
             <div class="panel">
@@ -27,7 +21,7 @@
                     @csrf
                     <input hidden="" type="text" name="id_obra" value="{{ $obra->id }}">
                     <BR>
-                    <div align="center">
+                    <div style="overflow-x: auto;" align="center">
                     <table style="width: 50%"  border="0" >
                         <tr><th colspan="2" style="text-align:center; background-color: #7C858C; color:white;"><h3>Datos Generales</h3></th></tr>
                         <tr >
@@ -42,10 +36,6 @@
                             <td><span class="input-group-addon" style="width: 300px; border:0;">Temporalidad</span></td>
                             <td><input type="text" name="temp_obra" class="form-control"  value="12" style="width:500px; text-align:center;" readonly></td>
                         </tr>
-                        <tr>
-                            <td><span class="input-group-addon" style="width: 300px; border:0;">Área de la obra</span></td>
-                            <td><input type="text" name="sector_obra" class="form-control"  value="{{ $obra->sector_obra }}" style="width:500px; text-align:center;" readonly></td>
-                        </tr>
                         @if($obra->epoca_obra == NULL)
                         @else
                         <tr>
@@ -53,10 +43,6 @@
                             <td><input type="text" name="epoca_obra" class="form-control"  value="{{ $obra->epoca_obra }}" style="width:500px; text-align:center;" readonly></td>
                         </tr>
                         @endif
-                        <tr>
-                            <td><label for="tipo_obj_obra" class="input-group-addon" style="width: 300px;">Tipo de objeto de la obra</label></td>
-                            <td><input type="text" name="tipo_obj_obra" class="form-control"  value="{{$obra->tipo_obj_obra }}" style="width:500px; text-align:center;" readonly></td>
-                        </tr>
                         @if($obra->año_de_obra == NULL)
                         @else
                         <tr>
@@ -64,6 +50,15 @@
                             <td><input type="text" name="año_de_obra" class="form-control"  value="{{$obra->año }}" style="width:500px; text-align:center;" readonly></td>
                         </tr>
                         @endif
+                        <tr>
+                            <td><label for="tipo_obj_obra" class="input-group-addon" style="width: 300px;">Tipo de objeto de la obra</label></td>
+                            <td><input type="text" name="tipo_obj_obra" class="form-control"  value="{{$obra->tipo_obj_obra }}" style="width:500px; text-align:center;" readonly></td>
+                        </tr>
+                        <tr>
+                            <td><span class="input-group-addon" style="width: 300px; border:0;">Área de la obra</span></td>
+                            <td><input type="text" name="sector_obra" class="form-control"  value="{{ $obra->sector_obra }}" style="width:500px; text-align:center;" readonly></td>
+                        </tr>
+                        
                         <tr>
                             <td><label for="anio_temporada_trabajo" class="input-group-addon" style="width: 300px;">Año de la temporada de trabajo</label></td>
                             <td><select class="form-control" name="anio_temporada_trabajo" style="width: 500px; text-align:center;">
@@ -117,7 +112,7 @@
 
 </div><br><br>
                 
-                <table class="table table-bordered"><h3 style="text-align:center; background-color: #7C858C; color:white;">ANALISIS</h3><br></div>
+                <table class="table table-bordered"><h3 style="text-align:center; background-color: #7C858C; color:white;">ANÁLISIS</h3><br></div>
                     <thead>
                         <tr>
                             <th><label><input type="checkbox" name="tsoporte" id="tsoporte" onchange="javascript:showSoporte()">I. SOPORTE</label><br></th>

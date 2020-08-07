@@ -41,7 +41,7 @@ $contador_anio = 0;
 @endpermission
 @permission(['Edicion_de_Registro_basica','Edicion_Registro_Avanzada_1','Edicion_Registro_Avanzada_2'])
 <tr>
-  <td style="font-size:25px;">Titulo de la Obra:</td>
+  <td style="font-size:25px;">Título de la Obra:</td>
     <td style="font-size:25px;"><input type="text" name="titulo_obra" class="form-control" placeholder="Titulo de la Obra" value="{{ $obras_ver->titulo_obra }}" style="width:550px; font-size:18px;"></td>
 </tr>
 
@@ -152,7 +152,7 @@ $contador_anio = 0;
   <td style="font-size:23px;"><input type="text" name="año" class="form-control" placeholder="Año de la Obra" value="{{ $obras_ver->año }}" style="width:550px; font-size:18px;"></td>
 </tr>
 <tr id="epoca">
-  <td style="font-size:25px;">Epoca de la Obra:</td>
+  <td style="font-size:25px;">Época de la Obra:</td>
   <td style="font-size:25px;"><select type="text" name="epoca_obra" id="epocadeobra" onChange="epocaobra(this)" class="input-group-addon" placeholder="Epoca de la Obra" value="{{ $obras_ver->epoca_obra }}" style="width:550px; font-size:18px;">
       <option value="{{ $obras_ver->epoca_obra }}" >{{ $obras_ver->epoca_obra }}</option>
         <option>Siglo XIII</option>
@@ -185,7 +185,7 @@ $contador_anio = 0;
                       </select></td>
 </tr>
 <tr id="epocacon">
-  <td style="font-size:25px;">Epoca de la Obra Confirmada:</td>
+  <td style="font-size:25px;">Época de la Obra Confirmada:</td>
   <td><select class="input-group-addon" name="epoca_confirm" value="{{ $obras_ver->epoca_confirm }}" style="width:550px; font-size:18px;">
                             <option value="{{ $obras_ver->epoca_confirm }}" >{{ $obras_ver->epoca_confirm }}</option>
                             <option>si</option>
@@ -193,7 +193,7 @@ $contador_anio = 0;
                       </select></td>
 </tr>
 <tr id="epocaaprox">
-  <td style="font-size:25px;">Epoca de la Obra Aproximada:</td>
+  <td style="font-size:25px;">Época de la Obra Aproximada:</td>
   <td style="font-size:25px;"><select class="input-group-addon" name="epoca_aproxi" value="{{ $obras_ver->epoca_aproxi }}" style="width:550px; font-size:18px;">
                             <option value="{{ $obras_ver->epoca_aproxi }}" >{{ $obras_ver->epoca_aproxi }}</option>
                             <option>si</option>
