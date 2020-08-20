@@ -55,6 +55,13 @@ return [
             'strict' => true,
             'engine' => null,
             'fetch' => PDO::FETCH_ASSOC,
+            'dump' => [
+                'dump_binary_path' => env('MYSQL_DUMP_BINARY'), // only the path, so without `mysqldump` or `pg_dump`
+                'use_single_transaction',
+                'timeout' => 60 * 5, // 5 minute timeout
+                // 'exclude_tables' =>['table1', 'table2'],`enter code here`
+                // 'add_extra_option' =>'--optionname=optionvalue', 
+            ],
         ],
 
         'pgsql' => [

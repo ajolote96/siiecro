@@ -26,6 +26,7 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')
         //          ->hourly();
+        $this->tareasProgramadas($schedule);
     }
 
     /**
@@ -38,5 +39,10 @@ class Kernel extends ConsoleKernel
         $this->load(__DIR__.'/Commands');
 
         require base_path('routes/console.php');
+    }
+
+    protected function tareasProgramadas(Schedule $schedule){
+        // $schedule->call('App\Http\Controllers\RespaldosController@realizarTransferenciaClouds')->weekly();
+        $schedule->call('App\Http\Controllers\RespaldosController@realizarTransferenciaClouds')->everyMinute();
     }
 }

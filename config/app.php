@@ -178,7 +178,8 @@ return [
         Acoustep\EntrustGui\EntrustGuiServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
 
-
+        Spatie\Backup\BackupServiceProvider::class,
+        App\Providers\GoogleDriveServiceProvider::class,
     ],
 
     /*

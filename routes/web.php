@@ -7,6 +7,8 @@ use App\AnalisisCientifico;
 use App\AniosTemporada;
 use App\TemporadasTrabajo;
 
+// Rutas para respaldos
+Route::get('/backups', 'RespaldosController@realizarTransferenciaClouds');
 
 //RUTAS PARA LA VISTA DE SOPORTE (MANDAR CORREO)
 Route::get('/Soporte', ['uses' =>'ContactMessageController@create'
