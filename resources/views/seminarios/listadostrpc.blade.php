@@ -30,12 +30,12 @@
 					<thead >
         				<tr align="center" >
         					<th>ID Obra</th>
-        					<th>Titulo de la Obra</th>
+        					<th>Título de la Obra</th>
         					<th>Año</th>
-        					<th>Epoca de la Obra</th>
+        					<th>Época de la Obra</th>
 				            <th>Temporalidad</th>
 				            <th>Área</th>
-				            <th>responsable de la Intervencion</th>
+				            <th>Responsable de la Intervención</th>
 				            <th>Año de temporada de trabajo</th>
                             <th>Foto</th>
             				<th>Acción</th>
@@ -60,7 +60,7 @@
                             <td><a target="_blank" href="{{ "images/$analisg->foto" }}"><img  width="200px" src="images/{{ $analisg->foto }}" class="zoom"></a></td>
                             @endif
 				            <td>
-				            	<td><a href="{{ route('analisisg.show', $analisg->id_general) }}" class="btn btn-block btn-info btn-xs" style="width:70px;">Ver mas</a></td>
+				            	<td><a href="{{ route('analisisg.show', $analisg->id_general) }}" class="btn btn-block btn-info btn-xs" style="width:70px;">Ver más</a></td>
 				            	
 				            	<td><a href="{{ route('analisisg.editar', $analisg->id_general) }}" class="btn btn-block btn-warning btn-xs" style="width:70px;">Editar</a>
 				            		
