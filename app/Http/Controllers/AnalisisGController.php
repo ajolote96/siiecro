@@ -126,7 +126,9 @@ class AnalisisGController extends Controller
                             'soporte_des_muestra' => $request->get("Sdes_muestra{$counters}"),
                             'soporte_ubicacion' => $request->get("Subicacion{$counters}"),
                             'soporte_responsable' => $request->get("Sresponsable{$counters}"),
-                            'soporte_identificacion_muestra'=> $request->get("Siden_muestra{$counters}")]);
+                            // Se elimina atributo en solicitud de Geovanna
+                            // 'soporte_identificacion_muestra'=> $request->get("Siden_muestra{$counters}")
+                        ]);
                     }else{
                         break;
                     }
@@ -145,7 +147,8 @@ class AnalisisGController extends Controller
                             'base_des_muestra' => $request->get("BPdes_muestra{$counters}"),
                             'base_ubicacion' => $request->get("BPubicacion{$counters}"),
                             'base_responsable' => $request->get("BPresponsable{$counters}"),
-                            'base_identificacion_muestra'=> $request->get("BPiden_muestra{$counters}")]);
+                            // 'base_identificacion_muestra'=> $request->get("BPiden_muestra{$counters}")
+                        ]);
                     }else{
                         break;
                     }
@@ -164,7 +167,8 @@ class AnalisisGController extends Controller
                             'estratigrafia_des_muestra' => $request->get("Edes_muestra{$counters}"),
                             'estratigrafia_ubicacion' => $request->get("Eubicacion{$counters}"),
                             'estratigrafia_responsable' => $request->get("Eresponsable{$counters}"),
-                            'estratigrafia_identificacion_muestra'=> $request->get("Eiden_muestra{$counters}")]);
+                            // 'estratigrafia_identificacion_muestra'=> $request->get("Eiden_muestra{$counters}")
+                        ]);
                     }else{
                         break;
                     }
@@ -184,7 +188,8 @@ class AnalisisGController extends Controller
                             'revoque_des_muestra' => $request->get("REdes_muestra{$counters}"),
                             'revoque_ubicacion' => $request->get("REubicacion{$counters}"),
                             'revoque_responsable' => $request->get("REresponsable{$counters}"),
-                            'revoque_identificacion_muestra'=> $request->get("REiden_muestra{$counters}")]);
+                            // 'revoque_identificacion_muestra'=> $request->get("REiden_muestra{$counters}")
+                        ]);
                     }else{
                         break;
                     }
@@ -203,7 +208,8 @@ class AnalisisGController extends Controller
                             'bol_des_muestra' => $request->get("BOLdes_muestra{$counters}"),
                             'bol_ubicacion' => $request->get("BOLubicacion{$counters}"),
                             'bol_responsable' => $request->get("BOLresponsable{$counters}"),
-                            'bol_identificacion_muestra'=> $request->get("BOLiden_muestra{$counters}")]);
+                            // 'bol_identificacion_muestra'=> $request->get("BOLiden_muestra{$counters}")
+                        ]);
                     }else{
                         break;
                     }
@@ -222,7 +228,8 @@ class AnalisisGController extends Controller
                             'laminas_des_muestra' => $request->get("LMdes_muestra{$counters}"),
                             'laminas_ubicacion' => $request->get("LMubicacion{$counters}"),
                             'laminas_responsable' => $request->get("LMresponsable{$counters}"),
-                            'laminas_identificacion_muestra'=> $request->get("LMiden_muestra{$counters}")]);
+                            // 'laminas_identificacion_muestra'=> $request->get("LMiden_muestra{$counters}")
+                        ]);
                     }else{
                         break;
                     }
@@ -241,7 +248,8 @@ class AnalisisGController extends Controller
                             'pigmentos_des_muestra' => $request->get("Pdes_muestra{$counters}"),
                             'pigmentos_ubicacion' => $request->get("Pubicacion{$counters}"),
                             'pigmentos_responsable' => $request->get("Presponsable{$counters}"),
-                            'pigmentos_identificacion_muestra'=> $request->get("Piden_muestra{$counters}")]);
+                            // 'pigmentos_identificacion_muestra'=> $request->get("Piden_muestra{$counters}")
+                        ]);
                     }else{
                         break;
                     }
@@ -260,7 +268,8 @@ class AnalisisGController extends Controller
                             'aglutinante_des_muestra' => $request->get("Ades_muestra{$counters}"),
                             'aglutinante_ubicacion' => $request->get("Aubicacion{$counters}"),
                             'aglutinante_responsable' => $request->get("Aresponsable{$counters}"),
-                            'aglutinante_identificacion_muestra'=> $request->get("Aiden_muestra{$counters}")]);
+                            // 'aglutinante_identificacion_muestra'=> $request->get("Aiden_muestra{$counters}")
+                        ]);
                         }else{
                         break;
                     }
@@ -280,7 +289,8 @@ class AnalisisGController extends Controller
                             'recubrimiento_des_muestra' => $request->get("Rdes_muestra{$counters}"),
                             'recubrimiento_ubicacion' => $request->get("Rubicacion{$counters}"),
                             'recubrimiento_responsable' => $request->get("Rresponsable{$counters}"),
-                            'recubrimiento_identificacion_muestra'=> $request->get("Riden_muestra{$counters}")]);
+                            // 'recubrimiento_identificacion_muestra'=> $request->get("Riden_muestra{$counters}")
+                        ]);
                         }else{
                         break;
                     }
@@ -301,7 +311,8 @@ class AnalisisGController extends Controller
                         'materialaso_des_muestra' => $request->get("MASOdes_muestra{$counters}"),
                         'materialaso_ubicacion' => $request->get("MASOubicacion{$counters}"),
                         'materialaso_responsable' => $request->get("MASOresponsable{$counters}"),
-                        'materialaso_identificacion_muestra'=> $request->get("MASOiden_muestra{$counters}")]);
+                        // 'materialaso_identificacion_muestra'=> $request->get("MASOiden_muestra{$counters}")
+                    ]);
                     }else{
                         break;
                     }
@@ -323,7 +334,8 @@ class AnalisisGController extends Controller
                         'sales_des_muestra' => $request->get("SALdes_muestra{$counters}"),
                         'sales_ubicacion' => $request->get("SALubicacion{$counters}"),
                         'sales_responsable' => $request->get("SALresponsable{$counters}"),
-                        'sales_identificacion_muestra'=> $request->get("SALiden_muestra{$counters}")]);
+                        // 'sales_identificacion_muestra'=> $request->get("SALiden_muestra{$counters}")
+                    ]);
                     }else{
                         break;
                     }
@@ -344,7 +356,8 @@ class AnalisisGController extends Controller
                         'materialag_des_muestra' => $request->get("MAGdes_muestra{$counters}"),
                         'materialag_ubicacion' => $request->get("MAGubicacion{$counters}"),
                         'materialag_responsable' => $request->get("MAGresponsable{$counters}"),
-                        'materialag_identificacion_muestra'=> $request->get("MAGiden_muestra{$counters}")]);
+                        // 'materialag_identificacion_muestra'=> $request->get("MAGiden_muestra{$counters}")
+                    ]);
                     }else{
                         break;
                     }
@@ -366,7 +379,8 @@ class AnalisisGController extends Controller
                         'biodeterioro_des_muestra' => $request->get("BDTdes_muestra{$counters}"),
                         'biodeterioro_ubicacion' => $request->get("BDTubicacion{$counters}"),
                         'biodeterioro_responsable' => $request->get("BDTresponsable{$counters}"),
-                        'biodeterioro_identificacion_muestra'=> $request->get("BDTiden_muestra{$counters}")]);
+                        // 'biodeterioro_identificacion_muestra'=> $request->get("BDTiden_muestra{$counters}")
+                    ]);
                     }else{
                         break;
                     }
@@ -388,7 +402,8 @@ class AnalisisGController extends Controller
                         'otros_des_muestra' => $request->get("OTdes_muestra{$counters}"),
                         'otros_ubicacion' => $request->get("OTubicacion{$counters}"),
                         'otros_responsable' => $request->get("OTresponsable{$counters}"),
-                        'otros_identificacion_muestra'=> $request->get("OTiden_muestra{$counters}")]);
+                        // 'otros_identificacion_muestra'=> $request->get("OTiden_muestra{$counters}")
+                    ]);
                     }else{
                         break;
                     }
@@ -679,7 +694,8 @@ class AnalisisGController extends Controller
         $soportes->soporte_des_muestra = $request->input("Sdes_muestra_edit{$contador_soporte}");
         $soportes->soporte_ubicacion = $request->input("Subicacion_edit{$contador_soporte}");
         $soportes->soporte_responsable = $request->input("Sresponsable_edit{$contador_soporte}");
-        $soportes->soporte_identificacion_muestra = $request->input("Siden_muestra_edit{$contador_soporte}");
+        // Se elimina atributo en solicitud de Geovanna
+        // $soportes->soporte_identificacion_muestra = $request->input("Siden_muestra_edit{$contador_soporte}");
         $contador_soporte +=1;
         //dd($soportes);
         $soportes->save();
@@ -694,7 +710,8 @@ class AnalisisGController extends Controller
                     'soporte_des_muestra' => $request->input("Sdes_muestra{$contador_soporte}"),
                     'soporte_ubicacion' => $request->input("Subicacion{$contador_soporte}"),
                     'soporte_responsable' => $request->input("Sresponsable{$contador_soporte}"),
-                    'soporte_identificacion_muestra'=> $request->input("Siden_muestra{$contador_soporte}")
+                    // Se elimina atributo en solicitud de Geovanna
+                    // 'soporte_identificacion_muestra'=> $request->input("Siden_muestra{$contador_soporte}")
                 ]
             );
         }       
@@ -708,7 +725,7 @@ class AnalisisGController extends Controller
         $basesP->base_des_muestra = $request->input("BPdes_muestra_edit{$contador_base}");
         $basesP->base_ubicacion = $request->input("BPubicacion_edit{$contador_base}");
         $basesP->base_responsable = $request->input("BPresponsable_edit{$contador_base}");
-        $basesP->base_identificacion_muestra = $request->input("BPiden_muestra_edit{$contador_base}");
+        // $basesP->base_identificacion_muestra = $request->input("BPiden_muestra_edit{$contador_base}");
         $contador_base +=1;
         $basesP->save();
 
@@ -722,7 +739,7 @@ class AnalisisGController extends Controller
                     'base_des_muestra' => $request->get("BPdes_muestra{$contador_base}"),
                     'base_ubicacion' => $request->get("BPubicacion{$contador_base}"),
                     'base_responsable' => $request->get("BPresponsable{$contador_base}"),
-                    'base_identificacion_muestra'=> $request->get("BPiden_muestra{$contador_base}")
+                    // 'base_identificacion_muestra'=> $request->get("BPiden_muestra{$contador_base}")
                 ]
             );
         }       
@@ -737,7 +754,7 @@ class AnalisisGController extends Controller
         $estratigrafias->estratigrafia_des_muestra = $request->input("Edes_muestra_edit{$contador_estratigrafia}");
         $estratigrafias->estratigrafia_ubicacion = $request->input("Eubicacion_edit{$contador_estratigrafia}");
         $estratigrafias->estratigrafia_responsable = $request->input("Eresponsable_edit{$contador_estratigrafia}");
-        $estratigrafias->estratigrafia_identificacion_muestra = $request->input("Eiden_muestra_edit{$contador_estratigrafia}");
+        // $estratigrafias->estratigrafia_identificacion_muestra = $request->input("Eiden_muestra_edit{$contador_estratigrafia}");
         $contador_estratigrafia +=1;
         $estratigrafias->save();
 
@@ -751,7 +768,7 @@ class AnalisisGController extends Controller
                     'estratigrafia_des_muestra' => $request->get("Edes_muestra{$contador_estratigrafia}"),
                     'estratigrafia_ubicacion' => $request->get("Eubicacion{$contador_estratigrafia}"),
                     'estratigrafia_responsable' => $request->get("Eresponsable{$contador_estratigrafia}"),
-                    'estratigrafia_identificacion_muestra'=> $request->get("Eiden_muestra{$contador_estratigrafia}")
+                    // 'estratigrafia_identificacion_muestra'=> $request->get("Eiden_muestra{$contador_estratigrafia}")
                 ]
             );
         }       
@@ -766,7 +783,7 @@ class AnalisisGController extends Controller
         $revoques->revoque_des_muestra = $request->input("REdes_muestra_edit{$contador_revoque}");
         $revoques->revoque_ubicacion = $request->input("REubicacion_edit{$contador_revoque}");
         $revoques->revoque_responsable = $request->input("REresponsable_edit{$contador_revoque}");
-        $revoques->revoque_identificacion_muestra = $request->input("REiden_muestra_edit{$contador_revoque}");
+        // $revoques->revoque_identificacion_muestra = $request->input("REiden_muestra_edit{$contador_revoque}");
         $contador_revoque +=1;
         $revoques->save();
 
@@ -780,7 +797,7 @@ class AnalisisGController extends Controller
                     'revoque_des_muestra' => $request->get("REdes_muestra{$contador_revoque}"),
                     'revoque_ubicacion' => $request->get("REubicacion{$contador_revoque}"),
                     'revoque_responsable' => $request->get("REresponsable{$contador_revoque}"),
-                    'revoque_identificacion_muestra'=> $request->get("REiden_muestra{$contador_revoque}")
+                    // 'revoque_identificacion_muestra'=> $request->get("REiden_muestra{$contador_revoque}")
                 ]
             );
         }       
@@ -795,7 +812,7 @@ class AnalisisGController extends Controller
         $bols->bol_des_muestra = $request->input("BOLdes_muestra_edit{$contador_bol}");
         $bols->bol_ubicacion = $request->input("BOLubicacion_edit{$contador_bol}");
         $bols->bol_responsable = $request->input("BOLresponsable_edit{$contador_bol}");
-        $bols->bol_identificacion_muestra = $request->input("BOLiden_muestra_edit{$contador_bol}");
+        // $bols->bol_identificacion_muestra = $request->input("BOLiden_muestra_edit{$contador_bol}");
         $contador_bol +=1;
         //dd($bols);
         $bols->save();
@@ -810,7 +827,7 @@ class AnalisisGController extends Controller
                     'bol_des_muestra' => $request->get("BOLdes_muestra{$contador_bol}"),
                     'bol_ubicacion' => $request->get("BOLubicacion{$contador_bol}"),
                     'bol_responsable' => $request->get("BOLresponsable{$contador_bol}"),
-                    'bol_identificacion_muestra'=> $request->get("BOLiden_muestra{$contador_bol}")
+                    // 'bol_identificacion_muestra'=> $request->get("BOLiden_muestra{$contador_bol}")
                 ]
             );
         }       
@@ -825,7 +842,7 @@ class AnalisisGController extends Controller
         $laminas->laminas_des_muestra = $request->input("LMdes_muestra_edit{$contador_laminas}");
         $laminas->laminas_ubicacion = $request->input("LMubicacion_edit{$contador_laminas}");
         $laminas->laminas_responsable = $request->input("LMresponsable_edit{$contador_laminas}");
-        $laminas->laminas_identificacion_muestra = $request->input("LMiden_muestra_edit{$contador_laminas}");
+        // $laminas->laminas_identificacion_muestra = $request->input("LMiden_muestra_edit{$contador_laminas}");
         $contador_laminas +=1;
         $laminas->save();
 
@@ -839,7 +856,7 @@ class AnalisisGController extends Controller
                     'laminas_des_muestra' => $request->get("LMdes_muestra{$contador_laminas}"),
                     'laminas_ubicacion' => $request->get("LMubicacion{$contador_laminas}"),
                     'laminas_responsable' => $request->get("LMresponsable{$contador_laminas}"),
-                    'laminas_identificacion_muestra'=> $request->get("LMiden_muestra{$contador_laminas}")
+                    // 'laminas_identificacion_muestra'=> $request->get("LMiden_muestra{$contador_laminas}")
                 ]
             );
         }       
@@ -854,7 +871,7 @@ class AnalisisGController extends Controller
         $pigmentos->pigmentos_des_muestra = $request->input("Pdes_muestra_edit{$contador_pigmentos}");
         $pigmentos->pigmentos_ubicacion = $request->input("Pubicacion_edit{$contador_pigmentos}");
         $pigmentos->pigmentos_responsable = $request->input("Presponsable_edit{$contador_pigmentos}");
-        $pigmentos->pigmentos_identificacion_muestra = $request->input("Piden_muestra_edit{$contador_pigmentos}");
+        // $pigmentos->pigmentos_identificacion_muestra = $request->input("Piden_muestra_edit{$contador_pigmentos}");
         $contador_pigmentos +=1;
         $pigmentos->save();
 
@@ -868,7 +885,7 @@ class AnalisisGController extends Controller
                     'pigmentos_des_muestra' => $request->get("Pdes_muestra{$contador_pigmentos}"),
                     'pigmentos_ubicacion' => $request->get("Pubicacion{$contador_pigmentos}"),
                     'pigmentos_responsable' => $request->get("Presponsable{$contador_pigmentos}"),
-                    'pigmentos_identificacion_muestra'=> $request->get("Piden_muestra{$contador_pigmentos}")
+                    // 'pigmentos_identificacion_muestra'=> $request->get("Piden_muestra{$contador_pigmentos}")
                 ]
             );
         }       
@@ -883,7 +900,7 @@ class AnalisisGController extends Controller
         $aglutinantes->aglutinante_des_muestra = $request->input("Ades_muestra_edit{$contador_aglutinante}");
         $aglutinantes->aglutinante_ubicacion = $request->input("Aubicacion_edit{$contador_aglutinante}");
         $aglutinantes->aglutinante_responsable = $request->input("Aresponsable_edit{$contador_aglutinante}");
-        $aglutinantes->aglutinante_identificacion_muestra = $request->input("Aiden_muestra_edit{$contador_aglutinante}");
+        // $aglutinantes->aglutinante_identificacion_muestra = $request->input("Aiden_muestra_edit{$contador_aglutinante}");
         $contador_aglutinante +=1;
         $aglutinantes->save();
 
@@ -897,7 +914,7 @@ class AnalisisGController extends Controller
                     'aglutinante_des_muestra' => $request->get("Ades_muestra{$contador_aglutinante}"),
                     'aglutinante_ubicacion' => $request->get("Aubicacion{$contador_aglutinante}"),
                     'aglutinante_responsable' => $request->get("Aresponsable{$contador_aglutinante}"),
-                    'aglutinante_identificacion_muestra'=> $request->get("Aiden_muestra{$contador_aglutinante}")
+                    // 'aglutinante_identificacion_muestra'=> $request->get("Aiden_muestra{$contador_aglutinante}")
                 ]
             );
         }       
@@ -912,7 +929,7 @@ class AnalisisGController extends Controller
         $recubrimientos->recubrimiento_des_muestra = $request->input("Rdes_muestra_edit{$contador_recubrimiento}");
         $recubrimientos->recubrimiento_ubicacion = $request->input("Rubicacion_edit{$contador_recubrimiento}");
         $recubrimientos->recubrimiento_responsable = $request->input("Rresponsable_edit{$contador_recubrimiento}");
-        $recubrimientos->recubrimiento_identificacion_muestra = $request->input("Riden_muestra_edit{$contador_recubrimiento}");
+        // $recubrimientos->recubrimiento_identificacion_muestra = $request->input("Riden_muestra_edit{$contador_recubrimiento}");
         $contador_recubrimiento +=1;
         $recubrimientos->save();
 
@@ -926,7 +943,7 @@ class AnalisisGController extends Controller
                     'recubrimiento_des_muestra' => $request->get("Rdes_muestra{$contador_recubrimiento }"),
                     'recubrimiento_ubicacion' => $request->get("Rubicacion{$contador_recubrimiento }"),
                     'recubrimiento_responsable' => $request->get("Rresponsable{$contador_recubrimiento }"),
-                    'recubrimiento_identificacion_muestra'=> $request->get("Riden_muestra{$contador_recubrimiento  }")
+                    // 'recubrimiento_identificacion_muestra'=> $request->get("Riden_muestra{$contador_recubrimiento  }")
                 ]
             );
         }       
@@ -942,7 +959,7 @@ class AnalisisGController extends Controller
         $materialaso->materialaso_des_muestra = $request->input("MASOdes_muestra_edit{$contador_maso}");
         $materialaso->materialaso_ubicacion = $request->input("MASOubicacion_edit{$contador_maso}");
         $materialaso->materialaso_responsable = $request->input("MASOresponsable_edit{$contador_maso}");
-        $materialaso->materialaso_identificacion_muestra = $request->input("MASOiden_muestra_edit{$contador_maso}");
+        // $materialaso->materialaso_identificacion_muestra = $request->input("MASOiden_muestra_edit{$contador_maso}");
         $contador_maso +=1;
         //dd($materialaso);
         $materialaso->save();
@@ -957,7 +974,7 @@ class AnalisisGController extends Controller
                     'materialaso_des_muestra' => $request->get("MASOdes_muestra{$contador_maso}"),
                     'materialaso_ubicacion' => $request->get("MASOubicacion{$contador_maso}"),
                     'materialaso_responsable' => $request->get("MASOresponsable{$contador_maso}"),
-                    'materialaso_identificacion_muestra'=> $request->get("MASOiden_muestra{$contador_maso}")
+                    // 'materialaso_identificacion_muestra'=> $request->get("MASOiden_muestra{$contador_maso}")
                 ]
             );
         }       
@@ -971,7 +988,7 @@ class AnalisisGController extends Controller
         $sales->sales_des_muestra = $request->input("SALdes_muestra_edit{$contador_sal}");
         $sales->sales_ubicacion = $request->input("SALubicacion_edit{$contador_sal}");
         $sales->sales_responsable = $request->input("SALresponsable_edit{$contador_sal}");
-        $sales->sales_identificacion_muestra = $request->input("SALiden_muestra_edit{$contador_sal}");
+        // $sales->sales_identificacion_muestra = $request->input("SALiden_muestra_edit{$contador_sal}");
         $contador_sal +=1;
         //dd($sales);
         $sales->save();
@@ -986,7 +1003,7 @@ class AnalisisGController extends Controller
                     'sales_des_muestra' => $request->get("SALdes_muestra{$contador_sal}"),
                     'sales_ubicacion' => $request->get("SALubicacion{$contador_sal}"),
                     'sales_responsable' => $request->get("SALresponsable{$contador_sal}"),
-                    'sales_identificacion_muestra'=> $request->get("SALiden_muestra{$contador_sal}")
+                    // 'sales_identificacion_muestra'=> $request->get("SALiden_muestra{$contador_sal}")
                 ]
             );
         }       
@@ -1002,7 +1019,7 @@ class AnalisisGController extends Controller
         $materialags->materialag_des_muestra = $request->input("MAGdes_muestra_edit{$contador_matag}");
         $materialags->materialag_ubicacion = $request->input("MAGubicacion_edit{$contador_matag}");
         $materialags->materialag_responsable = $request->input("MAGresponsable_edit{$contador_matag}");
-        $materialags->materialag_identificacion_muestra = $request->input("MAGiden_muestra_edit{$contador_matag}");
+        // $materialags->materialag_identificacion_muestra = $request->input("MAGiden_muestra_edit{$contador_matag}");
         $contador_matag +=1;
         $materialags->save();
 
@@ -1016,7 +1033,7 @@ class AnalisisGController extends Controller
                     'materialag_des_muestra' => $request->get("MAGdes_muestra{$contador_matag}"),
                     'materialag_ubicacion' => $request->get("MAGubicacion{$contador_matag}"),
                     'materialag_responsable' => $request->get("MAGresponsable{$contador_matag}"),
-                    'materialag_identificacion_muestra'=> $request->get("MAGiden_muestra{$contador_matag}")
+                    // 'materialag_identificacion_muestra'=> $request->get("MAGiden_muestra{$contador_matag}")
                 ]
             );
         }       
@@ -1033,7 +1050,7 @@ class AnalisisGController extends Controller
         $biodeterioros->biodeterioro_des_muestra = $request->input("BDTdes_muestra_edit{$contador_biodeterioro}");
         $biodeterioros->biodeterioro_ubicacion = $request->input("BDTubicacion_edit{$contador_biodeterioro}");
         $biodeterioros->biodeterioro_responsable = $request->input("BDTresponsable_edit{$contador_biodeterioro}");
-        $biodeterioros->biodeterioro_identificacion_muestra = $request->input("BDTiden_muestra_edit{$contador_biodeterioro}");
+        // $biodeterioros->biodeterioro_identificacion_muestra = $request->input("BDTiden_muestra_edit{$contador_biodeterioro}");
         $contador_biodeterioro +=1;
         $biodeterioros->save();
 
@@ -1047,7 +1064,7 @@ class AnalisisGController extends Controller
                     'biodeterioro_des_muestra' => $request->get("BDTdes_muestra{$contador_biodeterioro}"),
                     'biodeterioro_ubicacion' => $request->get("BDTubicacion{$contador_biodeterioro}"),
                     'biodeterioro_responsable' => $request->get("BDTresponsable{$contador_biodeterioro}"),
-                    'biodeterioro_identificacion_muestra'=> $request->get("BDTiden_muestra{$contador_biodeterioro}")
+                    // 'biodeterioro_identificacion_muestra'=> $request->get("BDTiden_muestra{$contador_biodeterioro}")
                 ]
             );
         }       
@@ -1062,7 +1079,7 @@ class AnalisisGController extends Controller
         $otros->otros_des_muestra = $request->input("OTdes_muestra_edit{$contador_otro}");
         $otros->otros_ubicacion = $request->input("OTubicacion_edit{$contador_otro}");
         $otros->otros_responsable = $request->input("OTresponsable_edit{$contador_otro}");
-        $otros->otros_identificacion_muestra = $request->input("OTiden_muestra_edit{$contador_otro}");
+        // $otros->otros_identificacion_muestra = $request->input("OTiden_muestra_edit{$contador_otro}");
         $contador_otro +=1;
         $otros->save();
 
@@ -1076,7 +1093,7 @@ class AnalisisGController extends Controller
                     'otros_des_muestra' => $request->get("OTdes_muestra{$contador_otro}"),
                     'otros_ubicacion' => $request->get("OTubicacion{$contador_otro}"),
                     'otros_responsable' => $request->get("OTresponsable{$contador_otro}"),
-                    'otros_identificacion_muestra'=> $request->get("OTiden_muestra{$contador_otro}")
+                    // 'otros_identificacion_muestra'=> $request->get("OTiden_muestra{$contador_otro}")
                 ]
             );
         }       

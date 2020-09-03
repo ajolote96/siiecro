@@ -139,7 +139,8 @@ $contador_maso = 0;
                                 <th style="background-color: #C65911; color:white; width:300px">Descripcion de la muestra</th>
                                 <th style="background-color: #C65911; color:white; width:300px">Ubicación</th>
                                 <th style="background-color: #C65911; color:white; width:300px">Responsable</th>
-                                <th style="background-color: #C65911; color:white; width:300px">No. de indentificacion</th>
+                                {{-- Se elimina atributo en solicitud de Geovanna --}}
+                                {{-- <th style="background-color: #C65911; color:white; width:300px">No. de indentificacion</th> --}}
                             </tr>
                         </thead>
                         <tbody>
@@ -150,7 +151,8 @@ $contador_maso = 0;
                                 <td><input type="text" name="Sdes_muestra_edit{{$contador_soporte}}" value="{{ $soporte->soporte_des_muestra}}"></td>
                                 <td><input type="text" name="Subicacion_edit{{$contador_soporte}}" value="{{ $soporte->soporte_ubicacion}}"></td>
                                 <td><input type="text" name="Sresponsable_edit{{$contador_soporte}}" value="{{ $soporte->soporte_responsable}}"></td>
-                                <td><input type="text" name="Siden_muestra_edit{{$contador_soporte}}" value="{{ $soporte->soporte_identificacion_muestra}}"></td>
+                                {{-- Se elimina atributo en solicitud de Geovanna --}}
+                                {{-- <td><input type="text" name="Siden_muestra_edit{{$contador_soporte}}" value="{{ $soporte->soporte_identificacion_muestra}}"></td> --}}
                             </tr>
                         </tbody>
                     </table>
@@ -180,7 +182,7 @@ $contador_maso = 0;
                                 <th style="background-color: #FFCC66; color:white; width:300px">Descripcion de la muestra</th>
                                 <th style="background-color: #FFCC66; color:white; width:300px">Ubicación</th>
                                 <th style="background-color: #FFCC66; color:white; width:300px">Responsable</th>
-                                <th style="background-color: #FFCC66; color:white; width:300px">No. de indentificacion</th>
+                                {{-- <th style="background-color: #FFCC66; color:white; width:300px">No. de indentificacion</th> --}}
                             </tr>
                         </thead>
                         <tbody>
@@ -191,7 +193,7 @@ $contador_maso = 0;
                                 <td><input type="text" name="BPdes_muestra_edit{{$contador_base}}" value="{{ $basesP->base_des_muestra}}"></td>
                                 <td><input type="text" name="BPubicacion_edit{{$contador_base}}" value="{{ $basesP->base_ubicacion}}"></td>
                                 <td><input type="text" name="BPresponsable_edit{{$contador_base}}" value="{{ $basesP->base_responsable}}"></td>
-                                <td><input type="text" name="BPiden_muestra_edit{{$contador_base}}" value="{{ $basesP->base_identificacion_muestra}}"></td>
+                                {{-- <td><input type="text" name="BPiden_muestra_edit{{$contador_base}}" value="{{ $basesP->base_identificacion_muestra}}"></td> --}}
                             </tr>
                         </tbody>
                     </table>
@@ -220,7 +222,7 @@ $contador_maso = 0;
                                 <th style="background-color: #008000; color:white;">Descripcion de la muestra</th>
                                 <th style="background-color: #008000; color:white;">Ubicación</th>
                                 <th style="background-color: #008000; color:white;">Responsable</th>
-                                <th style="background-color: #008000; color:white;">No. de indentificacion</th>
+                                {{-- <th style="background-color: #008000; color:white;">No. de indentificacion</th> --}}
                             </tr>
                         </thead>
                         <tbody>
@@ -231,7 +233,7 @@ $contador_maso = 0;
                                 <td><input type="text" name="Edes_muestra_edit{{$contador_estratigrafia}}" value="{{$estratigrafias->estratigrafia_des_muestra}}"></td>
                                 <td><input type="text" name="Eubicacion_edit{{$contador_estratigrafia}}" value="{{$estratigrafias->estratigrafia_ubicacion}}"></td>
                                 <td><input type="text" name="Eresponsable_edit{{$contador_estratigrafia}}" value="{{$estratigrafias->estratigrafia_responsable}}"></td>
-                                <td><input type="text" name="Eiden_muestra_edit{{$contador_estratigrafia}}" value="{{$estratigrafias->estratigrafia_identificacion_muestra}}"></td>
+                                {{-- <td><input type="text" name="Eiden_muestra_edit{{$contador_estratigrafia}}" value="{{$estratigrafias->estratigrafia_identificacion_muestra}}"></td> --}}
                             </tr>
                         </tbody>
                     </table>
@@ -261,7 +263,7 @@ $contador_maso = 0;
                                 <th style="background-color: #B248A5; color:white;">Descripcion de la muestra</th>
                                 <th style="background-color: #B248A5; color:white;">Ubicación</th>
                                 <th style="background-color: #B248A5; color:white;">Responsable</th>
-                                <th style="background-color: #B248A5; color:white;">No. de indentificacion</th>
+                                {{-- <th style="background-color: #B248A5; color:white;">No. de indentificacion</th> --}}
                             </tr>
                         </thead>
                         <tbody>
@@ -272,7 +274,7 @@ $contador_maso = 0;
                                 <td><input type="text" name="REdes_muestra_edit{{$contador_revoque}}" value="{{$revoques->revoque_des_muestra}}"></td>
                                 <td><input type="text" name="REubicacion_edit{{$contador_revoque}}" value="{{$revoques->revoque_ubicacion}}"></td>
                                 <td><input type="text" name="REresponsable_edit{{$contador_revoque}}" value="{{$revoques->revoque_responsable}}"></td>
-                                <td><input type="text" name="REiden_muestra_edit{{$contador_revoque}}" value="{{$revoques->revoque_identificacion_muestra}}"></td>
+                                {{-- <td><input type="text" name="REiden_muestra_edit{{$contador_revoque}}" value="{{$revoques->revoque_identificacion_muestra}}"></td> --}}
                             </tr>
                         </tbody>
                     </table>
@@ -302,7 +304,7 @@ $contador_maso = 0;
                                 <th style="background-color: #FF5050; color:white;">Descripcion de la muestra</th>
                                 <th style="background-color: #FF5050; color:white;">Ubicación</th>
                                 <th style="background-color: #FF5050; color:white;">Responsable</th>
-                                <th style="background-color: #FF5050; color:white;">No. de indentificacion</th>
+                                {{-- <th style="background-color: #FF5050; color:white;">No. de indentificacion</th> --}}
                             </tr>
                         </thead>
                         <tbody>
@@ -313,7 +315,7 @@ $contador_maso = 0;
                                 <td><input type="text" name="BOLdes_muestra_edit{{$contador_bol}}" value="{{$bols->bol_des_muestra}}"></td>
                                 <td><input type="text" name="BOLubicacion_edit{{$contador_bol}}" value="{{$bols->bol_ubicacion}}"></td>
                                 <td><input type="text" name="BOLresponsable_edit{{$contador_bol}}" value="{{$bols->bol_responsable}}"></td>
-                                <td><input type="text" name="BOLiden_muestra_edit{{$contador_bol}}" value="{{$bols->bol_identificacion_muestra}}"></td>
+                                {{-- <td><input type="text" name="BOLiden_muestra_edit{{$contador_bol}}" value="{{$bols->bol_identificacion_muestra}}"></td> --}}
                             </tr>
                         </tbody>
                     </table>
@@ -342,7 +344,7 @@ $contador_maso = 0;
                                 <th style="background-color: #3A5754; color:white;">Descripcion de la muestra</th>
                                 <th style="background-color: #3A5754; color:white;">Ubicación</th>
                                 <th style="background-color: #3A5754; color:white;">Responsable</th>
-                                <th style="background-color: #3A5754; color:white;">No. de indentificacion</th>
+                                {{-- <th style="background-color: #3A5754; color:white;">No. de indentificacion</th> --}}
                             </tr>
                         </thead>
                         <tbody>
@@ -353,7 +355,7 @@ $contador_maso = 0;
                                 <td><input type="text" name="LMdes_muestra_edit{{$contador_laminas}}" value="{{$laminas->laminas_des_muestra}}"></td>
                                 <td><input type="text" name="LMubicacion_edit{{$contador_laminas}}" value="{{$laminas->laminas_ubicacion}}"></td>
                                 <td><input type="text" name="LMresponsable_edit{{$contador_laminas}}" value="{{$laminas->laminas_responsable}}"></td>
-                                <td><input type="text" name="LMiden_muestra_edit{{$contador_laminas}}" value="{{$laminas->laminas_identificacion_muestra}}"></td>
+                                {{-- <td><input type="text" name="LMiden_muestra_edit{{$contador_laminas}}" value="{{$laminas->laminas_identificacion_muestra}}"></td> --}}
                             </tr>
                         </tbody>
                     </table>
@@ -383,7 +385,7 @@ $contador_maso = 0;
                                 <th style="background-color: #5B9BD5; color:white;">Descripcion de la muestra</th>
                                 <th style="background-color: #5B9BD5; color:white;">Ubicación</th>
                                 <th style="background-color: #5B9BD5; color:white;">Responsable</th>
-                                <th style="background-color: #5B9BD5; color:white;">No. de indentificacion</th>
+                                {{-- <th style="background-color: #5B9BD5; color:white;">No. de indentificacion</th> --}}
                             </tr>
                         </thead>
                         <tbody>
@@ -394,7 +396,7 @@ $contador_maso = 0;
                                 <td><input type="text" name="Pdes_muestra_edit{{$contador_pigmentos}}" value="{{$pigmentos->pigmentos_des_muestra}}"></td>
                                 <td><input type="text" name="Pubicacion_edit{{$contador_pigmentos}}" value="{{$pigmentos->pigmentos_ubicacion}}"></td>
                                 <td><input type="text" name="Presponsable_edit{{$contador_pigmentos}}" value="{{$pigmentos->pigmentos_responsable}}"></td>
-                                <td><input type="text" name="Piden_muestra_edit{{$contador_pigmentos}}" value="{{$pigmentos->pigmentos_identificacion_muestra}}"></td>
+                                {{-- <td><input type="text" name="Piden_muestra_edit{{$contador_pigmentos}}" value="{{$pigmentos->pigmentos_identificacion_muestra}}"></td> --}}
                             </tr>
                         </tbody>
                     </table>
@@ -424,7 +426,7 @@ $contador_maso = 0;
                                 <th style="background-color: #F55587; color:white;">Descripcion de la muestra</th>
                                 <th style="background-color: #F55587; color:white;">Ubicación</th>
                                 <th style="background-color: #F55587; color:white;">Responsable</th>
-                                <th style="background-color: #F55587; color:white;">No. de indentificacion</th>
+                                {{-- <th style="background-color: #F55587; color:white;">No. de indentificacion</th> --}}
                             </tr>
                         </thead>
                         <tbody>
@@ -435,7 +437,7 @@ $contador_maso = 0;
                                 <td><input type="text" name="Ades_muestra_edit{{$contador_aglutinante}}" value="{{$aglutinantes->aglutinante_des_muestra}}"></td>
                                 <td><input type="text" name="Aubicacion_edit{{$contador_aglutinante}}" value="{{$aglutinantes->aglutinante_ubicacion}}"></td>
                                 <td><input type="text" name="Aresponsable_edit{{$contador_aglutinante}}" value="{{$aglutinantes->aglutinante_responsable}}"></td>
-                                <td><input type="text" name="Aiden_muestra_edit{{$contador_aglutinante}}" value="{{$aglutinantes->aglutinante_identificacion_muestra}}"></td>
+                                {{-- <td><input type="text" name="Aiden_muestra_edit{{$contador_aglutinante}}" value="{{$aglutinantes->aglutinante_identificacion_muestra}}"></td> --}}
                             </tr>
                         </tbody>
                     </table>
@@ -464,7 +466,7 @@ $contador_maso = 0;
                                 <th style="background-color: #FBAE47; color:white;">Descripcion de la muestra</th>
                                 <th style="background-color: #FBAE47; color:white;">Ubicación</th>
                                 <th style="background-color: #FBAE47; color:white;">Responsable</th>
-                                <th style="background-color: #FBAE47; color:white;">No. de indentificacion</th>
+                                {{-- <th style="background-color: #FBAE47; color:white;">No. de indentificacion</th> --}}
                             </tr>
                         </thead>
                         <tbody>
@@ -475,7 +477,7 @@ $contador_maso = 0;
                                 <td><input type="text" name="Rdes_muestra_edit{{$contador_recubrimiento}}" value="{{$recubrimientos->recubrimiento_des_muestra}}"></td>
                                 <td><input type="text" name="Rubicacion_edit{{$contador_recubrimiento}}" value="{{$recubrimientos->recubrimiento_ubicacion}}"></td>
                                 <td><input type="text" name="Rresponsable_edit{{$contador_recubrimiento}}" value="{{$recubrimientos->recubrimiento_responsable}}"></td>
-                                <td><input type="text" name="Riden_muestra_edit{{$contador_recubrimiento}}" value="{{$recubrimientos->recubrimiento_identificacion_muestra}}"></td>
+                                {{-- <td><input type="text" name="Riden_muestra_edit{{$contador_recubrimiento}}" value="{{$recubrimientos->recubrimiento_identificacion_muestra}}"></td> --}}
                             </tr>
                         </tbody>
                     </table>
@@ -505,7 +507,7 @@ $contador_maso = 0;
                                 <th style="background-color: #8686C4; color:white; width:300px">Descripcion de la muestra</th>
                                 <th style="background-color: #8686C4; color:white; width:300px">Ubicación</th>
                                 <th style="background-color: #8686C4; color:white; width:300px">Responsable</th>
-                                <th style="background-color: #8686C4; color:white; width:300px">No. de indentificacion</th>
+                                {{-- <th style="background-color: #8686C4; color:white; width:300px">No. de indentificacion</th> --}}
                             </tr>
                         </thead>
                         <tbody>
@@ -516,7 +518,7 @@ $contador_maso = 0;
                                 <td><input type="text" name="MASOdes_muestra_edit{{$contador_maso}}" value="{{ $materialaso->materialaso_des_muestra}}"></td>
                                 <td><input type="text" name="MASOubicacion_edit{{$contador_maso}}" value="{{ $materialaso->materialaso_ubicacion}}"></td>
                                 <td><input type="text" name="MASOresponsable_edit{{$contador_maso}}" value="{{ $materialaso->materialaso_responsable}}"></td>
-                                <td><input type="text" name="MASOiden_muestra_edit{{$contador_maso}}" value="{{ $materialaso->materialaso_identificacion_muestra}}"></td>
+                                {{-- <td><input type="text" name="MASOiden_muestra_edit{{$contador_maso}}" value="{{ $materialaso->materialaso_identificacion_muestra}}"></td> --}}
                             </tr>
                         </tbody>
                     </table>
@@ -546,7 +548,7 @@ $contador_maso = 0;
                                 <th style="background-color: #009999; color:white; width:300px">Descripcion de la muestra</th>
                                 <th style="background-color: #009999; color:white; width:300px">Ubicación</th>
                                 <th style="background-color: #009999; color:white; width:300px">Responsable</th>
-                                <th style="background-color: #009999; color:white; width:300px">No. de indentificacion</th>
+                                {{-- <th style="background-color: #009999; color:white; width:300px">No. de indentificacion</th> --}}
                             </tr>
                         </thead>
                         <tbody>
@@ -557,7 +559,7 @@ $contador_maso = 0;
                                 <td><input type="text" name="SALdes_muestra_edit{{$contador_sales}}" value="{{ $sales->sales_des_muestra}}"></td>
                                 <td><input type="text" name="SALubicacion_edit{{$contador_sales}}" value="{{ $sales->sales_ubicacion}}"></td>
                                 <td><input type="text" name="SALresponsable_edit{{$contador_sales}}" value="{{ $sales->sales_responsable}}"></td>
-                                <td><input type="text" name="SALiden_muestra_edit{{$contador_sales}}" value="{{ $sales->sales_identificacion_muestra}}"></td>
+                                {{-- <td><input type="text" name="SALiden_muestra_edit{{$contador_sales}}" value="{{ $sales->sales_identificacion_muestra}}"></td> --}}
                             </tr>
                         </tbody>
                     </table>
@@ -587,7 +589,7 @@ $contador_maso = 0;
                                 <th style="background-color: #7D10C0; color:white; width:300px">Descripcion de la muestra</th>
                                 <th style="background-color: #7D10C0; color:white; width:300px">Ubicación</th>
                                 <th style="background-color: #7D10C0; color:white; width:300px">Responsable</th>
-                                <th style="background-color: #7D10C0; color:white; width:300px">No. de indentificacion</th>
+                                {{-- <th style="background-color: #7D10C0; color:white; width:300px">No. de indentificacion</th> --}}
                             </tr>
                         </thead>
                         <tbody>
@@ -598,7 +600,7 @@ $contador_maso = 0;
                                 <td><input type="text" name="MAGdes_muestra_edit{{$contador_matag}}" value="{{ $matag->materialag_des_muestra}}"></td>
                                 <td><input type="text" name="MAGubicacion_edit{{$contador_matag}}" value="{{ $matag->materialag_ubicacion}}"></td>
                                 <td><input type="text" name="MAGresponsable_edit{{$contador_matag}}" value="{{ $matag->materialag_responsable}}"></td>
-                                <td><input type="text" name="MAGiden_muestra_edit{{$contador_matag}}" value="{{ $matag->materialag_identificacion_muestra}}"></td>
+                                {{-- <td><input type="text" name="MAGiden_muestra_edit{{$contador_matag}}" value="{{ $matag->materialag_identificacion_muestra}}"></td> --}}
                             </tr>
                         </tbody>
                     </table>
@@ -628,7 +630,7 @@ $contador_maso = 0;
                                 <th style="background-color: #A2C866; color:white; width:300px">Descripcion de la muestra</th>
                                 <th style="background-color: #A2C866; color:white; width:300px">Ubicación</th>
                                 <th style="background-color: #A2C866; color:white; width:300px">Responsable</th>
-                                <th style="background-color: #A2C866; color:white; width:300px">No. de indentificacion</th>
+                                {{-- <th style="background-color: #A2C866; color:white; width:300px">No. de indentificacion</th> --}}
                             </tr>
                         </thead>
                         <tbody>
@@ -639,7 +641,7 @@ $contador_maso = 0;
                                 <td><input type="text" name="BDTdes_muestra_edit{{$contador_biodeterioro}}" value="{{ $biodeterioros->biodeterioro_des_muestra}}"></td>
                                 <td><input type="text" name="BDTubicacion_edit{{$contador_biodeterioro}}" value="{{ $biodeterioros->biodeterioro_ubicacion}}"></td>
                                 <td><input type="text" name="BDTresponsable_edit{{$contador_biodeterioro}}" value="{{ $biodeterioros->biodeterioro_responsable}}"></td>
-                                <td><input type="text" name="BDTiden_muestra_edit{{$contador_biodeterioro}}" value="{{ $biodeterioros->biodeterioro_identificacion_muestra}}"></td>
+                                {{-- <td><input type="text" name="BDTiden_muestra_edit{{$contador_biodeterioro}}" value="{{ $biodeterioros->biodeterioro_identificacion_muestra}}"></td> --}}
                             </tr>
                         </tbody>
                     </table>
@@ -672,7 +674,7 @@ $contador_maso = 0;
                                 <th style="background-color: #A5A5A5; color:white; width:300px">Descripcion de la muestra</th>
                                 <th style="background-color: #A5A5A5; color:white; width:300px">Ubicación</th>
                                 <th style="background-color: #A5A5A5; color:white; width:300px">Responsable</th>
-                                <th style="background-color: #A5A5A5; color:white; width:300px">No. de indentificacion</th>
+                                {{-- <th style="background-color: #A5A5A5; color:white; width:300px">No. de indentificacion</th> --}}
                             </tr>
                         </thead>
                         <tbody>
@@ -683,7 +685,7 @@ $contador_maso = 0;
                                 <td><input type="text" name="OTdes_muestra_edit{{$contador_otros}}" value="{{ $otro->otros_des_muestra}}"></td>
                                 <td><input type="text" name="OTubicacion_edit{{$contador_otros}}" value="{{ $otro->otros_ubicacion}}"></td>
                                 <td><input type="text" name="OTresponsable_edit{{$contador_otros}}" value="{{ $otro->otros_responsable}}"></td>
-                                <td><input type="text" name="OTiden_muestra_edit{{$contador_otros}}" value="{{ $otro->otros_identificacion_muestra}}"></td>
+                                {{-- <td><input type="text" name="OTiden_muestra_edit{{$contador_otros}}" value="{{ $otro->otros_identificacion_muestra}}"></td> --}}
                             </tr>
                         </tbody>
                     </table>

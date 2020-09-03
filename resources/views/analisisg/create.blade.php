@@ -162,14 +162,16 @@
                             <tr>
                                 <th style="background-color: #C65911; color:white; width:300px">Ubicación</th>
                                 <th style="background-color: #C65911; color:white; width:300px">Responsable</th>
-                                <th style="background-color: #C65911; color:white; width:300px">No. de indentificacion</th>
+                                {{-- Se elimina atributo en solicitud de Geovanna --}}
+                                {{-- <th style="background-color: #C65911; color:white; width:300px">No. de indentificacion</th> --}}
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td><input type="text" name="Subicacion0" style="width:300px"></td>
                                 <td><input type="text" name="Sresponsable0" style="width:300px"></td>
-                                <td><input type="text" name="Siden_muestra0" style="width:300px"></td>
+                                {{-- Se elimina atributo en solicitud de Geovanna --}}
+                                {{-- <td><input type="text" name="Siden_muestra0" style="width:300px"></td> --}}
                             </tr>
                         </tbody>
                     </table>
@@ -200,14 +202,14 @@
                                 </tbody>
                                 <th style="background-color: #FFCC66; color:white; width:300px">Ubicación</th>
                                 <th style="background-color: #FFCC66; color:white; width:300px">Responsable</th>
-                                <th style="background-color: #FFCC66; color:white; width:300px">No. de indentificación</th>
+                                {{-- <th style="background-color: #FFCC66; color:white; width:300px">No. de indentificación</th> --}}
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td><input type="text" name="BPubicacion0" style="width:300px"></td>
                                 <td><input type="text" name="BPresponsable0" style="width:300px"></td>
-                                <td><input type="text" name="BPiden_muestra0" style="width:300px"></td>
+                                {{-- <td><input type="text" name="BPiden_muestra0" style="width:300px"></td> --}}
                             </tr>
                         </tbody>
                     </table>
@@ -239,14 +241,14 @@
                                 </tbody>
                                 <th style="background-color: #008000; color:white; width:300px">Ubicación</th>
                                 <th style="background-color: #008000; color:white; width:300px">Responsable</th>
-                                <th style="background-color: #008000; color:white; width:300px">No. de indentificacion</th>
+                                {{-- <th style="background-color: #008000; color:white; width:300px">No. de indentificacion</th> --}}
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td><input type="text" name="Eubicacion0" style="width:300px"></td>
                                 <td><input type="text" name="Eresponsable0" style="width:300px"></td>
-                                <td><input type="text" name="Eiden_muestra0" style="width:300px"></td>
+                                {{-- <td><input type="text" name="Eiden_muestra0" style="width:300px"></td> --}}
                             </tr>
                         </tbody>
                     </table>
@@ -277,14 +279,14 @@
                                 </tbody>
                                 <th style="background-color: #B248A5; color:white; width:300px">Ubicación</th>
                                 <th style="background-color: #B248A5; color:white; width:300px">Responsable</th>
-                                <th style="background-color: #B248A5; color:white; width:300px">No. de indentificacion</th>
+                                {{-- <th style="background-color: #B248A5; color:white; width:300px">No. de indentificacion</th> --}}
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td><input type="text" name="REubicacion0" style="width:300px"></td>
                                 <td><input type="text" name="REresponsable0" style="width:300px"></td>
-                                <td><input type="text" name="REiden_muestra0" style="width:300px"></td>
+                                {{-- <td><input type="text" name="REiden_muestra0" style="width:300px"></td> --}}
                             </tr>
                         </tbody>
                     </table>
@@ -315,14 +317,14 @@
                                 </tbody>
                                 <th style="background-color: #FF5050; color:white; width:300px">Ubicación</th>
                                 <th style="background-color: #FF5050; color:white; width:300px">Responsable</th>    
-                                <th style="background-color: #FF5050; color:white; width:300px">No. de indentificacion</th>
+                                {{-- <th style="background-color: #FF5050; color:white; width:300px">No. de indentificacion</th> --}}
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td><input type="text" name="BOLubicacion0" style="width:300px"></td>
                                 <td><input type="text" name="BOLresponsable0" style="width:300px"></td>
-                                <td><input type="text" name="BOLiden_muestra0" style="width:300px"></td>
+                                {{-- <td><input type="text" name="BOLiden_muestra0" style="width:300px"></td> --}}
                             </tr>
                         </tbody>
                     </table>
@@ -353,14 +355,14 @@
                                 </tbody>
                                 <th style="background-color: #3A5754; color:white; width:300px">Ubicación</th>
                                 <th style="background-color: #3A5754; color:white; width:300px">Responsable</th>
-                                <th style="background-color: #3A5754; color:white; width:300px">No. de indentificacion</th>
+                                {{-- <th style="background-color: #3A5754; color:white; width:300px">No. de indentificacion</th> --}}
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td><input type="text" name="LMubicacion0" style="width:300px"></td>
                                 <td><input type="text" name="LMresponsable0" style="width:300px"></td>
-                                <td><input type="text" name="LMiden_muestra0" style="width:300px"></td>
+                                {{-- <td><input type="text" name="LMiden_muestra0" style="width:300px"></td> --}}
                             </tr>
                         </tbody>
                     </table>
@@ -391,14 +393,14 @@
                                 </tbody>
                                 <th style="background-color: #5B9BD5; color:white; width:300px">Ubicación</th>
                                 <th style="background-color: #5B9BD5; color:white; width:300px">Responsable</th>
-                                <th style="background-color: #5B9BD5; color:white; width:300px">No. de indentificacion</th>
+                                {{-- <th style="background-color: #5B9BD5; color:white; width:300px">No. de indentificacion</th> --}}
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td><input type="text" name="Pubicacion0" style="width:300px"></td>
                                 <td><input type="text" name="Presponsable0" style="width:300px"></td>
-                                <td><input type="text" name="Piden_muestra0" style="width:300px"></td>
+                                {{-- <td><input type="text" name="Piden_muestra0" style="width:300px"></td> --}}
                             </tr>
                         </tbody>
                     </table>
@@ -430,14 +432,14 @@
                                 </tbody>
                                 <th style="background-color: #F55587; color:white; width:300px">Ubicación</th>
                                 <th style="background-color: #F55587; color:white; width:300px">Responsable</th>
-                                <th style="background-color: #F55587; color:white; width:300px">No. de indentificacion</th>
+                                {{-- <th style="background-color: #F55587; color:white; width:300px">No. de indentificacion</th> --}}
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td><input type="text" name="Aubicacion0" style="width:300px"></td>
                                 <td><input type="text" name="Aresponsable0" style="width:300px"></td>
-                                <td><input type="text" name="Aiden_muestra0" style="width:300px"></td>
+                                {{-- <td><input type="text" name="Aiden_muestra0" style="width:300px"></td> --}}
                             </tr>
                         </tbody>
                     </table>
@@ -469,14 +471,14 @@
                                 </tbody>
                                 <th style="background-color: #FBAE47; color:white; width:300px">Ubicación</th>
                                 <th style="background-color: #FBAE47; color:white; width:300px">Responsable</th>
-                                <th style="background-color: #FBAE47; color:white; width:300px">No. de indentificacion</th>
+                                {{-- <th style="background-color: #FBAE47; color:white; width:300px">No. de indentificacion</th> --}}
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td><input type="text" name="Rubicacion0" style="width:300px"></td>
                                 <td><input type="text" name="Rresponsable0" style="width:300px"></td>
-                                <td><input type="text" name="Riden_muestra0" style="width:300px"></td>
+                                {{-- <td><input type="text" name="Riden_muestra0" style="width:300px"></td> --}}
                             </tr>
                         </tbody>
                     </table>
@@ -508,14 +510,14 @@
                                 </tbody>
                                 <th style="background-color:#8686C4; color:white; width:300px">Ubicación</th>
                                 <th style="background-color:#8686C4; color:white; width:300px">Responsable</th>
-                                <th style="background-color:#8686C4; color:white; width:300px">No. de indentificacion</th>
+                                {{-- <th style="background-color:#8686C4; color:white; width:300px">No. de indentificacion</th> --}}
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td><input type="text" name="MASOubicacion0" style="width:300px"></td>
                                 <td><input type="text" name="MASOresponsable0" style="width:300px"></td>
-                                <td><input type="text" name="MASOiden_muestra0" style="width:300px"></td>
+                                {{-- <td><input type="text" name="MASOiden_muestra0" style="width:300px"></td> --}}
                             </tr>
                         </tbody>
                     </table>
@@ -547,14 +549,14 @@
                                 </tbody>
                                 <th style="background-color:#009999; color:white; width:300px">Ubicación</th>
                                 <th style="background-color:#009999; color:white; width:300px">Responsable</th>
-                                <th style="background-color:#009999; color:white; width:300px">No. de indentificacion</th>
+                                {{-- <th style="background-color:#009999; color:white; width:300px">No. de indentificacion</th> --}}
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td><input type="text" name="SALubicacion0" style="width:300px"></td>
                                 <td><input type="text" name="SALresponsable0" style="width:300px"></td>
-                                <td><input type="text" name="SALiden_muestra0" style="width:300px"></td>
+                                {{-- <td><input type="text" name="SALiden_muestra0" style="width:300px"></td> --}}
                             </tr>
                         </tbody>
                     </table>
@@ -586,14 +588,14 @@
                                 </tbody>
                                 <th style="background-color:#7D10C0; color:white; width:300px">Ubicación</th>
                                 <th style="background-color:#7D10C0; color:white; width:300px">Responsable</th>
-                                <th style="background-color:#7D10C0; color:white; width:300px">No. de indentificacion</th>
+                                {{-- <th style="background-color:#7D10C0; color:white; width:300px">No. de indentificacion</th> --}}
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td><input type="text" name="MAGubicacion0" style="width:300px"></td>
                                 <td><input type="text" name="MAGresponsable0" style="width:300px"></td>
-                                <td><input type="text" name="MAGiden_muestra0" style="width:300px"></td>
+                                {{-- <td><input type="text" name="MAGiden_muestra0" style="width:300px"></td> --}}
                             </tr>
                         </tbody>
                     </table>
@@ -625,14 +627,14 @@
                                 </tbody>
                                 <th style="background-color:#A2C866; color:white; width:300px">Ubicación</th>
                                 <th style="background-color:#A2C866; color:white; width:300px">Responsable</th>
-                                <th style="background-color:#A2C866; color:white; width:300px">No. de indentificacion</th>
+                                {{-- <th style="background-color:#A2C866; color:white; width:300px">No. de indentificacion</th> --}}
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td><input type="text" name="BDTubicacion0" style="width:300px"></td>
                                 <td><input type="text" name="BDTresponsable0" style="width:300px"></td>
-                                <td><input type="text" name="BDTiden_muestra0" style="width:300px"></td>
+                                {{-- <td><input type="text" name="BDTiden_muestra0" style="width:300px"></td> --}}
                             </tr>
                         </tbody>
                     </table>
@@ -664,14 +666,14 @@
                                 </tbody>
                                 <th style="background-color: #A5A5A5; color:white; width:300px">Ubicación</th>
                                 <th style="background-color: #A5A5A5; color:white; width:300px">Responsable</th>
-                                <th style="background-color: #A5A5A5; color:white; width:300px">No. de indentificacion</th>
+                                {{-- <th style="background-color: #A5A5A5; color:white; width:300px">No. de indentificacion</th> --}}
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td><input type="text" name="OTubicacion0" style="width:300px"></td>
                                 <td><input type="text" name="OTresponsable0" style="width:300px"></td>
-                                <td><input type="text" name="OTiden_muestra0" style="width:300px"></td>
+                                {{-- <td><input type="text" name="OTiden_muestra0" style="width:300px"></td> --}}
                             </tr>
                         </tbody>
                     </table>

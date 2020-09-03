@@ -136,7 +136,8 @@
                                 <th style="background-color: #C65911; color:white; ">Descripcion de la muestra</th>
                                 <th style="background-color: #C65911; color:white; ">Ubicación</th>
                                 <th style="background-color: #C65911; color:white; ">Responsable</th>
-                                <th style="background-color: #C65911; color:white; ">No. de indentificacion</th>
+                                {{-- Se elimina atributo en solicitud de Geovanna --}}
+                                {{-- <th style="background-color: #C65911; color:white; ">No. de indentificacion</th> --}}
                             </tr>
                         </thead>
                         <tbody>
@@ -147,7 +148,8 @@
                                 <td><input type="text" name="Sdes_muestra" value="{{ $soporte->soporte_des_muestra}}"></td>
                                 <td><input type="text" name="Subicacion" value="{{ $soporte->soporte_ubicacion}}"></td>
                                 <td><input type="text" name="Sresponsable" value="{{ $soporte->soporte_responsable}}"></td>
-                                <td><input type="text" name="Siden_muestra" value="{{ $soporte->soporte_identificacion_muestra}}"></td>
+                                {{-- Se elimina atributo en solicitud de Geovanna --}}
+                                {{-- <td><input type="text" name="Siden_muestra" value="{{ $soporte->soporte_identificacion_muestra}}"></td> --}}
                             </tr>
                         </tbody>
                     </table>
@@ -167,7 +169,7 @@
                                 <th style="background-color: #FFCC66; color:white; ">Descripcion de la muestra</th>
                                 <th style="background-color: #FFCC66; color:white; ">Ubicación</th>
                                 <th style="background-color: #FFCC66; color:white; ">Responsable</th>
-                                <th style="background-color: #FFCC66; color:white; ">No. de indentificacion</th>
+                                {{-- <th style="background-color: #FFCC66; color:white; ">No. de indentificacion</th> --}}
                             </tr>
                         </thead>
                         <tbody>
@@ -178,7 +180,7 @@
                                 <td><input type="text" name="BPdes_muestra" value="{{ $bases->base_des_muestra}}"></td>
                                 <td><input type="text" name="BPubicacion" value="{{ $bases->base_ubicacion}}"></td>
                                 <td><input type="text" name="BPresponsable" value="{{ $bases->base_responsable}}"></td>
-                                <td><input type="text" name="BPiden_muestra" value="{{ $bases->base_identificacion_muestra}}"></td>
+                                {{-- <td><input type="text" name="BPiden_muestra" value="{{ $bases->base_identificacion_muestra}}"></td> --}}
                             </tr>
                         </tbody>
                     </table>
@@ -199,7 +201,7 @@
                                 <th style="background-color: #008000; color:white;">Descripcion de la muestra</th>
                                 <th style="background-color: #008000; color:white;">Ubicación</th>
                                 <th style="background-color: #008000; color:white;">Responsable</th>
-                                <th style="background-color: #008000; color:white;">No. de indentificacion</th>
+                                {{-- <th style="background-color: #008000; color:white;">No. de indentificacion</th> --}}
                             </tr>
                         </thead>
                         <tbody>
@@ -210,7 +212,7 @@
                                 <td><input type="text" name="Edes_muestra" value="{{ $estratigrafias->estratigrafia_des_muestra}}"></td>
                                 <td><input type="text" name="Eubicacion" value="{{ $estratigrafias->estratigrafia_ubicacion}}"></td>
                                 <td><input type="text" name="Eresponsable" value="{{ $estratigrafias->estratigrafia_responsable}}"></td>
-                                <td><input type="text" name="Eiden_muestra" value="{{ $estratigrafias->estratigrafia_identificacion_muestra}}"></td>
+                                {{-- <td><input type="text" name="Eiden_muestra" value="{{ $estratigrafias->estratigrafia_identificacion_muestra}}"></td> --}}
                             </tr>
                         </tbody>
                     </table>
@@ -230,7 +232,7 @@
                                 <th style="background-color: #B248A5; color:white;">Descripcion de la muestra</th>
                                 <th style="background-color: #B248A5; color:white;">Ubicación</th>
                                 <th style="background-color: #B248A5; color:white;">Responsable</th>
-                                <th style="background-color: #B248A5; color:white;">No. de indentificacion</th>
+                                {{-- <th style="background-color: #B248A5; color:white;">No. de indentificacion</th> --}}
                             </tr>
                         </thead>
                         <tbody>
@@ -241,7 +243,7 @@
                                 <td><input type="text" name="REdes_muestra" value="{{ $revoques->revoque_des_muestra}}"></td>
                                 <td><input type="text" name="REubicacion" value="{{ $revoques->revoque_ubicacion}}"></td>
                                 <td><input type="text" name="REresponsable" value="{{ $revoques->revoque_responsable}}"></td>
-                                <td><input type="text" name="REiden_muestra" value="{{ $revoques->revoque_identificacion_muestra}}"></td>
+                                {{-- <td><input type="text" name="REiden_muestra" value="{{ $revoques->revoque_identificacion_muestra}}"></td> --}}
                             </tr>
                         </tbody>
                     </table>
@@ -262,7 +264,7 @@
                                 <th style="background-color: #FF5050; color:white;">Descripcion de la muestra</th>
                                 <th style="background-color: #FF5050; color:white;">Ubicación</th>
                                 <th style="background-color: #FF5050; color:white;">Responsable</th>
-                                <th style="background-color: #FF5050; color:white;">No. de indentificacion</th>
+                                {{-- <th style="background-color: #FF5050; color:white;">No. de indentificacion</th> --}}
                             </tr>
                         </thead>
                         <tbody>
@@ -273,7 +275,7 @@
                                 <td><input type="text" name="BOLdes_muestra" value="{{ $bols->bol_des_muestra}}"></td>
                                 <td><input type="text" name="BOLubicacion" value="{{ $bols->bol_ubicacion}}"></td>
                                 <td><input type="text" name="BOLresponsable" value="{{ $bols->bol_responsable}}"></td>
-                                <td><input type="text" name="BOLiden_muestra" value="{{ $bols->bol_identificacion_muestra}}"></td>
+                                {{-- <td><input type="text" name="BOLiden_muestra" value="{{ $bols->bol_identificacion_muestra}}"></td> --}}
                             </tr>
                         </tbody>
                     </table>
@@ -294,7 +296,7 @@
                                 <th style="background-color: #3A5754; color:white;">Descripcion de la muestra</th>
                                 <th style="background-color: #3A5754; color:white;">Ubicación</th>
                                 <th style="background-color: #3A5754; color:white;">Responsable</th>
-                                <th style="background-color: #3A5754; color:white;">No. de indentificacion</th>
+                                {{-- <th style="background-color: #3A5754; color:white;">No. de indentificacion</th> --}}
                             </tr>
                         </thead>
                         <tbody>
@@ -305,7 +307,7 @@
                                 <td><input type="text" name="LMdes_muestra" value="{{ $laminas->laminas_des_muestra}}"></td>
                                 <td><input type="text" name="LMubicacion" value="{{ $laminas->laminas_ubicacion}}"></td>
                                 <td><input type="text" name="LMresponsable" value="{{ $laminas->laminas_responsable}}"></td>
-                                <td><input type="text" name="LMiden_muestra" value="{{ $laminas->laminas_identificacion_muestra}}"></td>
+                                {{-- <td><input type="text" name="LMiden_muestra" value="{{ $laminas->laminas_identificacion_muestra}}"></td> --}}
                             </tr>
                         </tbody>
                     </table>
@@ -325,7 +327,7 @@
                                 <th style="background-color: #5B9BD5; color:white;">Descripcion de la muestra</th>
                                 <th style="background-color: #5B9BD5; color:white;">Ubicación</th>
                                 <th style="background-color: #5B9BD5; color:white;">Responsable</th>
-                                <th style="background-color: #5B9BD5; color:white;">No. de indentificacion</th>
+                                {{-- <th style="background-color: #5B9BD5; color:white;">No. de indentificacion</th> --}}
                             </tr>
                         </thead>
                         <tbody>
@@ -336,7 +338,7 @@
                                 <td><input type="text" name="LMdes_muestra" value="{{ $pigmentos->pigmentos_des_muestra}}"></td>
                                 <td><input type="text" name="LMubicacion" value="{{ $pigmentos->pigmentos_ubicacion}}"></td>
                                 <td><input type="text" name="LMresponsable" value="{{ $pigmentos->pigmentos_responsable}}"></td>
-                                <td><input type="text" name="LMiden_muestra" value="{{ $pigmentos->pigmentos_identificacion_muestra}}"></td>
+                                {{-- <td><input type="text" name="LMiden_muestra" value="{{ $pigmentos->pigmentos_identificacion_muestra}}"></td> --}}
                             </tr>
                         </tbody>
                     </table>
@@ -356,7 +358,7 @@
                                 <th style="background-color: #F55587; color:white;">Descripcion de la muestra</th>
                                 <th style="background-color: #F55587; color:white;">Ubicación</th>
                                 <th style="background-color: #F55587; color:white;">Responsable</th>
-                                <th style="background-color: #F55587; color:white;">No. de indentificacion</th>
+                                {{-- <th style="background-color: #F55587; color:white;">No. de indentificacion</th> --}}
                             </tr>
                         </thead>
                         <tbody>
@@ -367,7 +369,7 @@
                                 <td><input type="text" name="Ades_muestra" value="{{ $aglutinantes->aglutinante_des_muestra}}"></td>
                                 <td><input type="text" name="Aubicacion" value="{{ $aglutinantes->aglutinante_ubicacion}}"></td>
                                 <td><input type="text" name="Aresponsable" value="{{ $aglutinantes->aglutinante_responsable}}"></td>
-                                <td><input type="text" name="Aiden_muestra" value="{{ $aglutinantes->aglutinante_identificacion_muestra}}"></td>
+                                {{-- <td><input type="text" name="Aiden_muestra" value="{{ $aglutinantes->aglutinante_identificacion_muestra}}"></td> --}}
                             </tr>
                         </tbody>
                     </table>
@@ -387,7 +389,7 @@
                                 <th style="background-color: #FBAE47; color:white;">Descripcion de la muestra</th>
                                 <th style="background-color: #FBAE47; color:white;">Ubicación</th>
                                 <th style="background-color: #FBAE47; color:white;">Responsable</th>
-                                <th style="background-color: #FBAE47; color:white;">No. de indentificacion</th>
+                                {{-- <th style="background-color: #FBAE47; color:white;">No. de indentificacion</th> --}}
                             </tr>
                         </thead>
                         <tbody>
@@ -398,7 +400,7 @@
                                 <td><input type="text" name="Rdes_muestra" value="{{ $recubrimientos->recubrimiento_des_muestra}}"></td>
                                 <td><input type="text" name="Rubicacion" value="{{ $recubrimientos->recubrimiento_ubicacion}}"></td>
                                 <td><input type="text" name="Rresponsable" value="{{ $recubrimientos->recubrimiento_responsable}}"></td>
-                                <td><input type="text" name="Riden_muestra" value="{{ $recubrimientos->recubrimiento_identificacion_muestra}}"></td>
+                                {{-- <td><input type="text" name="Riden_muestra" value="{{ $recubrimientos->recubrimiento_identificacion_muestra}}"></td> --}}
                             </tr>
                         </tbody>
                     </table>
@@ -419,7 +421,7 @@
                                 <th style="background-color: #009999; color:white;">Descripcion de la muestra</th>
                                 <th style="background-color: #009999; color:white;">Ubicación</th>
                                 <th style="background-color: #009999; color:white;">Responsable</th>
-                                <th style="background-color: #009999; color:white;">No. de indentificacion</th>
+                                {{-- <th style="background-color: #009999; color:white;">No. de indentificacion</th> --}}
                             </tr>
                         </thead>
                         <tbody>
@@ -430,7 +432,7 @@
                                 <td><input type="text" name="MASOdes_muestra" value="{{ $materialaso->materialaso_des_muestra}}"></td>
                                 <td><input type="text" name="MASOubicacion" value="{{ $materialaso->materialaso_ubicacion}}"></td>
                                 <td><input type="text" name="MASOresponsable" value="{{ $materialaso->materialaso_responsable}}"></td>
-                                <td><input type="text" name="MASOiden_muestra" value="{{ $materialaso->materialaso_identificacion_muestra}}"></td>
+                                {{-- <td><input type="text" name="MASOiden_muestra" value="{{ $materialaso->materialaso_identificacion_muestra}}"></td> --}}
                             </tr>
                         </tbody>
                     </table>
@@ -451,7 +453,7 @@
                                 <th style="background-color: #009999; color:white;">Descripcion de la muestra</th>
                                 <th style="background-color: #009999; color:white;">Ubicación</th>
                                 <th style="background-color: #009999; color:white;">Responsable</th>
-                                <th style="background-color: #009999; color:white;">No. de indentificacion</th>
+                                {{-- <th style="background-color: #009999; color:white;">No. de indentificacion</th> --}}
                             </tr>
                         </thead>
                         <tbody>
@@ -462,7 +464,7 @@
                                 <td><input type="text" name="SALdes_muestra" value="{{ $sales->sales_des_muestra}}"></td>
                                 <td><input type="text" name="SALubicacion" value="{{ $sales->sales_ubicacion}}"></td>
                                 <td><input type="text" name="SALresponsable" value="{{ $sales->sales_responsable}}"></td>
-                                <td><input type="text" name="SALiden_muestra" value="{{ $sales->sales_identificacion_muestra}}"></td>
+                                {{-- <td><input type="text" name="SALiden_muestra" value="{{ $sales->sales_identificacion_muestra}}"></td> --}}
                             </tr>
                         </tbody>
                     </table>
@@ -484,7 +486,7 @@
                                 <th style="background-color: #7D10C0; color:white;">Descripcion de la muestra</th>
                                 <th style="background-color: #7D10C0; color:white;">Ubicación</th>
                                 <th style="background-color: #7D10C0; color:white;">Responsable</th>
-                                <th style="background-color: #7D10C0; color:white;">No. de indentificacion</th>
+                                {{-- <th style="background-color: #7D10C0; color:white;">No. de indentificacion</th> --}}
                             </tr>
                         </thead>
                         <tbody>
@@ -495,7 +497,7 @@
                                 <td><input type="text" name="MAGdes_muestra" value="{{ $matag->materialag_des_muestra}}"></td>
                                 <td><input type="text" name="MAGubicacion" value="{{ $matag->materialag_ubicacion}}"></td>
                                 <td><input type="text" name="MAGresponsable" value="{{ $matag->materialag_responsable}}"></td>
-                                <td><input type="text" name="MAGiden_muestra" value="{{ $matag->materialag_identificacion_muestra}}"></td>
+                                {{-- <td><input type="text" name="MAGiden_muestra" value="{{ $matag->materialag_identificacion_muestra}}"></td> --}}
                             </tr>
                         </tbody>
                     </table>
@@ -517,7 +519,7 @@
                                 <th style="background-color: #A2C866; color:white;">Descripcion de la muestra</th>
                                 <th style="background-color: #A2C866; color:white;">Ubicación</th>
                                 <th style="background-color: #A2C866; color:white;">Responsable</th>
-                                <th style="background-color: #A2C866; color:white;">No. de indentificacion</th>
+                                {{-- <th style="background-color: #A2C866; color:white;">No. de indentificacion</th> --}}
                             </tr>
                         </thead>
                         <tbody>
@@ -528,7 +530,7 @@
                                 <td><input type="text" name="BDTdes_muestra" value="{{ $biodeterioros->biodeterioro_des_muestra}}"></td>
                                 <td><input type="text" name="BDTubicacion" value="{{ $biodeterioros->biodeterioro_ubicacion}}"></td>
                                 <td><input type="text" name="BDTresponsable" value="{{ $biodeterioros->biodeterioro_responsable}}"></td>
-                                <td><input type="text" name="BDTiden_muestra" value="{{ $biodeterioros->biodeterioro_identificacion_muestra}}"></td>
+                                {{-- <td><input type="text" name="BDTiden_muestra" value="{{ $biodeterioros->biodeterioro_identificacion_muestra}}"></td> --}}
                             </tr>
                         </tbody>
                     </table>
@@ -552,7 +554,7 @@
                                 <th style="background-color: #A5A5A5; color:white;" >Descripcion de la muestra</th>
                                 <th style="background-color: #A5A5A5; color:white;" >Ubicación</th>
                                 <th style="background-color: #A5A5A5; color:white;" >Responsable</th>
-                                <th style="background-color: #A5A5A5; color:white;" >No. de indentificacion</th>
+                                {{-- <th style="background-color: #A5A5A5; color:white;" >No. de indentificacion</th> --}}
                             </tr>
                         </thead>
                         <tbody>
@@ -563,7 +565,7 @@
                                 <td><input type="text" name="OTdes_muestra" value="{{ $otro->otros_des_muestra}}"></td>
                                 <td><input type="text" name="OTubicacion" value="{{ $otro->otros_ubicacion}}"></td>
                                 <td><input type="text" name="OTresponsable" value="{{ $otro->otros_responsable}}"></td>
-                                <td><input type="text" name="OTiden_muestra" value="{{ $otro->otros_identificacion_muestra}}"></td>
+                                {{-- <td><input type="text" name="OTiden_muestra" value="{{ $otro->otros_identificacion_muestra}}"></td> --}}
                             </tr>
                         </tbody>
                     </table>
